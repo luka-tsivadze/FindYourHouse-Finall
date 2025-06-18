@@ -1,0 +1,16 @@
+<main>
+
+    <div class="NotRegistered" *ngIf="!ShowForm">
+
+        <img class="addB" src="../../../assets/Imges/StaticImg/StaticIcons/businessMain.svg" alt="AddBusiness">
+        <h3> თქვენ არ გაქვთ კომპანია დარეგისტრირებული</h3>
+        <p>თუ გაქვთ კომპანია მარტივად დარეგისტრირდით და მართეთ ის </p>
+        <button (click)="CallForm()"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+ - white.svg" alt="">ბიზნესის რეგისტრაცია</button>
+    </div>
+
+    <app-add-form *ngIf="ShowForm"></app-add-form>
+    
+
+  
+
+</main>

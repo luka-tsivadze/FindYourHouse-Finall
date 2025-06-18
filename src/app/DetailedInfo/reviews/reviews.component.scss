@@ -1,0 +1,114 @@
+
+@use '../../../styles.scss' as *; 
+
+.overflowContainer{
+    width: 100%;
+    height: 337px;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+.commentsParent{
+
+    position: relative;
+    width: 100%;
+    @include flex-container(column, center , center ,21px);
+    height: max-content;
+    padding: 10px;
+
+padding-top:30px ;
+.comment{
+    @include flex-container(column, center , none ,20px);
+    padding-left: 95px;
+    width: 100%;
+.row{
+    width: 100%;
+    @include flex-container(row, space-between, start, 10px);
+    img{position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+   
+    object-fit: cover;
+    }
+    .col{
+        @include flex-container(column, start, start, 9px);
+     h3{
+        color: #FF385C;
+    font-size: 17px;
+    font-weight: 600;
+     }
+     p{
+        font-family: 'Lato', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: #666;
+     }
+    }   
+    .stars{
+        @include flex-container(row, start, center, 5px);
+        span{
+            width: 15px;
+            height: 15px;
+            background-size: cover;
+        }    
+    }
+.filledStar{
+    background-image: url('/assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+}
+.emptyStar{
+    background-image: url('/assets/Imges/StaticImg/StaticIcons/star.svg');
+}
+}
+.description{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #666;
+}
+.imgRow{
+    width: 100%;
+    @include flex-container(row, start, center, 15px);
+    img{
+        width: 120px;
+        height: 100px;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+}
+}
+}
+.buttonRow{
+    position: absolute;
+    bottom: 24px;
+    button{
+        background: #ff385c;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: .3rem;
+    width: 140px;
+    height: 45px;
+    color: #fff;
+    display: flex !important
+;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0;
+    }
+}
+app-review-adder{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+

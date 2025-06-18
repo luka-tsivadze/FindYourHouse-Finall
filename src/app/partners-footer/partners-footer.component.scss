@@ -1,0 +1,144 @@
+main {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: rgb(255, 255, 255);
+h2{
+    color: #111;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    max-width: 550px;
+    text-align: center;
+}
+    .ForOverFlow {
+        width: 80%;
+        overflow: hidden;
+        margin-top: 30px;
+        position: relative;
+
+        .companyRow {
+            display: flex;
+            width: max-content;
+            animation: move 13s linear infinite; // Adjust duration for scroll speed
+margin: 0;
+padding: 0;
+            .imageContainer {
+                display: flex;
+                width: 50%;
+                justify-content: space-around; 
+                gap: 20px;
+            }
+        }
+
+        img {
+            transform-style: preserve-3d;
+            height: 100px; // Ensure consistent height
+            width: 150px;
+            margin: 0 10px; // Adjust spacing between logos
+            opacity: 0.5;
+    
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    12%{
+        transform: translateX(0);
+    }
+    14% {
+        transform: translateX(-7%);
+    }
+    26%{
+        transform: translateX(-7%);
+    }
+    28% {
+        transform: translateX(-14%);
+    }
+    40%{
+        transform: translateX(-14%);
+    }
+    42% {
+        transform: translateX(-21%);
+    }
+    50%{
+        transform: translateX(-21%);
+    }
+    52%{
+        transform: translateX(-28%);
+    }
+    60%{
+        transform: translateX(-28%);
+    }
+    62%{
+        transform: translateX(-35%);
+    }
+    74%{
+        transform: translateX(-35%);
+    }
+    76%{
+        transform: translateX(-42%);
+    }
+    88%{
+        transform: translateX(-42%);
+    }
+    90%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(-50%);
+        
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        .ForOverFlow {
+            width: 90%;
+            .companyRow {
+     
+            }
+        }
+    }   
+    
+}
+
+@media screen and (max-width: 768px) {
+    main {
+  
+        h2 {
+            font-size: 1rem;
+        }
+        p {
+            font-size: 11px;
+        }
+        .ForOverFlow {
+            width: 98%;
+            .companyRow {
+     
+                .imageContainer {
+           
+                    gap: 10px;
+                }
+            }
+        }
+    }
+    
+}

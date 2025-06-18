@@ -1,0 +1,38 @@
+
+app-profile, 
+app-password-change, 
+app-my-properties, 
+app-favorite-properties, app-business {
+
+    background-color:#f5f7fb;
+
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ min-height: 85vh;
+ padding: 20px;
+width: 100%;
+font-family: 'Lato', sans-serif;
+font-size: 15px;
+font-weight: 400;
+color: #666;
+}
+
+@media screen and (max-width: 1308px){
+    app-profile, 
+    app-password-change,app-my-properties, 
+    app-favorite-properties {
+   justify-content: end;
+   
+    }
+    
+}
+@media screen and (max-width: 1070px){
+    app-profile, 
+    app-password-change,app-my-properties, 
+    app-favorite-properties app-business{
+        justify-content: center;
+        padding: 10px;
+    }
+}

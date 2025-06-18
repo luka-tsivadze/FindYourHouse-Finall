@@ -1,0 +1,16 @@
+<main>
+    <h3>Review</h3>
+
+    <div class="reviewbody" *ngFor="let review of usersReview">
+        <div class="img">
+            <img src="{{review.img}}" alt="">
+        </div>
+        <div class="comment"  >
+            <div class="rowtype"><p>{{review.type}}</p> <div class="double"><img (click)="navigate(review.gancxadebis_idi)" src="../../../../assets/Imges/Header/CardImges/icons/vission.svg" alt=""> <img (click)="deleteReview(review.id)" src="../../../../assets/Imges/StaticImg/StaticIcons/trash - black.svg" alt=""></div></div>
+            <h4>{{review.name}}</h4>
+            <span>{{review.time}}</span>
+            <p>{{review.describe}}</p>
+            <div class="starrow"><div *ngFor="let star of getStarArray(review.stars)"  class="star"  [ngClass]="{'filledStar': star.filled, 'emptyStar': !star.filled}" ></div></div>
+        </div>
+    </div>
+</main>

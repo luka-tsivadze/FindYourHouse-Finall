@@ -1,0 +1,29 @@
+footer{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+padding: 11px 25%;
+padding-right: 2%;
+border: 1px solid #e6e6e6;
+font-weight: 400;
+font-family: 'Lato', sans-serif;
+font-size: 15px;
+span{
+    display: flex;
+    gap: 10px;
+}
+}
+@media screen and (max-width: 1070px){
+    footer{
+    
+    padding: 10px 1%;
+ 
+    }
+    
+}

@@ -1,0 +1,29 @@
+<div class="body">
+    <form [formGroup]="profileForm"> <!-- Bind the form -->
+      <h3>{{header}}</h3>
+      <div class="profile">
+        <div class="imgRow">
+          <img src={{profileInfo.imgLink}} alt="profileImg">
+          <div class="text">
+            <h4>{{profileInfo.Name}}</h4>
+            <p>{{agent}}</p>
+          </div>
+        </div>
+        <div class="ngRow">
+          <img src="../../../assets/Imges/Footer/FooterIcons/Location.svg" alt="location">
+          <p>{{location}}</p>
+        </div>
+        <div *ngFor="let el of forNgRow" class="ngRow">
+          <img [src]="el.imgLink" [alt]="el.alt">
+          <a href="">{{el.text}}</a>
+        </div>
+      </div>
+      <div class="form">
+        <h1>{{inquary}}</h1>
+        <input *ngFor="let inp of inputs" [type]="inp.type" [placeholder]="inp.placeholder" [formControlName]="inp.formControlName">
+        <textarea class="resizable-textarea" name="Description" id="Description" placeholder="Message" type="text"></textarea>
+        <button type="submit" name="gagzavna">{{submit}}</button>
+      </div>
+    </form>
+  </div>
+  

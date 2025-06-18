@@ -1,0 +1,75 @@
+@use '../../../../styles.scss' as *;
+
+.row{
+  @include flex-container(row,center,center,10px);
+   flex-wrap: wrap;
+   width: 100%;
+  .el{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 289px;
+    height: 94px;
+    border-radius: 7px;
+    @include flex-container(row,start,center,11px);
+    padding-left: 25px;
+  .imgPlace{
+    position: relative;
+    @include flex-container(row,center,center,);
+   max-width: 50%;
+   height: 45%;
+   img{
+width: 30px;
+height: 30px;
+margin-right:12px;
+filter: invert(1);
+   }
+
+  }
+    .imgPlace::after{
+   content: '';
+    display: block;
+    width: 1.4px;
+    height: 100%;
+    background-color: white;
+
+    }
+    .col{
+
+      span{
+        font-family: 'Lato', sans-serif;
+        font-size: 34px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+      }
+      p{
+        font-family: 'Lato', sans-serif;
+        font-size: 15px;
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+  }
+  .red{
+    background-color: #FF385C;
+  }
+  .blue{
+    background-color: rgb(102,170,238);
+  }
+  .green{
+    background-color: #1EC38B;
+  }
+    .yellow{
+        background-color: rgb(255,153,17);
+    }
+}
+@media screen and (max-width: 1008px){
+  .row{
+    .el{
+      width: 240px;
+    }
+  }
+  
+}

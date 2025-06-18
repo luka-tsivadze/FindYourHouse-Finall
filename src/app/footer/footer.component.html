@@ -1,0 +1,61 @@
+<footer>
+  <div class="footerRow">
+    <div class="col findHouse">
+      <div class="headerRow">
+        <img
+          src="../../assets/Imges/mainLogo.svg"
+          alt=""
+        />
+      </div>
+      <p>
+      {{footerData.FindHouse.mainText}}
+      </p>
+      <div class="row">
+        <img
+          src="../../assets/Imges/Footer/FooterIcons/Location.svg"
+          alt=" Location Icon"
+        />
+        <span>      {{footerData.FindHouse.location}}</span>
+      </div>
+      <div class="row">
+        <img
+          src="../../assets/Imges/Footer/FooterIcons/telephone-fill.svg"
+          alt="telephone Icon"
+        />
+        <span>{{footerData.FindHouse.Number}}</span>
+      </div>
+      <div class="row">
+        <img
+          src="../../assets/Imges/Footer/FooterIcons/envelope-fill.svg"
+          alt="envelope Icon"
+        />
+        <span> {{footerData.FindHouse.Email}}</span>
+      </div>
+    </div>
+    <div class="col Navigation">
+      <h3>{{staticInfo.NavFooter}}</h3>
+      <div class="NParent">
+        <div class="NRow" *ngFor="let el of footerData.Navigation"><li><a routerLink="{{el.routerLink1}}"> {{el.list1}}</a></li>  <li><a routerLink="{{el.routerLink2}}">{{el.list2}}</a></li></div>
+      
+      </div>
+    </div>
+    
+    <div class="col Newsletters">
+      <h3>{{staticInfo.NewsFooter}}</h3>
+      <p>{{staticInfo.NewsFooterText}}</p>
+      <form action=""><input type="email" placeholder={{staticInfo.NewsFooterPlaceHolder}}> <button type="submit">{{staticInfo.NewsFooterBtn}}</button></form>
+    </div>
+  </div>  
+
+  <div class="bottomPart">
+
+    <p>Copyright © 2024 findhouse. ყველა უფლება დაცულია.</p>
+     <div class="icons">
+      <a class="fb" href="https://www.facebook.com/profile.php?id=61566310567065"><img src="../../assets/Imges/Footer/FooterIcons/facebook-svgrepo-com.svg" alt="Icon"></a>
+       <!-- <a class="tw" href=""><img src="../../assets/Imges/Footer/FooterIcons/twitterBlack.svg" alt="Icon"></a> -->
+        <a class="IN" href=""><img src="../../assets/Imges/Footer/FooterIcons/instagram.svg" alt="Icon"></a> 
+        <!-- <a class="yt" href=""><img src="../../assets/Imges/Footer/FooterIcons/youtube-svgrepo-com.svg" alt="Icon"></a>  -->
+      </div>
+  </div>
+  
+</footer>

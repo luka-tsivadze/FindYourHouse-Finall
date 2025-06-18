@@ -1,0 +1,15 @@
+<div class="body">
+    <form [formGroup]="profileForm"> <!-- Bind the form -->
+
+ 
+      <div class="form">
+        <h1>{{staticValues.req}}</h1>
+        <input *ngFor="let inp of inputs" [type]="inp.type" [placeholder]="inp.placeholder" [formControlName]="inp.formControlName">
+        <textarea class="resizable-textarea" name="Description" id="Description" placeholder="{{staticValues.textArea}}" formControlName="shetyobinebis_teqsti" e="text"></textarea>
+        <button type="submit" (click)="onSubmit()" name="gagzavna">{{staticValues.submit}}</button>
+        <span class="error" *ngIf="infoSent[0].bol">{{infoSent[0].message}}</span>
+        <span class="succses" *ngIf="infoSent[1].bol">{{infoSent[1].message}}</span>
+      </div>
+    </form>
+  </div>
+  

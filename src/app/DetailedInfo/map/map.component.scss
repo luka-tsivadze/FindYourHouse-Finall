@@ -1,0 +1,21 @@
+/* map.component.scss */
+.container {
+    position: relative;
+    height: 500px; /* or any desired height */
+    width: 100%;
+  }
+  
+  #mapContainer {
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    button{
+      width: 250px !important;
+      height: 50px;
+      background-color: red!important;
+    }
+    ul{
+      display: none !important;
+    }
+  }
+  

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <title>იპოვე სასურველი სახლი findhouse.ge ზე</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Find the best houses for sale and rent in Georgia. Search apartments, commercial properties, and land in Tbilisi, Batumi, and beyond. უძრავი ქონება საქართველოში – იყიდე ან იქირავე ბინები, სახლები და კომერციული ფართები.">
+  <meta name="keywords" content="real estate in Georgia, buy house in Tbilisi, rent apartment Batumi, commercial property Georgia, land for sale, უძრავი ქონება საქართველოში, ბინების ყიდვა, სახლების გაქირავება, კომერციული ფართი, მიწის ნაკვეთები">
+  <meta name="author" content="FindHouse.ge">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://findhouse.ge" />
+
+  <!-- ✅ Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:title" content="FindHouse - Best Real Estate in Georgia | უძრავი ქონება საქართველოში">
+  <meta property="og:description" content="Find houses for sale and rent in Georgia. Buy apartments in Tbilisi, Batumi, Kutaisi. უძრავი ქონება – ბინების, სახლების, მიწის ნაკვეთების ყიდვა და გაქირავება.">
+  <meta property="og:image" content="https://findhouse.ge/assets/banner.jpg">
+  <meta property="og:url" content="https://findhouse.ge">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FindHouse - Best Real Estate in Georgia | უძრავი ქონება საქართველოში">
+  <meta name="twitter:description" content="Find houses for sale and rent in Georgia. Buy apartments in Tbilisi, Batumi, Kutaisi. უძრავი ქონება – ბინების, სახლების, მიწის ნაკვეთების ყიდვა და გაქირავება.">
+  <meta name="twitter:image" content="https://findhouse.ge/assets/banner.jpg">
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="assets/Favicon.png">
+
+    <!-- ✅ Preload critical font (for faster first paint) -->
+<!-- Preload Roboto -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+</noscript>
+
+<!-- Preload Material Icons -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</noscript>
+
+  <!-- ✅ Structured Data (SEO schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FindHouse",
+    "url": "https://findhouse.ge",
+    "logo": "https://findhouse.ge/assets/Favicon.png",
+    "sameAs": [
+      "https://facebook.com/findhouse.ge",
+      "https://instagram.com/findhouse.ge"
+    ]
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="mat-typography">
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+  <app-root></app-root>
+</body>
+
+<script>
+  const lang = localStorage.getItem('Language') || 'GEO';
+  const langMap = { GEO: 'ka', ENG: 'en', RUS: 'ru' };
+  const htmlLang = langMap[lang.toUpperCase()] || 'en';
+
+  document.documentElement.lang = htmlLang;
+  document.documentElement.dir = htmlLang === 'ar' ? 'rtl' : 'ltr';
+</script>
+
+</html>

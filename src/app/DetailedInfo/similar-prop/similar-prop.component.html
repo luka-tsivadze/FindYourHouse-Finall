@@ -1,0 +1,38 @@
+<h2>Similar Properties</h2>
+<div class="cardPlace">
+
+  
+    <div class="propCard "  *ngFor="let info of data let i=index"
+    [ngStyle]="{'animation-delay': (i * 0.16) + 's'}"
+ 
+    >
+        <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
+
+            <div class="FirstRow">
+                <button [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
+                <button class="whiteBg"> {{info.For}}</button>
+                
+            </div>
+              <div class="SecondRow">
+                <button (click)="saveToFav(i,info)"><img class="link" [src]="heartimgLinks[i]" alt="Heart"></button>
+                <button><img src="../../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                <button><img src="../../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button>
+              </div>
+              <div class="price">{{info.price}}<span *ngIf="info.For=='For Rent'">/mo</span></div>
+        </div>
+        <div class="rightSide" (click)="routertodetailedInfo(info.id)">
+            <a>{{info.header}}</a>
+            <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="locationIcon">{{info.location}} </p>
+            <div class="squareFlex">
+
+            <div class="element"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt="badroom"><p>{{info.bedrooms}} {{FeaturePS.BedRooms}}</p></div> 
+            <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt="bathroom"><p>{{info.bathrooms}} {{FeaturePS.BathRooms}}</p></div> 
+            <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/triangular-ruler.svg" alt="areaIcon"><p>{{info.area}} {{FeaturePS.Area}}</p></div> 
+            <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt="garages"><p>{{info.garages}} {{FeaturePS.Garage}}</p></div>
+        </div>
+        <div class="CardFooterRow">
+           <div class="row"> <p>{{info.profileName}}</p></div>  <p>{{info.uploadmonth}} Days ago</p>
+        </div>
+        </div>
+    </div>
+</div>

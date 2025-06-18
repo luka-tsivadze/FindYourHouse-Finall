@@ -1,0 +1,124 @@
+<div class="bodyEl" [ngClass]="{ 'displayNone': displayer==false, 'dNoneFirst':displayFirst==false, 'Body': displayer==true }" >
+<div class="scroll">
+
+    <div class="form" >
+        <div class="Top"><p>Welcome To <span class="find">Find</span><span class="houses">Houses</span></p> <div class="X" (click)="makeDisplayFlse()"><img src="../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""></div></div>
+  
+
+            <!--  
+            <a class="fb"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt=""> <p>Log in with Facebook</p></a>
+            <a class="tw"><img src="../../assets/Imges/StaticImg/StaticIcons/instagram.svg" alt=""> <p> Log in with Instagram</p></a>
+            <span>Or</span> -->
+                <div class="succes" *ngIf="Registration.confirmation.show">{{Registration.confirmation.text}}</div>
+ 
+        <main>
+            <div class="btnRow">
+                <div class="logInBtn btn " [ngClass]="{'active':login}" (click)="login = true">{{Registration.login.button}}</div>
+                <div class="RegistrationBtn btn" [ngClass]="{'active':!login}" (click)="login = false">{{Registration.register.buttonText}}</div>
+            </div>
+
+            <!-- Registration Form -->
+            <form [formGroup]="RegistrForm" (ngSubmit)="onSubmitR()" class="inputRow" [ngClass]="{'displayNone':login}">
+
+                <div class="col-100" *ngFor="let row of Registration.mainInputs">
+                    <label [for]="row.For">{{row.labelText}}</label>
+                    <input [type]="row.type == 'password' && !row.showPassword ? 'password' : 'text'" [id]="row.For" [formControlName]="row.FormControlName" required>
+                    <span
+                    *ngIf="row.type === 'password'" 
+                    type="button" 
+                    class="toggle-password" 
+                    (click)="row.showPassword = !row.showPassword">
+                  <img *ngIf="!row.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-fill.svg" alt="">
+                    <img *ngIf="row.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-slash-fill.svg" alt="">
+                </span>
+                    <div class="error" *ngIf="RegistrForm.controls[row.FormControlName].invalid && RegistrForm.controls[row.FormControlName].touched && row.chack==false">
+                        {{row.errortext}}
+                    </div>
+                    <div class="error" 
+                    *ngIf="(RegistrForm.controls['paroliRepeat'].invalid || RegistrForm.controls['paroliRepeat'].value !== RegistrForm.controls['paroli'].value) && RegistrForm.controls['paroliRepeat'].touched && row.chack==true">
+                        {{row.errortext}}
+                  
+                    </div>
+                </div>
+                <label for="mobile">{{Registration.register.mobile}}
+                    <button class="sendIcon" *ngIf="RegistrForm.controls['nomeri'].valid && !verification" type="button"  (click)="sendCode()" >კოდის მიღება</button>
+                 </label>
+                <input type="tel" id="mobile" formControlName="nomeri"  inputmode="numeric" onwheel="this.blur()" onkeydown="if(event.key==='e'||event.key==='E'||event.key==='-'){event.preventDefault();}">
+                <input type="tel" *ngIf="codeSegment && !RegistrForm.controls['nomeri'].invalid &&  !verification"  [placeholder]="Registration.register.codeHolder" name="verificationInput"  (input)="onCodeInput($event)" formControlName="verificationInput">
+                <div class="notification" *ngIf="codeSegment && verification" > {{Registration.register.notification}} </div>
+                <div class="error" *ngIf="verification==false && RegistrForm.controls['verificationInput'].touched" >{{Registration.register.Codeerror}}</div>
+                <div class="error" *ngIf="RegistrForm.controls['nomeri'].invalid && RegistrForm.controls['nomeri'].touched"  >
+                    {{Registration.register.numbererror}}
+                </div>
+    
+                <label for="genderReg">{{Registration.register.Hgender}}</label>
+                <div id="genderReg" class="gender-options">
+                    <label>
+                        <input type="radio" formControlName="sqesi" value="kaci" required>
+                        {{Registration.register.Man}}
+                    </label>
+                    <label>
+                        <input type="radio" formControlName="sqesi" value="qali" required>
+                        {{Registration.register.Fam}}
+                    </label>
+                
+                </div>
+                <div class="error" *ngIf="RegistrForm.controls['sqesi'].invalid && RegistrForm.controls['sqesi'].touched">
+                    {{Registration.register.GError}}
+                </div>
+                <div   class="row chackBox">
+                    <input type="checkbox" name="terms" id="terms" formControlName="terms"  required>
+                     <label for="terms"> {{Registration.register.agree}}<a  [routerLink]="['/terms-and-conditions']">{{Registration.register.terms}}</a>  </label> 
+                </div>
+
+                <button type="submit" name="registracia"  #registName [disabled]="!RegistrForm.valid ">{{Registration.register.buttonText}}</button>
+                <div class="error" *ngIf="RError" >{{regErrorText}}</div>
+            </form>
+
+            <!-- Login Form -->
+            <form [formGroup]="LoginForm" (ngSubmit)="onSubmitL()" class="inputRow" [ngClass]="{'displayNone':!login}">
+               
+               <div class="col-100" *ngFor="let LRow of Registration.login.inputs">
+
+                   <label for="{{LRow.For}}">{{LRow.labelText}}</label>
+                   <input 
+                   [type]="LRow.type === 'password' && !LRow.showPassword ? 'password' : 'text'" 
+                   [id]="LRow.For" 
+                   formControlName="{{LRow.FormControlName}}" 
+                   required>
+                 
+                 <!-- Show password toggle button only for password fields -->
+                 <span 
+                   *ngIf="LRow.type === 'password'" 
+             
+                   class="toggle-password" 
+                   (click)="LRow.showPassword = !LRow.showPassword">
+                   <img *ngIf="!LRow.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-fill.svg" alt="">
+                   <img *ngIf="LRow.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-slash-fill.svg" alt="">
+                 </span>
+                   <div class="error" *ngIf="LoginForm.controls[LRow.FormControlName].invalid && LoginForm.controls[LRow.FormControlName].touched">
+                       {{LRow.errortext}}
+                    </div>
+                    
+                </div>
+
+          
+                <div class="error" *ngIf="error" >
+                      {{errorText}}
+                </div>
+                <button type="submit" #loginName name="shesvla" [disabled]="!LoginForm.valid">{{Registration.login.button}}</button>
+                <div class="bottomRow" [ngClass]="{'displayNone':!login}">
+                    <div class="RememberMe">
+                        <input type="checkbox" id="rememberMe" formControlName="rememberMe" >
+                        <label for="rememberMe">{{Registration.login.remember}}</label>
+                    </div>
+                    <a href="PasswordRecovery" target="_blank" class="forgotPassword">{{Registration.login.forget}}</a>
+                </div>
+            </form>
+        </main>
+          
+       
+    </div>
+</div>
+
+</div>

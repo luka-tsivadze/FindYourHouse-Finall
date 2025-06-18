@@ -1,0 +1,37 @@
+<app-nav/>
+<div class="container">
+    <div class="leftSide">
+    <app-card-gallery1/>
+    <div class="description">
+        <h2>{{descH}}</h2>
+        <p>{{description}}</p>
+    </div>
+    <app-left-amenties/>
+    <app-floor-plan *ngIf="floorplan" /> 
+    <app-nearby-l *ngIf="ShowNearBy"/>
+    <app-propvideo-l *ngIf="showPropVideo"/>
+    <app-map *ngIf="mapvalidity" />
+    <app-reviews/> 
+    <app-similar-prop/>
+
+   
+    </div>
+    <div class="rightSide" [ngClass]="{'displayR':displayR && scrollPosition<2900}" >
+        <app-schedule-r/>
+        <app-agent-info/>
+        <app-recent-prop-r/>
+       <app-featured-pr/>
+       <app-advertisment-r/>
+       <app-tags-r/>
+       <div class="icon2" [ngClass]="{'actived':!displayR || scrollPosition > 2800 }">
+        <div  class="arrows" [ngClass]="{'exit':displayR}" (click)="ActiveD()"></div>
+     </div>
+    </div>
+
+   <div class="icon" [ngClass]="{'actived': displayR || scrollPosition > 2250 }">
+       <div  class="arrows" [ngClass]="{  'ActiveD':!displayR}" (click)="ActiveD()"></div>
+    </div>
+    <div class="cover" (click)="ActiveD()" *ngIf="displayR && scrollPosition<2900"></div>
+
+</div>
+<app-footer></app-footer>

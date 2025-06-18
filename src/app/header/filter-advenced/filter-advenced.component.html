@@ -1,0 +1,70 @@
+<div class="advancedOpened" >
+    <div class="selectRow"> 
+      <div class="selectParent" *ngFor="let sel of filterOptions.SelectInputs">
+        <img class="simg" src="{{ sel.imgLink }}" alt="HomeIcon" />
+        <select [name]="sel.text" [(ngModel)]="selectedValues[sel.text]">
+          <option *ngFor="let opt of sel.options" [value]="opt">{{ opt }}</option>
+        </select>
+      </div>
+      
+      
+      
+ 
+          
+
+    </div>
+    <div class="mainFilter">
+
+
+<div class="leftRange">
+
+<div class="wrapper"> 
+<h4>{{filterOptions.range.area}}</h4>
+<div class="values">
+<span *ngIf="showSliderOne_1">{{ sliderOneValue_1 }} {{filterOptions.range.MAmount}}</span>
+<span *ngIf="showSliderTwo_1">{{ sliderTwoValue_1 }} {{filterOptions.range.MAmount}}</span>
+</div>
+<div class="container">
+<div class="slider-track"  [ngStyle]="trackStyle_1"></div>
+<input type="range" min="0" [max]="sliderMaxValue1" [value]="sliderOneValue_1" (input)="slideOne_1($event)" id="slider-1">
+<input type="range" min="0" [max]="sliderMaxValue1" [value]="sliderTwoValue_1" (input)="slideTwo_1($event)" id="slider-2">
+</div>
+</div>
+
+<!-- Second wrapper section -->
+<div class="wrapper"> 
+<h4>{{filterOptions.range.Price}}</h4>
+<div class="values">
+<span *ngIf="showSliderOne_2">{{ sliderOneValue_2 }}</span>
+<!-- ₾ -->
+<span *ngIf="showSliderTwo_2">{{ sliderTwoValue_2 }} </span>
+</div>
+<div class="container">
+<div class="slider-track" [ngStyle]="trackStyle_2"></div>
+<input type="range" min="0" [max]="sliderMaxValue2" [value]="sliderOneValue_2" (input)="slideOne_2($event)" id="slider-3">
+<input type="range" min="0" [max]="sliderMaxValue2" [value]="sliderTwoValue_2" (input)="slideTwo_2($event)" id="slider-4">
+</div>
+</div>
+
+      
+
+
+</div>
+<div class="rightChacks"> 
+            
+    <div class="row" *ngFor="let el of filterOptions.filteredCheckBox">
+        <label for="{{ el.id }}">{{ el.name }}</label>
+        <input
+         [(ngModel)]="checkboxStates[el.label]"
+          type="checkbox"   
+          [name]="el.name"
+   
+          id="{{ el.id }}"
+        />
+      </div>
+      
+</div>
+    </div>
+
+
+</div>   

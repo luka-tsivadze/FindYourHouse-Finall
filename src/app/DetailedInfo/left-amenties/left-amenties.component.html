@@ -1,0 +1,19 @@
+<main>
+    <div class="propertyDetails">
+        <h2>{{static.h2}}</h2>
+        <div class="mainRow">
+            <ng-container *ngFor="let el of static.propstatic let i=index">    
+                <div class="el" *ngIf="!LandCard || i!=4 && i!=5 && i!=6 && i!=8" ><h5>{{el}}:</h5><p>{{Infoelements[i]}}</p></div>
+            </ng-container>
+
+        </div>
+    </div>
+    <div class="Amenties" *ngIf="!LandCard"><h2>    {{static.h2a}} </h2>
+        <div class="mainRow">
+            <div class="el" *ngFor="let ament of Amenties"><input type="checkbox"  checked  ><label>{{ament}}</label></div>
+
+            
+        </div>
+        
+</div>
+</main>

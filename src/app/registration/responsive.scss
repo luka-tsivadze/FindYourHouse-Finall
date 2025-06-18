@@ -1,0 +1,132 @@
+@media screen and (max-width: 518px) {
+    .bodyEl{
+        .scroll{
+            .form{
+                width: 320px;
+                .Top{
+                    padding: 20px 10px;
+                    font-size: 16px;
+                    .X{
+                        width: 38px;
+                        height: 38px;
+                    }
+                }
+                main{
+                    padding: 0 20px 20px;
+                    .btnRow{
+                        gap: 25px;
+                        .btn{
+                            padding: 10px 17px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .bottomRow{
+                    .RememberMe{
+                        label{
+                            font-size: 12px;
+                        }
+                        input[type="checkbox"]{
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: 12px ;
+                            height: 12px;
+                            padding: 0;
+                            border: 1px solid #999;
+                            border-radius: 3px ;
+                            background: #fff;
+                            position: relative;
+                            cursor: pointer;
+                          }
+                          
+                     
+                          
+                          input[type="checkbox"]:checked::after {
+                            content: "";
+                            position: absolute;
+                            top: 2px;
+                            left: 4px;
+                            width: 4px;
+                            height: 8px;
+                            border: solid #333;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                          }
+                    }
+                    .forgotPassword{
+                        font-size: 12px;
+                    }
+                }
+                .gender-options{
+                      input[type="radio"]:checked::after {
+                      content: "";
+                      position: absolute;
+                      top: 3px;
+                      left: 3px;
+                      width: 6px;
+                      height: 6px;
+                      border-radius: 50%;
+                      background-color: #333;
+                    }
+                    input[type="radio"] {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 14px !important;
+                        height: 14px;
+                        padding: 0!important;
+                        border: 1px solid #999;
+                        border-radius: 3px;
+                        background: #fff;
+                        position: relative;
+                        cursor: pointer;
+                      }
+                      
+                      input[type="radio"]{
+                        border-radius: 50%;
+                      }
+                }
+                .chackBox{
+                    input[type="checkbox"]{
+                      -webkit-appearance: none;
+                      appearance: none;
+                      width: 14px !important;
+                      height: 14px;
+                      padding: 0!important;
+                      border: 1px solid #999;
+                      border-radius: 3px !important;
+                      background: #fff;
+                      position: relative;
+                      cursor: pointer;
+                    }
+                    
+               
+                    
+                    input[type="checkbox"]:checked::after {
+                      content: "";
+                      position: absolute;
+                      top: 2px;
+                      left: 4px;
+                      width: 4px;
+                      height: 8px;
+                      border: solid #333;
+                      border-width: 0 2px 2px 0;
+                      transform: rotate(45deg);
+                    }
+                    
+                  
+                    
+                    label{
+                        cursor: pointer;
+                        font-size: 11px;
+                        a{
+                font-size: 11px;
+                        }
+                }
+                }
+            }
+        }
+     
+    }
+
+    
+}

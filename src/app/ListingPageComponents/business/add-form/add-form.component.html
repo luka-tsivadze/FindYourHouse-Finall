@@ -1,0 +1,44 @@
+<form >
+    <div class="selectRow" >
+        
+     <ng-container *ngFor="let option of options; let i = index">
+  <div
+    class="CustomeSelect"
+    *ngIf="!showOptions"
+    @fadeOut
+    (click)="handleClick(option)"
+  >
+    <div class="chosenselect">
+      <img [src]="option.Icon" alt="icon" />
+      <span>{{ option.name }}</span>
+    </div>
+  </div>
+</ng-container>
+
+    <ng-container *ngFor="let option of chosen.list; let i = index">
+  <div
+    class="CustomeSelect"
+    *ngIf="showOptions"
+    @fadeDelay
+    (click)="handlechosenClick(i,option )"
+  >
+    <div class="chosenselect">
+      <img [src]="chosen.imgLink" alt="icon" />
+      <span>{{ option.name }}</span>
+    </div>
+  </div>
+</ng-container>
+    </div>
+<button *ngIf="showOptions" (click)="showOptions=!showOptions" @fadeOut>Back</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+

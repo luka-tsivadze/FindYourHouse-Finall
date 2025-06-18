@@ -1,0 +1,10 @@
+<main>
+    <!-- <h3>{{Header}}</h3> -->
+    <div class="table">
+        <div class="row "><h4 *ngFor="let el of staticHeaders" >{{el}}</h4></div>
+        <div class="row " *ngFor="let el of listing let i =index" [ngClass]="{'B':i%2==0}"><p>{{el.name}}</p> <p>{{el.date}}</p> <p>{{el.rating}}</p><p>{{el.status}}</p> 
+            <p (click)="edit(el,i)"><img src="../../../../assets/Imges/StaticImg/StaticIcons/pencil.svg" alt="redact button "></p></div>
+   
+      
+    </div>
+</main>

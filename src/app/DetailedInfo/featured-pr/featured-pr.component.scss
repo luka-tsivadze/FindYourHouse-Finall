@@ -1,0 +1,130 @@
+main{
+  gap: 1rem;
+    .row{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        gap: 35px;
+       button{
+            background: unset;
+            border: unset;
+            cursor: pointer;
+            img{
+                width: 25px;
+                height: 25px;
+                filter: contrast(1);
+            }
+       }
+    }
+.parentCont{
+    width: 100%;
+    height:290px;
+    position: relative;
+    overflow: hidden;
+
+    .img-container{
+     width: max-content;
+        height: 100%;
+        display: flex;
+       
+     
+        gap: 20px;
+        .card{
+            position: relative;
+            width: 310px;
+            height: 100%;
+            transform: translateX(0px);
+            transition: 0.7s;
+            border-radius: 10px;
+            
+            .row{
+                position: absolute;
+                top: 30px;
+                display: flex;
+                justify-content: space-between;
+                width: 88%;
+                left: 50%;
+                transform: translateX(-50%);
+                span{
+                
+                    padding: 5px 10px;
+                    border-radius: 2px;
+       
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #fff;
+                }
+                .red{
+                    background: #FF385C;
+                 
+                }
+                .green{
+                    background:#18BA60;
+                }
+                .Rent{
+                    background: #6449E7;
+                }
+            }
+
+        }
+            img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        h4{
+            cursor: pointer;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.4s;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+          
+            align-items: start;
+            justify-content: center;
+    background-color: #00000028;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+        
+        }
+        h4:hover{
+            font-size: 22px;
+            background-color: #000000ac
+        }
+   
+
+    }
+    }
+}
+
+.hovered{
+    position: absolute;
+    transform: translateY(0px);
+ width: 100%;
+ height: 200px;
+ display: flex;
+ padding-top: 20px;
+ align-items: start;
+ justify-content: center;
+ gap: 30px;
+ z-index: 99;
+ background-color: #C18847;
+ transition: 0.4s;
+ .col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+ }
+}
+.card:hover .hovered{
+    transform: translateY(-80px);
+}
+.card:hover h4{
+    transform: translateY(-40px);
+}

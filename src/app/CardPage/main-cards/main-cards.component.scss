@@ -1,0 +1,8 @@
+.Body {
+  padding-top: 150px;
+  background: #f5f7fb;
+
+  ::ng-deep app-nav nav {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  }
+}

@@ -1,0 +1,77 @@
+@use '../../../../styles.scss' as *;
+
+.reviewbody{
+    padding-top:30px ;
+width:620px;
+max-width: 100%;
+
+
+@include flex-container(row , flex-start, flex-start,20px);
+  .img{
+    img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    }  
+}
+.comment{
+    @include flex-container(column, flex-start, flex-start, 11px);
+    .rowtype{
+    
+        position: absolute;
+        right: 10%;
+        @include flex-container(row, flex-start, center, 10px);
+        .double{
+            @include flex-container(row,flex-start,center,5px);
+          
+            img{
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+            }
+        }
+         
+    }
+    h4{
+        font-size: 17px;
+        color: #111;
+        font-weight: 500;
+    }
+    span{
+        font-family: 'Lato', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: #666;
+    }
+    p{
+      
+        font-family: 'Lato', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: #666;
+        width: 100%;
+    }
+    .starrow{
+        margin-top: 6px;
+        width: 100%;
+        @include flex-container(row,flex-start,center,5px);
+        .star{
+            width: 15px;
+            height: 15px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .filledStar{
+       
+            background-image: url('../../../../assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+   
+        }
+        .emptyStar{
+        
+            background-image: url('../../../../assets/Imges/StaticImg/StaticIcons/star.svg');
+        }
+    
+    }
+}
+}

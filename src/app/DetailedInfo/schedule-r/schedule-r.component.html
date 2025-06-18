@@ -1,0 +1,67 @@
+<div class="el">
+<h3><img src="../../../assets/Imges/StaticImg/StaticIcons/calendar.svg" alt="calendarIcon"> {{staticData.header}} </h3>
+<div class="inputRow"><input type="date" value="2019-02-11">
+  <input
+  [readonly]="true"
+  (click)="changeValue(showClock)"
+  type="text"
+  value="{{Hour}}:{{minutes}} {{settime}}"
+  class="disabled-input"
+  style="cursor: pointer;"
+/>
+ </div>
+
+
+<div class="uniter" [ngClass]="{'DN':!showClock}" >
+
+    <div class="time">
+        <div class="timeH" (click)="timeH=true;" [ngClass]="{'active':timeH}" ><span *ngIf="Hour<10">0</span>{{Hour}}</div>
+        <div class="timeS">:</div>
+        <div class="timeM" (click)="timeH=false" [ngClass]="{'active':!timeH}"><span *ngIf="minutes<10">0</span>{{minutes}}</div>
+        <div class="dayNight " [ngClass]="{'day':settime=='AM','evening':settime=='PM'}">{{settime}}</div>
+    </div>
+   
+
+        <!-- Outer Circle (Hour) -->
+        <div class="Outer circle outerPosition" #circle>
+          <div class="imgparent" *ngIf="timeH" (mousedown)="onMouseDown($event, 'outer')">
+            <img src="../../../assets/arrows.svg" alt="">
+            <div class="icon"></div>
+          </div>
+          <div class="hourline"></div>
+        </div>
+      
+        <!-- Outer2 Circle (Minute) -->
+        <div class="circle Outer2 outerPosition" #circle2>
+          <div class="imgparent" *ngIf="!timeH" (mousedown)="onMouseDown($event, 'outer2')">
+            <img src="../../../assets/arrows.svg" alt="">
+            <div class="icon2"></div>
+          </div>
+          <div class="minline"></div>
+            
+          </div>
+      
+             
+   
+</div>
+  
+
+
+<div class="amountText"><span>{{staticData.ad}}</span> <span> {{staticData.ch}}</span> </div>
+<div class="amountInput">
+    <div class="custom-number-input">
+    <button (click)="decrement(0)"><img src="../../../assets/Imges/StaticImg/StaticIcons/-btn-.svg" alt=""></button>
+    <input type="number" [value]="value" readonly disabled />
+    <button (click)="increment(0)"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+.svg" alt=""></button>
+  </div>   
+
+  <div class="custom-number-input">
+    <button (click)="decrement(1)"><img src="../../../assets/Imges/StaticImg/StaticIcons/-btn-.svg" alt=""></button>
+    <input type="number" [value]="value2" readonly disabled />
+    <button (click)="increment(1)"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+.svg" alt=""></button>
+  </div>   
+
+
+</div>
+<input type="submit" placeholder="{{staticData.submit}}" >
+</div>

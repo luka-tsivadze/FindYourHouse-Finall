@@ -1,0 +1,27 @@
+
+<h2>{{reviewAd.header}}</h2>
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+<div class="firstRow">
+    <div class="col"><p>{{reviewAd.p}}</p> 
+        <div class="starPlace">
+           <span *ngFor="let el of starRating "
+            [ngClass]="{'empty':el.filled ,'filled':!el.filled}" 
+            (click)="rater(el.id)"></span>
+      
+        </div> 
+    
+    </div>
+
+</div>
+<!-- <input type="text" placeholder="First Name" formControlName="saxeli">
+<input type="text" placeholder=" Last Name" formControlName="gvari"> -->
+<!-- <input type="email" placeholder="Email" formControlName="maili">  -->
+<textarea  class="resizable-textarea" name="Description" id="Desc" placeholder="{{reviewAd.placeholderN}}" type="text" formControlName="shefasebis_teqsti"></textarea>
+<button type="submit" [disabled]="reviewForm.invalid" >{{reviewAd.submit}}</button>
+<span *ngIf="reqSent.bol" class="greenmsg">{{reqSent.text}}</span>
+<span *ngIf="Error.bol" class="error">{{Error.text}}</span>
+
+
+
+</form>
+

@@ -1,0 +1,38 @@
+<main>
+  <div class="topRow">
+    <h2>{{staticData.Header}}</h2>
+    <div class="right"><span>{{staticData.date}}</span> <span>{{staticData.Views}}</span> <span>{{staticData.action}}</span></div>
+  </div>
+
+  <div class="cardPage" *ngFor="let el of this.activePage; let index=index " >
+    <div class="card">
+      <div class="left"  routerLink="/allCards/{{el.id}}"><img class="mainImg" src="{{el.imgLink}}" alt="">
+        <div class="leftCol" >
+          <h3>
+           {{ el.header}}</h3>
+          <p>{{el.location}}</p>
+          <div class="reviewRow">
+            <div class="review" >   <span *ngFor="let star of getStarArray(el.review)" 
+              [ngClass]="{'filledStar': star.filled, 'emptyStar': !star.filled}">
+        </span>
+        <span class="revAmount">({{ el.reviewedAmount }} {{staticData.rew}})</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="date">{{el.uploadmonth}} {{staticData.ago}}</div>
+        <div class="views">{{el.view}}</div>
+
+        <div class="remover"><button class="removeBtn " (click)="removeCard(el.id)"><img
+          src="../../../assets/Imges/StaticImg/StaticIcons/trash.svg" alt=""></button></div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="bottomRow" ><button (click)="chosenPage((this.ActivePage-1))" class="prev">{{staticData.prev}}</button>
+    
+      <button class="numbers" [ngClass]="{'active':i== this.ActivePage }"  (click)="chosenPage(i)" *ngFor="let i  of this.pageIndices">{{i}} </button> 
+      <button class="prev" (click)="chosenPage((this.ActivePage+1))" >{{staticData.next}}</button> </div>
+
+</main>

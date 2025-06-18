@@ -1,0 +1,22 @@
+@use '../../../styles.scss' as *;
+
+.description {
+    width: 100%;
+    
+    padding: 1.5rem !important;
+
+   
+
+    border-radius: 2px;
+    min-height: 20vh;
+
+    position: relative;
+    @include flex-container(column, start, start, 35px);
+    p {
+      color: #666;
+      font-weight: 400;
+      font-family: "Lato", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+  }

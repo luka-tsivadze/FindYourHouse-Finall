@@ -1,0 +1,616 @@
+// Define common variables
+$primary-color: #ff385c;
+$secondary-color: #1abc9c;
+$background-color: #f5f7fb;
+$text-color: #333;
+$light-gray: #ddd;
+$input-color: #757575;
+$font-primary: "Lato", sans-serif;
+$font-secondary: "Montserrat", sans-serif;
+$gap: 20px;
+
+@use "../../../styles.scss" as *;
+// Main container
+
+.FormParent {
+  padding: 1rem 10px 1rem 330px;
+  background: $background-color;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+    gap: $gap;
+
+    .header {
+      width: 100%;
+      padding-bottom: 25px;
+      color: $primary-color;
+      border-bottom: 1px solid $light-gray;
+      text-transform: capitalize;
+    }
+
+    .text {
+      width: 100%;
+      padding: 0 50px;
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+      .educationCol{
+        @include flex-container(column, center, center);
+    gap: 10px;
+    .DistanceRow{
+      @include flex-container(row, center, center);
+      gap: 0px;
+    
+    select{
+width: 45px;
+      height: 50px;
+      padding: 0 3px;
+      border: 1px solid $light-gray;
+      border-left: unset;
+      border-radius: 5px;
+      border-bottom-left-radius:0;
+      border-top-left-radius:0;
+      color: $input-color;
+      font: 400 12px $font-primary;
+    }
+  }
+    label{
+      width: 100%;
+    }
+.row{   
+   justify-content: start;
+.input{
+  position: relative;
+  width: 30%;
+  @include flex-container(row,center, center);
+  gap: 2px;
+  input{
+
+
+    height: 50px;
+
+    border: 1px solid #ddd;
+    // border-right:unset ;
+    border-bottom-right-radius:0;
+    border-top-right-radius:0;
+    font-size: 10px;
+        padding: 10px 2px;
+       
+   
+  }
+  input::placeholder {
+    font: 600 11px $font-primary;
+    color: #7f7f7f;
+  }
+  .Place{
+    padding: 10px;
+  }
+  .Distance{
+    width:55px;
+    padding: 10px 5px;
+  }
+}
+}
+.buttonPlace{
+width: 100%;
+@include flex-container(row, start, center);
+gap: 20px;
+
+button{
+  background: $primary-color;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  font: 16px $font-primary;
+  font-weight: 400;
+  transition: all 0.4s ease;
+  text-transform: capitalize;
+}
+}
+  
+     }
+      .row {
+        display: flex;
+        width: 100%;
+        gap: $gap;
+
+        input {
+          width: 100%;
+          height: 50px;
+          padding: 0 15px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+        }
+      }
+
+      .LabledInputs {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+
+        .title {
+          width: 100%;
+          height: 50px;
+          padding: 10px;
+          border: 1px solid $light-gray;
+        }
+
+        .resizable-textarea {
+          width: 100%;
+          height: 140px;
+          padding: 10px;
+          background: #f8f8f8;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          resize: vertical;
+          overflow: auto;
+        }
+
+        input::placeholder {
+          font: 600 14px $font-primary;
+          color: #7f7f7f;
+        }
+      }
+
+      .selectRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 0;
+        align-items: center;
+        justify-content: space-between;
+
+        select {
+          width: 300px;
+          height: 50px;
+          padding: 0 21px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+        }
+        .CustomeSelect{
+    position: relative;
+      width: 300px;
+          height: 50px;
+      
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+          display: flex;
+          flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 10px;
+        
+            .dropDown{
+            width: 20px;
+            position: absolute;
+      
+            right: 20px;
+            }
+        .chosenselect{
+         display: flex;
+         gap: 10px;
+         width: 100%;
+             padding: 2px 21px;
+         height: 100%;
+         align-items: center;
+         img{
+            width: 20px ;
+         }
+        }
+        .show{
+          display: none ;
+        }
+            .options{
+              display: flex;
+                     animation: fadeIn 0.3s ease-in-out;
+              flex-direction: column;
+              gap: 1px;
+              width: 100%;
+            padding: 10px 0px;
+           
+              background-color: rgb(255, 255, 255);
+              border-radius: 5px;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              z-index: 1;
+                    border: 1px solid $light-gray;
+              .option{
+                         display: flex;
+                         cursor: pointer;
+         gap: 12px;
+         align-items: center;
+         img{
+            width: 17px ;
+         }
+                padding: 7px 25px;
+              }
+            }
+}
+
+      }
+      .row0{
+        @include flex-container(row, start, center);
+        gap: 2px;
+        input{
+          width: 75%;
+          height: 50px;
+          padding: 0 15px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+        }
+        select{
+          width: 20%;
+          height: 50px;
+          padding: 0 15px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+        }
+       }
+    }
+  }
+
+  // Styles for additional forms (e.g., form2, form3, etc.)
+  .form2 {
+    position: relative;
+
+    .row {
+      video {
+        position: absolute;
+        right: 190px;
+        bottom: 215px;
+
+        width: 294px;
+        height: 294px;
+      }
+    }
+    input {
+      opacity: 0;
+      z-index: -1;
+    }
+
+    label {
+      width: 80%;
+      height: 300px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed $secondary-color;
+      cursor: pointer;
+      color: $secondary-color;
+      font: 20px $font-primary;
+      text-transform: capitalize;
+      background-color: transparent;
+
+      img {
+        z-index: 3;
+        width: 64px;
+      }
+
+      p {
+        font-size: 16px;
+        z-index: 3;
+      }
+    }
+  }
+
+  .form3 {
+    .flexWrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $gap;
+      max-width: 100%;
+
+      .LabledInputs {
+        width: auto !important;
+        select{
+          width: 450px;
+          height: 50px;
+          padding: 0 21px;
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+        }
+        input {
+          width: 450px;
+          height: 50px;
+          padding: 10px;
+          border: 1px solid $light-gray;
+        }
+
+        input::placeholder {
+          font: 300 14px $font-primary;
+          color: #75758b !important;
+        }
+      }
+   
+    }
+  }
+
+  .form5 {
+    .text {
+      display: static;
+
+      .flexWrap {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 25px;
+
+        .row {
+          width: max-content !important;
+          gap: 6px !important;
+          align-items: center;
+
+          input[type="checkbox"] {
+            width: 20px !important;
+            height: 20px !important;
+            border-radius: 6px;
+            float: left;
+          }
+
+          input:checked[type="checkbox"] {
+            accent-color: $primary-color;
+          }
+
+          label {
+            color: #666;
+            font: 400 14px $font-primary;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+
+  .form6 {
+    align-items: flex-start !important;
+
+    button {
+      background: $primary-color;
+      color: #fff;
+      padding: 15px 20px;
+      border: none;
+      cursor: pointer;
+      font: 16px $font-primary;
+      font-weight: 400;
+      transition: all 0.4s ease;
+      text-transform: capitalize;
+    }
+  }
+}
+
+// Global element styles
+h3 {
+  font: 600 18px $font-secondary;
+  color: $text-color;
+}
+
+label {
+  font: 600 15px $font-primary;
+  color: $text-color;
+  text-transform: capitalize;
+}
+.headerspan {
+  font: 600 15px $font-primary;
+  color: $primary-color;
+  text-transform: capitalize;
+  z-index: 9;
+}
+.imgrow {
+  width: 75%;
+  border: 2px dashed $secondary-color;
+
+  z-index: 0;
+
+  padding: 18px;
+  @include flex-container(row, flex-start, flex-start);
+  gap: 15px;
+  flex-wrap: wrap;
+  min-height: 285px;
+  max-height: max-content;
+  .square {
+    @include flex-container(row, center, center);
+    width: 100px !important;
+    padding-top: 45px !important;
+    border: unset !important;
+    border-radius: 10px !important;
+    height: 100px !important;
+    background-color: #00ff01 !important;
+    img {
+      filter: invert(1);
+      height: 64px;
+    }
+  }
+  .disabled {
+    display: none !important;
+  }
+  img {
+    z-index: 1;
+    border-radius: unset;
+    position: relative;
+    bottom: 10px;
+
+    height: 100px;
+  }
+  .img {
+    position: relative;
+    .removeatr {
+      position: absolute;
+      top: -15px;
+      right: -6px;
+      background-color: red;
+      z-index: 99;
+      width: 30px;
+      height: 30px;
+      border-top-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+      padding-top: 10px;
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .chooseMain {
+      position: absolute;
+      top: -15px;
+      left: -6px;
+      background-color: green;
+      z-index: 99;
+      width: 30px;
+      height: 30px;
+      border-top-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+      padding-top: 10px;
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .uploadedimg {
+      width: 130px;
+      background-color: rgb(199, 199, 199);
+      height: 130px;
+      object-fit: contain;
+    }
+  }
+}
+.vid {
+  height: 400px !important;
+}
+.VideoRow {
+  position: relative;
+  width: 80%;
+  height: 500px;
+  z-index: 99;
+  border: 2px dashed $secondary-color;
+
+  @include flex-container(row, center, center);
+  label {
+    all: unset !important;
+    position: absolute !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 60px !important;
+    height: 60px !important;
+    cursor: pointer !important;
+    z-index: 99 !important;
+  }
+  video {
+    z-index: 0;
+
+    width: 570px;
+
+    height: 360px;
+    border: 2px solid $secondary-color;
+  }
+
+  .after {
+    top: 67px !important;
+    left: 18% !important;
+
+    background-image: url("../../../assets/Imges/StaticImg/StaticIcons/x.svg") !important;
+    background-size: 40px !important;
+
+    background-color: rgb(216, 33, 33) !important;
+  }
+  .before {
+    top: 67px !important;
+    right: 18% !important;
+
+    background-image: url("../../../assets/Imges/StaticImg/StaticIcons/pencil.svg") !important;
+
+    background-size: 40px !important ;
+    background-color: #00ff01 !important;
+  }
+}
+
+.center {
+  border: 2px dashed $secondary-color;
+  z-index: 3;
+
+  min-width: 80%;
+  max-width: 100%;
+  min-height: 310px;
+
+  @include flex-container(row, center, center, 15px);
+  .change {
+    all: unset !important;
+    position: absolute !important;
+    right: 188px !important;
+    top: 138px !important;
+    width: 70px !important;
+    height: 60px !important;
+    cursor: pointer !important;
+    border-bottom-left-radius: 10px !important;
+    @include flex-container(row, center, center, 15px);
+    background-color: #00ff01 !important;
+    img {
+      background-color: unset !important;
+      width: 44px !important;
+      height: 44px !important;
+    }
+  }
+
+  img {
+    width: 90%;
+    background-color: gray;
+    padding: 5px;
+    height: 395px;
+    object-fit: contain;
+  }
+}
+.sendingAn {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .loading {
+    font-size: 18px;
+    font-weight: 600;
+
+    position: relative;
+    top: 50%;
+    left: 46%;
+  }
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none ;
+  margin: 0;
+    -moz-appearance: textfield;
+}
+@import 'ListingResponsive.scss' 

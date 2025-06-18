@@ -1,0 +1,37 @@
+<app-nav/>
+<header>
+    <h2>{{staticText.header}}</h2>
+    <h4>{{staticText.headerH4}}</h4>
+</header>
+<main>
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h3>{{staticText.headerH4}}</h3>
+      
+          <input  *ngFor="let el of inputs; "
+            [type]="el.type || 'text'"
+            [placeholder]="el.placeholder"
+            [formControlName]="el.FormControlname"
+          />
+        
+      
+        <textarea
+          placeholder={{staticText.Mes}}
+          class="resizable"
+          formControlName="shetyobineba"
+        ></textarea>
+       <span [class]="message.class" *ngIf="message.validity">{{message.text}}</span>
+        <button type="submit" class="submit" >
+          {{staticText.sub}}
+        </button>
+      </form>
+      
+    <div class="details">
+        <h3>{{staticText.cd}}</h3>
+        <p>{{staticText.cp}}</p>
+        <div class="row" *ngFor="let row of contactInfo"><img src="{{row.IconLink}}" alt="icon"> <span>{{row.text}}</span> </div>
+    </div>
+
+  </main>
+  <!-- <app-web-review></app-web-review> -->
+<app-footer></app-footer>

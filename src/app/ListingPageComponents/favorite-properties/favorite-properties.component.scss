@@ -1,0 +1,296 @@
+// Define colors, spacing, and transition variables for easier adjustments
+$primary-color: #FF385C;
+$secondary-color: #f5f6ff;
+$text-color: #444;
+$border-color: #f3f3f3;
+$shadow-color: #e7e7e7;
+$highlight-color: rgb(85, 85, 252);
+$transition-duration: 0.3s;
+
+// Keyframe for animation
+@keyframes fadeIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+main {
+    width: 70vw;
+    min-height: 60vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    gap: 15px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid $border-color;
+    padding: 1rem;
+    box-shadow: 0px 0px 2px $shadow-color;
+
+    .topRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: $secondary-color;
+
+        .right span {
+            display: inline-block;
+            width: 145px;
+            text-align: center;
+        }
+    }
+
+    .cardPage {
+        animation: fadeIn 1.5s;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            border-bottom: 1px solid $border-color;
+
+            .left {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                cursor: pointer;
+                .mainImg {
+                    width: 130px;
+                
+                    height: 130px;
+                    object-fit: cover;
+                    border-radius: 4px;
+                }
+
+                .leftCol {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    h3 {
+                        font-size: 16px;
+                        color: $text-color;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: $text-color;
+                    }
+
+                    .reviewRow {
+                        margin-top: 10px;
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        .review {
+                            display: flex;
+                            gap: 3px;
+                            align-items: center;
+
+                            .emptyStar,
+                            .filledStar {
+                                width: 13px;
+                                height: 13px;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                margin: 0;
+                            }
+
+                            .emptyStar {
+                                background-image: url('/assets/Imges/StaticImg/StaticIcons/star.svg');
+                            }
+
+                            .filledStar {
+                                background-image: url('/assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+                            }
+                        }
+
+                        span {
+                            font-size: 14px;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                align-items: center;
+
+                div {
+                    width: 160px;
+                    text-align: center;
+                }
+
+                .remover button {
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                }
+            }
+        }
+    }
+
+    .bottomRow {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+        .prev,
+        .numbers {
+            padding: 15px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color $transition-duration, color $transition-duration;
+
+            &:hover {
+                background-color: $primary-color;
+                color: #fff;
+            }
+        }
+
+        .prev {
+            background-color: $primary-color;
+            color: #fff;
+            border: none;
+
+            &:hover {
+                background-color: #000;
+            }
+        }
+
+        .numbers {
+            background: #fff;
+            border: 1px solid $border-color;
+            color: $primary-color;
+        }
+
+        .active {
+            border: 1px solid $highlight-color;
+        }
+    }
+}
+
+
+
+
+@media screen and (max-width: 1318px) {
+    main {
+        left: 0;
+        transform: translate(0);
+        .right{
+            div{
+                width: 90px !important;
+            }
+        }
+        .topRow{
+            .right{
+                display: flex;
+                gap: 10px;
+             span{
+                width: unset !important;
+       
+            
+                
+            }
+        }
+    }
+}   
+}
+
+@media screen and (max-width:1070px) {
+    main {
+        width: 100%;
+        left: 0;
+        transform: translate(0);
+
+    }
+}
+@media screen and (max-width:750px) {
+    main{
+        padding: 0.4rem;
+        .right{
+            gap: 20px;
+            div{
+                font-size: 10px;
+                width: unset !important;
+            }
+            .removeBtn{
+                width: 10px;
+                img{
+                    width: 100% ;
+                }
+            }
+            button{
+                font-size: 10px;
+            }
+        }
+        .left{
+            gap: 3px !important;
+            .mainImg{
+                width: 65px !important;
+            }
+            h3{
+                font-size: 11px !important;
+            }
+            p{
+                font-size: 9px !important;
+            }
+            .reviewRow{
+                margin-top: 0px !important;
+                justify-content: start !important;
+                .review{
+                    padding-bottom:15px ;
+                    position: relative;
+                    gap: 0px;
+                    span{
+                        width: 9px !important;
+                        height: 9px !important;
+                    }
+                    span{
+                        font-size: 9px !important;
+                        margin-left: 4px !important;
+                    }
+                    .revAmount{
+                        position: absolute;
+                       left: 0;
+                       width: max-content !important;
+                       bottom: 2px;
+                    }
+                }
+            }
+        }
+        .topRow{
+            padding: 10px;
+            .right{
+                display: flex;
+                gap: 8px;
+                span{
+                    width: unset !important;
+                    font-size: 9px;
+                    
+                }
+            }
+    }
+    }
+    
+}

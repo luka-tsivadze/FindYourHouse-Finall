@@ -1,0 +1,33 @@
+<main>
+
+    <div class="card">
+        <div class="leftSide">
+            <button>{{agent.status}} განცხადება</button>
+            <img src="{{agent.imgLink}}" alt="">
+        </div>
+        <div class="rightSide">
+            <h3>{{agent.Name}}</h3>
+            <h4>{{agent.mainalt}}</h4>
+            <div class="textBody">
+                <div class="row" *ngIf="agent.maili.length > 0">
+                    <img src="../../../assets/Imges/Footer/FooterIcons/envelope-fill.svg" alt="">
+                    <p>{{agent.maili}}</p>
+                </div>
+                <div class="row" *ngIf="agent.nomeri.length > 0">
+                    <img src="../../../assets/Imges/Footer/FooterIcons/telephone-fill.svg" alt="">
+                    <p>{{agent.nomeri}}</p>
+                </div>
+                <div class="row" *ngIf="agent.sacxovrebeli_adgili.length > 0">
+                    <img src="../../../assets/Imges/Footer/FooterIcons/Location.svg" alt="">
+                    <p>{{agent.sacxovrebeli_adgili}}</p>
+                </div>
+
+            </div>
+
+            <button (click)="moveToCards();$event.preventDefault()"><a  >ჩემი განცხადებები</a></button>
+        </div>
+    </div> 
+    
+    
+    
+</main>

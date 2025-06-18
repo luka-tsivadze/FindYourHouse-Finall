@@ -1,0 +1,15 @@
+
+<main>
+
+    <h3>{{header}}</h3>
+   <div class="row">
+<div class="el {{card.class}}" *ngFor="let card of cards" > <div class="imgPlace">
+        <img src="../../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg " alt="icons"> 
+    </div>
+    <div class="col"><span>{{card.amount}}</span> <p>{{card.title}}</p></div>
+</div>
+    
+    
+   </div>
+
+</main>

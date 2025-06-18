@@ -1,0 +1,73 @@
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch, $gap: 5px) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+main{
+    .Section{
+        margin-top: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        h5{
+            font-size: 15.5px;
+            @include flex-container(row, start ,start , 10px );
+            margin-bottom: 15px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .first{
+            color: #17a2b8 ;
+        }
+        .second{
+           color:  #28a745 ;
+        }
+        .third{
+            color: #dc3545;
+        }
+       @include flex-container(column, center ,start,10px );
+       .row{
+              @include flex-container(row, space-between , center, 5px );
+              width: 100%;
+            
+              .left{
+                    width: 50%;
+                    @include flex-container(row, start ,start , 5px );
+                   
+                  h4{
+                    font-size: 13.2px;
+                    font-weight: 600;
+                    color: #666;
+                  }
+                  span{
+               
+                    font-size: 13.2px;
+                    color: #666;
+                  }
+              }
+              .right{
+              
+                    @include flex-container(row, start ,start , 5px );
+                   
+                    span{
+                        display: block;
+                        width: 11px;
+                        height: 11px;
+              
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                    .filledStar{
+                        background-image: url('../../../assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+                    }
+                    .emptyStar{
+                        background-image: url('../../../assets/Imges/StaticImg/StaticIcons/star.svg');
+                    }
+              }
+       }
+    }
+}

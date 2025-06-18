@@ -1,0 +1,93 @@
+@media screen and (max-width:1100px) {
+    main{
+      padding: 0 10px;
+      .HeaderSearch{
+      form{
+        gap: 3px;
+        select{
+          width: 173px;
+        }
+        .advanceS{
+         width: 170px; 
+        }
+        .submit{
+          width: 100px;
+        }
+      }
+    }
+   
+    }
+    
+  }
+
+  
+
+  @media screen and (max-width:600px) {
+    main{
+      padding: 0 5px;
+      .HeaderSearch{
+      form{
+        gap: 3px;
+        .selectParent{
+          .simg{
+            width: 12px;
+            height: unset;
+          }
+          select{
+            padding-left: 25px !important;
+          }
+        }
+        select{
+          width: 130px;
+          font-size: 10px;
+          padding: 10px 2px;
+        }
+        .advanceS{
+         width: 150px;
+         h5{
+            font-size: 11px;
+         } 
+         img{
+          width: 13px;
+         }
+        }
+        .submit{
+          width: 100px;
+        }
+      }
+    }
+   
+    .bottomLine{
+      width: 100%;
+      h4{
+        font-size: 12px;
+      }
+      .Sorting{
+        gap:6px;
+        img{
+          width: 12px;
+        }
+        h3{
+          font-size: 13px;
+        }
+        .sorter{
+          .sp{
+            p{
+              font-size: 12px;
+            }
+            img{
+              width: 20px;
+            }
+            }
+            button{
+              margin-left: 4px;
+      width: 20px;
+      height: 20px;
+      padding: 2px 6px;
+            }
+        }
+      }
+    }
+  }
+  }
+  @import '../../header/filter-advenced/filterResponsive.scss';

@@ -1,0 +1,196 @@
+@media screen and (max-width: 1300px) {
+    .cardParent {
+      flex-wrap: wrap;
+      width: 98%;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    main {
+      .popularProperties {
+        .PH2 {
+          font-size: 16px;
+        }
+        .PP {
+          font-size: 12px;
+        }
+        .scrollParent {
+          width: 97%;
+          .cardParent {
+            gap: 5px;
+            .propCard {
+              width: 260px;
+              height: 380px;
+              .rightSide {
+                gap: 4px;
+                padding: 12px;
+                .squareFlex {
+                  padding: 5px;
+                  padding-left: 0px;
+                  gap: 4px;
+                }
+                a {
+                  font-size: 0.8rem;
+                }
+                p {
+                  font-size: 10px;
+                }
+              }
+              .leftSide {
+                .FirstRow {
+                  button {
+                    padding: 6px 14px;
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .whyChoose {
+        .WhyCardRow {
+          .whyCard {
+            width: 200px;
+            height: 200px;
+            padding: 0.5rem;
+            img {
+              width: 50px;
+            }
+            p {
+              line-height: normal;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      .Agents {
+        .cardParent {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    
+    main {
+      .popularProperties{
+        .scrollParent {
+          
+               overflow-x: scroll;
+          .cardParent{
+       
+            padding: 20px 10px 20px 10px;
+          
+          }
+               .btnRow{
+                  display: none !important;
+               }
+      
+        }
+      }
+      .Reviews {
+        .HText{
+          font-size: 1.1rem;
+        }
+        .HP{
+          font-size: 12px;
+        }
+        .ForOverflow {
+          width: 100%;
+          .cardPlace {
+            .ReviewCard {
+              width: 300px;
+              height: 230px;
+              padding: 15px 25px;
+              gap: 20px;
+              .Top {
+                p {
+                  font-size: 12px;
+                  line-height: 20px;
+                }
+              }
+              .Bottom {
+                .STATICiCON {
+                  right: 30px;
+                  width: 45px;
+                }
+                span {
+                  width: 45px;
+                  height: 45px;
+                }
+                .col {
+                  h3 {
+                    font-size: 14px;
+                  }
+                  p {
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    main {
+      .whyChoose {
+        padding: 50px 10px;
+        .WhyCardRow {
+          gap: 10px;
+          .whyCard {
+            width: 150px;
+            height: 150px;
+            padding: 0.3rem;
+            gap: 5px;
+            img {
+              width: 30px;
+            }
+            h3 {
+              font-size: 12px;
+            }
+            p {
+              line-height: normal;
+              font-size: 9px;
+            }
+          }
+        }
+      }
+      .Agents {
+        gap: 5px;
+        .cardParent {
+          .cardTypeAgent {
+            width: 150px;
+            height: 230px;
+            .top {
+              .ShareRow {
+                a {
+                  width: 27px;
+                  height: 24px;
+                  img {
+                    height: 13px;
+                  }
+                }
+              }
+            }
+            .bottom {
+              h3 {
+                font-size: 14px;
+              }
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        .AHeader {
+          font-size: 1rem;
+        }
+        .AP {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+  

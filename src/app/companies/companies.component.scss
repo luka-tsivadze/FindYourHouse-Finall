@@ -1,0 +1,188 @@
+@use '../../styles.scss' as *;
+
+main{
+    @include flex-container(column, center, center, 0);
+    width: 100%;
+    justify-content: center;
+    min-height: 100%;
+    margin-top: 76px;
+    background-color: #f5f5f5;
+    gap: 20px;
+    padding: 50px;
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        h1{
+            font-size: 2rem;
+            color: #333;
+        }
+        p{
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .search-bar{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            input{
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                width: 300px;
+            }
+            button{
+                padding: 10px 20px;
+                background-color: #ff385c;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    section{
+    @include flex-container(column, center, center, 0);
+        gap: 20px;
+        width: 100%;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        min-height:60vh;
+        
+        .company-card{
+
+    @include flex-container(row, space-between, center, 10px);
+            background-color: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+            width: 90%;
+ 
+            .left{
+                @include flex-container(row, space-around, center, 35px);
+                position: relative;
+                .flex-Col{
+                    @include flex-container(column, start, start, 20px);
+          
+                }
+                .companyImg{
+                    width: 135px;
+                    height: 130px;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.13);
+                    object-fit: cover;
+
+                }
+                .middle{
+                    @include flex-container(column, center, start, 15px);
+                    
+                    h2{
+                        font-size: 1.2rem;
+                        color: #333;
+                    }
+                    p{
+                        font-size: 1rem;
+                        color: #666;
+                    }
+                }
+                .row{
+       
+                    @include flex-container(row, center, center, 15px);
+                    button{
+                        @include flex-container(row, center, center, 5px);
+                        height: 36px;
+                        padding: 10px 20px;
+                        background-color: #ff385c;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        img{
+                            width: 13px;
+                            height: 13px;
+                  
+                        }
+                    }
+
+                }
+
+
+            }
+            .right{
+                @include flex-container(column, center, center, 0);
+                gap: 10px;
+                button{
+                    padding: 10px 20px;
+                    background-color: #ff385c;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    main{
+        padding: 30px 15px;
+        header{
+            h1{
+                font-size: 1.5rem;
+            }
+            p{
+                font-size: 0.9rem;
+                max-width: 80%;
+            }
+            .search-bar{
+                input{
+                    width: 90%;
+                }
+            }
+        }
+        section{
+            padding: 20px 10px;
+   .company-card{
+    width: 100%;
+            
+        
+        .left{
+            gap: 17px;
+            .companyImg{
+                width: 100px;
+                height: 100px;
+            }
+            .middle{
+                h2{
+                    font-size: 1rem;
+                }
+                p{
+                    font-size: 0.9rem;
+                }
+            }
+            .row{
+                button{
+                    padding: 8px 10px;
+                    font-size: 0.7rem;
+                    height: 25px;
+                }
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+        .right{
+            button{
+                font-size: 0.7rem;
+                padding: 8px 10px;
+   }
+        }
+    }
+}
+    }
+    
+}

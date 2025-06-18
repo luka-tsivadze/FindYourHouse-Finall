@@ -1,0 +1,23 @@
+<main>
+    <h3>{{staticvalues.header}}</h3>
+    <div class="row"> <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" (click)="leftTransform()" alt=""></button>
+        <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt="rightbtn" (click)="RightTransform()" ></button></div>
+   <div class="parentCont">
+
+       <div class="img-container">
+           <div class="card" *ngFor="let el of cardData let i=index"  [style.transform]="'translateX(-' + transformIndex + 'px)'">
+               <img src={{el.img}} alt="img">
+               <div class="row"><span class="green">{{el.price}}</span> <span  Class='red'>{{el.For}}</span></div>
+               <h4 (click)="routertodetailedInfo(el.id)" ><span>{{el.type}}</span> <span>{{el.locationCity}}</span></h4>
+               <div class="hovered">
+                <div class="col"><span>{{staticvalues.area}}</span><p>{{el.area}} sq/m</p></div>
+                <div class="col"><span>{{staticvalues.rooms}}</span> <p>{{el.rooms}} </p></div>
+                <div class="col"><span>{{staticvalues.beds}}</span> {{el.bedrooms}}</div>
+               </div>
+            </div> 
+    
+            
+        </div>
+    </div>
+
+</main>

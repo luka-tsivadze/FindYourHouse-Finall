@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+ 
+  
+}
+
+body.noscroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+html, body { height: 100%; }
+body 
+{
+     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex !important;
+    flex-direction: $direction !important;
+    justify-content: $justify !important;
+    align-items: $align !important;
+    gap: $gap;
+  }
+  @mixin bodyFont(){
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #666;
+  }
+  
+  .error{
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+  
+  .succes{
+    color: green;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+  #preloader {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    background-image: url(./assets/Imges/PreLoading/preloader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

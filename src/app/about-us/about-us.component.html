@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+<header>
+  <h2>{{staticElements.headerH2}} </h2>
+  <h4>{{staticElements.headerH4}}</h4>
+</header>
+<div class="col">
+
+  <main>
+    <div class="leftside">
+      <h3><span>{{staticElements.span1}}</span> {{staticElements.span2}} </h3>
+      <p>{{staticElements.mainText}}</p>
+      <div class="row">
+        <button> {{staticElements.btn}}</button>
+        <img src="../../assets/Imges/StaticImg/StaticIcons/signature.png" alt="signature">
+      </div>
+    </div>
+    <div class="video-container">
+      
+      <div *ngIf="showCover" class="video-cover">
+        <img src="../../assets/Imges/StaticImg/bg-video.jpg" alt="Video Cover" />
+        <button class="play-button" (click)="playVideo()">
+          ▶
+        </button>
+      </div>
+      
+      
+      <video #videoPlayer controls muted (pause)="playVideo()">
+        <source src="../../../assets/Video/VID_20220810_175242.mp4" type="video/mp4">
+        
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+  </main>
+  <app-web-review-adder>  </app-web-review-adder>
+</div>

@@ -1,0 +1,225 @@
+
+@media screen and (max-width: 1340px) {
+
+    nav {
+      padding: 2% 5px;
+    
+      }
+      ul {
+        gap: 5px;
+        .RightRow {
+          gap: 10px;
+        }
+        .listing {
+          width: 135px;
+  
+          h4 {
+            font-size: 12px;
+            width: 100%;
+          }
+          img {
+            display: none;
+          }
+        }
+        .navcol{
+
+          li {
+            padding: 5px !important;
+            p {
+              font-size: 13px;
+            }
+            img{width: 20px !important;
+              height: 20px !important;
+            }
+          }
+          .bottomArrow {
+            margin-left: 1px;
+          }
+        }
+      }
+    }
+  
+  @media screen and (max-width: 1070px) {
+    nav {
+      ul {
+        gap: 10px;
+        .RightRow {
+          p {
+            display: none;
+          }
+        }
+      }
+      .FirstUl {
+        gap: 0;
+      }
+      .leftNav {
+        .navcontainer {
+          .settings {
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 950px) {
+    nav {
+      .mobileresp{
+        display: flex;
+  
+      }
+      .pcresp{
+        display: none;
+      }
+      .FirstUl {
+        .burger:hover {
+         background-color: unset;
+         }
+       } 
+      ul{
+        .row{
+          .onClick{
+          
+            img{
+              width: 19px;
+              height: unset;
+            }
+            p{
+              font-size: 11px;
+            }
+          }
+        }
+     width: 100%;
+        justify-content: start;
+        .Navicon{
+          width: 38px;
+          margin-right: 4px;
+        }
+        .navcol{
+     position: absolute;
+     left: 0;
+      top: 99px;
+      display: flex;
+      padding: 20px;
+      background: #ffffff1f;
+      border-top: 1px solid rgba(255, 255, 255, .2);
+      border-bottom: 1px solid rgba(255, 255, 255, .2);
+      z-index: 10;
+    
+        }
+      }
+
+    }
+    .nav{
+  
+      .navcol{
+      background-color: white !important;
+      border: 1px solid rgba(46, 46, 46, 0.2);
+  
+      img{
+        filter: invert(0) !important;
+      }
+      }
+    }
+    
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    nav{
+      padding: 2% 1px;
+      
+    .FirstUl{
+      .Navicon{
+        width: 50px;
+        margin-left: 10px;
+      }
+      .burger{
+        img{
+          width: 24px !important;
+          height: max-content !important;
+        }
+      }
+    }
+  
+    ul{
+      gap: 5px;
+      .listing{
+        padding: 10px 2px;
+        width: 113px;
+        font-size: 10px;
+        height: unset ;
+        h4{
+          font-size: 10px;
+        }
+      }
+      .RightRow{
+        gap: 5px;
+        .circle{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .row{
+        .onClick{
+          gap: 2px;
+          .Globe{
+            display: none;
+          }
+ 
+          p{
+            font-size: 10px;
+          }
+        }
+      }
+      li{
+        .menuBar{
+          .mainPart{
+            .row{
+              a{
+                font-size: 12px;
+              }
+              .ShowImg{
+               
+                  width: 13px !important;
+                  height: 13px !important;
+                
+              }
+           
+            }
+            .row:hover{
+              margin-right:2px;
+              .ArrowNav{
+                left: 52%;
+                top:101%;
+                padding-left:3px;
+                .forHover{
+                  .aContainer{
+                  a{
+                    font-size: 10px;
+                  }
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .mobileresp{
+    
+      .navcol{ 
+      position: absolute;
+      max-width: 100vw;
+      flex-wrap: wrap;
+      padding: 10px;
+    
+    li{
+     p {
+        font-size: 9px;
+    }
+  }
+  }
+  }
+  }
+  }

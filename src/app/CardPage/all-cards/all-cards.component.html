@@ -1,0 +1,56 @@
+
+<div class="innerPage">
+
+    <div class="cardPlace " [ngClass]="{'active':dataState}">
+   
+
+        
+        
+        <ng-container *ngIf="showCards" @fadeIn>
+
+ 
+        <div class="propCard "  [ngClass]="{'active':dataState}" [ngStyle]="{'animation-delay': (i * 0.1) + 's'}" *ngFor="let info of activePage; let i = index; trackBy: trackByIndex"
+     
+     
+        >
+            <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
+
+                <div class="FirstRow">
+                    <button [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
+                    <button class="whiteBg"> {{info.For}}</button>
+                    
+                </div>
+                  <div class="SecondRow">
+                    <button (click)="saveToFav(i,info)"><img class="link" [src]="heartimgLinks[i]" alt="Heart"></button>
+                    <button *ngIf="info.video!='' "><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button>
+                  </div>
+                  <div class="price">{{info.price}}<span *ngIf="info.For=='For Rent'"></span>  </div>
+            </div>
+            <div class="rightSide" (click)="routertodetailedInfo(info.id)">
+                <a>{{info.header}}</a>
+                <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="locationIcon">{{info.location}} </p>
+                <div class="squareFlex">
+
+                <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage'"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt="badroom"><p>{{info.bedrooms}} {{FeaturePS.BedRooms}}</p></div> 
+                <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage'"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt="bathroom"><p>{{info.bathrooms}} {{FeaturePS.BathRooms}}</p></div> 
+                <div class="element" [ngClass]="{'Land':info.type=='Land Plot' || info.type=='Garage' }"><img src="./../../assets/Imges/Header/CardImges/icons/triangular-ruler.svg" alt="areaIcon"><p>{{info.area}} {{FeaturePS.Area}}</p></div> 
+                <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage' "><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt="garages"><p>{{info.garages}} {{FeaturePS.Garage}}</p></div>
+            </div>
+            <div class="CardFooterRow">
+               <div class="row"> <p>{{info.profileName}}</p></div>  <p>{{info.uploadmonth}} {{Languages.myProp.ago}}</p>
+            </div>
+            </div>
+        </div>
+               </ng-container>
+        </div>
+ 
+    
+     <div class="bottomRow" ><button (click)="chosenPage((this.ActivePage-1))" class="prev">Previous</button>
+
+
+         <button class="numbers" [ngClass]="{'active':i== this.ActivePage }"  (click)="chosenPage(i)" *ngFor="let i  of this.pageIndices">{{i}} </button> 
+       
+   
+        <button class="prev" (click)="chosenPage((this.ActivePage+1))" >Next</button> </div>
+</div>

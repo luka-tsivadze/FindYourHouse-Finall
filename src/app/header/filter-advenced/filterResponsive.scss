@@ -1,0 +1,78 @@
+
+@media screen and (max-width:750px){
+    .advancedOpened{
+      width: 99%;
+      left: 3px;
+      top: 60%;
+      font-size: 13px;
+      padding: 13px 10px;
+    .mainFilter{
+      padding: 40px 10px;
+      gap: 15px;
+      .rightChacks{
+        .row{
+          gap: 4px;
+          align-items: center;
+          label{
+            font-size: 12px;
+          }
+          input[type="checkbox"] {
+            width: 14px !important;
+            height: 14px !important;
+          }
+        }
+      }
+    }
+    }
+    
+  }
+  @media screen and (max-width:500px){
+    .advancedOpened{
+      width: 95%;
+      left: 50%;
+      top: 80%;
+      transform: translateX(-50%) !important;
+      
+      font-size: 12px;
+      padding: 11px 5px;
+      .selectRow{
+        width: 94%;
+      
+        flex-direction: column;
+        .selectParent{
+          width: 100% !important;
+        
+        }
+       }
+    .mainFilter{
+      padding: 10px;
+      padding-bottom: 30px;
+      gap: 52px;
+      width: 100%;
+      flex-direction: column;
+      .rightChacks{
+     width: 100%;
+        .row{
+          gap: 4px;
+  
+          label{
+            font-size: 10px;
+          }
+          input[type="checkbox"] {
+            width: 11px !important;
+            height: 11px !important;
+          }
+        }
+      }
+
+
+        .leftRange{
+          width: 100%;
+          align-items: center;
+        }
+      
+  
+    }
+    }
+    
+  }

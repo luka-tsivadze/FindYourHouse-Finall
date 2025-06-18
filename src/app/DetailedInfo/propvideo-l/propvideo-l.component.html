@@ -1,0 +1,19 @@
+<main>
+    <h2>{{propvideo}}</h2>
+
+    <div class="video-container">
+     
+        <div *ngIf="showCover" class="video-cover">
+      
+          <button class="play-button" (click)="playVideo()">
+            ▶
+          </button>
+        </div>
+ 
+
+        <video #videoPlayer controls muted   (pause)="playVideo()">
+            <source src="{{videoLink}}" muted  type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+   </div>
+</main>

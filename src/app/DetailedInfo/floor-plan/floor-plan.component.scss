@@ -1,0 +1,18 @@
+@mixin flex-container($direction:row, $justify:center ,$align:center , $gap: 1rem){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+
+}
+
+
+
+main{
+
+    img{
+        width: 100%;
+       object-fit: cover;
+    }
+}

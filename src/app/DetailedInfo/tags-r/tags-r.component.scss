@@ -1,0 +1,21 @@
+
+main{
+  
+.tagPlace{
+    width: 59%;
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+button{
+    background: #fff;
+   
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+}
+}
+
+}

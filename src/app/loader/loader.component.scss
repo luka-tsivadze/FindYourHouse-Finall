@@ -1,0 +1,50 @@
+  
+@keyframes opacity{
+    0%{
+        opacity: 1;
+        top: 0px;
+    }
+    100%{
+        top: -100%;
+
+        display: none;
+    }
+    
+}
+
+.preLoader{
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    background-image: url(../../assets/Imges/PreLoading/preloader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.loaded{
+ z-index: 99;
+    position: fixed;
+ 
+    background-image: url(../../assets/Imges/PreLoading/preloader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+
+    
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: opacity 2s forwards;
+animation-delay:1s;
+}

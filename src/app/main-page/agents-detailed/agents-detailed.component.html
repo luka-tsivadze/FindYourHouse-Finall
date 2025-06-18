@@ -1,0 +1,24 @@
+<app-nav></app-nav>
+
+<div class="container">
+
+    <div class="leftSide">
+<app-lprofile-card [agent]="agent" ></app-lprofile-card>
+<app-ldescription [agent]="agent" *ngIf="agent.chems_shesaxeb && agent.chems_shesaxeb !='NULL'" ></app-ldescription>
+<app-listing  [agent]="agent"></app-listing>
+    </div>
+    <div class="rightSide"  [ngClass]="{'displayR':displayR && scrollPosition<1200}">
+        <app-rcontact  [agent]="agent"></app-rcontact>
+<app-recent></app-recent>
+<app-r-advertisment></app-r-advertisment>
+<div class="icon2" [ngClass]="{'actived':!displayR || scrollPosition > 800 }">
+    <div  class="arrows" [ngClass]="{'exit':displayR}" (click)="ActiveD()"></div>
+ </div>    
+</div>
+    <div class="icon" [ngClass]="{'actived': displayR || scrollPosition > 650 }">
+        <div  class="arrows" [ngClass]="{  'ActiveD':!displayR}" (click)="ActiveD()"></div>
+     </div>
+     <div class="cover" (click)="ActiveD()" *ngIf="displayR && scrollPosition<1200"></div>
+
+</div>
+<app-footer></app-footer>

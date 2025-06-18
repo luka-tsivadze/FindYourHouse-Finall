@@ -1,0 +1,608 @@
+@keyframes fadeIn-Out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fromBackToFront {
+  0% {
+    transform: scale(0.5) translateZ(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes CardFromLeftToRight {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes CardFromRightToLeft {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #666;
+}
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 170px;
+  z-index: 2;
+  .fadeIn {
+    animation: fromBackToFront 1s ease-out forwards !important;
+  }
+  .HeaderCol {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 78vh;
+    animation: fromBackToFront 1s ease-out forwards;
+    transform-style: preserve-3d;
+
+    align-items: center;
+    .headerp {
+      color: rgba(255, 255, 255, 0.89);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      text-transform: capitalize;
+      line-height: 37px;
+      font-weight: 400;
+    }
+    h3 {
+      position: relative;
+      display: flex;
+      font-size: 49px;
+      color: #fff;
+
+      span {
+        display: flex;
+        padding-left: 12px;
+
+        border-bottom: 2px solid white;
+      }
+    }
+
+    .blinker {
+      display: inline-block;
+
+      animation: fadeIn-Out 0.5s infinite forwards;
+      position: absolute;
+      right: -10px;
+      width: 6px;
+      bottom: 5px;
+      height: 40px;
+      background-color: #fff;
+    }
+  }
+  .HeaderBtnRow {
+    margin-top: 15px;
+    display: flex;
+
+    position: relative;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    .Sarrow {
+      position: absolute;
+
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      background-color: #ff385c;
+      transform: rotate(45deg);
+      bottom: -5px;
+    }
+
+    button {
+      z-index: 4;
+      cursor: pointer;
+      border: 0;
+      border-radius: 5px;
+      height: 50px;
+
+      padding: 0 35px;
+      position: relative;
+      display: block;
+      letter-spacing: 0.4px;
+      background: #fff;
+      color: #000;
+      font-family: var(--heading-font);
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 8px;
+    }
+    .active {
+      background: #ff385c;
+      color: white;
+    }
+    .left {
+      left: 6%;
+    }
+    .left-1 {
+      left: 22%;
+    }
+    .middle {
+      left: 37.5%;
+    }
+
+    .right {
+      right: 42%;
+    }
+    .right-1 {
+      right: 17%;
+    }
+  }
+  .HeaderSearch {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    align-items: center;
+    height: max-content;
+
+    background-color: white;
+    border-radius: 9px;
+    form {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      input {
+        width: 255px;
+        border: 1px solid #ebebeb;
+        border-radius: 8px;
+
+        outline: none;
+        text-decoration: none;
+
+        height: 48px;
+        line-height: 48px;
+        width: 100%;
+        padding: 5px 20px;
+        border: 1px solid #d4d4d4;
+
+        border-radius: 4px;
+        font-size: 15px;
+      }
+      .select {
+        border-radius: 8px;
+
+        border: 1px solid #ebebeb;
+        font-family: "Lato", sans-serif;
+        padding: 2px 16px 2px 2px;
+
+        box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
+        select {
+          box-sizing: border-box;
+          clear: both;
+          cursor: pointer;
+          padding: 12px 42px;
+          display: block;
+          border: unset;
+          outline: unset;
+          float: left;
+          font-family: inherit;
+          font-size: 15px;
+          color: #666;
+          font-weight: normal;
+        }
+      }
+      .advanceS {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 20px;
+        border-radius: 8px;
+        background-color: #ffffff;
+
+        gap: 5px;
+
+        border: 1px solid #ebebeb;
+
+        position: relative;
+        h5 {
+          width: max-content;
+          font-family: "Lato", sans-serif;
+          font-size: 15px;
+          font-weight: 200;
+          color: #666;
+
+          font-size: 13px;
+          font-weight: 400;
+          margin-left: 10px;
+        }
+        img {
+          margin-bottom: 7px;
+        }
+      }
+      .submit {
+        border: 0;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        padding: 10px 35px;
+        margin-right: 15px;
+        position: relative;
+        box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+        letter-spacing: 0.4px;
+        background: #ff385c;
+        color: white;
+        font-size: 15px;
+        font-family: var(--heading-font);
+        font-weight: 600;
+      }
+    }
+  }
+  .popularPlaces {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 7%;
+    background-color: #ffffff;
+    align-items: center;
+
+    h1 {
+      position: relative;
+      color: #111;
+      font-weight: 540;
+      text-transform: capitalize;
+      font-family: "Montserrat", sans-serif;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .headerP {
+      opacity: 0;
+      transition: 1s;
+    }
+    .CardAnimation {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+      width: 23%;
+      height: 132px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #ebebeb;
+      overflow: hidden;
+      margin-bottom: 30px;
+      padding: 0px;
+      align-items: center;
+      display: flex;
+      img {
+        min-height: 100%;
+        width: 170px;
+      }
+      .textSide {
+        display: flex;
+
+        align-items: start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px;
+        .cityName {
+          font-family: "Montserrat", sans-serif;
+          font-size: 18px;
+          color: #333;
+          font-weight: 600;
+
+          p {
+            font-family: "Lato", sans-serif;
+            color: #666;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .cityCard {
+      opacity: 0;
+      width: 23%;
+      height: 152px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #ebebeb;
+      overflow: hidden;
+      margin-bottom: 30px;
+      padding: 0px;
+      align-items: center;
+      display: flex;
+      transition: 2s;
+    }
+  }
+  .featuredProperties {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 4%;
+    background-color: #f5f7fb;
+    align-items: center;
+    .FH {
+      opacity: 0;
+    }
+    .FP {
+      opacity: 0;
+    }
+    h1 {
+      max-width: 85%;
+      position: relative;
+      color: #111;
+      font-weight: 540;
+      text-transform: capitalize;
+      font-family: "Montserrat", sans-serif;
+    }
+    p {
+      max-width: 85%;
+      font-family: "Lato", sans-serif;
+      color: #666;
+      font-size: 15px;
+    }
+    .propCardAnimationL {
+      animation: CardFromRightToLeft 1s forwards;
+    }
+    .propCardAnimationR {
+      animation: CardFromLeftToRight 1s forwards;
+    }
+    .propCard {
+      opacity: 0;
+      position: relative;
+      display: flex;
+
+      align-items: center;
+      gap: 1px;
+      width: 594px;
+      height: 260px;
+      background-color: white;
+      border: 1px solid #e7e7e7;
+
+      .leftSide {
+        width: 50%;
+        height: 100%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+
+        .FirstRow {
+          display: flex;
+          padding: 0px;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+
+          button {
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 2px;
+            color: #fff;
+            border: none;
+            background-color: #ff385c;
+            display: inline-block;
+          }
+          .whiteBg {
+            background-color: rgba(74, 74, 76, 0.7);
+          }
+        }
+        .SecondRow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+          position: absolute;
+          right: 10px;
+          bottom: 14px;
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            box-shadow: none;
+            padding: 0;
+            border: unset;
+            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            line-height: 33px;
+            background: rgba(74, 74, 76, 0.7);
+            img {
+              filter: invert(1);
+            }
+            .link {
+              width: 55%;
+              transform: rotate(50deg);
+            }
+          }
+        }
+      }
+      .rightSide {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        justify-content: center;
+        align-items: start;
+        padding: 20px;
+        width: 50%;
+        a {
+          cursor: pointer;
+          color: #333;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+        a:hover {
+          color: #ff385c;
+        }
+        p {
+          display: flex;
+          gap: 10px;
+          font-size: 13px;
+          font-weight: 400;
+          margin: 0 0 1px;
+          text-decoration: none;
+          color: #666;
+        }
+        .squareFlex {
+          display: flex;
+          padding: 20px 0px;
+
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 15px 30px;
+          border-bottom: 1px solid #e8e8e8;
+          .element {
+            display: flex;
+            gap: 4px;
+            width: 110px;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+        .CardFooterRow {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding-top: 10px;
+          align-items: center;
+          h1 {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+          }
+          .iconRow {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            .heart {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cardPlace {
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    .viewMore {
+      cursor: pointer;
+      background-color: #ff385c;
+      color: #fff;
+      border-color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      border-radius: 3rem;
+      padding: 0.9rem 2.1rem 0.9rem 2.1rem;
+      border: unset;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: 0.2s;
+      img {
+        transition: 0.2s;
+        position: relative;
+        left: 10px;
+        width: 17px;
+        filter: invert(1);
+      }
+    }
+    .viewMore:hover {
+      transition: 0.2s;
+      background-color: #000000;
+      color: #fff;
+      img {
+        transition: 0.2s;
+        left: 16px;
+      }
+    }
+  }
+}
+
+.dNone {
+  opacity: 0;
+  display: none;
+  z-index: -1;
+}
+.FadeInUp {
+  animation: fadeInUp 1s forwards;
+}
+
+
+@import './HeaderResponsive.scss';

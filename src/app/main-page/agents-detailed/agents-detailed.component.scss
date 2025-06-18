@@ -1,0 +1,78 @@
+
+@use '../../../styles.scss' as *;
+
+
+.container{
+    background: #f5f7fb;
+    width: 100%;
+    overflow-x: hidden;
+
+    padding: 7%;
+    padding-top: 150px;
+@include flex-container(row , space-between , start , 5px);
+.leftSide{
+    
+    width: 55%;
+    height: 100%;
+    @include flex-container(column , start , center , 20px);
+
+}
+.leftSide > *{
+    width: 100%;
+}
+
+
+.rightSide{
+    width: 40%;
+    @include flex-container(column , start , center , 30px);
+    height: 100%;
+}
+.rightSide > *{
+    width: 100%;
+}
+
+
+}
+
+::ng-deep .container  * main {
+    @include flex-container(column, center, start, 0);
+    padding: 1.2rem;
+width: 100%;
+border-radius: 6px;
+background-color: white;
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.092);
+}
+
+::ng-deep .container * h2::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #ff385c;
+    margin-top: 10px;
+}
+::ng-deep .container * h2{
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+::ng-deep .container .rightSide h3:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+  
+    margin: 10px 0;
+    border-bottom: 1px solid #eaeff5;
+  }
+  ::ng-deep .container .rightSide h3 {
+    width: 100%;
+    color: #222;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  @import "./AgentsDetailedResp.scss";

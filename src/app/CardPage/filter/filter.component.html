@@ -1,0 +1,106 @@
+<main>
+ <div class="topSide">
+     <h4><span>Home</span>/Listings</h4>
+     <h2>Grid View</h2>
+ </div>
+    <div class="HeaderSearch">
+        <form  [formGroup]="filterForm">
+
+          <div class="selectParent" >
+            <img class="simg"  src="{{for.imgLink}}   " alt="HomeIcon">
+            <select name="{{for.text}}" class="{{for.name}}"  formControlName="{{for.name}}">
+                <option value="0" disabled selected hidden>{{for.text}}</option>
+                <option value="{{for.options[i]}}" *ngFor="let opt of Fortypes let i=index">{{opt}}</option>      
+            </select>
+        </div>
+
+                <select formControlName="propertyType">
+                    <option value="0">{{staticElements.propertyType}}</option>
+                    <option  *ngFor="let el of firstFilter.PropertyTypes let i=index" value="{{el}}">{{firstFilter.PropertyTypesDis[i]}}</option>
+              
+                </select>
+         
+            <select name="location"  formControlName="location"> 
+                <option value="0">{{staticElements.location}}</option>
+                <option  *ngFor="let el of firstFilter.locations let i =index" value="{{el}}">{{firstFilter.locationDis[i]}}</option>
+            </select>
+         
+        <button class="advanceS" (click)="advanced()" ><h5>{{staticElements.Advanced}}</h5><img src="../../../assets/Imges/StaticImg/StaticIcons/ellipsis-three-vertical-squares-menu-interface-symbol-svgrepo-com.svg" alt="three dots"></button>
+        <button class="submit" (click)="onSubmit()" type="submit">{{staticElements.Search}}</button>
+   
+        <div class="advancedOpened" *ngIf="advenced">
+        <div class="selectRow"> 
+
+            <div class="selectParent" *ngFor="let sel of filterOptions.SelectInputs">
+                <img class="simg" src="{{sel.imgLink}}" alt="HomeIcon">
+                <select name="{{sel.text}}"  formControlName="{{sel.name}}">
+                    <option value="0" disabled selected hidden>{{sel.text}}</option>
+                    <option value="{{opt}}" [disabled]="i==0" *ngFor="let opt of sel.options let i=index"  >{{opt}}</option>      
+                </select>
+            </div>
+
+        </div>
+        <div class="mainFilter">
+
+    
+    <div class="leftRange">
+      <!-- First wrapper section -->
+<div class="wrapper"> 
+  <h4>{{filterOptions.range.area}}</h4>
+  <div class="values">
+    <span *ngIf="showSliderOne_1">{{ sliderOneValue_1 }}{{filterOptions.range.MAmount}}</span>
+    <span *ngIf="showSliderTwo_1">{{ sliderTwoValue_1 }} {{filterOptions.range.MAmount}}</span>
+  </div>
+  <div class="container">
+    <div class="slider-track" [ngStyle]="trackStyle_1"></div>
+    <input type="range" min="0" [max]="sliderMaxValue1" [value]="sliderOneValue_1"     (input)="slideOne_1($event)" id="slider-1">
+    <input type="range" min="0" [max]="sliderMaxValue1" [value]="sliderTwoValue_1"     (input)="slideTwo_1($event)" id="slider-2">
+  </div>
+</div>
+
+<!-- Second wrapper section -->
+<div class="wrapper"> 
+  <h4>{{filterOptions.range.Price}}</h4>
+  <div class="values">
+    <span *ngIf="showSliderOne_2">{{ sliderOneValue_2 }}</span>
+    <!-- $ -->
+    <span *ngIf="showSliderTwo_2"> {{ sliderTwoValue_2 }} </span>
+  </div>
+  <div class="container">
+    <div class="slider-track" [ngStyle]="trackStyle_2"></div>
+    <input type="range" min="0" [max]="sliderMaxValue2" [value]="sliderOneValue_2" (input)="slideOne_2($event)"   id="slider-3">
+    <input type="range" min="0" [max]="sliderMaxValue2" [value]="sliderTwoValue_2" (input)="slideTwo_2($event)" id="slider-4"     >
+  </div>
+</div>
+
+          
+   
+
+    </div>
+    <div class="rightChacks"> 
+                
+        <div class="row" *ngFor="let el of filterOptions.filteredCheckBox" >
+            <label for="{{el.id}}">{{el.name}}</label>
+            <input type="checkbox" name="{{el.id}}" id="{{el.id}}"[formControlName]="el.formcontroller">
+</div>
+
+</div>
+        </div>
+    </div>   
+    </form>
+        
+    </div>
+
+   <div class="bottomLine">
+    <h4>{{length}} search resoult</h4>
+    <div class="Sorting"><img src="../../../assets/Imges/StaticImg/StaticIcons/align-left-solid.svg" alt="icon"><h3>SORTBY:</h3>
+        <div class="options" *ngIf="options" >
+   <h3  [ngClass]="{'active':el.state}" (click)='chosenOption(el)'  *ngFor="let el of sortingOptions">{{el.name}}</h3>
+   
+        </div>
+        <div class="sorter" > <div class="sP" (click)="showOptions()"> <p>{{activeEl}}</p> <img  [ngClass]="{'rotate':this.options}"  src="../../../assets/Imges/NavImg/downArrow-removebg-preview.png" alt=""></div>
+                  <button (click)="list()" [ngClass]="{'activeimg': !activeimg }" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg" alt=""></button>
+                   <button (click)="grid()" [ngClass]="{'activeimg': activeimg }"  ><img  src="../../../assets/Imges/StaticImg/StaticIcons/table-cells-large-solid.svg" alt=""></button>    </div>
+    </div>
+   </div>
+</main>

@@ -1,0 +1,99 @@
+
+@use '../../../styles.scss' as *;
+
+form{
+    @include flex-container(column,center, start);
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+    .firstRow{
+        @include flex-container(row,space-between, center);
+        gap: 10px;
+        width: 100%;
+    margin-bottom: 30px;
+        .col{
+        
+            @include flex-container(column,start, start);
+            gap: 15px;
+            p{
+                font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #666;
+            }
+            .starPlace{
+                @include flex-container(row-reverse,center, center);
+                gap: 5px;
+                span{
+                      width: 20px;
+                     height: 20px;
+                  
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+                }
+                .empty{
+                    background-image: url('/assets/Imges/StaticImg/StaticIcons/star.svg');
+
+                }
+                .filled{
+                    background-image: url('/assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+                }
+                span:hover,
+                span:hover ~ span{
+                    background-image: url('/assets/Imges/StaticImg/StaticIcons/star-fill.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                }
+            }
+        }
+        
+    }
+        
+    input{
+        padding: .6rem;
+        border: 1px solid #dddddd;
+
+        font-size: 1rem;
+        font-weight: 400;
+ 
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        width: 100%;
+        border-radius: .25rem;
+    }
+    .resizable-textarea{
+        width: 100%;
+        height: 175px;
+        resize: vertical;
+        border-radius: 5px;
+        border: 1px solid #dae2e9;
+        background-color: #fff;
+        padding: 15px;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        color: #7e8c99;
+    }
+    button{
+        background: #FF385C;
+        cursor: pointer;
+        font-size: 16px;
+        border: none;
+        border-radius: .3rem;
+        width: 140px;
+        height: 45px;
+        color: #fff;
+    
+        @include flex-container(row,center, center);
+    }
+    .greenmsg{
+        color: green;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.DN{
+    display: none;
+}

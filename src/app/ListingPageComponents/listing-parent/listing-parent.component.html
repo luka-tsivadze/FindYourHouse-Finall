@@ -1,0 +1,14 @@
+<app-listing-nav (valueChange)="receiveValue($event)" />
+
+<app-dashboard  *ngIf="Value=='Dashboard'"/>
+<app-profile *ngIf="Value=='Profile'"/>
+<app-my-properties *ngIf="Value=='My Properties'" />
+<app-favorite-properties *ngIf="Value=='Favorited Properties'" />
+<app-main-listing  (valueChange)="receiveValue($event)" *ngIf="Value=='Add Property'" />
+<app-business *ngIf="Value=='My Business'"></app-business>
+<app-password-change *ngIf="Value=='Change Password'" />
+<app-listing-footer />
+
+
+
+

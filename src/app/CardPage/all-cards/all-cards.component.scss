@@ -1,0 +1,300 @@
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-center {
+  @include flex-container(row, center, center);
+}
+$transition-duration: 0.5s;
+@keyframes fadeIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.innerPage {
+  background: #f5f7fb;
+  padding: 20px 10px;
+  padding-top: 30px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  @include flex-container(column, flex-start, center);
+  gap: 20px;
+  .cardPlace.active {
+    padding: 30px 140px;
+    .propCard.active {
+      width: 100%;
+      gap: 20px;
+      height: 300px;
+      @include flex-container(row, center, center);
+      .leftSide {
+        height: 100%;
+        width: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        background-position: center;
+      }
+      .rightSide {
+        gap: 25px;
+        .squareFlex {
+          padding-right: 250px;
+          width: 100%;
+          gap: 20px;
+          padding-bottom: 10px;
+          .element {
+            align-items: center;
+            width: 40%;
+          }
+          .Land{
+            width: 100%;
+            img {
+              width: 30px;
+              height: 30px;
+            }
+            p {
+              font-size: 15px;
+              font-weight: 600;
+              padding: 10px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cardPlace {
+    padding: 30px;
+    @include flex-container(row, center, center);
+    flex-wrap: wrap;
+    width: 100%;
+    height: max-content;
+    gap: 30px 10px;
+
+    .propCard {
+      opacity: 0;
+      animation: fadeIn $transition-duration forwards;
+      position: relative;
+      @include flex-container(column, center, center);
+      gap: 1px;
+      width: 350px;
+      overflow: hidden;
+      height: 490px;
+      border-radius: 10px;
+      background-color: white;
+      border: 1px solid #e7e7e7;
+
+      .leftSide {
+        width: 100%;
+        height: 50%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        background-position: center;
+        @include flex-container(row, center, start);
+
+        .FirstRow {
+          padding: 15px;
+          width: 100%;
+          @include flex-container(row, space-between, center);
+          flex-wrap: wrap;
+          .whiteBg {
+            background-color: rgba(74, 74, 76, 0.7) !important;
+          }
+          button {
+            font-weight: 600;
+            padding: 9px 15px;
+            border-radius: 2px;
+            color: #fff;
+            border: none;
+            background-color: #ff385c;
+            display: inline-block;
+          }
+        }
+        .price {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          font-family: "Lato", sans-serif;
+          color: #ffffff;
+          background-color: #000000ad;
+          border-radius: 5px;
+          padding: 4px;
+          font-size: 20px;
+          font-weight: 500;
+        }
+        .SecondRow {
+          @include flex-container(row, center, center);
+          gap: 15px;
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          button {
+            @include flex-container(row, center, center);
+            color: #fff;
+            box-shadow: none;
+            padding: 0;
+            border: unset;
+            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            line-height: 33px;
+            background: rgba(74, 74, 76, 0.7);
+            img {
+              filter: invert(1);
+            }
+            .link {
+              width: 55%;
+              cursor: pointer;
+             
+            }
+          }
+        }
+      }
+      .rightSide {
+        gap: 15px;
+        @include flex-container(column, center, start);
+        padding: 20px;
+        width: 100%;
+        height: 50%;
+        a {
+          cursor: pointer;
+          color: #333;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+        a:hover {
+          color: #ff385c;
+        }
+        p {
+          display: flex;
+          gap: 10px;
+          font-size: 13px;
+          font-weight: 400;
+          margin: 0 0 1px;
+          text-decoration: none;
+          color: #666;
+        }
+        .squareFlex {
+          display: flex;
+          padding: 5px 0px;
+          padding-right: 20px;
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 10px 30px;
+          border-bottom: 1px solid #e8e8e8;
+          .element {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 120px;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .Land{
+            width: 100%;
+            padding: 19px 0;
+            img {
+              width: 30px;
+              height: 30px;
+            }
+            p {
+              font-size: 20px;
+              font-weight: 600;
+            
+            }
+          }
+        }
+        .CardFooterRow {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding-top: 10px;
+          align-items: center;
+          .row {
+            @include flex-container(row, center, center);
+            gap: 10px;
+          }
+          p {
+            font-family: "Lato", sans-serif;
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+          }
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+          .iconRow {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            .heart {
+              filter: contrast(0.1);
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottomRow {
+    width: 100%;
+    padding-left: 200px;
+    border-radius: 4px;
+    @include flex-container(row, start, center);
+    gap: 0px;
+
+    .prev,
+    .numbers {
+      padding: 10px 15px;
+
+      cursor: pointer;
+      transition: background-color $transition-duration,
+        color $transition-duration;
+
+      &:hover {
+        background-color: #ff385c;
+        color: #fff;
+      }
+    }
+
+    .prev {
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border: 1px solid #dee2e6;
+
+      &:hover {
+        background-color: #ff385c;
+      }
+    }
+
+    .numbers {
+      background: #fff;
+      border: 1px solid #dee2e6;
+      color: #000000;
+    }
+
+    .active {
+      background-color: #ff385c;
+      color: white;
+    }
+  }
+}
+app-filter {
+  width: 100%;
+}
+ 
+@import './Cards-responsive.scss';

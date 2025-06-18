@@ -1,0 +1,216 @@
+@media screen and (max-width: 1450px) {
+    .FormParent {
+      .center[_ngcontent-ng-c2408448896] .change[_ngcontent-ng-c2408448896] {
+        right: 12% !important;
+        top: 142px !important;
+      }
+      form{
+          padding: 30px 15px;
+          .text{
+              padding: 0 30px;
+          }
+      }
+      .form3{
+        .flexWrap{
+          justify-content: center;
+          .LabledInputs{
+            input{
+              width: 350px;
+            }
+            select{
+              width: 350px;
+            }
+       
+          }
+        }
+      }
+      .form1{
+          .text{
+           
+              .selectRow{
+                  justify-content: center;
+                  gap: 10px;
+                  select{
+                      width: 250px;
+                  }
+                  .CustomeSelect{
+                    width: 250px;
+                  }
+              }
+          }
+      }
+      .form4{
+          .text{
+              .selectRow{
+                select{
+                  width: 241px;
+  
+                }
+              }
+           
+          }
+      }
+      .form5 {
+        .text {
+          .flexWrap {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1160px) {
+    .FormParent {
+    form{
+        .text{
+            .educationCol{
+                .row{ 
+                    flex-wrap: wrap;
+                    .input{
+                        width: 48%;
+                    }
+                }
+            }
+        }
+    }
+      .form1{
+          .text{
+      
+              .selectRow{
+              
+                  gap: 22px;
+                  select{
+                      width: 250px;
+                  }
+                  .CustomeSelect{
+                    width: 250px;
+                  }
+              }
+          }
+      }
+  
+      .form3{
+        .flexWrap{
+          justify-content: center;
+          .LabledInputs{
+            width: 100% !important;
+            input{
+              width: 100%;
+            }
+            select{
+              width: 100%;
+            }
+          }
+        }
+      
+      }
+      .form4{
+        .text{
+            .selectRow{
+              select{
+                width: 100%;
+                
+              }
+            }
+        }
+    }
+  
+      .form5 {
+        .text {
+          .flexWrap {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width:1070px) {
+    .FormParent{
+     padding: 1rem 10px 1rem 1rem;;
+     form{
+      .text{
+        padding: 0 3px;
+       
+      }
+     }
+     .form1{
+      .text{
+        .selectRow{
+          gap: 10px;
+         select {
+         width: 100%;
+     }
+          .CustomeSelect{
+            width: 100%;
+          }
+   }
+      }
+     }
+     .form2{
+  
+       .imgrow{
+  
+        .img[_ngcontent-ng-c2408448896] .uploadedimg {
+         width: 100px;
+         height: 100px;
+        }
+      }
+      }
+    }
+  }
+  @media screen and (max-width:650px) {
+    .FormParent{
+      padding: 30px 5px;
+        .form{
+            .text{
+                .educationCol{
+                    .row{ 
+                        flex-wrap: wrap;
+                        .input{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .form{
+              .VideoRow{
+                width: 95%;
+              }
+              .imgrow{
+                width: 90%;
+              }
+              .text{
+                .row{
+                  flex-wrap: wrap;
+                }
+              }
+            }
+        }
+      .form2 {
+        .center{
+         width: 100%;
+        }
+         label{
+           width: 100%;
+           padding: 20px;
+           p{
+          font-size: 12px;
+           }
+         }
+       }
+    .form5{
+      .text {
+        .flexWrap {
+          grid-template-columns: repeat(2, 1fr);
+          .row{
+            max-width: 130px;
+          label{
+            font-size: 9px;
+          }
+          }
+        }
+      }
+    }
+  }
+  }

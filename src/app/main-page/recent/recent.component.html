@@ -1,0 +1,7 @@
+<main>
+    <h3>{{recentStatic}}</h3>
+    <div class="cardPlace">
+        <div class="card" *ngFor="let el of Recentdata" (click)="routertodetailedInfo(el.route)" ><img src="{{el.img}}" alt="House img"> <div class="text"><span>{{el.type}}</span> <p>{{el.price}}</p></div></div>
+        
+    </div>
+    </main>

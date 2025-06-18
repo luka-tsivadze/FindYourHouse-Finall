@@ -1,0 +1,50 @@
+@media screen and (max-width:1100px) {
+    main{
+      padding: 50px 4%;
+      height: 600px;
+    form{
+      width: 55%;
+    }
+    .details{
+      width: 45%;
+    }
+
+    }
+  }
+  @media screen and (max-width:750px) {
+    main{
+      padding: 0px 1%;
+      height: max-content;
+      flex-direction: column-reverse !important;
+      margin-bottom: 20px;
+         gap: 20px;
+    form{
+      width: 100%;
+
+    }
+    .details{
+      margin-top: 10px;
+        width: 100%;
+        gap: 20px;
+        padding: 1rem;
+        p{
+          margin-bottom: 8px;
+          font-size: 11px;
+        }
+        h3{
+          font-size: 1rem;
+        }
+        .row{
+          gap: 11px;
+          span{
+            font-size: 12px;
+          }
+          img{
+            width: 15px;
+          }
+        }
+    }
+
+    }
+    
+  }

@@ -1,0 +1,31 @@
+<div class="body">
+    <form [formGroup]="profileForm"> <!-- Bind the form -->
+      <h3>{{staticValues.h3}}</h3>
+      <div class="profile">
+        <div class="imgRow">
+          <img src='../../../assets/Imges/NavImg/man.png' alt="profileImg">
+          <div class="text">
+            <h4>{{profileInfo.profileName}}</h4>
+            <p>{{staticValues.p}}</p>
+          </div>
+        </div>
+        <div class="ngRow">
+          <img src="../../../assets/Imges/Footer/FooterIcons/Location.svg" alt="location">
+          <p>{{profileInfo.location}}</p>
+        </div>
+        <div *ngFor="let el of forNgRow" class="ngRow">
+          <img [src]="el.imgLink" [alt]="el.alt">
+          <a href="">{{el.text}}</a>
+        </div>
+      </div>
+      <div class="form">
+        <h1>{{staticValues.req}}</h1>
+        <input *ngFor="let inp of inputs" [type]="inp.type" [placeholder]="inp.placeholder" [formControlName]="inp.formControlName">
+        <textarea class="resizable-textarea" name="Description" id="Description" placeholder="{{staticValues.textArea}}" formControlName="shetyobinebis_teqsti" e="text"></textarea>
+        <button type="submit" (click)="onSubmit()" name="gagzavna">{{staticValues.submit}}</button>
+        <span class="error" *ngIf="infoSent[0].bol">{{infoSent[0].message}}</span>
+        <span class="succses" *ngIf="infoSent[1].bol">{{infoSent[1].message}}</span>
+      </div>
+    </form>
+  </div>
+  

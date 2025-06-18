@@ -1,0 +1,61 @@
+@use '../../../../styles.scss' as *;
+
+
+.table{
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+@include flex-container(column, center, start, 1px);
+    
+    .row{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);     
+    
+        width: 100%;
+
+        padding: 6px;
+        padding-left: 10px;
+        gap: 2px;
+        
+        p{
+       @include flex-container(column, center, start, 0px);
+       font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+
+            
+        }
+        h4{
+            margin-bottom: 0;
+            border: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        img{
+            cursor: pointer;
+        }
+    }
+    .B{
+        background-color: #F2F2F2;
+        border-top:1px solid #E5E5E5;
+        border-bottom:1px solid #E5E5E5 ;
+    }
+    .W{
+          background-color: white;   
+    }
+}
+@media screen and (max-width: 770px){
+    .table{
+        .row{
+          p{
+            font-size: 9px;
+            text-align: center;
+          }
+          h4{
+            font-size: 10px;
+          }
+        }
+    }
+    
+}

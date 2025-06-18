@@ -1,0 +1,10 @@
+<main>
+    <h2>{{near}}</h2>
+
+    <div class="Section" *ngFor="let el of info">
+        <h5 *ngIf="el.data.lenght>=0" ngClass="{{el.class}}" ><img src="{{el.imgLink}}" alt="icon"> <span>{{el.headerName}}</span></h5>
+        <div class="row" *ngFor="let row of el.data "><div class="left"><h4>{{row.name}}</h4><span>({{row.distance}})</span></div>
+     
+     </div>
+    </div>
+</main>

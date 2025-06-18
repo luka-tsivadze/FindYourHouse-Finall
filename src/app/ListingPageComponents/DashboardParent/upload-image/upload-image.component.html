@@ -1,0 +1,13 @@
+<main>
+  <label for="File" class="FileInp">{{Elements.Header}}</label>
+    <form [formGroup]="Form" (submit)="submit()">
+        <input type="file" style="display: none;" id="File" (change)="onFileSelected($event)">
+        <span class="green" *ngIf="UserMessage.fileSelected" [ngClass]="{'green':!UserMessage.error,'red':UserMessage.error}" >{{UserMessage.text}}</span>
+        
+        <div class="imgRow">
+          <img src='{{imgUrl.url}}' *ngIf="imgUrl.showImg" alt="profileImg">
+        </div>
+
+        <button type="submit"  *ngIf="UserMessage.fileSelected">{{Elements.submit}}</button>
+      </form>
+</main>

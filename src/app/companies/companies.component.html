@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<main>
+    <header>
+        <h1>Companies</h1>
+        <p>Explore the companies that are part of our network.</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for companies..." />
+            <button>Search</button>
+        </div>
+    </header>
+
+    <section>
+        <div class="company-card" *ngFor="let company of cards">
+             <div class="left">
+                 <img  class="companyImg" [src]="company.imgLink" alt="Company Logo" />
+<div class="flex-Col">
+    <div class="middle">
+        <h2>{{company.header}}</h2>
+        <p>{{company.content}}</p>
+    </div>
+    <div class="row"><button>{{company.amount}} განცხადება</button> <button><img src="../../assets/Imges/StaticImg/StaticIcons/telephone-fill.svg" alt="phone Icon"> {{company.number}}</button> <button><img src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="Location"> {{company.location}}</button></div>
+</div>
+                
+                </div>
+                <div class="right">
+
+                    <button>View Details</button>
+                </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,190 @@
+<div class="FormParent"  >
+    <form class="form1" [formGroup]="listingForm" >
+        <h3 class="header">{{allForms.form1info.HeaderName1}}</h3>
+
+        <div class="text">
+
+            <div class="LabledInputs"  >
+                <label for="title">{{allForms.form1info.firstTitle}}</label>
+                <input type="text" name="title" class="title" id="satauri" placeholder="{{allForms.form1info.firstplaceHolder}}"  formControlName="satauri">
+            </div>
+            <img src="" alt="">
+            <div class="LabledInputs">
+                <label for="mokle_agwera">{{allForms.form1info.secondTitle}}</label>
+                <textarea class="resizable-textarea" type="text" name="Description" id="mokle_agwera" placeholder="{{allForms.form1info.secondplaceHolder}}"  formControlName="mokle_agwera"></textarea>
+                </div>
+                <div class="selectRow">
+                    <!-- <select  id="tipi" (change)="checkForLand()" formControlName="tipi"><option value="" disabled selected hidden><img src="../../../assets/Imges/StaticImg/StaticIcons/icons8-home-16.png" alt="..">{{allForms.form1info.secondselectName}}</option> 
+                        <option *ngFor="let opt of allForms.form1info.secondselect let i =index" value="{{allForms.form1info.secondselectValues[i]}}">{{opt}}</option></select> 
+                     -->
+                        <!-- custome Slider -->
+                           <div class="CustomeSelect" id="tipi" >
+            <div class="chosenselect" (click)="toggleDropdown()"><img [src]=SelectedOption.Icon alt="icon"> <span>{{SelectedOption.name}}</span>  <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt=""></div>
+  
+        <div class="show" [ngClass]="{'options': showOptions}">
+        <div class="option" *ngFor="let opt of allForms.form1info.secondselect let i =index" (click)="selected(opt , i , 1)"><img src="{{selectIcons[i]}}" alt="">{{opt}}</div>
+        </div>
+  
+    </div> 
+
+
+
+                        <select   id="garigebis_tipi"   formControlName="garigebis_tipi"> 
+                              <option value="" disabled selected hidden>{{allForms.form1info.firstselectName}}</option> 
+                             <option *ngFor="let el of allForms.form1info.firstselect let i =index" value="{{ allForms.form1info.firstselectValues[i]}}">{{el}}</option></select> 
+               
+                    <select  id="otaxebis_raodenoba" *ngIf="!LandIsSelected"  formControlName="otaxebis_raodenoba"><option value="" disabled selected hidden>{{allForms.form1info.thirdselectName}}</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                    </select>
+                 </div>
+                 <div class="row">
+                     
+                     <div class="LabledInputs">
+                         <label for="fasi">{{allForms.form1info.thirdTitle}}</label>
+                         <div class="row0">
+                             <input type="number"  formControlName="fasi" name="fasi" id="fasi" 
+                         
+                             >
+                            <select name="Currency"  formControlName="fasis_valuta" id="Currency">
+                                <option value="₾" selected>₾</option>
+                                <option value="$">$</option>
+                                <option value="€">€</option>
+                            </select>
+                         </div>
+                         
+                        </div>
+                        <div class="LabledInputs">
+                            <label for="fartobi">{{allForms.form1info.fourthTitle}}</label>
+                            <div class="row0">
+                            <input type="number"  formControlName="fartobi" name="fartobi" id="fartobi"    
+                            > 
+                            <select name="select" > 
+                                <option value="" selected>{{unit}}</option>
+                            </select>    
+                        </div>
+                        </div>
+                    </div>
+        </div>
+    
+    </form>
+    <form class="form2" [formGroup]="listingForm">
+        <h3 class="header">{{allForms.form1info.HeaderName2}}</h3>
+<span class="headerspan" *ngIf='imgRowlink.length>=7'>you can't upload more than 7 img </span>
+
+ 
+        <input  type="file" multiple accept="image/*"name="fotoebi" id="fotoebi" (change)="onFileChange($event, 'image' )"   accept="image/*"  >   
+        <label for="fotoebi" *ngIf="index==0" ><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop pictures To Upload</p></label>
+        <div class="imgrow"  *ngIf="index>0">  <div class="img"  *ngFor="let img of imgRowlink let i=index"  ><img class="uploadedimg" src="{{img}}"alt=""><div class="removeatr" (click)="imgremover(i , false)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""> </div> 
+         <div class="chooseMain" *ngIf="i>0" (click)="mainimg(i)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/check.svg" alt=""></div> </div>  <label class="square" for="fotoebi"  [ngClass]="{'disabled': imgRowlink.length>=7}"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+ - white.svg" alt="">  </label></div>
+
+
+</form>
+
+<form class="form2" [formGroup]="listingForm">
+    <h3 class="header">{{allForms.form1info.HeaderName3}}</h3>
+ 
+        <input type="file" id="file2" (change)="onFileChange($event, 'video')"   accept="Video/*"  >
+        <label for="file2" *ngIf="!videoRowlink" class="vid"><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop Video Files To Upload</p></label>
+   
+        <div class="VideoRow "  *ngIf="videoRowlink" >  <label class="before"  for="file2" ></label> 
+        <video class="video" controls muted [src]="videoRowlink"  alt="property video"></video> 
+        <label class="after" (click)="remover()" ></label>
+    </div>
+            
+</form>
+
+<form class="form2" [formGroup]="listingForm">
+    <h3 class="header">{{allForms.form1info.HeaderName4}}</h3>
+
+    <input type="file" id="Floor" (change)="onFileChange($event, 'image1' )"  accept="image/*"  >   
+    <label for="Floor" class="vid"  *ngIf="!binisNaxazi" ><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop picture To Upload</p></label>
+    <div class="center"  *ngIf="binisNaxazi" ><img  src="{{binisNaxazi}}" alt="">       <label for="Floor" class="change"><img src="../../../assets/Imges/StaticImg/StaticIcons/pencil.svg" alt="pencil"> </label>
+     </div>
+
+</form>
+
+   
+    <form class="form3" [formGroup]="listingForm">
+        <h3 class="header">{{allForms.form1info.HeaderName5}}</h3>
+       
+            <div class="text">
+ <div class="flexWrap">
+    <div class="LabledInputs">
+        <label for={{city.input.formControlName}}>{{city.input.HeaderName}}</label>
+        <select name="City" id="{{city.input.formControlName}}" formControlName="{{city.input.formControlName}}" >
+            <option value="" disabled selected hidden>{{city.input.placeHolder}}</option>
+            <option *ngFor="let option of city.options.optDis let i=index" value="{{city.options.optValue[i]}}">{{option}}</option>
+          
+        </select>
+    </div>
+                <div class="LabledInputs" *ngFor="let element of allForms.form3Info">
+                    <label for={{element.formControlName}}>{{element.HeaderName}}</label>
+                    <input type="{{element.type}}" formControlName="{{element.formControlName}}" name={{element.formControlName}} id={{element.formControlName}} placeholder={{element.placeHolder}}>
+                </div>
+           
+            </div>
+         </div>
+       
+    </form>
+    <form class="form4" [formGroup]="listingForm">
+        <h3 class="header">{{allForms.form1info.HeaderName6}}</h3>
+        <div class="text">
+            <div class="selectRow">
+<ng-container *ngIf="!LandIsSelected">
+<select  *ngFor="let form4 of  allForms.form4Info" id={{form4.formControlName}} formControlName="{{form4.formControlName}}"  ><option value="" disabled selected hidden>{{form4.firstOption}}</option>
+    <option *ngFor="let option of form4.options let i=index" value="{{form4.optionsValues[i]}}">{{option}}</option>
+</select>
+</ng-container>
+            </div>
+             <h3 >{{NearByTranslate.Header}}</h3>
+            <div class="educationCol" *ngFor="let prop of NearbyProperties let i =index">
+        
+               <label > {{NearByTranslate.sections[i]}} </label>
+               <div class="row">  
+                 <div class="input" *ngFor="let inp of prop.inputs">
+                     <input [formControlName]="inp.placeController" type="text" class="Place" placeholder="{{NearByTranslate.placeholder}}">
+                     <div  class="DistanceRow">
+                         <input class="Distance" type="number"  placeholder="{{NearByTranslate.placeholderDist}}" >
+                            
+
+                         <select name="unit" class="NearbySelect" >
+                             <option *ngFor="let el of NearByTranslate.units let i=index" value="{{el}}">{{NearByTranslate.unitstr[i]}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                        </div>
+              <div class="buttonPlace">
+                  <button type="button" (click)="addInput(prop.inputs , i)">+</button>
+                  <span class="error" *ngIf="nearbyError[i].bol">{{nearbyError[i].message}}</span>
+              </div> 
+            </div>
+        </div>
+    </form>
+    <form class="form5" [formGroup]="listingForm" *ngIf="!LandIsSelected">
+        <h3 class="header">{{allForms.form1info.HeaderName7}}</h3>
+        <div class="text">
+
+            <div class="flexWrap">
+                <div class="row" *ngFor="let el of allForms.form5Info"><input type="checkbox" formControlName="{{el.formControlName}}" id="{{el.formControlName}}" name="{{el.formControlName}}">
+                     <label for="{{el.formControlName}}">{{el.text}}</label></div>
+            </div>
+        </div>
+        
+    </form>
+    <form class="form6 form3" [formGroup]="listingForm">
+        <h3 class="header">{{allForms.form1info.HeaderName8}}</h3>
+             
+        <div class="text">
+            <div class="flexWrap" [style.color]>
+                           <div class="LabledInputs" *ngFor="let element of allForms.form6Info">
+                               <label for={{element.formControlName}}>{{element.HeaderName}}</label>
+                               <input type="text" formControlName="{{element.formControlName}}"  name={{element.formControlName}} id={{element.formControlName}} placeholder={{element.placeHolder}}>
+                           </div>
+                        
+                       </div>
+                    </div>
+                    <button type="submit" (click)="onSubmit()">{{allForms.form1info.submit}}</button> 
+                    <div class="sendingAn"*ngIf="SendingAnimation" ><img src="../../../assets/Imges/PreLoading/preloader.gif" alt=""> <div class="loading">Uploading..</div></div>
+    </form>
+</div><app-loader *ngIf=" isLoadingFiles == true &&  calledFromEdit==true"></app-loader>

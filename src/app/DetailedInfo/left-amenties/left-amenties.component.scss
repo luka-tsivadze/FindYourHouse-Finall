@@ -1,0 +1,128 @@
+@mixin flex-container($direction:row, $justify:center ,$align:center , $gap: 1rem){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+
+}
+$primary-color: #FF385C; 
+main{
+ 
+.propertyDetails{
+    width: 100%;
+
+       
+          h5{
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 600;
+          }
+        p{
+            font-family: 'Lato', sans-serif;
+            color: #666;
+            font-size: 0.9rem
+        }
+    
+
+}
+.Amenties{
+    width: 100%;
+    .mainRow{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+
+.mainRow{
+    margin-top: 30px;
+    width: 100%;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap:1rem 0.8rem;
+.el{
+    @include flex-container(row, start, center, 6px);
+}
+}
+
+   
+
+    input[type="checkbox"] {
+        width: 17px ;
+        height: 17px;
+        border-radius: 6px;
+        float: left;
+        pointer-events: none;
+    }
+    
+    input:checked[type="checkbox"] {
+        accent-color: $primary-color !important;
+    }
+}
+@media screen and (max-width: 768px){
+    main{
+
+        .mainRow{
+            
+            .el{
+                gap: 3px;
+                h5{
+                    font-size: 0.75rem;
+                }
+                p{
+                    font-size: 0.75rem;  
+                }
+            }
+        }
+        
+    }
+
+    
+}
+
+@media screen and (max-width: 576px){
+    main{
+
+        .mainRow{
+            grid-template-columns: repeat(2, 1fr); 
+            .el{
+                gap: 3px;
+                h5{
+                    font-size: 0.7rem;
+                }
+                p{
+                    font-size: 0.7rem;  
+                }
+            }
+        }
+        .Amenties{
+            .mainRow{
+                grid-template-columns: repeat(3, 1fr); 
+                .el{
+                    input[type="checkbox"] {
+                        width: 13px ;
+                        height: 13px;
+                        border-radius: 6px;
+                        float: left;
+                        pointer-events: none;
+                    }
+                    label{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+ 
+    
+}
+@media screen and (max-width: 460px){
+    main{
+        .Amenties{
+            .mainRow{
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+    }
+}

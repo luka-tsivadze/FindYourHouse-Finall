@@ -1,0 +1,52 @@
+@use '../../../../styles.scss' as *;
+
+
+main{
+ @include flex-container(column,start,center);
+ .FileInp{
+    font-weight: 600;
+    padding: 10px 15px;
+    @include flex-container(row,center, center);
+    
+    color: #fff;
+    background-color: #FF385C;
+    border-radius: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+}
+form{
+    @include flex-container(column,center,center);
+    gap: 15px;
+    
+    img{
+        border-radius: 50%;
+        width: 185px;
+        height: 185px;
+        border: 4px solid hsl(240, 8%, 20%);
+    }
+    
+   
+    button{
+        cursor: pointer;
+        color: #fff;
+        background-color: #007bff;
+    
+        border: unset;
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+     }
+    .green{
+        color: green;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .red{
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+}
