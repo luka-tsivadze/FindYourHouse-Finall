@@ -48,6 +48,10 @@
         opacity: 0;
     }
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .displayNone{
 
     animation: opacitiesOFF 0.2s forwards;
@@ -154,6 +158,57 @@
             }
         
       }
+              .fb{
+                width: 100%;
+            background-color: #3b5998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            transition: background 0.2s;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+            img {
+                margin-right: 8px;
+                width: 22px;
+                height: 22px;
+            }
+            &:hover {
+                background-color: #2d4373;
+            }
+        }
+        .BtnA{
+            width: 80%;
+        }
+        .tw{
+            width: 100%;
+                    
+            background-color: #db4437;
+                        display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            transition: background 0.2s;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+            img {
+                filter: invert(1);
+                margin-right: 8px;
+                width: 22px;
+                height: 22px;
+            }
+            &:hover {
+         background-color: #b83b2f;
+            }
+        }
       .LogIn{
         padding:20px 35px;
         display: flex;
@@ -195,12 +250,7 @@
           
            
         }
-        .fb{
-            background-color: #3b5998;
-        }
-        .tw{
-            background-color: #55acee;
-        }
+
 
       }
       main{

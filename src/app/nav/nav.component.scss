@@ -115,6 +115,11 @@ nav {
           font-size: 16px;
           font-weight: 500;
         }
+        img {
+          width: 20px;
+          height: 20px;
+       
+        }
       }
       .subMenu {
         transform: translate3d(0, 15px, 0);
@@ -124,14 +129,16 @@ nav {
         flex-direction: column;
         opacity: 0;
         animation: fadeIn3 0.5s forwards ease-in;
-        width: 110%;
+        width: 140%;
+        border: 1px solid #e4e4e4;
         align-items: center;
         justify-content: center;
         border-radius: 5px;
         gap: 5px;
         background-color: white;
         top: -300px;
-        padding: 5px 0;
+        left: -25px;
+        padding:5px 0;
 
         a {
           text-decoration: unset;
@@ -144,6 +151,33 @@ nav {
           gap: 7px;
           cursor: pointer;
           padding: 6px;
+      
+          .custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff385c;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &.checked {
+    background-color: #ff385c;
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
           img{
             width: 20px;
             height: 20px;
@@ -164,16 +198,7 @@ nav {
           padding: 5px 0;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
         }
-        .chosenCur{
-            width: 100%;
-            text-align: center;
 
-   
-            border-radius: 4px;
-            box-shadow: 0 2px 8px 0 rgba(255, 56, 92, 0.15);
-       
-            border: 1px solid #ff385c;
-        }
       }
     }
 
@@ -184,7 +209,7 @@ nav {
         display: flex;
         transition: opacity 0.25s, transform 0.25s;
         transform: translate3d(0, 0, 0);
-        top: 100%;
+        top: 105%;
       }
     }
     .borders {

@@ -1,11 +1,11 @@
 <div class="firstRow">
- <div class="row"> <h2>{{data.header}}<button>{{data.For}}</button></h2>   <span>{{data.price}}</span> </div>
+ <div class="row"> <h2>{{data.header}}<button>{{data.For}}</button></h2>   <span>{{data.price | number:'1.0-0' }} {{data.currency}} </span> </div>
 <div class="row"><div class="leftPart"><p><img src="../../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="locationIcon">{{data.qalaqi}} / {{data.location}}</p> <button class="views">({{viewsCount}}) ნახვა</button></div> 
  <h4>{{priceForM}}  /{{unit}}</h4>  </div>
 
 </div>
 <main>
-    <h2>{{staticH2}}</h2>
+   <div class="row"> <h2>{{staticH2}}</h2>     <button class="Fav" (click)="saveToFav()"><img class="link" [src]="heartimgLinks" alt="Heart"></button> </div>
 <img class="mainImg" src="{{mainImg}}" alt="">
 <div class="btn-row"><div class="shade"><button (click)="decriment()"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg"   alt=""></button></div><div class="shade"><button (click)="incriment()"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button></div> </div>
 <div class="container">

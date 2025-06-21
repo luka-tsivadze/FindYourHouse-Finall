@@ -7,7 +7,7 @@
        <div class="img-container">
            <div class="card" *ngFor="let el of cardData let i=index"  [style.transform]="'translateX(-' + transformIndex + 'px)'">
                <img src={{el.img}} alt="img">
-               <div class="row"><span class="green">{{el.price}}</span> <span  Class='red'>{{el.For}}</span></div>
+               <div class="row"><span class="green">{{el.price  | number:'1.0-0' }} {{el.currency}}</span> <span  Class='red'>{{el.For}}</span></div>
                <h4 (click)="routertodetailedInfo(el.id)" ><span>{{el.type}}</span> <span>{{el.locationCity}}</span></h4>
                <div class="hovered">
                 <div class="col"><span>{{staticvalues.area}}</span><p>{{el.area}} sq/m</p></div>

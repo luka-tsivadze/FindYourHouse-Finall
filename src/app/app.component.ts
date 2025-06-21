@@ -20,6 +20,7 @@ export class AppComponent implements AfterViewInit {
 
   }
   ngOnInit(): void {
+
     this.appService.loading$.subscribe(loading => {
       this.loaded = loading;
     });

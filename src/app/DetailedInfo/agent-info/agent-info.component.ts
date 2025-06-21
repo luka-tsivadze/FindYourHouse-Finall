@@ -60,7 +60,7 @@ chosenCard;
     this.propService.chosenCard.subscribe((card) => {
       this.chosenCard = card;
     this.profileInfo = this.chosenCard;
-    console.log(this.profileInfo);
+
     })
     this.forNgRow[0].text = this.profileInfo.Nomeri;
     this.forNgRow[1].text = this.profileInfo.email;
@@ -91,7 +91,7 @@ chosenCard;
       return;
     }
     this.profileForm.get('adresatis_idi').setValue(this.profileInfo.momxmareblis_id);
-    console.log(this.profileForm.value , this.profileForm.valid);
+
     this.propService.SendUserMessage(this.profileForm.value).subscribe((data)=>{
    
       if(data !== null && data){

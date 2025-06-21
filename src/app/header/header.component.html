@@ -53,17 +53,17 @@
                     <option *ngFor="let el of allcardsData.FirstFilter.locations let i=index" [value]="el">{{allcardsData.FirstFilter.locationDis[i]}}</option>
                   </select>
                 </div>
-              
+               
                 <button class="advanceS" type="button" (click)="advanced()">
                   <h5>{{staticElements.Advanced}}</h5>
                   <img src="../../assets/Imges/Header/burgerBar.png" alt="three dots" />
                 </button>
                 <button class="submit"  type="submit">{{staticElements.Search}}</button>
-              
+                
               </form>
               
             </div>
-            <app-filter-advenced [ngClass]="{'dNone':!advenced}"></app-filter-advenced>
+            <app-filter-advenced [ngClass]="{'dNone':!this.dataService.advanced()}"></app-filter-advenced>
     </div>
 <div class="popularPlaces"  >
     <h1 [ngClass]="{'fadeIn':scrollY>110}">{{popularPropStatic.Header}}</h1>
@@ -115,7 +115,34 @@
                 <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt=""><p>{{info.garages}} {{FeaturePS.Garage}}</p></div>
             </div>
             <div class="CardFooterRow">
-                <h1>{{info.price}}</h1> <div class="iconRow"><img src="../../assets/Imges/Header/CardImges/icons/arrow-left-right.svg" alt=""><img src="../../assets/Imges/Header/CardImges/icons/share.svg" alt="">
+      <h1>
+  {{ info.currency }}{{ info.price | number:'1.0-0' }}
+</h1>
+
+ <div class="iconRow">
+                  
+
+                  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency) ">
+  <button
+    class="toggle-option"
+    [class.active]="info.currency === '₾'"
+ 
+  >
+    ₾ 
+  </button>
+  <button
+    class="toggle-option"
+    [class.active]="info.currency === '$'"
+
+  >
+    $
+  </button>
+  <div class="indicator" [class.right]="info.currency === '$'"></div>
+</div>
+
+
+
+<img src="../../assets/Imges/Header/CardImges/icons/share.svg" alt="">
                   <img class="heart" [src]="heartimgLinks[i]" alt=""  (click)="saveToFav(i , info)"></div>
             </div>
             </div>

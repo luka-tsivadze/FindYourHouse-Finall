@@ -32,12 +32,14 @@ export class FeaturedPRComponent  implements OnInit {
         this.cardData = this.featuredProp.featuredProp;
         return;
       }
-
+ 
       this.cardData = data.map((item) => {
         return {
           img: item.imgLink,
           type: item.header,
-          price: item.price,
+          price:  Number((item.price || '').toString().replace(/[^\d]/g, '')),
+          basePrice:  Number((item.basePrice || '').toString().replace(/[^\d]/g, '')),
+          currency: item.currency,
           For: item.For,
           locationCity: item.qalaqi,
           area: item.area,

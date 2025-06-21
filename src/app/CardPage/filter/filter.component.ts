@@ -20,13 +20,25 @@ Fortypes=this.mainPageData.staticData.staticElements.status;
 for=this.mainPageData.For;
   maxArea;
 maxPeice;
-  activeEl='Top Selling';
-  advenced=false;
+advenced=false;
 filterForm: FormGroup;
-sortingOptions = [{name:'Top Selling',state:true},
+
+translated={
+  SortBy:'SORTBY:',
+  activeEl:'Top Selling',
+sortingOptions : [{name:'Top Selling',state:true},
   {name:'Most Viewed',state:false},
   {name:'Price: Low to High',state:false}
-  ,{name:'price: Hight to Low ',state:false}];
+  ,{name:'price: Hight to Low ',state:false}],
+results:'search resoults',
+view:'Grid View',
+list:'List View',
+home:'Home',
+ homeL:'/Listings'
+
+  
+}
+
 options=false  
 
 private resizeObserver: ResizeObserver;
@@ -54,12 +66,12 @@ this.options=!this.options;
 }
 chosenOption(option){
 
-  this.sortingOptions.forEach(element => {
+  this.translated.sortingOptions.forEach(element => {
     element.state=false;
   });
   option.state=true;
   this.options=false;
-    this.activeEl=option.name;
+    this.translated.activeEl=option.name;
 }
 advanced(){
   this.advenced=!this.advenced;

@@ -162,9 +162,9 @@
                 </div>
                 </div>
             </div></li> -->
-            <li routerLink="/Companies">
-                <p>{{staticElements.companies}}</p>
-            </li>
+        <li routerLink="/Companies">
+            <p>{{staticElements.companies}}</p>
+        </li>
         <li class="contact" routerLink="/contact">
             <p>{{staticElements.Contact}}</p>
         </li>
@@ -172,18 +172,25 @@
 
     </ul>
     <ul>
-        <li class="row Languages" >
+        <li class="row Languages">
             <div class="onClick" (click)="displayLanguages()"><img class="Globe" src="{{GlobeLink}}" alt="">
-                <p>{{chosenLang}}, {{chosenCurr.icon}}</p>
+                <p>{{chosenLang}} {{chosenCurr.icon}}</p>
                 <img class="bottomArrow" src="../../assets/Imges/NavImg/arrow-bottom-4.png" alt="">
             </div>
             <div class="subMenu">
-                <a *ngFor="let lang of navLang let i=index"    [class.chosenCur]="lang == chosenLang" (click)="chosenLanguage(i)"><img [src]="LangIcons[i]" alt=""> {{lang}}</a>
+                <a *ngFor="let lang of navLang let i=index" [class.chosenCur]="lang == chosenLang"
+                    (click)="chosenLanguage(i)">
+                    <div class="custom-radio" [class.checked]="lang === chosenLang" (click)="chosenLang = lang"></div>
+
+                    <img [src]="LangIcons[i]" alt=""> {{lang}}
+                </a>
                 <h4>{{cur}}</h4>
-                <a *ngFor="let currency of navCurrency let i=index"
-                    (click)="chosenCurrency(i)"
+                <a *ngFor="let currency of navCurrency let i=index" (click)="chosenCurrency(i)"
                     [class.chosenCur]="currency.label == chosenCurr.label">
+                    <div class="custom-radio" [class.checked]="currency.label === chosenCurr.label"
+                        ></div>
                     {{currency.label + '-' + currency.icon}}
+
                 </a>
             </div>
 

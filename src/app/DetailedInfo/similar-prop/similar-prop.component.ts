@@ -65,6 +65,7 @@ this.Infoservice.chosenCard
         area: element.fartobi,
         garages: 1,
         price: element.fasi,
+        currency: element.fasis_valuta,
         profileName: element.momxmareblis_saxeli,
         uploadmonth: dayDifference ,
         id: element.idi,

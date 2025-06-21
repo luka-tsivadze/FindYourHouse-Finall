@@ -71,7 +71,7 @@ private navService:NavInfoService ,
      // e.g. this.cardsService.fetchSimilar(cardId),
         favData: this.cardsService.fetFavchData(this.navService.userId)
       }).subscribe(({ favData }) => {
-
+          console.log('ListingCards:', cards);
         this.data = cards.map((element) => {
           return {
             featuredBtn: true,
@@ -84,7 +84,8 @@ private navService:NavInfoService ,
             bathrooms: element.bathrooms,
             area: element.area,
             garages: 1,
-            price: element.price,
+            price: Number((element.price || '').toString().replace(/[^\d]/g, ''))|| 0,
+            currency: element.currency,
             profileName: element.profileName,
             uploadmonth: element.uploadmonth,
             id: element.id,

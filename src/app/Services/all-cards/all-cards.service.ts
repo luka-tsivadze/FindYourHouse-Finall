@@ -77,6 +77,7 @@ export class AllCardsService  {
    submit$ = this.submitSubject.asObservable();
    localStorage;
    chosenLang;
+   
    triggerSubmit() {
      this.submitSubject.next(); 
         }
@@ -174,8 +175,10 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
               imgLink: firstimg,
               id: item.idi,
               UserId: item.amtvirtvelis_idi,
-              price: item.fasi + item.fasis_valuta,
+              price: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
+              currency:item.fasis_valuta,
               header: item.satauri,
+              
               location: item.misamarti,
               bedrooms: item.sadzinebeli,
               bathrooms: item.sveli_wertilebis_raodenoba,
@@ -234,6 +237,7 @@ fetFavchData(id: number ,bool?:boolean): Observable<any[]> {
 
   return this.cachedFavCards$;
 }
+
 
 
 

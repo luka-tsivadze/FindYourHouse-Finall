@@ -1,7 +1,7 @@
 <main>
  <div class="topSide">
-     <h4><span>Home</span>/Listings</h4>
-     <h2>Grid View</h2>
+     <h4><span>{{translated.home}}</span>{{translated.homeL}}</h4>
+     <h2>{{translated.view}}</h2>
  </div>
     <div class="HeaderSearch">
         <form  [formGroup]="filterForm">
@@ -92,13 +92,13 @@
     </div>
 
    <div class="bottomLine">
-    <h4>{{length}} search resoult</h4>
-    <div class="Sorting"><img src="../../../assets/Imges/StaticImg/StaticIcons/align-left-solid.svg" alt="icon"><h3>SORTBY:</h3>
+    <h4>{{length}} {{translated.results}}</h4>
+    <div class="Sorting"><img src="../../../assets/Imges/StaticImg/StaticIcons/align-left-solid.svg" alt="icon"><h3>{{translated.SortBy}}</h3>
         <div class="options" *ngIf="options" >
-   <h3  [ngClass]="{'active':el.state}" (click)='chosenOption(el)'  *ngFor="let el of sortingOptions">{{el.name}}</h3>
+   <h3  [ngClass]="{'active':el.state}" (click)='chosenOption(el)'  *ngFor="let el of translated.sortingOptions">{{el.name}}</h3>
    
         </div>
-        <div class="sorter" > <div class="sP" (click)="showOptions()"> <p>{{activeEl}}</p> <img  [ngClass]="{'rotate':this.options}"  src="../../../assets/Imges/NavImg/downArrow-removebg-preview.png" alt=""></div>
+        <div class="sorter" > <div class="sP" (click)="showOptions()"> <p>{{translated.activeEl}}</p> <img  [ngClass]="{'rotate':this.options}"  src="../../../assets/Imges/NavImg/downArrow-removebg-preview.png" alt=""></div>
                   <button (click)="list()" [ngClass]="{'activeimg': !activeimg }" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg" alt=""></button>
                    <button (click)="grid()" [ngClass]="{'activeimg': activeimg }"  ><img  src="../../../assets/Imges/StaticImg/StaticIcons/table-cells-large-solid.svg" alt=""></button>    </div>
     </div>

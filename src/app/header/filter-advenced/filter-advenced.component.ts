@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AllCardsService } from '../../Services/all-cards/all-cards.service';
 import { max, Subscription } from 'rxjs';
 import { FilterDataUniterService } from '../../Services/filter-data-uniter/filter-data-uniter.service';
+import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 
 @Component({
   selector: 'app-filter-advenced',
@@ -13,7 +14,7 @@ export class FilterAdvencedComponent {
   selectedValues: { [key: string]: any } = {}; // For select inputs
   checkboxStates: { [key: string]: boolean } = {}; // For checkboxes
   
-  constructor(private cardDataServ: AllCardsService , private uniter:FilterDataUniterService) {
+  constructor(private cardDataServ: AllCardsService , private uniter:FilterDataUniterService , private dataService: MainPageDataService) {
     this.updateTrackColor_1();
     this.updateTrackColor_2();
 
@@ -118,6 +119,9 @@ ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }
+    advanced(){
+this.dataService.toggleAdvanced();
+    }
  // First wrapper slider methods
  slideOne_1(event: Event) {
    const target = event.target as HTMLInputElement;

@@ -5,10 +5,13 @@
         <div class="Top"><p>Welcome To <span class="find">Find</span><span class="houses">Houses</span></p> <div class="X" (click)="makeDisplayFlse()"><img src="../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""></div></div>
   
 
-            <!--  
-            <a class="fb"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt=""> <p>Log in with Facebook</p></a>
-            <a class="tw"><img src="../../assets/Imges/StaticImg/StaticIcons/instagram.svg" alt=""> <p> Log in with Instagram</p></a>
-            <span>Or</span> -->
+                      <a class="BtnA" href="https://findhouse.ge/facebook-login.php ">
+            <button class="fb"><a href=""><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt=""></a> <p>Log in with Facebook</p></button>
+            </a>
+           <a class="BtnA" href="https://findhouse.ge/google-login.php">
+               <button   class="tw"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-google-16 (3).png" alt=""><p> Log in with Google</p> </button>
+           </a>
+            <span>Or</span>
                 <div class="succes" *ngIf="Registration.confirmation.show">{{Registration.confirmation.text}}</div>
  
         <main>

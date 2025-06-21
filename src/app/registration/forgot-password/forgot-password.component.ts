@@ -13,6 +13,7 @@ export class ForgotPasswordComponent {
   email: string = '';
   showSuc: boolean = false;
   showError: boolean = false;
+  passwords: boolean = true;
   forgotPassword={
     
     title: 'Reset Your Password',
@@ -67,7 +68,7 @@ export class ForgotPasswordComponent {
 
         this.reg.PasswordCode(this.Code, this.email).subscribe({
           next: (response) => {
-            
+            console.log('Code sent successfully:', response);
             this.Pages = 'Code';
           },
           error: (error) => {

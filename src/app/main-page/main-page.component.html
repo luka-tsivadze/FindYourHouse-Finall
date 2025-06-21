@@ -53,7 +53,7 @@
                 <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt=""><p>{{info.garages}} {{Languages.featuredPropertiesStatic.Garage}}</p></div>
             </div>
             <div class="CardFooterRow">
-                <h1>{{info.price}}</h1> <div class="iconRow"><img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
+                <h1>{{info.price | number:'1.0-0' }}{{info.currency}}  </h1> <div class="iconRow"><img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
             </div>
             </div>
         </div>

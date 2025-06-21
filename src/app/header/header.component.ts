@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, NgZone, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, ElementRef, HostListener, Inject, NgZone, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MainPageDataService } from '../Services/mainPageService/main-page-data.service';
 
 
@@ -11,7 +11,8 @@ import { NavInfoService } from '../Services/NavService/nav-info.service';
 import { FilterDataUniterService } from '../Services/filter-data-uniter/filter-data-uniter.service';
 import { PropertyInformationService } from '../Services/Property-info/property-information.service';
 import { RegistrationService } from '../Services/registration/registration.service';
-import { BehaviorSubject } from 'rxjs';
+import { CurrencyService } from '../Services/currency/currency.service';
+
 
 
 
@@ -51,6 +52,9 @@ allProperties: any[]; // Stores full dataset
 allcardsData=this.allcard;
 index=0;
 heartIndex;
+
+CurrencyTo;
+
 filterForm = this.fb.group({
   Propselect: ['0'], // Default value: none selected
   locselect: ['0'], // Default value: none selected
@@ -60,9 +64,15 @@ filterForm = this.fb.group({
     constructor(@Inject(PLATFORM_ID) private platformId: Object,private navserv:NavInfoService, 
     private http:HttpClient ,private Propinfo:PropertyInformationService ,private router:Router ,private fb: FormBuilder , private cd: ChangeDetectorRef 
    ,private uniter:FilterDataUniterService , private Registration:RegistrationService 
-    ,private allcard:AllCardsService, private dataService: MainPageDataService )
+    ,private allcard:AllCardsService, public dataService: MainPageDataService , private CurrencyServ:CurrencyService)
      {
+           effect(() => {
+    this.advenced = this.dataService.advanced();
+
+  });
     }
+
+
 
 
     onSubmit() {
@@ -83,19 +93,47 @@ filterForm = this.fb.group({
       
         this.heartedCards = filteredData;
         this.fetchData();
-        },
+        
+     // Initialize with default currency
+  },
         error: (error) => console.error('Error:', error),
    
       });
+
+
       this.dataService.popularPlacesData$.subscribe(data => {
         this.popularPlacesData = data;
     
       });
   
       this.dataService.cityAmount();
-     
-    
+    // Example: subscribing to a signal called `mySignal` (must be defined elsewhere)
+    this.CurrencyServ.fetCurrency().subscribe({
+    next: (data) => {
+  this.CurrencyTo = data;
     }
+  });
+
+
+    }
+
+
+toggleAllCurrencies(targetCurrency: '$' | '₾'): void {
+  this.FeatureProperties.forEach((card, id) => {
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice, this.CurrencyTo);
+      card.curConverted = true;
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+    }
+  });
+  localStorage.setItem(`Currency-`, JSON.stringify(this.FeatureProperties[1].currency)); 
+}
+
       heartimg='../../../assets/Imges/Header/CardImges/icons/heart.svg'
       heartFilled='./../../assets/Imges/StaticImg/StaticIcons/heart-fill - red.svg'
       heartimgLinks=[this.heartimg,this.heartimg,this.heartimg,this.heartimg,this.heartimg,this.heartimg,this.heartimg,this.heartimg]
@@ -182,18 +220,22 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
               featuredBtn: item.featuredBtn,
               imgLink: firstimg,
               gncxdebis_idi: item.idi,
-              price: item.fasi + item.fasis_valuta,
+              price: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
+
               header: item.satauri,
               location: item.misamarti,
               bedrooms: item.sadzinebeli,
               bathrooms: item.sveli_wertilebis_raodenoba,
               area: item.fartobi,
               garages: 0,
+              basePrice: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
+              curConverted:false,
               For: item.garigebis_tipi,
               profileImg: '../../../assets/Imges/StaticImg/CardImges/ts-6.jpg',
               profileName: item.momxmareblis_saxeli,
               alt: item.satauri,
               uploadmonth: 3,
+              currency: item.fasis_valuta,
               momxmreblis_idi: item.amtvirtvelis_idi,
             };
           
@@ -233,7 +275,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
       }
    
     advanced(){
-      this.advenced=!this.advenced;
+this.dataService.toggleAdvanced();
 
     }
      

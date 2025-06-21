@@ -77,7 +77,7 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
     ).subscribe({
       next: (cards: any[]) => {
       this.heartedCards = cards;
-      // this.heartimgLinks = new Array(this.DiscoverPopularPlaces.length).fill(this.heartimg);
+
       this.getMatchingIndexes(this.heartedCards, this.DiscoverPopularPlaces);
       },
       error: (error) => {

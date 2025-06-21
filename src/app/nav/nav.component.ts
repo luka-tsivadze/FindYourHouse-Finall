@@ -21,7 +21,6 @@ export class NavComponent {
   scrollY: number=0
 
 LogoLink='../../assets/Imges/NavImg/NavIcon2.svg';
-GlobeLink='../../assets/Imges/NavImg/thirdImg.png';
 ShowImg=false;
 displayElement=false;
 showLanguages=false;
@@ -31,8 +30,9 @@ navCurrency=[{label:'GEL',icon:'₾'},{label:'USD',icon:'$'}];
 
 cur='currency';
 
+GlobeLink=this.LangIcons[2];
 chosenLang='GEO';
-chosenCurr={label:'GEL',icon:'₾'};
+chosenCurr={label:'',icon:''};
 ProfileSettings;
 NavElements=this.navService.MenuBar;
 IsSignedIn:any;
@@ -68,19 +68,21 @@ showRespNav={bool:false ,iconSrc:'../../assets/Imges/NavImg/list-outline.svg'};
           this.NavElements=this.GeoService.MenuBar;
           
     this.ProfileSettings=this.GeoService.MenuBar.profileSettings;
-
+this.GlobeLink=this.LangIcons[2];
           break;
     
         case 'ENG':
           this.staticElements = this.EngService.NavE;
           this.NavElements=this.EngService.MenuBar;
           this.ProfileSettings=this.EngService.MenuBar.profileSettings;
+          this.GlobeLink=this.LangIcons[0];
           break;
     
         case 'RUS':
           this.staticElements =this.RusService.NavR;
           this.NavElements=this.RusService.MenuBar;
           this.ProfileSettings=this.RusService.MenuBar.profileSettings;
+              this.GlobeLink=this.LangIcons[1];
           break;
     
     
@@ -110,10 +112,10 @@ showRespNav={bool:false ,iconSrc:'../../assets/Imges/NavImg/list-outline.svg'};
 
     if (this.showNav) {
       this.LogoLink = '../../assets/Imges/NavImg/NavIcon2.svg';
-      this.GlobeLink = '../../assets/Imges/NavImg/globeBlack.svg';
+   
     } else {
       this.LogoLink = '../../assets/Imges/NavImg/NavIcon1.svg';
-      this.GlobeLink = '../../assets/Imges/NavImg/thirdImg.png';
+    
     }
 
     if (isPlatformBrowser(this.platformId)) {
@@ -134,14 +136,27 @@ showRespNav={bool:false ,iconSrc:'../../assets/Imges/NavImg/list-outline.svg'};
 
   }else if(this.chosenLang=='ENG'){
 this.staticElements=this.EngService.NavE
+
   }else if(this.chosenLang=='RUS'){
     this.staticElements=this.RusService.NavR
+
   }
 this.showLanguages=false;
 window.location.reload();
 
   }
+  elId;
   chosenCurrency(element){
+    if(this.elId==element || this.chosenCurr.label==this.navCurrency[element].label){
+  
+    localStorage.removeItem('Currency');
+      this.chosenCurr={label:'',icon:''};
+      this.elId=null;
+      return;
+    }
+    this.elId=element;
+    
+
     localStorage.removeItem('Currency');
   this.chosenCurr=this.navCurrency[element];
   localStorage.setItem('Currency', JSON.stringify(this.chosenCurr));
@@ -159,10 +174,10 @@ this.showLanguages=!this.showLanguages;
 
       if(this.scrollY>100 || this.showNav){
         this.LogoLink='../../assets/Imges/NavImg/NavIcon2.svg'
-        this.GlobeLink='../../assets/Imges/NavImg/globeBlack.svg'
+
       }else{
         this.LogoLink='../../assets/Imges/NavImg/NavIcon1.svg'
-        this.GlobeLink='../../assets/Imges/NavImg/thirdImg.png'
+
       }
   }
  

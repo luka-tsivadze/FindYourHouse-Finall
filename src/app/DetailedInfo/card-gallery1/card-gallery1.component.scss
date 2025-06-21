@@ -52,7 +52,32 @@
 }
 }
 main{
+.row{
+    @include flex-container(row, space-between, center, 15px);
+    width: 100%;
+.Fav{
 
+    @include flex-container(row, center, center);
+    color: #fff;
+    box-shadow: none;
+    padding: 0;
+    border: unset;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    line-height: 33px;
+    background: rgba(74, 74, 76, 0.7);
+       cursor: pointer;
+      img {
+              filter: invert(1);
+            }
+            .link {
+              width: 55%;
+           
+             
+            }
+}
+}
 margin-top: 30px;
     .mainImg{
         width: 100%;

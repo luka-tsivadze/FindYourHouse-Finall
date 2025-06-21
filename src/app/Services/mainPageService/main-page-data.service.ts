@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import {  Injectable } from '@angular/core';
+import {  Injectable, signal } from '@angular/core';
 
 import { EngService } from '../Languages/eng/eng.service';
 import { GeoService } from '../Languages/geo/geo.service';
@@ -12,6 +12,11 @@ import { AgentsService } from '../agents/agents.service';
   providedIn: 'root',
 })
 export class MainPageDataService {
+
+
+  
+    advanced = signal<boolean>(false);
+
 
   localStorage
   private popularPlacesSubject = new BehaviorSubject<any>([ {
@@ -87,6 +92,7 @@ export class MainPageDataService {
     bathrooms: number;
     area: number;
     garages: number;
+    currency: string;
     price: string;
   }>=[];
 
@@ -279,7 +285,10 @@ cityCaller=true;
         error: (err) => console.error('Error fetching city data:', err)
       });
     }
-    
+    toggleAdvanced() {
+      this.advanced.update(val => !val);
+    }
+
     
   
     getFeaturedProperties(): Observable<any[]> {
@@ -323,7 +332,9 @@ cityCaller=true;
           featuredBtn: item.featuredBtn,
           imgLink: firstimg,
           gncxdebis_idi: item.idi,
-          price: item.fasi + item.fasis_valuta,
+          price: Number((item.fasi || '').toString().replace(/[^\d]/g, ''))|| 'Price Unavailable',
+          currency: item.fasis_valuta,
+          basePrice:Number((item.fasi || '').toString().replace(/[^\d]/g, ''))|| 'Price Unavailable',
           header: item.satauri,
           location: item.misamarti,
           bedrooms: item.sadzinebeli,
