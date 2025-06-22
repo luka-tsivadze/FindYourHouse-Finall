@@ -93,8 +93,10 @@ export class MainPageDataService {
     area: number;
     garages: number;
     currency: string;
-    price: string;
-  }>=[];
+    price: any; // Changed to number or string
+    basePrice:number ;
+    curConverted:boolean;
+  }>=[ ];
 
   WhyCards = [   //მხოლოდ 4 ელემენტისგან უნდა შედგებოდეს არც მეტი არც ნაკლები
     {
@@ -336,6 +338,7 @@ cityCaller=true;
           currency: item.fasis_valuta,
           basePrice:Number((item.fasi || '').toString().replace(/[^\d]/g, ''))|| 'Price Unavailable',
           header: item.satauri,
+          curConverted:false,
           location: item.misamarti,
           bedrooms: item.sadzinebeli,
           bathrooms: item.sveli_wertilebis_raodenoba,

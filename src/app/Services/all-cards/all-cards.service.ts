@@ -8,6 +8,7 @@ import { GeoService } from '../Languages/geo/geo.service';
 import { RusService } from '../Languages/rus/rus.service';
 import { NavInfoService } from '../NavService/nav-info.service';
 import { ListingServiceService } from '../listing-service/listing-service.service';
+import { CurrencyService } from '../currency/currency.service';
 
 
 
@@ -115,7 +116,7 @@ export class AllCardsService  {
       }
     });
   }
-constructor(private http: HttpClient , private eng: EngService , private Geo: GeoService , private rus: RusService ,private navServ:NavInfoService , private listingServ:ListingServiceService) { 
+constructor(private http: HttpClient , private curService:CurrencyService, private eng: EngService , private Geo: GeoService , private rus: RusService ,private navServ:NavInfoService , private listingServ:ListingServiceService) { 
   
 // Initialize the API call
   if (typeof localStorage !== 'undefined' && localStorage.getItem('Language')) {
@@ -169,8 +170,17 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
               Array.isArray(images) && images.length > 0
                 ? `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${images[0]}`
                 : null;
-
-            return {
+              if(localStorage.getItem('Currency') === null || this.curService.getCurrency() =='' ) {
+                const currency = item.fasis_valuta || '₾'; // Default to GEL if not provided
+              }else if(this.curService.getCurrency() !== '') {
+                this.curService.currency$.subscribe(data => {
+                  const currency =data
+                })
+                 // Default to GEL if not provided
+              }else{
+                const currency = localStorage.getItem('Currency') // Default to GEL if not provided
+              }
+                return {
               featuredBtn: item.featuredBtn,
               imgLink: firstimg,
               id: item.idi,

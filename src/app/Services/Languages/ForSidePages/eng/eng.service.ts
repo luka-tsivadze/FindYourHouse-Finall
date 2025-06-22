@@ -371,11 +371,30 @@ export class EngService {
     headerH4: 'Home / About Us',
     span1: 'About',
     span2: 'Find Houses',
-    mainText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum odio id voluptatibus incidunt cum? 
-Atque quasi eum debitis optio ab. Esse itaque officiis tempora possimus odio rerum aperiam ratione, sunt.
- Lorem ipsum dolor sit amet, consectetur adipisicing elit sunt.  Lorem ipsum dolor sit amet, consectetur adipisicing elit sunt.
-`,
+    mainText: `About Us
+"FindHouse.ge" is a reliable and modern real estate platform in Georgia.
+
+Our main goal is to offer users a complete, simple, and effective way to explore, find, and carry out real estate transactions – buying, selling, and renting. "FindHouse.ge" is created to support both buyers, sellers, and investors in a trustworthy and transparent environment.
+
+We cooperate with dozens of real estate agencies and independent sellers, providing users with up-to-date information and offering modern technological services, including powerful filters, detailed images, real descriptions, and useful tips for users.
+
+User experience is important to us, so we constantly work on improving the platform to make the search process intuitive, fast, and as comfortable as possible. Our technical team uses the latest technologies and market trends to ensure users receive only high-quality service.
+
+With "FindHouse.ge" you can:
+
+Browse the most updated and diverse real estate database throughout Georgia;
+
+Get accurate and detailed information on each listing;
+
+Contact sellers and agencies directly;
+
+Use personalized filters to help you quickly find your ideal place.
+
+We are proud to have a large and trusted community of users and continue to improve our service for your best experience.
+
+"FindHouse.ge" – from your new home to the start of your future!`,
     btn: 'Read More',
+    btn2: 'Read Less'
   };
   Webreview= {
     header: 'Add Review',

@@ -39,7 +39,9 @@ export class FooterService {
     NewsFooter: 'საინფორმაციო მიმოწერა', 
     NewsFooterText: 'გაიარეთ რეგისტრაცია , რათა მიიღოთ უახლესი განახლებები და შეთავაზებები. გამოიწერეთ სიახლეები თქვენს ელფოსტაზე.', 
     NewsFooterBtn: 'გამოწერა', 
-    NewsFooterPlaceHolder: 'შეიყვანეთ  ელ.ფოსტა'
+    NewsFooterPlaceHolder: 'შეიყვანეთ  ელ.ფოსტა',
+        terms:'წესები და პირობები',
+     Policy:'კონფიდენციალურობის პოლიტიკა',
   }
   
 

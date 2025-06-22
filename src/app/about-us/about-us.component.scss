@@ -17,7 +17,7 @@
    
   }
   50% {
-    transform: scale(0.7);
+    transform: scale(0.9);
 border: unset;
   }
 
@@ -157,7 +157,7 @@ header{
   }
   .leftside{
     width: 37%;
-  
+  transition: 0.2s;
     @include flex-container(column, space-between, start,);
     height: 100%;
     h3{
@@ -190,12 +190,21 @@ header{
       color: #666;
       background: #fff;
       font-weight: 400;
+      white-space: pre-wrap;
+      height: 350px;
+      overflow: hidden;
       font-family: 'Lato', sans-serif;
       line-height: 18px;
       white-space: pre-wrap;
       overflow: hidden;
-      
+      transition: 0.2s;
+
     }
+    .maxSize{
+      height: max-content;
+      transition: 0.2s ease-in-out;
+    }
+ 
    .row{
     padding-top: 20px;
     @include flex-container(row, space-between,center ,);
@@ -212,7 +221,7 @@ header{
     }
     button:hover{
       cursor: pointer;
-      animation: btn 0.5s;
+      animation: btn 0.2s;
       border: unset;
       background-color: #3f51b5;
       color: white;

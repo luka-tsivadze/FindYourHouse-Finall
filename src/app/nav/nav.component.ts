@@ -10,6 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 import { AllCardsService } from '../Services/all-cards/all-cards.service';
+import { CurrencyService } from '../Services/currency/currency.service';
 
 @Component({
   selector: 'app-nav',
@@ -26,7 +27,7 @@ displayElement=false;
 showLanguages=false;
 navLang=this.navService.Languages;
 LangIcons=this.navService.LanguageIcons;
-navCurrency=[{label:'GEL',icon:'₾'},{label:'USD',icon:'$'}];
+navCurrency=[{label:'USD',icon:'$'},{label:'GEL',icon:'₾'}];
 
 cur='currency';
 
@@ -41,7 +42,7 @@ showNav;
 showRespNav={bool:false ,iconSrc:'../../assets/Imges/NavImg/list-outline.svg'};
 
 
-  constructor(private router: Router , private navService: NavInfoService,private ngZone: NgZone,private EngService:EngService ,private GeoService:GeoService ,private RusService:RusService ,private allCardService:AllCardsService , private  Registration: RegistrationService,
+  constructor(private router: Router,private currencyServ:CurrencyService,  private navService: NavInfoService,private ngZone: NgZone,private EngService:EngService ,private GeoService:GeoService ,private RusService:RusService ,private allCardService:AllCardsService , private  Registration: RegistrationService,
     @Inject(PLATFORM_ID) private platformId: Object){
 
  
@@ -59,7 +60,8 @@ showRespNav={bool:false ,iconSrc:'../../assets/Imges/NavImg/list-outline.svg'};
         this.chosenLang = localStorage.getItem('Language');
       }
       if (localStorage.getItem('Currency')) {
-        this.chosenCurr = JSON.parse(localStorage.getItem('Currency'));
+        const storedCurrency = JSON.parse(localStorage.getItem('Currency'));
+         this.currencyServ.setCurrency(storedCurrency.icon);
       } 
     
       switch (this.chosenLang) {
@@ -96,7 +98,16 @@ this.GlobeLink=this.LangIcons[2];
         this.onRouteChange();
       });
     
- 
+this.currencyServ.currency$.subscribe((currency) => {
+  const matchIndex = this.navCurrency.findIndex(c => c.icon === currency);
+
+  if (matchIndex !== -1) {
+    this.chosenCurr.icon = currency;
+    this.chosenCurr.label = this.navCurrency[matchIndex].label;
+    this.chosenCurrency(matchIndex, true); // ✅ pass correct index
+  }
+});
+
     this.onRouteChange();
 
   }
@@ -145,22 +156,28 @@ this.showLanguages=false;
 window.location.reload();
 
   }
-  elId;
-  chosenCurrency(element){
-    if(this.elId==element || this.chosenCurr.label==this.navCurrency[element].label){
   
-    localStorage.removeItem('Currency');
-      this.chosenCurr={label:'',icon:''};
-      this.elId=null;
-      return;
-    }
-    this.elId=element;
-    
+chosenCurrency(element: number, fromService?: boolean) {
+  const clicked = this.navCurrency[element];
+  if (!clicked) return;
 
-    localStorage.removeItem('Currency');
-  this.chosenCurr=this.navCurrency[element];
+  // 🔁 Determine the target currency (opposite)
+  const targetCurrency = clicked.icon === '$' ? '₾' : '$';
+
+  // ✅ Set chosenCurr based on what we're switching TO
+  const matchIndex = this.navCurrency.findIndex(c => c.icon === targetCurrency);
   localStorage.setItem('Currency', JSON.stringify(this.chosenCurr));
+  
+  this.chosenCurr = { ...this.navCurrency[matchIndex] };
+
+
+  // ✅ Save state
+
+  if (!fromService) {
+    this.currencyServ.setCurrency(targetCurrency);
   }
+}
+
   displayEl(){
 this.displayElement=!this.displayElement;
   }
@@ -191,7 +208,7 @@ this.showLanguages=!this.showLanguages;
   }
 
  navtoReg_Log( element ){
-  console.log(element)
+
   if(element.chack=='Login'){
 this.Registration.toggleLogin(true);
 this.showRegistrForm()

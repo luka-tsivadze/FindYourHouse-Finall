@@ -122,7 +122,10 @@ export class EngService {
   };
   SFooter={headerFP:'Our Partners',pFP:'The Company That Represent Us.' , NavFooter:'Navigation',NewsFooter:'Newsletters', 
     NewsFooterText:'Sign Up For Our Newsletter To Get Latest Updates And Offers. Subscribe To Receive News In Your Inbox.',NewsFooterBtn:'SUBSCRIBE',
-     NewsFooterPlaceHolder:'Enter Your Email' };
+     NewsFooterPlaceHolder:'Enter Your Email',
+     terms:'Terms and Conditions',
+     Policy:'Privacy Policy',
+    };
 
      For={
     text: 'Property Status',

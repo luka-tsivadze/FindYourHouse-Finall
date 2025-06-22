@@ -68,6 +68,7 @@ import { AddFormComponent } from './ListingPageComponents/business/add-form/add-
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './registration/forgot-password/forgot-password.component';
+import { ShareCompComponent } from './Components/share-comp/share-comp.component';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { ForgotPasswordComponent } from './registration/forgot-password/forgot-p
     BusinessComponent,
     AddFormComponent,
     ForgotPasswordComponent,
+    ShareCompComponent,
 
   ],
   imports: [

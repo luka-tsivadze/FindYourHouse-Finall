@@ -82,11 +82,14 @@
     </div>
 </div>
 
+
+
 <div class="featuredProperties"  > 
-    <!-- <h1 class="FH" [ngClass]="{'fadeIn':scrollY>620}">{{FeaturePS.Header}}</h1>
+  <!-- <h1 class="FH" [ngClass]="{'fadeIn':scrollY>620}">{{FeaturePS.Header}}</h1>
     <p  class="FP" [ngClass]="{'fadeIn':scrollY>669}">{{FeaturePS.properties}} </p> -->
     <div class="cardPlace">
       
+
         <div class="propCard"   *ngFor="let info of FeatureProperties let i=index"
         [ngStyle]="{'animation-delay': (i * 0.1) + 's'}"
         [ngClass]="{'propCardAnimationR': scrollY > 700 && i%2==0 , 'propCardAnimationL': scrollY > 700 && i%2==1 }"
@@ -98,8 +101,9 @@
                     <button class="whiteBg"> {{info.For}}</button>
                     
                 </div>
+                
                   <div class="SecondRow">
-                    <button><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button>
+                    <button ><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button>
                     <button *ngIf="info.video!='' "><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
                     <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button>
                   </div>
@@ -122,7 +126,7 @@
  <div class="iconRow">
                   
 
-                  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency) ">
+                  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
   <button
     class="toggle-option"
     [class.active]="info.currency === '₾'"
@@ -130,7 +134,7 @@
   >
     ₾ 
   </button>
-  <button
+  <button 
     class="toggle-option"
     [class.active]="info.currency === '$'"
 
@@ -142,7 +146,7 @@
 
 
 
-<img src="../../assets/Imges/Header/CardImges/icons/share.svg" alt="">
+<img (click)="shareComponent(info)" src="../../assets/Imges/Header/CardImges/icons/share.svg" alt="">
                   <img class="heart" [src]="heartimgLinks[i]" alt=""  (click)="saveToFav(i , info)"></div>
             </div>
             </div>
@@ -155,5 +159,10 @@
 
 </div>
 
+
+<div class="cover" *ngIf="shareComp" >
+  <div class="Back" (click)="shareComp = false"></div>
+  <app-share-comp *ngIf="shareComp" [ElementInfo]="shareInfo"></app-share-comp>
+</div>
 
 </header>

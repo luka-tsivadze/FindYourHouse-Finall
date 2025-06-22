@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FooterService } from '../Services/footer/footer.service';
+import { MainPageDataService } from '../Services/mainPageService/main-page-data.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,8 @@ import { FooterService } from '../Services/footer/footer.service';
 export class FooterComponent {
   staticInfo=this.footerService.staticValues
   footerData=this.footerService.FooterData;
-constructor(private footerService:FooterService){
+constructor(private footerService:FooterService ,private mainServ:MainPageDataService){
 
+  
 }
 }

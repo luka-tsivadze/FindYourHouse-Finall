@@ -122,8 +122,7 @@ constructor(private registrationService: RegistrationService, private http:HttpC
     });
 
 
-
-
+ this.watchResponse(); 
   }
 
   makeDisplayFlse() {
@@ -177,8 +176,34 @@ constructor(private registrationService: RegistrationService, private http:HttpC
       console.log('Login form has validation errors');
     }
 
-   
+
+  
+
   }
+
+     
+ watchResponse(): void {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+
+  if (code) {
+    console.log('Google login code received:', code);
+    this.http.post('/api/google-login.php', { code }).subscribe({
+      next: (data: any) => {
+        if (data.success) {
+          this.navServ.getUserInfo(data.userId);
+          window.location.href = '/';  // 🟢 redirect after
+        } else {
+          alert('Login failed.');
+        }
+      },
+      error: () => {
+        alert('Login failed.');
+      }
+    });
+  }
+ }
+ 
   onSubmitR(): void {
     if (!this.RegistrForm.invalid) {
       

@@ -1,11 +1,30 @@
+
+::ng-deep app-nav nav {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  }
 main{
     width: 100%;
     height: max-content;
+    
+    margin:250px auto;
 display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     padding: 0 2rem;
+          font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 30px;
+      max-width: 900px;
+      background-color: #f9f9f9;
+      color: #333;
+      .canter{
+        width: 100%;
+        display: flex;
+      margin: 10px;
+        align-items: center;
+        justify-content: center;
+      }
   p{
         font-size: 1.5rem;
         line-height: 2rem;
@@ -20,7 +39,7 @@ display: flex;
     margin-top: 2rem;
     padding: 1rem 2rem;
     font-size: 1.5rem;
-    background-color: #007bff;
+    background-color: #ee1616;
     color: white;
     border: none;
     border-radius: 5px;
@@ -29,3 +48,16 @@ display: flex;
         background-color: #0056b3;
     }
   }
+
+    h1, h2, h3 {
+      color: #1e1e1e;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .contact-info {
+      background: #eef1f4;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+      margin-bottom: 25px;
+    }

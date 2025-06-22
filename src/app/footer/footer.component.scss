@@ -181,6 +181,34 @@ h3::after{
     align-items: center;
     color: white;
     padding: 0 120px;
+    .row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 55px;
+        .uniter{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:25px;
+        }
+        p{
+            font-size: 14px;
+            color: rgba(245, 255, 255, 0.8);
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        a{
+            color: #FF385C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.5s ease;
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
     .icons{
         display: flex;
         gap: 20px;

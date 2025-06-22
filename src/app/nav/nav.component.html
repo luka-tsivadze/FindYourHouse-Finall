@@ -185,9 +185,9 @@
                     <img [src]="LangIcons[i]" alt=""> {{lang}}
                 </a>
                 <h4>{{cur}}</h4>
-                <a *ngFor="let currency of navCurrency let i=index" (click)="chosenCurrency(i)"
-                    [class.chosenCur]="currency.label == chosenCurr.label">
-                    <div class="custom-radio" [class.checked]="currency.label === chosenCurr.label"
+                <a *ngFor="let currency of navCurrency let i=index" (click)="chosenCurrency(i , false)"
+                    [class.chosenCur]="currency.icon == chosenCurr.icon">
+                    <div class="custom-radio" [class.checked]="currency.icon === chosenCurr.icon"
                         ></div>
                     {{currency.label + '-' + currency.icon}}
 

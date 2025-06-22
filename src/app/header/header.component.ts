@@ -12,6 +12,7 @@ import { FilterDataUniterService } from '../Services/filter-data-uniter/filter-d
 import { PropertyInformationService } from '../Services/Property-info/property-information.service';
 import { RegistrationService } from '../Services/registration/registration.service';
 import { CurrencyService } from '../Services/currency/currency.service';
+import { forkJoin, switchMap } from 'rxjs';
 
 
 
@@ -46,7 +47,7 @@ staticElements=this.dataService.staticData.staticElements
 popularPropStatic=this.dataService.popularPlacesStatic
 screenWidth: number = window.innerWidth;
 allProperties: any[]; // Stores full dataset
-    FeatureProperties;
+    FeatureProperties=[];
    FeaturePS=this.dataService.featuredPropertiesStatic;
    advenced=false;
 allcardsData=this.allcard;
@@ -87,52 +88,84 @@ filterForm = this.fb.group({
 
     heartedCards;
     ngOnInit(): void {
-      // this.setActive(0 , 'For Sale');
-      this.allcard.fetFavchData(this.navserv.userId).subscribe({
-        next: (filteredData) => {
-      
-        this.heartedCards = filteredData;
-        this.fetchData();
-        
-     // Initialize with default currency
-  },
-        error: (error) => console.error('Error:', error),
-   
-      });
-
-
-      this.dataService.popularPlacesData$.subscribe(data => {
+ 
+      forkJoin([
+        this.allcard.fetFavchData(this.navserv.userId),
+        this.CurrencyServ.fetCurrency()
+      ]).subscribe({
+        next: ([filteredData, currencyData]) => {
+          this.heartedCards = filteredData;
+          this.CurrencyTo = currencyData;
+                this.dataService.popularPlacesData$.subscribe(data => {
         this.popularPlacesData = data;
     
       });
+ 
+
+    this.fetchData(() => {
+  this.CurrencyServ.currency$.subscribe((currency) => {
+    if(currency === '$' || currency === '₾') {
+
+    this.toggleAllCurrencies(currency as '$' | '₾' , true); // Pass true to indicate this is from service
+    }
+  });
+});
+
+
+        },
+        error: (error) => console.error('Error:', error)
+      
+      });
+
+
   
       this.dataService.cityAmount();
     // Example: subscribing to a signal called `mySignal` (must be defined elsewhere)
-    this.CurrencyServ.fetCurrency().subscribe({
-    next: (data) => {
-  this.CurrencyTo = data;
-    }
-  });
-
+  
 
     }
 
 
-toggleAllCurrencies(targetCurrency: '$' | '₾'): void {
+
+toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
+
   this.FeatureProperties.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';
-      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice, this.CurrencyTo);
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
       card.curConverted = true;
+
 
     } else {
       card.price = card.basePrice;
       card.currency = targetCurrency === '₾' ? '$' : '₾';
       card.curConverted = false;
+
     }
   });
-  localStorage.setItem(`Currency-`, JSON.stringify(this.FeatureProperties[1].currency)); 
+
 }
+
+shareComp=false;
+shareInfo:any;
+
+shareComponent(info){
+
+this.shareInfo=info;
+
+this.shareComp=true;
+}
+
 
       heartimg='../../../assets/Imges/Header/CardImges/icons/heart.svg'
       heartFilled='./../../assets/Imges/StaticImg/StaticIcons/heart-fill - red.svg'
@@ -185,7 +218,7 @@ toggleAllCurrencies(targetCurrency: '$' | '₾'): void {
     }
   
 
-    fetchData(): void {
+    fetchData(onComplete?: () => void): void {
 
 if (this.Propinfo.catchedData.getValue().length > 0 ) {
   this.allProperties = this.Propinfo.catchedData.getValue(); // Return cached data if available
@@ -193,6 +226,8 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
    this.getMatchingIndexes(this.heartedCards, this.allProperties);
  
           this.updateVisibleItems();
+          if (onComplete) onComplete(); // ✅ callback even on cache
+
   return;
 }
       this.http.get<any[]>('get_main_houses.php').subscribe({
@@ -245,6 +280,8 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
         this.getMatchingIndexes(this.heartedCards, this.allProperties);
  
           this.updateVisibleItems(); // Apply responsive limit
+          if (onComplete) onComplete(); // ✅ callback after data is fetched
+
         },
         error: (error) => {
           console.error('Error fetching properties:', error);

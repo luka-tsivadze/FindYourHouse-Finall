@@ -5,11 +5,12 @@
 import { AllCardsService } from '../Services/all-cards/all-cards.service';
 import { PropertyInformationService } from '../Services/Property-info/property-information.service';
 import { NavInfoService } from '../Services/NavService/nav-info.service';
-import { concatMap } from 'rxjs';
+import { combineLatest, concatMap, filter, switchMap, tap } from 'rxjs';
 import { AgentsService } from '../Services/agents/agents.service';
 import { RegistrationService } from '../Services/registration/registration.service';
 import { ReviewsService } from '../Services/reviews/reviews.service';
 import { Router } from '@angular/router';
+import { CurrencyService } from '../Services/currency/currency.service';
 
   @Component({
     selector: 'app-main-page',
@@ -57,7 +58,9 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
      private navService:NavInfoService, private Registration:RegistrationService,
     private Reviews: ReviewsService,
     private Propinfo:PropertyInformationService ,private router:Router,
-    private agentsServ:AgentsService, private dataService: MainPageDataService) {
+    private agentsServ:AgentsService, private dataService: MainPageDataService ,
+  private CurrencyServ:CurrencyService
+  ) {
       
     
 
@@ -68,59 +71,63 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
   heartedCards;
 
   showAgent=false;
-  ngOnInit(): void {
-    this.dataService.getDiscoveredProperties().pipe(
-      concatMap((data) => {
-      this.DiscoverPopularPlaces = data;
-      return this.allCardsService.fetFavchData(this.navService.userId);
-      })
-    ).subscribe({
-      next: (cards: any[]) => {
-      this.heartedCards = cards;
+   ngOnInit(): void {
+this.dataService.getDiscoveredProperties().pipe(
+  filter(data => data && data.length > 0), // make sure it's ready
+  switchMap(data => {
+    this.DiscoverPopularPlaces = data;
 
-      this.getMatchingIndexes(this.heartedCards, this.DiscoverPopularPlaces);
-      },
-      error: (error) => {
-      console.error('Error:', error);
-      },
- 
-    });
+    return this.CurrencyServ.currency$.pipe(
+      filter(curr => curr === '$' || curr === '₾'),
+      tap((curr: '$' | '₾') => this.toggleAllCurrencies(curr, true)),
+      concatMap(() => this.allCardsService.fetFavchData(this.navService.userId))
+    );
+  })
+).subscribe({
+  next: (cards) => {
+    this.heartedCards = cards;
+    this.getMatchingIndexes(this.heartedCards, this.DiscoverPopularPlaces);
+  },
+  error: console.error
+});
+
+
 
     this.agentsServ.fetchAgentData().subscribe({
       next: (data) => {
-        this.AgentsInfo=[];
-  
-        data.map((item,index)=>{
+      this.AgentsInfo=[];
+    
+      data.map((item,index)=>{
 
-          let imgLink 
-          if(item.foto){
-          imgLink=`users/${item.maili}/${item.saidentifikacio_kodi}/${item.foto}` 
-          }else if(item.sqesi=="kaci" || item.sqesi=="male"){
-            imgLink="../../assets/Imges/NavImg/man.png"
-          }else if(item.sqesi=="qali"){
-            imgLink='../../assets/Imges/NavImg/girl.png'
-          }
+        let imgLink 
+        if(item.foto){
+        imgLink=`users/${item.maili}/${item.saidentifikacio_kodi}/${item.foto}` 
+        }else if(item.sqesi=="kaci" || item.sqesi=="male"){
+        imgLink="../../assets/Imges/NavImg/man.png"
+        }else if(item.sqesi=="qali"){
+        imgLink='../../assets/Imges/NavImg/girl.png'
+        }
 
-          this.AgentsInfo.push({
+        this.AgentsInfo.push({
 
-  mainalt:item.angarishis_tipi || 'AgentsCard',
+    mainalt:item.angarishis_tipi || 'AgentsCard',
 
     imgLink:imgLink,
 
-  Name: `${item.saxeli} ${item.gvari}` || 'Carls Issue',
-  // status:item.angarishis_tipi == 'gayidvebis_menejeri'?  'Real Estate Agent' : 'Real Estate Manager', 
-  status:item.atvirtuli_gancxadebebi,
-  sociaslLinks:[
+    Name: `${item.saxeli} ${item.gvari}` || 'Carls Issue',
+    // status:item.angarishis_tipi == 'gayidvebis_menejeri'?  'Real Estate Agent' : 'Real Estate Manager', 
+    status:item.atvirtuli_gancxadebebi,
+    sociaslLinks:[
     ...(item.facebook_linki ? [{alt:'facebook' ,href:item.facebook_linki,IconLink:'../../assets/Imges/Header/CardImges/icons/icons8-facebook.svg'}] : []),
     ...(item.telegram_linki ? [{alt:'telegram' ,href:item.telegram_linki,IconLink:'../../assets/Imges/Header/CardImges/icons/telegram.svg'}] : []),
     ...(item.instagram_linki ? [{alt:'Instagram' ,href:item.instagram_linki,IconLink:'../../assets/Imges/Header/CardImges/icons/instagram.svg'}] : []),
     ...(item.linkedin_linki ? [{alt:'linkdIn' ,href:item.linkedin_linki,IconLink:'../../assets/Imges/Header/CardImges/icons/LinkedIn.png'}] : []),
     ...(item.whatsapp_linki ? [{alt:'whatsapp' ,href:item.whatsapp_linki,IconLink:'../../assets/Imges/Header/CardImges/icons/whatsapp.svg'}] : []),
-  ],
-  ...item
-})
+    ],
+    ...item
+  })
 
-})
+  })
 
       },
       error: (err) => console.error('Error fetching agents:', err)
@@ -128,24 +135,52 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
 
     this.Reviews.fetchWebsiteReviews().subscribe({
       next: (data) => {
-        this.ReviewsData=data.map((item)=>{
+      this.ReviewsData=data.map((item)=>{
       return{
 
-          Name:item.gamgzavnis_saxeli_gvari,
-          imgLink:item.gamgzavnis_foto,
-          Place: item.shefasebis_qula,
-          Review:item.shefasebis_teqsti,
+        Name:item.gamgzavnis_saxeli_gvari,
+        imgLink:item.gamgzavnis_foto,
+        Place: item.shefasebis_qula,
+        Review:item.shefasebis_teqsti,
       }
 
-        })
+      })
       }, 
-error: (err) => console.error('Error fetching Web reviews:', err)
+  error: (err) => console.error('Error fetching Web reviews:', err)
+    });
+
+
+    
+  }
+
+toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
+
+  this.DiscoverPopularPlaces.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
+      card.curConverted = true;
+
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+
+    }
   });
 
-
-  
 }
-
 
     getMatchingIndexes(savedCards: any[], allCards: any[]): void {
  

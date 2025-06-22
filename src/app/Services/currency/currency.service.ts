@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable, shareReplay } from 'rxjs';
 })
 export class CurrencyService {
 
-    private currencySubject = new BehaviorSubject<string>('USD'); // default
+    private currencySubject = new BehaviorSubject<string>(''); // it will transform to Value
   currency$ = this.currencySubject.asObservable();
   currencyRates
 
@@ -38,8 +38,16 @@ export class CurrencyService {
 changeCurrency(
   currency: string,
   amount: number,
- CurrencyTo
+
 ) {
+  //  if (this.currencyRates) {
+  //   this.currencyRates = await firstValueFrom(this.fetCurrency());
+  // }
+  const CurrencyTo = this.currencyRates;
+  console.log('Currency:', this.currencyRates);
+  if (this.currencyRates === undefined) {
+    
+}
      let amountStr 
   if (typeof amount !== 'number' || isNaN(amount)) {
     amountStr = amount.toString();
@@ -55,12 +63,19 @@ changeCurrency(
   amountStr = amountStr.replace(/[\s,.]+/g, '');
 
   if (currency === '$') {
+
   return Math.round(Number(CurrencyTo.USD_to_GEL) * Number(amountStr));  
   } else if (currency === '₾') {
+
     return Math.round(CurrencyTo.GEL_to_USD * Number(amountStr));
-  } else {
+  } else if (currency===''){
+    return amount; // if currency is not set, return the original amount
+  
+  }else{
+
     console.error('Unsupported currency:', currency);
-    return amount; // fallback if currency is neither GEL nor USD
+    return amount;
   }
+  
 }
 }

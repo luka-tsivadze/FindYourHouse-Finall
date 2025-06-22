@@ -81,6 +81,11 @@ userId;
 counter = 0;
 
   getUserInfo(userId?: string ,callonce?:boolean ): Observable<any> {
+
+    if (userId === undefined) {
+      userId = this.userId; 
+       localStorage.setItem('id',userId)// Use the service's userId if not provided
+    }
     if (!isPlatformBrowser(this.platformId)) {
       return of(null); // Return empty observable if not in browser
     }

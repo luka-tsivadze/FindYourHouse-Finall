@@ -64,7 +64,7 @@ this.Infoservice.chosenCard
         bathrooms: element.sveli_wertilebis_raodenoba,
         area: element.fartobi,
         garages: 1,
-        price: element.fasi,
+        price: Number((element.fasi).toString().replace(/[^\d]/g, '')) || 0,
         currency: element.fasis_valuta,
         profileName: element.momxmareblis_saxeli,
         uploadmonth: dayDifference ,

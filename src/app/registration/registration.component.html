@@ -71,7 +71,7 @@
                 </div>
                 <div   class="row chackBox">
                     <input type="checkbox" name="terms" id="terms" formControlName="terms"  required>
-                     <label for="terms"> {{Registration.register.agree}}<a  [routerLink]="['/terms-and-conditions']">{{Registration.register.terms}}</a>  </label> 
+                     <label for="terms"> {{Registration.register.agree}}<a  target="_blank" [routerLink]="['/terms-and-conditions']">{{Registration.register.terms}}</a>  </label> 
                 </div>
 
                 <button type="submit" name="registracia"  #registName [disabled]="!RegistrForm.valid ">{{Registration.register.buttonText}}</button>
@@ -115,7 +115,7 @@
                         <input type="checkbox" id="rememberMe" formControlName="rememberMe" >
                         <label for="rememberMe">{{Registration.login.remember}}</label>
                     </div>
-                    <a href="PasswordRecovery" target="_blank" class="forgotPassword">{{Registration.login.forget}}</a>
+                    <a href="PasswordRecovery"   class="forgotPassword">{{Registration.login.forget}}</a>
                 </div>
             </form>
         </main>
