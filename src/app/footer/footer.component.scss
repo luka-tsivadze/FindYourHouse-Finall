@@ -177,7 +177,7 @@ h3::after{
     height: 15%;
     display: flex;
     justify-content: end;
-    gap: 25%;
+    gap: 10%;
     align-items: center;
     color: white;
     padding: 0 120px;
@@ -185,22 +185,24 @@ h3::after{
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 55px;
+        gap: 35px;
         .uniter{
             display: flex;
             align-items: center;
             justify-content: center;
-            gap:25px;
+            gap:0px;
         }
         p{
             font-size: 14px;
             color: rgba(245, 255, 255, 0.8);
             font-weight: 400;
             text-transform: capitalize;
+                width: 360px;
         }
         a{
             color: #FF385C;
             text-decoration: none;
+                width: 230px;
             font-weight: 600;
             font-size: 14px;
             transition: all 0.5s ease;

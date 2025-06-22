@@ -44,7 +44,7 @@ changeCurrency(
   //   this.currencyRates = await firstValueFrom(this.fetCurrency());
   // }
   const CurrencyTo = this.currencyRates;
-  console.log('Currency:', this.currencyRates);
+
   if (this.currencyRates === undefined) {
     
 }
