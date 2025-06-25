@@ -27,10 +27,33 @@
                   </div>
                   <div class="price">{{ info.price | number:'1.0-0' }}  {{info.currency}}<span *ngIf="info.For=='For Rent'"></span>  </div>
             </div>
-            <div class="rightSide" (click)="routertodetailedInfo(info.id)">
-                <a>{{info.header}}</a>
+            <div class="rightSide" >
+                <div class="row">      
+                    <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
+  <button
+    class="toggle-option"
+    [class.active]="info.currency === '₾'"
+ 
+  >
+    ₾ 
+  </button>
+  <button 
+    class="toggle-option"
+    [class.active]="info.currency === '$'"
+
+  >
+    $
+  </button>
+  <div class="indicator" [class.right]="info.currency === '$'"></div>
+</div>
+
+  <img (click)="shareComponent(info)" src="../../assets/Imges/StaticImg/StaticIcons/share-outline.svg" alt="">
+
+
+</div>
+                <a (click)="routertodetailedInfo(info.id)">{{info.header}}</a>
                 <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="locationIcon">{{info.location}} </p>
-                <div class="squareFlex">
+                <div class="squareFlex" (click)="routertodetailedInfo(info.id)">
 
                 <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage'"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt="badroom"><p>{{info.bedrooms}} {{FeaturePS.BedRooms}}</p></div> 
                 <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage'"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt="bathroom"><p>{{info.bathrooms}} {{FeaturePS.BathRooms}}</p></div> 
@@ -38,7 +61,7 @@
                 <div class="element" *ngIf="info.type!='Land Plot' && info.type!='Garage' "><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt="garages"><p>{{info.garages}} {{FeaturePS.Garage}}</p></div>
             </div>
             <div class="CardFooterRow">
-               <div class="row"> <p>{{info.profileName}}</p></div>  <p>{{info.uploadmonth}} {{Languages.myProp.ago}}</p>
+             <p>{{info.profileName}}</p>  <p>{{info.uploadmonth}} {{Languages.myProp.ago}}</p>
             </div>
             </div>
         </div>
@@ -53,4 +76,8 @@
        
    
         <button class="prev" (click)="chosenPage((this.ActivePage+1))" >Next</button> </div>
+</div>
+<div class="cover" *ngIf="shareComp"  @fadeIn>
+  <div class="Back"  (click)="shareComp = false"></div>
+  <app-share-comp [ElementInfo]="shareInfo"></app-share-comp>
 </div>

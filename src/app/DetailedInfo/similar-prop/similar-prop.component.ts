@@ -6,6 +6,7 @@ import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { AllCardsService } from '../../Services/all-cards/all-cards.service';
 import { forkJoin, switchMap } from 'rxjs';
 import { RegistrationService } from '../../Services/registration/registration.service';
+import { CurrencyService } from '../../Services/currency/currency.service';
 
 @Component({
   selector: 'app-similar-prop',
@@ -22,7 +23,7 @@ FeaturePS=this.staticInfo.featuredPropertiesStatic;
 chosenCard=this.Infoservice.chosenCard;
   constructor(private Infoservice:PropertyInformationService, private staticInfo:MainPageDataService ,
     private lang:LanguageChooserService ,private navService:NavInfoService , 
-    private cardsService:AllCardsService, private Registration:RegistrationService, ) {
+    private cardsService:AllCardsService, private Registration:RegistrationService, private CurrencyServ:CurrencyService) {
     this.simProp=this.lang.chosenLang.DetailedInfo.simProp;
   }
   ngOnInit(): void {
@@ -63,6 +64,8 @@ this.Infoservice.chosenCard
         bedrooms: element.sadzinebeli,
         bathrooms: element.sveli_wertilebis_raodenoba,
         area: element.fartobi,
+        basePrice: Number((element.fasi).toString().replace(/[^\d]/g, '')) || 0,
+        curConverted: false,
         garages: 1,
         price: Number((element.fasi).toString().replace(/[^\d]/g, '')) || 0,
         currency: element.fasis_valuta,
@@ -76,6 +79,9 @@ this.Infoservice.chosenCard
 this.getMatchingIndexes(favData, this.data);
   
   });
+  this.CurrencyServ.currency$.subscribe((currency) => {
+      this.toggleAllCurrencies(currency, true);
+    });
 
   }
 
@@ -126,4 +132,33 @@ getMatchingIndexes(savedCards: any[], allCards: any[]): void {
 
 
 }
+toggleAllCurrencies(targetCurrency ,fromService?): void {
+
+  this.data.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
+      card.curConverted = true;
+
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+
+    }
+  });
+
+}
+
 }

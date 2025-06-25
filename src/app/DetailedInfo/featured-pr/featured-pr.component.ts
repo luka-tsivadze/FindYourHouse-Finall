@@ -3,6 +3,8 @@ import { PropertyInformationService } from '../../Services/Property-info/propert
 import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { CurrencyService } from '../../Services/currency/currency.service';
+import { switchMap, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-featured-pr',
@@ -20,41 +22,75 @@ export class FeaturedPRComponent  implements OnInit {
  }
  CurrentId
   
-    constructor(private featuredProp:PropertyInformationService ,private lang:LanguageChooserService, private mainService:MainPageDataService , private route:ActivatedRoute) {
+    constructor(private featuredProp:PropertyInformationService , private CurrencyServ:CurrencyService , private lang:LanguageChooserService, private mainService:MainPageDataService , private route:ActivatedRoute) {
       this.staticvalues=this.lang.chosenLang.DetailedInfo.Featuredpr;
       this.CurrentId = this.route.snapshot.paramMap.get('id');
      }
 
  ngOnInit(){ 
-    this.mainService.getDiscoveredProperties().subscribe((data) => {
-      if(!data){
- 
-        this.cardData = this.featuredProp.featuredProp;
-        return;
-      }
- 
-      this.cardData = data.map((item) => {
-        return {
-          img: item.imgLink,
-          type: item.header,
-          price:  Number((item.price || '').toString().replace(/[^\d]/g, '')),
-          basePrice:  Number((item.basePrice || '').toString().replace(/[^\d]/g, '')),
-          currency: item.currency,
-          For: item.For,
-          locationCity: item.qalaqi,
-          area: item.area,
-          rooms: item.bathrooms,
-          bedrooms: item.bedrooms,
-          id: item.gncxdebis_idi,
-        };
-      }).filter(item => item.id !== this.CurrentId);
-    
+    this.mainService.getDiscoveredProperties().pipe(
+      switchMap((data) => {
+        if (!data) {
+          this.cardData = this.featuredProp.featuredProp;
+          return this.CurrencyServ.currency$;
+        }
 
+        this.cardData = data.map((item) => {
+          return {
+            img: item.imgLink,
+            type: item.header,
+            price: Number((item.price || '').toString().replace(/[^\d]/g, '')),
+            basePrice: Number((item.basePrice || '').toString().replace(/[^\d]/g, '')),
+            curConverted: false,
+            currency: item.currency,
+            For: item.For,
+            locationCity: item.qalaqi,
+            area: item.area,
+            rooms: item.bathrooms,
+            bedrooms: item.bedrooms,
+            id: item.gncxdebis_idi,
+          };
+        }).filter(item => item.id !== this.CurrentId);
+
+        return this.CurrencyServ.currency$;
+      }),
+      filter((currency) => currency === '$' || currency === '₾')
+    ).subscribe((currency) => {
+      this.toggleAllCurrencies(currency, true);
     });
 
-}
-    
 
+}
+    toggleAllCurrencies(targetCurrency ,fromService?): void {
+
+  this.cardData.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
+      card.curConverted = true;
+
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+
+    }
+  });
+
+}
+
+  
 leftTransform(){
   if(this.transformIndex > 0){
   this.transformIndex = this.transformIndex - 330;

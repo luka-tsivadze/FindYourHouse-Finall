@@ -17,11 +17,9 @@ export class AppComponent implements AfterViewInit {
   loaded = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private CurrencyServ:CurrencyService ,private appService:LoadingServiceService,private allCardsService:AllCardsService, private navigate:Router ,private viewServ:ViewsService) {
-
-
   }
   ngOnInit(): void {
-   this.CurrencyServ.fetCurrency().subscribe()
+
     this.appService.loading$.subscribe(loading => {
       this.loaded = loading;
     });

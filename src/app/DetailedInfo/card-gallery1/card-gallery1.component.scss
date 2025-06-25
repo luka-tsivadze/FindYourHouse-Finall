@@ -55,6 +55,9 @@ main{
 .row{
     @include flex-container(row, space-between, center, 15px);
     width: 100%;
+    .buttons{
+    @include flex-container(row, center, center , 15px);
+    }
 .Fav{
 
     @include flex-container(row, center, center);
@@ -70,6 +73,7 @@ main{
        cursor: pointer;
       img {
               filter: invert(1);
+            
             }
             .link {
               width: 55%;
@@ -145,6 +149,25 @@ transform: translate(-50% , -50%);
         }
     }
 
+}
+.cover{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  
+  z-index: 99;
+  .Back{
+      width: 100%;
+  height: 100%;
+  cursor: pointer;
+  top: 0;
+
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 @media screen and (max-width:650px) {
     .firstRow{

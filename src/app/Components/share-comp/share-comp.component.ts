@@ -14,8 +14,13 @@ ElementLink;
 
 ngOnInit(): void {
   console.log(this.ElementInfo);
+  if (this.ElementInfo.gncxdebis_idi) {
   this.ElementLink=`https://findhouse.ge/allCards/${this.ElementInfo.gncxdebis_idi}`;
-
+  }else if (this.ElementInfo.id) {
+  this.ElementLink=`https://findhouse.ge/allCards/${this.ElementInfo.id}`;
+  }else{
+    console.error('ElementInfo does not contain a valid identifier' , this.ElementInfo);
+  }
 }
 copyToUrl() {
   this.copyUrl = '../../../assets/Imges/StaticImg/StaticIcons/checkmark-done-outline.svg';

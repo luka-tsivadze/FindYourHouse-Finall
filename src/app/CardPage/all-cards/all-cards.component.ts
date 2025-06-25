@@ -9,6 +9,7 @@ import { concatMap } from 'rxjs';
 import { RegistrationService } from '../../Services/registration/registration.service';
 import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { CurrencyService } from '../../Services/currency/currency.service';
 
 @Component({
   selector: 'app-all-cards',
@@ -55,6 +56,7 @@ export class AllCardsComponent {
     private LangService: LanguageChooserService,
     private mainPageService: MainPageDataService,
     private cardsService: AllCardsService,
+  private CurrencyServ:CurrencyService ,
 
   ) {
     this.navService.scrollobser.next(true);
@@ -77,6 +79,8 @@ export class AllCardsComponent {
           this.pageFunction(); // Call pageFunction after cards are ready
           this.heartimgLinks = new Array(this.filteredCards.length).fill(this.heartimg);
           this.getMatchingIndexes(this.heartedCards, this.cards);
+
+
         },
         error: (error) => {
           console.error('Error:', error);
@@ -85,6 +89,14 @@ export class AllCardsComponent {
         
         },
       });
+
+      this.CurrencyServ.currency$.subscribe((currency) => {
+        if (currency === '$' || currency === '₾') {
+          this.toggleAllCurrencies(currency, true);
+ 
+
+        }
+      })
   
       this.cardsService.data$.subscribe((value) => {
         this.dataState = value;
@@ -109,6 +121,48 @@ export class AllCardsComponent {
         }
       });
     }
+
+
+    toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
+
+  this.cards.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
+      card.curConverted = true;
+
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+
+    }
+  });
+
+}
+
+
+shareComp=false;
+shareInfo:any;
+
+shareComponent(info){
+
+this.shareInfo=info;
+
+this.shareComp=true;
+}
+
     callAnimation() {
       
   this.showCards = false;
@@ -195,6 +249,7 @@ export class AllCardsComponent {
     }
 
     this.activePage = this.finalInfo[0] || [];
+    
     this.callAnimation();
 
   }

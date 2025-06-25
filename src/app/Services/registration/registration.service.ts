@@ -46,9 +46,11 @@ export class RegistrationService {
     return this.http.post(this.apiUrl, data);
   }
   PasswordCode(code: any, Maili: any): Observable<any> {
+  const lang= localStorage.getItem('Language')
     return this.http.post('send_mail_code.php', {
       code: code,
       Maili: Maili,
+      Int_ena:lang
     });
   }
  PasswordReset(NewPassword: any, Maili: any,): Observable<any> {{

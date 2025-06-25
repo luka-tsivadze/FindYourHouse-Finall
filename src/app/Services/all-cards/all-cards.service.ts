@@ -177,7 +177,9 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
               UserId: item.amtvirtvelis_idi,
               price: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
               currency:item.fasis_valuta,
+              basePrice: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
               header: item.satauri,
+              curConverted: false,
               
               location: item.misamarti,
               bedrooms: item.sadzinebeli,

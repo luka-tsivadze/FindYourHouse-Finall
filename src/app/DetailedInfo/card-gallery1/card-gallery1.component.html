@@ -5,10 +5,17 @@
 
 </div>
 <main>
-   <div class="row"> <h2>{{staticH2}}</h2>     <button class="Fav" (click)="saveToFav()"><img class="link" [src]="heartimgLinks" alt="Heart"></button> </div>
+   <div class="row"> <h2>{{staticH2}}</h2>    <div class="buttons">
+       <button class="Fav" (click)="saveToFav()"><img class="link" [src]="heartimgLinks" alt="Heart"></button> 
+         <button class="Fav" (click)="shareComponent(data)"><img class="link" src="../../../assets/Imges/StaticImg/StaticIcons/share-outline.svg" alt=""></button> 
+</div>
+   </div> 
 <img class="mainImg" src="{{mainImg}}" alt="">
 <div class="btn-row"><div class="shade"><button (click)="decriment()"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg"   alt=""></button></div><div class="shade"><button (click)="incriment()"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button></div> </div>
 <div class="container">
     <div class="imgRow"><img [ngClass]="{'Active':ForActive==i}" *ngFor="let el of data.img let i=index" src="{{el}}" alt="Property Imges" (click)="setIndex(i)" >  </div>
 </div>
 </main>
+<div class="cover" *ngIf="shareComp"  @fadeIn>
+  <div class="Back"  (click)="shareComp = false"></div>
+  <app-share-comp [ElementInfo]="shareInfo"></app-share-comp>

@@ -120,7 +120,7 @@
             </div>
             <div class="CardFooterRow">
       <h1>
-  {{ info.currency }}{{ info.price | number:'1.0-0' }}
+{{ info.price | number:'1.0-0' }} {{ info.currency }}
 </h1>
 
  <div class="iconRow">
@@ -146,7 +146,7 @@
 
 
 
-<img (click)="shareComponent(info)" src="../../assets/Imges/Header/CardImges/icons/share.svg" alt="">
+                    <img (click)="shareComponent(info)" src="../../assets/Imges/StaticImg/StaticIcons/share-outline.svg" alt="">
                   <img class="heart" [src]="heartimgLinks[i]" alt=""  (click)="saveToFav(i , info)"></div>
             </div>
             </div>
@@ -160,9 +160,9 @@
 </div>
 
 
-<div class="cover" *ngIf="shareComp" >
+<div class="cover" @card3dAnimation   *ngIf="shareComp" >
   <div class="Back" (click)="shareComp = false"></div>
-  <app-share-comp *ngIf="shareComp" [ElementInfo]="shareInfo"></app-share-comp>
+  <app-share-comp     *ngIf="shareComp" [ElementInfo]="shareInfo"></app-share-comp>
 </div>
 
 </header>

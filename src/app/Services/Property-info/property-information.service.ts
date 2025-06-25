@@ -16,18 +16,14 @@ chosenCard = new BehaviorSubject<any>(null);
   RecentProp = [{
     img: '../../../assets/Imges/StaticImg/CardImges/fp-1.jpg',
     type: 'Family House',
-    price: '1,200,000'
+    price: 1200000
   }
     , {
     img: '../../../assets/Imges/StaticImg/CardImges/fp-2.jpg',
     type: 'Family House',
-    price: '$200,000'
+    price: 200000
   },
-  {
-    img: '../../../assets/Imges/StaticImg/CardImges/fp-3.jpg',
-    type: 'Family House',
-    price: '$1,200,000'
-  }
+
   ]
   featuredProp = [{
     img: '../../../assets/Imges/StaticImg/CardImges/fp-1.jpg',
@@ -39,6 +35,7 @@ chosenCard = new BehaviorSubject<any>(null);
     locationCity: 'New York',
     area: '720',
     rooms: '8',
+    curConverted: false,
     id: 0,
     bedrooms: '3',
   },
@@ -59,9 +56,12 @@ chosenCard = new BehaviorSubject<any>(null);
   area: 720,
   garages: 2,
   price: 110000,
+  basePrice: 110000,
   currency: '₾',
+  curConverted: false,
   profileName: 'john Doe',
   uploadmonth: 1,
+  
   id:0,
   
 },

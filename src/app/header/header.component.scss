@@ -546,8 +546,12 @@ header {
             display: flex;
             gap: 20px;
             align-items: center;
-            .heart {
+            
+            img {
+              width: 17px;
+              height: 17px;
               cursor: pointer;
+              
             }
           }
         }
@@ -663,11 +667,11 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  
   z-index: 99;
   .Back{
-      width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 
   top: 0;
 

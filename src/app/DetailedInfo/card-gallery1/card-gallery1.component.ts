@@ -6,11 +6,21 @@ import { ViewsService } from '../../Services/views/views.service';
 import { concatMap, switchMap, tap } from 'rxjs';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { RegistrationService } from '../../Services/registration/registration.service';
+import { CurrencyService } from '../../Services/currency/currency.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-card-gallery1',
   templateUrl: './card-gallery1.component.html',
-  styleUrl: './card-gallery1.component.scss'
+  styleUrl: './card-gallery1.component.scss',
+  animations: [
+  trigger('fadeIn', [
+    transition(':enter', [
+      style({ opacity: 0, transform: 'translateY(50px)' }),
+      animate('400ms 10ms ease-in', style({ opacity: 1, transform: 'translateY(0px)' })),
+    ]),
+  ]),
+],
 })
 export class CardGallery1Component {
 staticH2='Gallery';
@@ -25,7 +35,7 @@ staticH2='Gallery';
  heartimgLinks=this.heartimg;
 
  unit;
-  constructor( private cardInfo:PropertyInformationService ,private lang:LanguageChooserService , private views:ViewsService ,private navService:NavInfoService ,  
+  constructor( private cardInfo:PropertyInformationService ,private lang:LanguageChooserService ,private CurrencyServ:CurrencyService, private views:ViewsService ,private navService:NavInfoService ,  
       private Registration: RegistrationService, private cardsService:AllCardsService
 ) {
 this.staticH2=this.lang.chosenLang.DetailedInfo.CardGallery1;
@@ -65,8 +75,44 @@ this.unit=this.lang.chosenLang.DetailedInfo.unit;
               
               },
             });
+                 this.CurrencyServ.currency$.subscribe((currency) => {
+        if (currency === '$' || currency === '₾') {
+          this.toggleAllCurrencies(currency, true);
+ 
+
+        }
+      })
         
   }
+
+     toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
+
+
+
+        if (this.data.currency !== targetCurrency) {
+
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!this.data.curConverted) {
+      this.data.currency = targetCurrency === '₾' ? '$' : '₾';
+
+      this.data.price = this.CurrencyServ.changeCurrency(targetCurrency, this.data.purePrice);
+      this.data.curConverted = true;
+
+
+    } else {
+      this.data.price = this.data.purePrice;
+      this.data.currency = targetCurrency === '₾' ? '$' : '₾';
+      this.data.curConverted = false;
+
+    }
+
+
+}
   
   setIndex(index){
     this.ForActive=index;
@@ -123,5 +169,15 @@ decriment(){
   }
   
 
+shareComp=false;
+shareInfo:any;
+
+shareComponent(info){
+
+this.shareInfo=info;
+
+
+this.shareComp=true;
+}
 
 }

@@ -1,9 +1,9 @@
 
 
 <main>
-<div class="card"><img [src]="ElementInfo.imgLink" alt=""> <h4> <h3>{{ElementInfo.header}}</h3> <p>{{ElementInfo.location}}</p> </h4></div>
+<div class="card"><img [src]="ElementInfo.imgLink" alt=""> <h4> <h3>{{ElementInfo.header}}</h3> <p>{{ElementInfo.location}}</p> </h4>  </div>
 
-<div class="linkSquare">
+<div class="linkSquare" (click)="copyToUrl()">
     <span #linkText>{{ElementLink}}
 </span>
 <button (click)="copyToUrl()"><img [src]="copyUrl" alt="copy Icon"></button>

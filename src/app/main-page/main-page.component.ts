@@ -153,7 +153,7 @@ this.dataService.getDiscoveredProperties().pipe(
     
   }
 
-toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
+toggleAllCurrencies(targetCurrency ,fromService?): void {
 
   this.DiscoverPopularPlaces.forEach((card, id) => {
 

@@ -53,7 +53,28 @@
                 <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt=""><p>{{info.garages}} {{Languages.featuredPropertiesStatic.Garage}}</p></div>
             </div>
             <div class="CardFooterRow">
-                <h1>{{info.price | number:'1.0-0' }}{{info.currency}}  </h1> <div class="iconRow"><img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
+
+                
+                <h1>{{info.price | number:'1.0-0' }}{{info.currency}}  </h1> 
+                <div class="iconRow">  
+                  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
+  <button
+    class="toggle-option"
+    [class.active]="info.currency === '₾'"
+ 
+  >
+    ₾ 
+  </button>
+  <button 
+    class="toggle-option"
+    [class.active]="info.currency === '$'"
+
+  >
+    $
+  </button>
+  <div class="indicator" [class.right]="info.currency === '$'"></div>
+</div>
+ <img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
             </div>
             </div>
         </div>

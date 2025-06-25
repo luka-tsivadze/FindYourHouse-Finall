@@ -1,10 +1,11 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, effect, ElementRef, HostListener, Inject, NgZone, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { MainPageDataService } from '../Services/mainPageService/main-page-data.service';
 
 
 import { AllCardsService } from '../Services/all-cards/all-cards.service';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavInfoService } from '../Services/NavService/nav-info.service';
@@ -12,7 +13,7 @@ import { FilterDataUniterService } from '../Services/filter-data-uniter/filter-d
 import { PropertyInformationService } from '../Services/Property-info/property-information.service';
 import { RegistrationService } from '../Services/registration/registration.service';
 import { CurrencyService } from '../Services/currency/currency.service';
-import { forkJoin, switchMap } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 
 
@@ -20,7 +21,23 @@ import { forkJoin, switchMap } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  animations: [
+    trigger('card3dAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateZ(-100px) scale(0.8)' }),
+        animate('600ms cubic-bezier(0.23, 1, 0.32, 1)', 
+          style({ opacity: 1, transform: 'translateZ(0) scale(1)' })
+        )
+      ]),
+      transition(':leave', [
+        animate('400ms cubic-bezier(0.23, 1, 0.32, 1)', 
+          style({ opacity: 0, transform: 'translateZ(-100px) scale(0.8)' })
+        )
+      ])
+    ])
+  ],
+
 })
 export class HeaderComponent implements OnInit {
 
@@ -417,3 +434,4 @@ ngOnDestroy(): void {
   
 }
 }
+

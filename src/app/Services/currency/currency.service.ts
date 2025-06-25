@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, shareReplay } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, map, Observable, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,16 @@ export class CurrencyService {
 
     private currencySubject = new BehaviorSubject<string>(''); // it will transform to Value
   currency$ = this.currencySubject.asObservable();
-  currencyRates
+  currencyRates;
 
-  constructor( private http:HttpClient){ }
+
+  constructor( private http:HttpClient){
+
+    if (localStorage.getItem('Currency')) {
+      const storedCur= JSON.parse(localStorage.getItem('Currency'));
+   this.setCurrency(storedCur.icon);
+    }
+   }
 
 
 
@@ -40,9 +47,11 @@ changeCurrency(
   amount: number,
 
 ) {
-  //  if (this.currencyRates) {
-  //   this.currencyRates = await firstValueFrom(this.fetCurrency());
-  // }
+
+  if (!this.currencyRates) {
+    console.warn(this.currencyRates);
+  
+  }
   const CurrencyTo = this.currencyRates;
 
   if (this.currencyRates === undefined) {

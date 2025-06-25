@@ -169,7 +169,7 @@ a{
             color: #fff;
             border: none;
             transition: background 0.2s;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 15px 20px;
             cursor: pointer;
             img {
@@ -184,29 +184,31 @@ a{
         .BtnA{
             width: 80%;
         }
-        .tw{
+        .google{
             width: 100%;
-                    
-            background-color: #db4437;
-                        display: flex;
+            background-color: #fff;
+            display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
             font-size: 16px;
-            color: #fff;
-            border: none;
-            transition: background 0.2s;
-            border-radius: 5px;
+            color: #444;
+            border:unset;
+            box-shadow: 0Px 0px 3px rgba(0, 0, 0, 0.3);
+            transition: background 0.2s, color 0.2s;
+            border-radius: 10px;
             padding: 15px 20px;
             cursor: pointer;
             img {
-                filter: invert(1);
-                margin-right: 8px;
-                width: 22px;
-                height: 22px;
+            margin-right: 8px;
+            width: 22px;
+            height: 22px;
+            filter: none;
             }
             &:hover {
-         background-color: #b83b2f;
+            background-color: #f1f1f1;
+       
+     
             }
         }
       .LogIn{

@@ -34,6 +34,58 @@ p {
 .FadeInUp {
   animation: fadeInUp 1s forwards;
 }
+.currency-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 20px;
+  background: #e0e0e098;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  perspective: 1000px;
+
+  .toggle-option {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+
+    &.active {
+
+      color: #fff;
+    }
+
+    &:not(.active) {
+  
+      opacity: 0.6;
+    }
+  }
+
+  .indicator {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    width: 50%;
+    height: 16px;
+    border-radius: 18px;
+    background: #ff385c;
+    transition: all 0.3s ease;
+    z-index: 1;
+
+    &.right {
+      left: 48%;
+    }
+  }
+}
 main {
   display: flex;
   justify-content: center;

@@ -6,6 +6,7 @@ import { RegistrationService } from '../../Services/registration/registration.se
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 import { PropertyInformationService } from '../../Services/Property-info/property-information.service';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
+import { CurrencyService } from '../../Services/currency/currency.service';
 
 @Component({
   selector: 'app-listing',
@@ -34,44 +35,50 @@ export class ListingComponent {
     heartimgLinks=[this.heartimg,this.heartimg,this.heartimg];
   allCards;
     constructor(private Infoservice:PropertyInformationService, private staticInfo:MainPageDataService ,
-private navService:NavInfoService , 
+private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
       private cardsService:AllCardsService, private Registration:RegistrationService, ) {
 
     }
     ngOnInit(): void { 
       if (this.agent && this.agent.status !== 0) {
-
+      this.cardsService.fetchDataFromApi().subscribe((data) => {
+        this.allCards = data.filter((card) => card.UserId === this.agent.idi);
+        if (this.allCards && this.allCards.length !== 0) {
+        this.loadCardData(this.allCards);
+        } else {
+        this.data = [];
+        }
+      });
       }
-
     }
+
     ngOnChanges(changes: SimpleChanges): void {
+      // If agent input changes after init, reload data
+      if (changes['agent'] && !changes['agent'].firstChange && this.agent && this.agent.status !== 0) {
+      this.cardsService.fetchDataFromApi().subscribe((data) => {
+        this.allCards = data.filter((card) => card.UserId === this.agent.idi);
+        if (this.allCards && this.allCards.length !== 0) {
+        this.loadCardData(this.allCards);
+        } else {
+        this.data = [];
+        }
+      });
+      }
+      // Subscribe to currency changes after agent changes
       if (changes['agent'] && this.agent && this.agent.status !== 0) {
-        this.cardsService.fetchDataFromApi().subscribe((data) => {
-          
-          this.allCards = data.filter((card) => {
-            return card.UserId === this.agent.idi;
-          });
-          if(this.allCards.length!==0 && this.allCards){
-            console.log('this is filtered cards:',this.allCards);
-            this.loadCardData(this.allCards);
-        
-          }else{
-            this.data=[];
-          }
-
-        });
-
+      this.CurrencyServ.currency$.subscribe((currency) => {
+        this.toggleAllCurrencies(currency, true);
+      });
       }
     }
     loadCardData(cards: any[]): void {
 
     
-      // TODO: Replace [] with real API call once it's ready
       forkJoin({
      // e.g. this.cardsService.fetchSimilar(cardId),
         favData: this.cardsService.fetFavchData(this.navService.userId)
       }).subscribe(({ favData }) => {
-          console.log('ListingCards:', cards);
+          
         this.data = cards.map((element) => {
           return {
             featuredBtn: true,
@@ -82,10 +89,15 @@ private navService:NavInfoService ,
             location: element.location,
             bedrooms: element.bedrooms,
             bathrooms: element.bathrooms,
+
+            basePrice: Number((element.basePrice || '').toString().replace(/[^\d]/g, '')) || 0,
+           
+            curConverted: false,
+            currency: element.currency,
+
             area: element.area,
             garages: 1,
             price: Number((element.price || '').toString().replace(/[^\d]/g, ''))|| 0,
-            currency: element.currency,
             profileName: element.profileName,
             uploadmonth: element.uploadmonth,
             id: element.id,
@@ -125,6 +137,35 @@ private navService:NavInfoService ,
   
   }
   
+    toggleAllCurrencies(targetCurrency ,fromService?): void {
+
+  this.data.forEach((card, id) => {
+
+
+        if (card.currency !== targetCurrency) {
+        
+          return;
+        }
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
+
+    if (!card.curConverted) {
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.price = this.CurrencyServ.changeCurrency(targetCurrency, card.basePrice);
+      card.curConverted = true;
+
+
+    } else {
+      card.price = card.basePrice;
+      card.currency = targetCurrency === '₾' ? '$' : '₾';
+      card.curConverted = false;
+
+    }
+  });
+
+}
+
   
   getMatchingIndexes(savedCards: any[], allCards: any[]): void {
   
