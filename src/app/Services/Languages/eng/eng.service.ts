@@ -132,6 +132,19 @@ export class EngService {
     optdisplay:['For Sale', 'For Rent' ,'Pledge','Rented daily','Apartments Under Construction'],
   }
  allFilter={
+  translated:{
+  SortBy:'SORTBY:',
+  activeEl:'Top Selling',
+sortingOptions : [{name:'Top Selling',state:true},
+  {name:'Most Viewed',state:false},
+  {name:'Price: Low to High',state:false}
+  ,{name:'price: Hight to Low ',state:false}],
+results:'search resoults', 
+view:'Grid View',
+list:'List View',
+home:'Home',
+ homeL:'/Listings'
+},
   FirstFilter:{
     locations: ['Tbilisi', 'Batumi', 'Kutaisi', 'Rustavi', 'Zugdidi', 'Telavi', 'Bakuriani', 'Kobuleti','Gori','Poti','Marneuli','Khashuri','Samtredia','Zestaponi','Akhaltsikhe','Senaki','Ozurgeti','Kaspi','Chiatura','Gardabani','Borjomi','Sagarejo','Kvareli','Bolnisi','Tkibuli','Khoni','Tskaltubo','Akhalkalaki','Mtskheta','Gurjaani','Dusheti',
       'Lanchkhuti','Lagodekhi','Sachkhere','Dedoplistskaro','Abasha','Martvili','Ninotsminda','Tsalka','Vani','Dmanisi','Tsalenjikha', 'Keda'],
@@ -229,6 +242,7 @@ export class EngService {
  }
  
  }
+ 
      
   constructor() {}
 }

@@ -1,7 +1,7 @@
 import {
   TileState_default,
   Tile_default
-} from "./chunk-V7YDAVNZ.js";
+} from "./chunk-DRJWERQL.js";
 import {
   createCanvasContext2D,
   releaseCanvas
@@ -488,4 +488,4 @@ export {
   VectorRenderTile_default,
   VectorTile_default
 };
-//# sourceMappingURL=chunk-ZHVUMXSH.js.map
+//# sourceMappingURL=chunk-IPANME55.js.map

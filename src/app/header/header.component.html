@@ -28,24 +28,34 @@
         <div class="HeaderSearch">
             <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
               
-              <div class="select">
-                <select name="propertyType1" (change)="onSelectChange($event)">
-                  <option value="" disabled selected>{{For.text}}</option>
-                  <option *ngFor="let el of For.options; let i = index" [value]="el">
-                    {{For.optdisplay[i]}}
-                  </option>
-                </select>
-              </div>
-              
+     <div class="CustomeSelect" id="For">
+  <div class="chosenselect" (click)="toggleDropdown(1)">
+    <img [src]="SelectedOption1.Icon" alt="icon">
+    <span>{{ SelectedOption1.name }}</span>
+    <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt="Sales">
+  </div>
+  <div class="show" [ngClass]="{'options': showselectOptions[1]}">
+    <div class="option" *ngFor="let opt of For.options; let i = index" (click)="selected(opt, i, 1)">
+      <img src="{{ selectIcons1[i] }}" alt="">
+      {{ For.optdisplay[i] }}
+    </div>
+  </div>
+</div>
 
-             
+<div class="CustomeSelect" id="PropertyType">
+  <div class="chosenselect" (click)="toggleDropdown(0)">
+    <img [src]="SelectedOption.Icon" alt="icon">
+    <span>{{ SelectedOption.name }}</span>
+    <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt="dropDown">
+  </div>
+  <div class="show" [ngClass]="{'options': showselectOptions[0]}">
+    <div class="option" *ngFor="let opt of allcardsData.FirstFilter.PropertyTypes; let i = index" (click)="selected(opt, i, 0)">
+      <img src="{{ selectIcons[i] }}" alt="icon">
+      {{ allcardsData.FirstFilter.PropertyTypesDis[i] }}
+    </div>
+  </div>
+</div>
 
-                <div class="select">
-                  <select name="propertyType" formControlName="Propselect">
-                    <option value="0">{{staticElements.propertyType}}</option>
-                    <option *ngFor="let el of allcardsData.FirstFilter.PropertyTypes let i=index" [value]="el">{{allcardsData.FirstFilter.PropertyTypesDis[i]}}</option>
-                  </select>
-                </div>
               
                 <div class="select">
                   <select name="location" formControlName="locselect">

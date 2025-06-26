@@ -23,21 +23,7 @@ maxPeice;
 advenced=false;
 filterForm: FormGroup;
 
-translated={
-  SortBy:'SORTBY:',
-  activeEl:'Top Selling',
-sortingOptions : [{name:'Top Selling',state:true},
-  {name:'Most Viewed',state:false},
-  {name:'Price: Low to High',state:false}
-  ,{name:'price: Hight to Low ',state:false}],
-results:'search resoults',
-view:'Grid View',
-list:'List View',
-home:'Home',
- homeL:'/Listings'
-
-  
-}
+translated=this.mainPageData.LangMainData.allFilter.translated;
 
 options=false  
 
@@ -163,6 +149,7 @@ ngOnInit(): void {
 
 
 });
+this.setFilteredInfo();
   });
 
 
@@ -172,6 +159,7 @@ ngOnInit(): void {
       return;
     }
     if (this.uniter.wasCalled) {
+      console.log('Filter was called', filteredCards);
       this.length = filteredCards.length; // Update the length dynamically
 
     }
@@ -180,6 +168,63 @@ ngOnInit(): void {
  
   
 }
+
+  selectIcons=['../../../assets/Imges/StaticImg/StaticIcons/building.svg','../../../assets/Imges/StaticImg/StaticIcons/icons8-home-16.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Agaraki.svg','../../../assets/Imges/StaticImg/StaticIcons/Land.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/commercial.svg','../../../assets/Imges/StaticImg/StaticIcons/Hotel.svg',]
+
+  selectIcons1=['../../../assets/Imges/StaticImg/StaticIcons/coupon.png','../../../assets/Imges/StaticImg/StaticIcons/Rent.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Collateral.png','../../../assets/Imges/StaticImg/StaticIcons/Rented-Daily.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/constraction.png']
+
+  SelectedOption:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg', name:this.staticElements.propertyType};
+  SelectedOption1:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/Sales.png', name:this.for.text};
+
+setFilteredInfo() {
+  const indexType = this.firstFilter.PropertyTypes.findIndex(
+    type => type === this.filterForm.value.propertyType
+  );
+  this.SelectedOption = {
+    Icon: this.selectIcons[indexType] || '../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg',
+    name: this.firstFilter.PropertyTypesDis[indexType] || this.filterForm.value.propertyType
+  };
+
+  const indexStatus = this.for.options.findIndex(
+    status => status === this.filterForm.value.propertyStatus
+  );
+  this.SelectedOption1 = {
+    Icon: this.selectIcons1[indexStatus] || '../../../assets/Imges/StaticImg/StaticIcons/Sales.png',
+    name: this.for.optdisplay[indexStatus] || this.filterForm.value.propertyStatus
+  };
+}
+
+
+
+
+showselectOptions =[false, false, false, false, false, false];
+    toggleDropdown(index: number): void {
+      this.showselectOptions[index] = !this.showselectOptions[index];
+
+    }
+
+   selected(option:any ,index:number , SelectIndex): void {
+
+
+ if (SelectIndex === 0) {
+    this.filterForm.patchValue({  propertyType:option || '0' });
+this.SelectedOption.name=this.firstFilter.PropertyTypesDis[index];
+this.SelectedOption.Icon=this.selectIcons[index];
+ }else if (SelectIndex === 1) {
+    this.filterForm.patchValue({ propertyStatus: this.for.options[index] || '0' });
+    this.SelectedOption1.name = option || '0';
+    this.SelectedOption1.Icon = this.selectIcons1[index];
+
+ }
+this.showselectOptions[SelectIndex] = false;
+
+    }
+
+
 
  //double slider
  sliderOneValue_1 = 0;

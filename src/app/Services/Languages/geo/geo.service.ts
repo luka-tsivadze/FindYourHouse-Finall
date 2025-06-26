@@ -116,6 +116,21 @@ For={
 
 }
 allFilter = {
+  translated: {
+    SortBy: 'დალაგება:',
+    activeEl: 'ყველაზე გაყიდვადი',
+    sortingOptions: [
+      { name: 'ყველაზე გაყიდვადი', state: true },
+      { name: 'ყველაზე ნახვადი', state: false },
+      { name: 'ფასი: ზრდადობით', state: false },
+      { name: 'ფასი: კლებადობით', state: false }
+    ],
+    results: 'ძებნის შედეგები',
+    view: 'ბადის ხედი',
+    list: 'სიის ხედი',  
+    home: 'მთავარი',
+    homeL: '/განცხადებები'
+  },
   FirstFilter: {
     locations: ['Tbilisi', 'Batumi', 'Kutaisi', 'Rustavi', 'Zugdidi', 'Telavi', 'Bakuriani', 'Kobuleti','Gori','Poti','Marneuli','Khashuri','Samtredia','Zestaponi','Akhaltsikhe','Senaki','Ozurgeti','Kaspi','Chiatura','Gardabani','Borjomi','Sagarejo','Kvareli','Bolnisi','Tkibuli','Khoni','Tskaltubo','Akhalkalaki','Mtskheta','Gurjaani','Dusheti',
      'Lanchkhuti','Lagodekhi','Sachkhere','Dedoplistskaro','Abasha','Martvili','Ninotsminda','Tsalka','Vani','Dmanisi','Tsalenjikha', 'Keda'],

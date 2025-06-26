@@ -16,12 +16,18 @@ chosenCard = new BehaviorSubject<any>(null);
   RecentProp = [{
     img: '../../../assets/Imges/StaticImg/CardImges/fp-1.jpg',
     type: 'Family House',
+    currency:'',
+    curConverted:false,
+    basePrice:12,
     price: 1200000
   }
     , {
     img: '../../../assets/Imges/StaticImg/CardImges/fp-2.jpg',
     type: 'Family House',
-    price: 200000
+    price: 200000,
+        basePrice:12,
+     currency:'',
+    curConverted:false,
   },
 
   ]

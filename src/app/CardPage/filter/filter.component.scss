@@ -1,5 +1,9 @@
 // Mixins for reusable styles
+// Define common variables
 
+$light-gray: #ddd;
+$input-color: #757575;
+$font-primary: "Lato", sans-serif;
 
 $primary-color: #FF385C;
 @mixin flex-center($direction: row, $gap: 0px) {
@@ -111,6 +115,70 @@ h2{
       gap: 10px;
       flex-wrap: wrap;
       width:100%;
+
+              .CustomeSelect{
+    position: relative;
+    cursor: pointer;
+      width: 200px;
+          height: 50px;
+      
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+          display: flex;
+          flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 10px;
+        
+            .dropDown{
+            width: 20px;
+            position: absolute;
+      
+            right: 10px;
+            }
+        .chosenselect{
+         display: flex;
+         gap: 10px;
+         width: 100%;
+             padding: 2px 21px;
+         height: 100%;
+         align-items: center;
+         img{
+            width: 20px ;
+         }
+        }
+        .show{
+          display: none ;
+        }
+            .options{
+              display: flex;
+                     animation: fadeIn 0.3s ease-in-out;
+              flex-direction: column;
+              gap: 1px;
+              width: 100%;
+            padding: 10px 0px;
+           
+              background-color: rgb(255, 255, 255);
+              border-radius: 5px;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              z-index: 1;
+                    border: 1px solid $light-gray;
+              .option{
+                         display: flex;
+                         cursor: pointer;
+         gap: 12px;
+         align-items: center;
+         img{
+            width: 17px ;
+         }
+                padding: 7px 25px;
+              }
+            }
+}
     }
   
     // Input fields styling
@@ -124,7 +192,14 @@ h2{
     select {
       @include select-style();
       border: 1px solid #ebebeb;
-      border-radius: 6px;
+
+            width: 200px;
+          height: 50px;
+      
+          border: 1px solid $light-gray;
+          border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
    
     }
 

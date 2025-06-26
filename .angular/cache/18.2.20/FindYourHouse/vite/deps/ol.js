@@ -3,22 +3,13 @@ import {
   VectorRenderTile_default,
   VectorTile_default,
   getTilePriority
-} from "./chunk-ZHVUMXSH.js";
+} from "./chunk-IPANME55.js";
 import {
   BaseVector_default,
   Graticule_default,
   GroupEvent,
   Group_default
-} from "./chunk-JPCIVJDY.js";
-import {
-  CLASS_COLLAPSED,
-  CLASS_CONTROL,
-  CLASS_HIDDEN,
-  CLASS_SELECTABLE,
-  CLASS_UNSELECTABLE,
-  checkedFonts,
-  shared
-} from "./chunk-XGFWOALX.js";
+} from "./chunk-KHRFWL5U.js";
 import {
   CollectionEventType_default,
   Collection_default,
@@ -36,7 +27,16 @@ import {
   easeOut,
   inView,
   linear
-} from "./chunk-V7YDAVNZ.js";
+} from "./chunk-DRJWERQL.js";
+import {
+  CLASS_COLLAPSED,
+  CLASS_CONTROL,
+  CLASS_HIDDEN,
+  CLASS_SELECTABLE,
+  CLASS_UNSELECTABLE,
+  checkedFonts,
+  shared
+} from "./chunk-XGFWOALX.js";
 import {
   DEVICE_PIXEL_RATIO,
   Image_default,
@@ -57,7 +57,25 @@ import {
   compose,
   create,
   makeInverse
-} from "./chunk-KCQC7TLX.js";
+} from "./chunk-Z3FPXOJW.js";
+import {
+  clone,
+  containsExtent,
+  createOrUpdateEmpty,
+  equals,
+  fromUserCoordinate,
+  get,
+  getForViewAndSize,
+  getTransformFromProjections,
+  getWidth,
+  identityTransform,
+  isEmpty,
+  rotate,
+  scale,
+  toUserCoordinate,
+  warn,
+  wrapX2 as wrapX
+} from "./chunk-EZV53CNN.js";
 import {
   Disposable_default,
   EventType_default,
@@ -78,24 +96,6 @@ import {
   toPromise,
   unlistenByKey
 } from "./chunk-EEDHQZUN.js";
-import {
-  clone,
-  containsExtent,
-  createOrUpdateEmpty,
-  equals,
-  fromUserCoordinate,
-  get,
-  getForViewAndSize,
-  getTransformFromProjections,
-  getWidth,
-  identityTransform,
-  isEmpty,
-  rotate,
-  scale,
-  toUserCoordinate,
-  warn,
-  wrapX2 as wrapX
-} from "./chunk-EZV53CNN.js";
 import {
   clamp,
   toRadians

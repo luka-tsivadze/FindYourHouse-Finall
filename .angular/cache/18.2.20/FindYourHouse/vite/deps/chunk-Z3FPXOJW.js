@@ -1,16 +1,4 @@
 import {
-  EventType_default,
-  Object_default,
-  abstract,
-  ascending,
-  assert,
-  binarySearch,
-  extend as extend2,
-  listen,
-  memoizeOne,
-  unlistenByKey
-} from "./chunk-EEDHQZUN.js";
-import {
   closestSquaredDistanceXY,
   containsXY,
   createEmpty,
@@ -31,6 +19,18 @@ import {
   offset,
   returnOrUpdate
 } from "./chunk-EZV53CNN.js";
+import {
+  EventType_default,
+  Object_default,
+  abstract,
+  ascending,
+  assert,
+  binarySearch,
+  extend as extend2,
+  listen,
+  memoizeOne,
+  unlistenByKey
+} from "./chunk-EEDHQZUN.js";
 import {
   lerp,
   squaredDistance,
@@ -3443,4 +3443,4 @@ export {
   linearRingss2 as linearRingss,
   MultiPolygon_default
 };
-//# sourceMappingURL=chunk-KCQC7TLX.js.map
+//# sourceMappingURL=chunk-Z3FPXOJW.js.map

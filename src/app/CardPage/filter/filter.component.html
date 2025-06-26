@@ -6,19 +6,25 @@
     <div class="HeaderSearch">
         <form  [formGroup]="filterForm">
 
-          <div class="selectParent" >
-            <img class="simg"  src="{{for.imgLink}}   " alt="HomeIcon">
-            <select name="{{for.text}}" class="{{for.name}}"  formControlName="{{for.name}}">
-                <option value="0" disabled selected hidden>{{for.text}}</option>
-                <option value="{{for.options[i]}}" *ngFor="let opt of Fortypes let i=index">{{opt}}</option>      
-            </select>
+                  <div class="CustomeSelect" id="For" >
+            <div class="chosenselect" (click)="toggleDropdown(1)"><img [src]=SelectedOption1.Icon alt="icon"> <span>{{SelectedOption1.name}}</span>  <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt="Sales"></div>
+  
+        <div class="show" [ngClass]="{'options': showselectOptions[1]}">
+        <div class="option" *ngFor="let opt of Fortypes let i =index" (click)="selected(opt , i , 1)"><img src="{{selectIcons1[i]}}" alt="">{{opt}}</div>
         </div>
+  
+    </div> 
+            
 
-                <select formControlName="propertyType">
-                    <option value="0">{{staticElements.propertyType}}</option>
-                    <option  *ngFor="let el of firstFilter.PropertyTypes let i=index" value="{{el}}">{{firstFilter.PropertyTypesDis[i]}}</option>
-              
-                </select>
+                  <div class="CustomeSelect" id="tipi" >
+            <div class="chosenselect" (click)="toggleDropdown(0)"><img [src]=SelectedOption.Icon alt="icon"> <span>{{SelectedOption.name}}</span>  <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt="dropDown"></div>
+  
+        <div class="show" [ngClass]="{'options': showselectOptions[0]}">
+        <div class="option" *ngFor="let opt of firstFilter.PropertyTypes let i =index" (click)="selected(opt , i , 0)"><img src="{{selectIcons[i]}}" alt="icon">{{firstFilter.PropertyTypesDis[i]}}</div>
+        </div>
+  
+    </div> 
+            
          
             <select name="location"  formControlName="location"> 
                 <option value="0">{{staticElements.location}}</option>

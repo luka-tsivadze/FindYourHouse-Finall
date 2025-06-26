@@ -129,15 +129,29 @@ For={
   optdisplay:[ 'Продается', 'Сдается в аренду', 'Залог', 'Аренда посуточно', 'Строящиеся квартиры'],
 }
 allFilter = {
+  translated: {
+    SortBy: 'Сортировать:',
+    activeEl: 'Самые продаваемые',
+    sortingOptions: [
+      { name: 'Самые продаваемые', state: true },
+      { name: 'Самые просматриваемые', state: false },
+      { name: 'Цена: по возрастанию', state: false },
+      { name: 'Цена: по убыванию', state: false }
+    ],
+    results: 'Результаты поиска',
+    view: 'Вид сеткой',
+    list: 'Вид списком',
+    home: 'Главная',
+    homeL: '/allCards'
+  },
   FirstFilter: {
     locations: ['Tbilisi', 'Batumi', 'Kutaisi', 'Rustavi', 'Zugdidi', 'Telavi', 'Bakuriani', 'Kobuleti','Gori','Poti','Marneuli','Khashuri','Samtredia','Zestaponi','Akhaltsikhe','Senaki','Ozurgeti','Kaspi','Chiatura','Gardabani','Borjomi','Sagarejo','Kvareli','Bolnisi','Tkibuli','Khoni','Tskaltubo','Akhalkalaki','Mtskheta','Gurjaani','Dusheti',
       'Lanchkhuti','Lagodekhi','Sachkhere','Dedoplistskaro','Abasha','Martvili','Ninotsminda','Tsalka','Vani','Dmanisi','Tsalenjikha', 'Keda'],
-    locationDis: ['Тбилиси', 'Батуми', 'Кутаиси', 'Рустави', 'Зугдиди', 'Телави', 'Бакуриани', 'Кобулети','Гори','Поти','Марнеули','Хашури','Самтредиа','Зестапони','Ахалцихе','Сенакь','Озургети','Каспи','Чиатура','Гардабани','Боржоми','Сагареджо','Кварели','Болниси','Ткибули','Хони','Цкалтоубо','Ахалкалаки','Мцхета','Гурджаани','Душети',
-      'Ланчхуте','Лагодехи','Сачхере','Дедоплисцкаро','Абаша','Мартвили','Ниноцминда','Цалка','Вани','Дманиси','Цаленджиха', 'Кеда'],
+    locationDis: ['Тбилиси', 'Батуми', 'Кутаиси', 'Рустави', 'Зугдиди', 'Телави', 'Бакуриани', 'Кобулети','Гори','Поти','Марнеули','Хашури','Самтредиа','Зестапони','Ахалцихе','Сенаки','Озургети','Каспи','Чиатура','Гардабани','Боржоми','Сагареджо','Кварели','Болниси','Ткибули','Хони','Цкалтубо','Ахалкалаки','Мцхета','Гурджаани','Душети',
+      'Ланчхути','Лагодехи','Сачхере','Дедоплисцкаро','Абаша','Мартвили','Ниноцминда','Цалка','Вани','Дманиси','Цаленджиха', 'Кеда'],
 
     PropertyTypes:   ['Apartment', 'House','country House','Land Plot','Commercial', 'Hotel'],
     PropertyTypesDis: ['Квартира', 'Дом', 'Загородный дом','Земельный участок','Коммерческая недвижимость','Отель'],
-     
   },
   filter: {
     SelectInputs: [
@@ -160,23 +174,23 @@ allFilter = {
       Price: 'Ценовой диапазон'
     },
     filteredCheckBox: [
-      { id: '1', label: 'Air Conditioning', name: 'Кондиционер', formcontroller: 'airConditioning' },
-      { id: '2', label: 'Swimming Pool', name: 'Бассейн', formcontroller: 'swimmingPool' },
-      { id: '3', label: 'TV Cable & wifi', name: 'Телевидение и интернет', formcontroller: 'tvCable' },
-      { id: '4', label: 'Central Heating', name: 'Центральное отопление', formcontroller: 'centralHeating' },
-      { id: '5', label: 'Laundry Room', name: 'Прачечная', formcontroller: 'laundryRoom' },
-      { id: '6', label: 'Microwave', name: 'Микроволновая печь', formcontroller: 'microwave' },
-      { id: '7', label: 'Gym', name: 'Спортзал', formcontroller: 'gym' },
-      { id: '8', label: 'Alarm', name: 'Сигнализация', formcontroller: 'alarm' },
-      { id: '9', label: 'Refrigerator', name: 'Холодильник', formcontroller: 'refrigerator' },
-      { id: '10', label: 'Window Covering', name: 'Балкон', formcontroller: 'windowCovering' },
+      { id: '1', label: 'Кондиционер', name: 'Кондиционер', formcontroller: 'airConditioning' },
+      { id: '2', label: 'Бассейн', name: 'Бассейн', formcontroller: 'swimmingPool' },
+      { id: '3', label: 'Телевидение и интернет', name: 'Телевидение и интернет', formcontroller: 'tvCable' },
+      { id: '4', label: 'Центральное отопление', name: 'Центральное отопление', formcontroller: 'centralHeating' },
+      { id: '5', label: 'Прачечная', name: 'Прачечная', formcontroller: 'laundryRoom' },
+      { id: '6', label: 'Микроволновая печь', name: 'Микроволновая печь', formcontroller: 'microwave' },
+      { id: '7', label: 'Спортзал', name: 'Спортзал', formcontroller: 'gym' },
+      { id: '8', label: 'Сигнализация', name: 'Сигнализация', formcontroller: 'alarm' },
+      { id: '9', label: 'Холодильник', name: 'Холодильник', formcontroller: 'refrigerator' },
+      { id: '10', label: 'Балкон', name: 'Балкон', formcontroller: 'windowCovering' },
 
-      {label: 'sardafi', name:'basement', id: '11', formcontroller: 'sardafi'},
-      { label: 'lifti',  name:'Elavator', id: '12', formcontroller: 'lifti' },
-      { label: 'garage',  name:'Garage', id: '13',  formcontroller: 'garage' },
-      { label: 'bolo_sartuli',  name:'Top Floor', id: '14',  formcontroller: 'bolo_sartuli' },
-      { label: 'bunebrivi_airi', name:'Natural gas' , id: '15', formcontroller: 'bunebrivi_airi' },
-      { label: 'satavso',  name:'Storage',  id: '16',  formcontroller:'satavso' },
+      {label: 'Подвал', name:'Подвал', id: '11', formcontroller: 'sardafi'},
+      { label: 'Лифт',  name:'Лифт', id: '12', formcontroller: 'lifti' },
+      { label: 'Гараж',  name:'Гараж', id: '13',  formcontroller: 'garage' },
+      { label: 'Верхний этаж',  name:'Верхний этаж', id: '14',  formcontroller: 'bolo_sartuli' },
+      { label: 'Природный газ', name:'Природный газ' , id: '15', formcontroller: 'bunebrivi_airi' },
+      { label: 'Кладовая',  name:'Кладовая',  id: '16',  formcontroller:'satavso' },
     ],
   },
 }

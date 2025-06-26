@@ -13,7 +13,7 @@ import {
   TileQueue_default,
   VectorRenderTile_default,
   VectorTile_default
-} from "./chunk-ZHVUMXSH.js";
+} from "./chunk-IPANME55.js";
 import {
   DataTile_default,
   ERROR_THRESHOLD,
@@ -38,7 +38,7 @@ import {
   translate,
   translation,
   withinExtentAndZ
-} from "./chunk-WJTL4NSK.js";
+} from "./chunk-O5ZJZTT6.js";
 import {
   DEFAULT_MAX_ZOOM,
   DEFAULT_TILE_SIZE,
@@ -53,7 +53,7 @@ import {
   ViewHint_default,
   createOrUpdate as createOrUpdate2,
   loadFeaturesXhr
-} from "./chunk-V7YDAVNZ.js";
+} from "./chunk-DRJWERQL.js";
 import {
   ImageState_default,
   Image_default,
@@ -70,21 +70,7 @@ import {
   intersectsLinearRing,
   makeInverse,
   multiply
-} from "./chunk-KCQC7TLX.js";
-import {
-  Disposable_default,
-  EventType_default,
-  Event_default,
-  abstract,
-  assert,
-  getUid,
-  isSorted,
-  linearFindNearest,
-  listen,
-  listenOnce,
-  toPromise,
-  unlistenByKey
-} from "./chunk-EEDHQZUN.js";
+} from "./chunk-Z3FPXOJW.js";
 import {
   METERS_PER_UNIT,
   Projection_default,
@@ -125,6 +111,20 @@ import {
   transform,
   wrapAndSliceX
 } from "./chunk-EZV53CNN.js";
+import {
+  Disposable_default,
+  EventType_default,
+  Event_default,
+  abstract,
+  assert,
+  getUid,
+  isSorted,
+  linearFindNearest,
+  listen,
+  listenOnce,
+  toPromise,
+  unlistenByKey
+} from "./chunk-EEDHQZUN.js";
 import {
   ceil,
   clamp,

@@ -173,6 +173,57 @@ toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
 
 }
 
+selectIcons = [
+  '../../../assets/Imges/StaticImg/StaticIcons/building.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/icons8-home-16.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Agaraki.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/Land.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/commercial.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/Hotel.svg',
+];
+
+selectIcons1 = [
+  '../../../assets/Imges/StaticImg/StaticIcons/coupon.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Rent.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Collateral.png',
+  '../../../assets/Imges/StaticImg/StaticIcons/Rented-Daily.svg',
+  '../../../assets/Imges/StaticImg/StaticIcons/constraction.png',
+];
+
+SelectedOption: any = {
+  Icon: '../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg',
+  name: this.staticElements.propertyType
+};
+
+SelectedOption1: any = {
+  Icon: '../../../assets/Imges/StaticImg/StaticIcons/Sales.png',
+  name: this.For.text
+};
+
+showselectOptions = [false, false, false];
+
+// Dropdown toggle
+  toggleDropdown(index: number): void {
+    this.showselectOptions[index] = !this.showselectOptions[index];
+  }
+
+// Selection handler
+  selected(option: any, index: number, SelectIndex: number): void {
+    if (SelectIndex === 0) {
+      this.filterForm.patchValue({ Propselect: option || '0' });
+      this.SelectedOption.name = this.allcardsData.FirstFilter.PropertyTypesDis[index];
+      this.SelectedOption.Icon = this.selectIcons[index];
+    } else if (SelectIndex === 1) {
+      this.filterForm.patchValue({ propstatus: this.For.options[index] || '0' });
+      this.SelectedOption1.name = this.For.optdisplay[index];
+      this.SelectedOption1.Icon = this.selectIcons1[index];
+    }
+    this.showselectOptions[SelectIndex] = false;
+  }
+
+
+
+
 shareComp=false;
 shareInfo:any;
 
@@ -322,7 +373,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
       this.cd.detectChanges(); // Ensure UI updates
     }
     submitChildData() {
-   
+    console.log('Form submitted:', this.filterForm.value);
       
       this.allcard.triggerSubmit();
   this.router.navigate(['/allCards']);    
