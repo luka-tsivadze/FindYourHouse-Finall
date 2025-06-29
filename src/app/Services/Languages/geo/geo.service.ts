@@ -88,7 +88,7 @@ NavG={Home:'მთავარი ' ,
       Area: 'კვ.მ',
       ViewDetails: 'მეტის ნახვა'
     }
-    main={WhyChooseUs:'რატომ ჩვენ', everyStep:'ჩვენ გთავაზობთ სრულ სერვისს ყოველ ნაბიჯზე '   ,popularPropertys:'აღმოაჩინე პოპულარული ქონება' , AgentsH:'შეხვდით ჩვენს აგენტებს' , 
+    main={WhyChooseUs:'რატომ ჩვენ', everyStep:'ჩვენ გთავაზობთ სრულ სერვისს ყოველ ნაბიჯზე '   ,popularPropertys:'აღმოაჩინე პოპულარული ქონება' , AgentsH:'შეხვდით ჩვენ აგენტებს' , 
       AgentsP:'ჩვენ ყოველთვის მზად ვართ რომ დაგეხმაროთ' , 
       AgentsB:'ვრცლად ნახვა',
       Agents:'განცხადება',
@@ -96,7 +96,7 @@ NavG={Home:'მთავარი ' ,
     
     SFooter = {
         headerFP: 'ჩვენი პარტნიორები', 
-        pFP: 'კომპანიები, რომლებიც წარმოადგენენ ჩვენს ინტერესებს.', 
+        pFP: 'კომპანიები, რომლებიც წარმოადგენენ ჩვენ ინტერესებს.', 
         NavFooter: 'ნავიგაცია', 
       
         NewsFooter: 'საინფორმაციო მიმოწერა', 
@@ -107,6 +107,21 @@ NavG={Home:'მთავარი ' ,
      Policy:'კონფიდენციალურობის პოლიტიკა',
       }
       
+      FooterData = {
+        FindHouse: {
+          mainText: 'უძრავი ქონების ყიდვა-გაყიდვისა და გაქირავების ახალი პორტალი საქართველოში',
+          location: 'საქართველო',
+          Number: '+995 32 21 14 844',
+          Email: 'infofindhous@gmail.com'
+        },
+        Navigation: [
+          { list1: 'მთავარი', list2: 'აგენტის დეტალები', routerLink1: '', routerLink2: '' },
+          { list1: 'უძრავი ქონება', list2: 'ჩვენ შესახებ', routerLink1: '', routerLink2: '/about' },
+          { list1: 'ქონების სია', list2: 'ბლოგი', routerLink1: '/allCards', routerLink2: '/**' },
+          { list1: 'ქონების დეტალები', list2: 'ბლოგის დეტალები', routerLink1: '/allCards', routerLink2: '' },// remove ?
+          { list1: 'აგენტების სია', list2: 'კონტაქტი', routerLink1: '', routerLink2: '/contact' },
+        ],
+      }
 
 
 

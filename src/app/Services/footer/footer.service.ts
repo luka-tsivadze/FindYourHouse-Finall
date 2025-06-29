@@ -49,13 +49,16 @@ export class FooterService {
 if(mainService.localStorage){
   switch (mainService.localStorage) {
     case 'ENG':
-  this.staticValues=this.Engservice.SFooter
+  this.staticValues=this.Engservice.SFooter;
+  this.FooterData=this.Engservice.FooterData;
     break;
       case 'GEO':
-        this.staticValues=this.GeoService.SFooter
+        this.staticValues=this.GeoService.SFooter;
+        this.FooterData=this.GeoService.FooterData;
       break;
       case 'RUS':
         this.staticValues=this.RusService.SFooter
+        this.FooterData=this.RusService.FooterData;
         break;
   
 }   

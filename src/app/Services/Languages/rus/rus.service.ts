@@ -124,6 +124,22 @@ SFooter = {
       terms:'Условия и положения',
      Policy:'Политика конфиденциальности',
 }
+
+  FooterData = {
+    FindHouse: {
+      mainText: 'Новый портал по покупке, продаже и аренде недвижимости в Грузии',
+      location: 'Грузия',
+      Number: '+995 32 21 14 844',
+      Email: 'infofindhous@gmail.com'
+    },
+    Navigation: [
+      { list1: 'Главная', list2: 'Детали агента', routerLink1: '', routerLink2: '' },
+      { list1: 'Недвижимость справа', list2: 'О нас', routerLink1: '', routerLink2: '/about' },
+      { list1: 'Список недвижимости', list2: 'Блог по умолчанию', routerLink1: '/allCards', routerLink2: '/**' },
+      { list1: 'Детали недвижимости', list2: 'Детали блога', routerLink1: '/allCards', routerLink2: '' },
+      { list1: 'Список агентов', list2: 'Связаться с нами', routerLink1: '', routerLink2: '/contact' },
+    ],
+  }
 For={
   text: 'Статус недвижимости',
   optdisplay:[ 'Продается', 'Сдается в аренду', 'Залог', 'Аренда посуточно', 'Строящиеся квартиры'],

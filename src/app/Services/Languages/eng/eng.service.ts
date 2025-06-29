@@ -127,6 +127,22 @@ export class EngService {
      Policy:'Privacy Policy',
     };
 
+  FooterData={
+    FindHouse:{mainText:'New real estate buying and selling and renting portal in Georgia',
+              location:'Georgia',
+              Number:'+995 32 21 14 844',
+              Email:'infofindhous@gmail.com'
+    },
+  Navigation:[
+    {list1:'Home One',list2:'Agents Details' ,routerLink1:'' , routerLink2:''},
+    {list1:'Properties Right',list2:'About Us' , routerLink1:'',routerLink2:'/about' },
+    {list1:'Properties List',list2:'Blog Default' , routerLink1:'/allCards',routerLink2:'/**'  },
+    {list1:'Property Details',list2:'Blog Details', routerLink1:'/allCards',routerLink2:''},
+    {list1:'Agents Listing' , list2:'Contact Us', routerLink1:'',routerLink2:'/contact' },
+  ],
+  
+}
+
      For={
     text: 'Property Status',
     optdisplay:['For Sale', 'For Rent' ,'Pledge','Rented daily','Apartments Under Construction'],

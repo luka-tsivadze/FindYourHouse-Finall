@@ -180,17 +180,18 @@ h3::after{
     gap: 10%;
     align-items: center;
     color: white;
-    padding: 0 120px;
+    padding: 0 50px;
     .row{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: 35px;
+        width: 100%;
         .uniter{
             display: flex;
             align-items: center;
             justify-content: center;
-            gap:0px;
+            gap:20px;
         }
         p{
             font-size: 14px;
@@ -200,14 +201,15 @@ h3::after{
                 width: 360px;
         }
         a{
-            color: #FF385C;
+        color: rgba(245, 255, 255, 0.8);
             text-decoration: none;
-                width: 236px;
+                max-width: 246px;
             font-weight: 600;
             font-size: 14px;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             &:hover{
-                color: #fff;
+                color: #FF385C;
+                text-decoration: underline;
             }
         }
     }

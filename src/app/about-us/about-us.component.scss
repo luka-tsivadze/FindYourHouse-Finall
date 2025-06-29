@@ -17,7 +17,7 @@
    
   }
   50% {
-    transform: scale(0.9);
+    transform: scale(1.1);
 border: unset;
   }
 
@@ -43,14 +43,14 @@ header{
  height: 250px;
   
     background-position: center;
-    background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), 
-    url(../../assets/Imges/StaticImg/Headers/bg-testimonials.jpeg) no-repeat center center;
+    background-image: linear-gradient(135deg, #FF385C 0%, #FF7E5F 100%);
+    // background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6));
+    // url(../../assets/Imges/StaticImg/Headers/bg-testimonials.jpeg) no-repeat center center;
  background-size: cover;
     @include flex-container(column, center, center,11px);
   margin-top: 70px;
 
   h2{
-
     font-size: 26px;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
@@ -156,7 +156,7 @@ header{
     }
   }
   .leftside{
-    width: 37%;
+    width: 65%;
   transition: 0.2s;
     @include flex-container(column, space-between, start,);
     height: 100%;
@@ -190,11 +190,12 @@ header{
       color: #666;
       background: #fff;
       font-weight: 400;
+      padding-top: 30px;
       white-space: pre-wrap;
-      height: 350px;
+      height: 306px;
       overflow: hidden;
       font-family: 'Lato', sans-serif;
-      line-height: 18px;
+      line-height: normal;
       white-space: pre-wrap;
       overflow: hidden;
       transition: 0.2s;
