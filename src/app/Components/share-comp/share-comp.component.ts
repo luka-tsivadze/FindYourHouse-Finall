@@ -22,6 +22,7 @@ ngOnInit(): void {
     console.error('ElementInfo does not contain a valid identifier' , this.ElementInfo);
   }
 }
+
 copyToUrl() {
   this.copyUrl = '../../../assets/Imges/StaticImg/StaticIcons/checkmark-done-outline.svg';
 
@@ -48,4 +49,13 @@ copyToUrl() {
   }
 }
 
+sharetoFeb(){
+alert('Facebook sharing is not implemented yet. Please try again later.');
+}
+
+shareWats(){
+alert('WhatsApp sharing is not implemented yet. Please try again later.');
+}
+
+  
 }

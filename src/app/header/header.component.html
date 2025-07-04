@@ -58,6 +58,7 @@
 
               
                 <div class="select">
+                  <img src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="">
                   <select name="location" formControlName="locselect">
                     <option value="0">{{staticElements.location}}</option>
                     <option *ngFor="let el of allcardsData.FirstFilter.locations let i=index" [value]="el">{{allcardsData.FirstFilter.locationDis[i]}}</option>
@@ -113,9 +114,9 @@
                 </div>
                 
                   <div class="SecondRow">
-                    <button ><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button>
-                    <button *ngIf="info.video!='' "><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
-                    <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button>
+                    <!-- <button ><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button> -->
+                    <button *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button> -->
                   </div>
             </div>
             <div class="rightSide">

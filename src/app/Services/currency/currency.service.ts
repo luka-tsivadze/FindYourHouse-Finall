@@ -33,15 +33,21 @@ export class CurrencyService {
     return this.currencySubject.getValue();
   }
 
-  fetCurrency(): Observable<any> {
-  return this.http.get<any>('get_currencies.php').pipe(
-    map((data) => {
+private currencyRates$: Observable<any>;
+
+fetCurrency(): Observable<any> {
+  if (!this.currencyRates$ && !this.currencyRates) {
+    this.currencyRates$ = this.http.get<any>('get_currencies.php').pipe(
+      map((data) => {
         this.currencyRates = data;
-      return data
-    }),
-    shareReplay(1)
-  );
+        return data;
+      }),
+      shareReplay(1) // ✅ share & cache the response
+    );
+  }
+  return this.currencyRates$;
 }
+
 changeCurrency(
   currency: string,
   amount: number,

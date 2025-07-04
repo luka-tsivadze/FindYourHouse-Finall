@@ -44,7 +44,7 @@ export class AllCardsService  {
         imgLink: '../../../assets/Imges/StaticImg/StaticIcons/bathtub.svg',
         text: 'Bathrooms',
         options: ['Bathrooms','1', '2', '3', '4', '5'],
-        name: 'bathrooms', // Added name
+        name: 'bathrooms', // Added name 
       },
     ],
     filteredCheckBox: [
@@ -159,10 +159,18 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
           try {
             
             
-            const uploadDate = new Date(item.statusis_gaaqtiurebis_tarigi);
-            const currentDate = new Date();
-            const timeDifference = currentDate.getTime() - uploadDate.getTime();
-            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const uploadDate = new Date(item.statusis_gaaqtiurebis_tarigi);
+      const currentDate = new Date();
+
+  const timeDifference = currentDate.getTime() - uploadDate.getTime();
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+ let randomValue; 
+  if (daysDifference > 10) {
+    randomValue = Math.floor(Math.random() * 10) + 1;
+  }else{
+    randomValue=daysDifference;  
+  }
 
             const images = JSON.parse(item.fotoebi || '[]');
             const firstimg =
@@ -179,8 +187,7 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
               currency:item.fasis_valuta,
               basePrice: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
               header: item.satauri,
-              curConverted: false,
-              
+              curConverted: false,  
               location: item.misamarti,
               bedrooms: item.sadzinebeli,
               bathrooms: item.sveli_wertilebis_raodenoba,
@@ -190,7 +197,7 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
               profileName: item.momxmareblis_saxeli,
               alt: item.satauri,
               momxmreblis_idi: item.amtvirtvelis_idi,
-              uploadmonth: daysDifference,
+              uploadmonth: randomValue,
               video: item.video,
               type: item.tipi,
             };

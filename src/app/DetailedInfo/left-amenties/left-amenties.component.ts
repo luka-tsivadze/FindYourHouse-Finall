@@ -14,7 +14,7 @@ export class LeftAmentiesComponent implements OnInit {
   static={
     h2:'Property Details',
     h2a:'Amenities',
-    propstatic:['Property ID', 'Property Type', 'Property Status', 'Property Price', 'Rooms', 'Bedrooms', 'Bath', 'Area', 'Year Built']
+    propstatic:[ 'Property Type', 'Property Status',  'Rooms', 'Bedrooms', 'Bath', 'Area', 'Year Built']
   }
   // Array to hold chosenCard values
   Infoelements: any[] = [];
@@ -43,10 +43,10 @@ unit;
     })
     const chosenCard = this.chosenCard;
     this.Infoelements = [
-      chosenCard.id,
+  
       chosenCard.Type,
       chosenCard.For,
-      chosenCard.price,
+      // chosenCard.price,
       chosenCard.Rooms,
       chosenCard.bedrooms,
       chosenCard.bathrooms,

@@ -145,16 +145,18 @@ filterForm = this.fb.group({
 
 
 toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
-
-  this.FeatureProperties.forEach((card, id) => {
-
-
-        if (card.currency !== targetCurrency) {
-
-          return;
-        }
+      
     if(!fromService) {
+
       this.CurrencyServ.setCurrency(targetCurrency);
+    }
+  
+  this.FeatureProperties.forEach((card, id) => {
+    
+
+    if (card.currency !== targetCurrency) {
+      
+      return;
     }
 
     if (!card.curConverted) {
@@ -336,6 +338,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
               For: item.garigebis_tipi,
               profileImg: '../../../assets/Imges/StaticImg/CardImges/ts-6.jpg',
               profileName: item.momxmareblis_saxeli,
+              video: item.video,
               alt: item.satauri,
               uploadmonth: 3,
               currency: item.fasis_valuta,
@@ -373,7 +376,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
       this.cd.detectChanges(); // Ensure UI updates
     }
     submitChildData() {
-    console.log('Form submitted:', this.filterForm.value);
+
       
       this.allcard.triggerSubmit();
   this.router.navigate(['/allCards']);    

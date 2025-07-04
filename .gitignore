@@ -21,3 +21,5 @@ yarn-error.log*
 *.test.js
 *.test.ts
 test-results/
+.angular/
+dist/

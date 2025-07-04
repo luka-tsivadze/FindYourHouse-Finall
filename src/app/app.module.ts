@@ -51,7 +51,7 @@ import { DashreviewComponent } from './ListingPageComponents/DashboardParent/das
 import { FilterAdvencedComponent } from './header/filter-advenced/filter-advenced.component';
 import { UploadImageComponent } from './ListingPageComponents/DashboardParent/upload-image/upload-image.component';
 
-import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { GlobalErrorHandler } from './Services/ErrorHandler/global-error-handler';
 import { LoaderComponent } from './loader/loader.component';
 import { WebReviewAdderComponent } from './about-us/web-review-adder/web-review-adder.component';
@@ -69,6 +69,8 @@ import { AddFormComponent } from './ListingPageComponents/business/add-form/add-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './registration/forgot-password/forgot-password.component';
 import { ShareCompComponent } from './Components/share-comp/share-comp.component';
+import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
+import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 
 
 @NgModule({
@@ -133,6 +135,8 @@ import { ShareCompComponent } from './Components/share-comp/share-comp.component
     AddFormComponent,
     ForgotPasswordComponent,
     ShareCompComponent,
+    PrivacePolicyComponent,
+    DeletePolicyComponent,
 
   ],
   imports: [

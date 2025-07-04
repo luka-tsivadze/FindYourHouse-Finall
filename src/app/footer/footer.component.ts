@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FooterService } from '../Services/footer/footer.service';
 import { MainPageDataService } from '../Services/mainPageService/main-page-data.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +11,19 @@ import { MainPageDataService } from '../Services/mainPageService/main-page-data.
 export class FooterComponent {
   staticInfo=this.footerService.staticValues
   footerData=this.footerService.FooterData;
-constructor(private footerService:FooterService ,private mainServ:MainPageDataService){
+footerForm = new FormGroup({
+  maili: new FormControl('', [Validators.required, Validators.email])
+});
 
-  
+  constructor(private footerService:FooterService ,private mainServ:MainPageDataService) {
+    
+
 }
+
+
+
+SendSubscribtion(){
+this.footerService.subscrieToEmail(this.footerForm.value.maili);
+}
+
 }

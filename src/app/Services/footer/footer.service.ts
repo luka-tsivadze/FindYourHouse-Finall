@@ -4,6 +4,7 @@ import { GeoService } from '../Languages/geo/geo.service';
 import { RusService } from '../Languages/rus/rus.service';
 import { MainPageDataService } from '../mainPageService/main-page-data.service';
 import { text } from 'stream/consumers';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,12 @@ export class FooterService {
               Email:'infofindhous@gmail.com'
     },
   Navigation:[
-    {list1:'Home One',list2:'Agents Details' ,routerLink1:'' , routerLink2:''},
-    {list1:'Properties Right',list2:'About Us' , routerLink1:'',routerLink2:'/about' },
-    {list1:'Properties List',list2:'Blog Default' , routerLink1:'/allCards',routerLink2:'/**'  },
-    {list1:'Property Details',list2:'Blog Details', routerLink1:'/allCards',routerLink2:''},
-    {list1:'Agents Listing' , list2:'Contact Us', routerLink1:'',routerLink2:'/contact' },
+                { list1: 'მთავარი', routerLink1: '/'  },
+          {list1: 'კონტაქტი',  routerLink1: '/contact'},
+          {list1: 'ჩვენ შესახებ', routerLink1: '/about' },
+          { list1: 'უძრავი ქონება', routerLink1: '/allCard' },
+       
+          
   ],
   
 }
@@ -45,7 +47,7 @@ export class FooterService {
   }
   
 
-  constructor( private Engservice:EngService, private GeoService:GeoService,private RusService:RusService, mainService:MainPageDataService){
+  constructor( private Engservice:EngService, private GeoService:GeoService,private RusService:RusService, mainService:MainPageDataService ,private htto:HttpClient){
 if(mainService.localStorage){
   switch (mainService.localStorage) {
     case 'ENG':
@@ -63,5 +65,8 @@ if(mainService.localStorage){
   
 }   
 }
+}
+subscrieToEmail(email: string): void {
+  this.htto.post('subscribe.php', { emaili:email })
 }
 }

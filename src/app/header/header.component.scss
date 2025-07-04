@@ -95,7 +95,7 @@ header {
     .headerp {
       color: rgba(255, 255, 255, 0.89);
       font-size: 18px;
-      max-width: 600px;
+    
       margin: 0 auto;
       text-align: center;
       text-transform: capitalize;
@@ -222,12 +222,7 @@ header {
             align-items: start;
             gap: 10px;
         
-            .dropDown{
-            width: 20px;
-            position: absolute;
       
-            right: 10px;
-            }
         .chosenselect{
          display: flex;
          gap: 10px;
@@ -238,6 +233,13 @@ header {
          img{
             width: 20px ;
          }
+               .dropDown{
+            width: 15px;
+            position: absolute;
+      
+            right: 5px;
+            }
+         
         }
         .show{
           display: none ;
@@ -287,17 +289,28 @@ header {
         font-size: 15px;
       }
       .select {
+        position: relative;
         border-radius: 5px;
           color: $input-color;
           font: 400 15px $font-primary;
               border: 1px solid $light-gray;
         font-family: "Lato", sans-serif;
-     
-
+     img{
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      filter: invert(1);
+     }
+        
 
         box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
         select {
-
+            padding-left: 35px !important;
+background-color: transparent;
         height: 50px;
            border-radius: 5px;
           box-sizing: border-box;

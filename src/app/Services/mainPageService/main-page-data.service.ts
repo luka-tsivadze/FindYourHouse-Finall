@@ -90,6 +90,7 @@ export class MainPageDataService {
     location: string;
     bedrooms: number;
     bathrooms: number;
+    video: string;
     area: number;
     garages: number;
     currency: string;
@@ -222,7 +223,7 @@ LangMainData;
           this.For.text=GeoService.For.text
 
           this.staticData = {
-            headerTextList: ['პლაზა', 'სახლი', 'ბინა'], // Texts for the main page animation
+            headerTextList: ['აპარტამენტი', 'სახლი', 'ბინა'], // Texts for the main page animation
             staticElements:GeoService.Header
           }
           this.popularPlacesStatic=GeoService.popularPlaces
@@ -343,6 +344,7 @@ cityCaller=true;
           bedrooms: item.sadzinebeli,
           bathrooms: item.sveli_wertilebis_raodenoba,
           area: item.fartobi,
+          video: item.video || '', // Ensure video is a string
           garages: 0,
           For: item.garigebis_tipi,
           profileImg: '../../../assets/Imges/StaticImg/CardImges/ts-6.jpg',

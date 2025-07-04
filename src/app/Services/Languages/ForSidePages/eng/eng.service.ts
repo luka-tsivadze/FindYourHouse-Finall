@@ -337,6 +337,10 @@ export class EngService {
     NewPas: 'New password',
     ConfPas: 'Confirm Your password',
     submit: 'Send Changes',
+        cantchange:{
+      header:'Password Change Unavailable',
+      text:`You can't change your password because you are signed in with Google or Facebook`
+    }
   };
   myProp = {
     Header: 'Top Properties',
@@ -446,10 +450,10 @@ We are proud to have a large and trusted community of users and continue to impr
       h2: 'Property Details',
       h2a: 'Amenities',
       propstatic: [
-        'Property ID',
+ 
         'Property Type',
         'Property Status',
-        'Property Price',
+   
         'Rooms',
         'Bedrooms',
         'Bath',

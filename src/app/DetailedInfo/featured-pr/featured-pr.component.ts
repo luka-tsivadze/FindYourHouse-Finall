@@ -62,6 +62,9 @@ export class FeaturedPRComponent  implements OnInit {
 
 }
     toggleAllCurrencies(targetCurrency ,fromService?): void {
+       if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
 
   this.cardData.forEach((card, id) => {
 
@@ -70,9 +73,7 @@ export class FeaturedPRComponent  implements OnInit {
 
           return;
         }
-    if(!fromService) {
-      this.CurrencyServ.setCurrency(targetCurrency);
-    }
+   
 
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';

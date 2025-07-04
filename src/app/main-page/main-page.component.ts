@@ -154,7 +154,9 @@ this.dataService.getDiscoveredProperties().pipe(
   }
 
 toggleAllCurrencies(targetCurrency ,fromService?): void {
-
+  if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
   this.DiscoverPopularPlaces.forEach((card, id) => {
 
 
@@ -162,9 +164,7 @@ toggleAllCurrencies(targetCurrency ,fromService?): void {
 
           return;
         }
-    if(!fromService) {
-      this.CurrencyServ.setCurrency(targetCurrency);
-    }
+  
 
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';

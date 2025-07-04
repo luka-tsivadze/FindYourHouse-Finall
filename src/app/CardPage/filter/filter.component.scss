@@ -189,6 +189,46 @@ h2{
   
     
     // Select fields styling
+   .select {
+        position: relative;
+        border-radius: 5px;
+          color: $input-color;
+          font: 400 15px $font-primary;
+              border: 1px solid $light-gray;
+        font-family: "Lato", sans-serif;
+     img{
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      filter: invert(1);
+     }
+        
+
+        box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
+        select {
+            padding-left: 35px !important;
+background-color: transparent;
+        height: 50px;
+           border-radius: 5px;
+          box-sizing: border-box;
+          clear: both;
+          cursor: pointer;
+
+          display: block;
+          border: unset;
+          outline: unset;
+          float: left;
+          font-family: inherit;
+          font-size: 15px;
+          color: #666;
+          font-weight: normal;
+        }
+      }
+
     select {
       @include select-style();
       border: 1px solid #ebebeb;
@@ -202,7 +242,6 @@ h2{
           font: 400 15px $font-primary;
    
     }
-
     .advanceS {
       @include flex-center(row, 9px);
       padding: 11.7px 20px;

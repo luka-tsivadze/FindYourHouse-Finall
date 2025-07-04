@@ -138,7 +138,9 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
   }
   
     toggleAllCurrencies(targetCurrency ,fromService?): void {
-
+   if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
   this.data.forEach((card, id) => {
 
 
@@ -146,9 +148,7 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
         
           return;
         }
-    if(!fromService) {
-      this.CurrencyServ.setCurrency(targetCurrency);
-    }
+ 
 
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';

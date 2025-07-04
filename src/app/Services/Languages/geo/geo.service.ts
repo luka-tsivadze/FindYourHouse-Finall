@@ -39,7 +39,7 @@ NavG={Home:'მთავარი ' ,
     Property:'უძრავი ქონება', Pages:'გვერდები',Blog:'ბლოგი',companies:'კომპანიები',
     Contact:'კონტაქტი',SignIn:'შესვლა',AddListing:'განთავსება',}
 
-    Header={FindYourHouse:'იპოვე შენი საოცნებო ' ,weHaveOverMillion:'ჩვენ გვაქვს უძრავი ქონების მილიონზე მეტი  არჩევანი, თქვენთვის' ,status:['იყიდება','ქირავდება','გირავდება','ქირავდება დღიურად',' მშენებარე ბინები'],
+    Header={FindYourHouse:'იპოვე შენი საოცნებო ' ,weHaveOverMillion:'უამრავი ქონების ფართო სპექტრი - შეარჩიეთ ის , რაც თქვენ გჭირდებათ '  ,status:['იყიდება','ქირავდება','გირავდება','ქირავდება დღიურად',' მშენებარე ბინები'],
        KayWord:'საძიებო სიტყვა', propertyType:'ქონების ტიპი', Advanced:'გაფართოებული ძებნა', Search:'მოძებნა',location:'მდებარეობა'
     }
     popularPlaces={Header:'პოპულარული ადგილები' ,properties:'უძრავი ქონება ყველაზე პოპულარულ ადგილებში', prop:"ადგილი"} 
@@ -97,7 +97,7 @@ NavG={Home:'მთავარი ' ,
     SFooter = {
         headerFP: 'ჩვენი პარტნიორები', 
         pFP: 'კომპანიები, რომლებიც წარმოადგენენ ჩვენ ინტერესებს.', 
-        NavFooter: 'ნავიგაცია', 
+        NavFooter: 'სწრაფი წვდომა', 
       
         NewsFooter: 'საინფორმაციო მიმოწერა', 
         NewsFooterText: 'გაიარეთ რეგისტრაცია , რათა მიიღოთ უახლესი განახლებები და შეთავაზებები. გამოიწერეთ სიახლეები თქვენს ელფოსტაზე.', 
@@ -115,11 +115,12 @@ NavG={Home:'მთავარი ' ,
           Email: 'infofindhous@gmail.com'
         },
         Navigation: [
-          { list1: 'მთავარი', list2: 'აგენტის დეტალები', routerLink1: '', routerLink2: '' },
-          { list1: 'უძრავი ქონება', list2: 'ჩვენ შესახებ', routerLink1: '', routerLink2: '/about' },
-          { list1: 'ქონების სია', list2: 'ბლოგი', routerLink1: '/allCards', routerLink2: '/**' },
-          { list1: 'ქონების დეტალები', list2: 'ბლოგის დეტალები', routerLink1: '/allCards', routerLink2: '' },// remove ?
-          { list1: 'აგენტების სია', list2: 'კონტაქტი', routerLink1: '', routerLink2: '/contact' },
+          { list1: 'მთავარი', routerLink1: '/'  },
+          {list1: 'კონტაქტი',  routerLink1: '/contact'},
+          {list1: 'ჩვენ შესახებ', routerLink1: '/about' },
+          { list1: 'უძრავი ქონება', routerLink1: '/allCard' },
+       
+          
         ],
       }
 

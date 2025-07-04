@@ -124,7 +124,9 @@ export class AllCardsComponent {
 
 
     toggleAllCurrencies(targetCurrency: '$' | '₾' ,fromService?): void {
-
+    if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
   this.cards.forEach((card, id) => {
 
 
@@ -132,9 +134,7 @@ export class AllCardsComponent {
 
           return;
         }
-    if(!fromService) {
-      this.CurrencyServ.setCurrency(targetCurrency);
-    }
+
 
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';
@@ -149,8 +149,8 @@ export class AllCardsComponent {
 
     }
   });
-
 }
+
 
 
 shareComp=false;

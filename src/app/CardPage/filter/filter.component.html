@@ -1,7 +1,8 @@
 <main>
  <div class="topSide">
-     <h4><span>{{translated.home}}</span>{{translated.homeL}}</h4>
-     <h2>{{translated.view}}</h2>
+     <h4><span routerLink="/">{{translated.home}}</span>{{translated.homeL}}</h4>
+     <h2 *ngIf="activeimg">{{translated.view}}</h2>
+      <h2 *ngIf="!activeimg">{{translated.list}}</h2>
  </div>
     <div class="HeaderSearch">
         <form  [formGroup]="filterForm">
@@ -25,11 +26,14 @@
   
     </div> 
             
-         
-            <select name="location"  formControlName="location"> 
-                <option value="0">{{staticElements.location}}</option>
-                <option  *ngFor="let el of firstFilter.locations let i =index" value="{{el}}">{{firstFilter.locationDis[i]}}</option>
+         <div class="select">
+
+           <img src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="">
+           <select name="location"  formControlName="location"> 
+             <option value="0">{{staticElements.location}}</option>
+             <option  *ngFor="let el of firstFilter.locations let i =index" value="{{el}}">{{firstFilter.locationDis[i]}}</option>
             </select>
+          </div>
          
         <button class="advanceS" (click)="advanced()" ><h5>{{staticElements.Advanced}}</h5><img src="../../../assets/Imges/StaticImg/StaticIcons/ellipsis-three-vertical-squares-menu-interface-symbol-svgrepo-com.svg" alt="three dots"></button>
         <button class="submit" (click)="onSubmit()" type="submit">{{staticElements.Search}}</button>

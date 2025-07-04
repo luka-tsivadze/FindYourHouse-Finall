@@ -11,11 +11,13 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { authGuard } from './auth.guard';
 import { CardsResolverGuard } from './Guards/card-resolver-guard.guard';
-import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 
 import { AgentsDetailedComponent } from './main-page/agents-detailed/agents-detailed.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { ForgotPasswordComponent } from './registration/forgot-password/forgot-password.component';
+import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
+import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 const routes: Routes = [ 
 
   { path: '', component:MainPageComponent, resolve: { data: CardsResolverGuard } },
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path:'Agent', component:AgentsDetailedComponent},
   {path:'Companies', component:CompaniesComponent},
   {path:'PasswordRecovery', component:ForgotPasswordComponent},
+  {path:'Privacy-Policy', component:PrivacePolicyComponent},
+  {path:'DeletePolicy', component:DeletePolicyComponent},
   {path: '**', component:ErrorPageComponent},
 
 ];

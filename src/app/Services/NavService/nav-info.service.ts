@@ -36,7 +36,8 @@ export class NavInfoService {
      imgLink: '../../assets/Imges/NavImg/man.png', Name: 'Not Recieved' ,number:''
       ,email:'NotRecieved@gmail.com' ,gender:'' ,code:'', location:'' ,type:'',
       AboutMe:'',
-      links: { facebook: '', instagram: '', telegram: '' ,linkdIn:'', whatsapp:''}
+      links: { facebook: '', instagram: '', telegram: '' ,linkdIn:'', whatsapp:''},
+      RegisterCompany:'',
     };
   public userData$ = new BehaviorSubject(this.IsSignedIn);
   Languages = ['ENG', 'RUS', 'GEO'];
@@ -112,22 +113,22 @@ counter = 0;
         
       
         this.IsSignedIn.Name = data[0] && data[0].saxeli && data[0].gvari ? `${data[0].saxeli} ${data[0].gvari}` : '';
-        this.IsSignedIn.number = data[0] && data[0].nomeri ? data[0].nomeri : '';
+        this.IsSignedIn.number = (data[0] && data[0].nomeri && data[0].nomeri !== 'null' && data[0].nomeri !== null) ? data[0].nomeri : '';
         this.IsSignedIn.email = data[0] && data[0].maili ? data[0].maili : '';
         this.IsSignedIn.gender = data[0] && data[0].sqesi ? data[0].sqesi : '';
         this.IsSignedIn.code = data[0] && data[0].saidentifikacio_kodi ? data[0].saidentifikacio_kodi : '';
         this.IsSignedIn.location = data[0] && data[0].sacxovrebeli_adgili ? data[0].sacxovrebeli_adgili : '';
         this.IsSignedIn.type = data[0] && data[0].angarishis_tipi ? data[0].angarishis_tipi : 'User';
-        this.IsSignedIn.AboutMe = data[0] && data[0].chems_shesaxeb ? data[0].chems_shesaxeb : '';
+        this.IsSignedIn.AboutMe = (data[0] && data[0].chems_shesaxeb !== null && data[0].chems_shesaxeb !== 'null') ? data[0].chems_shesaxeb : '';
         
         this.IsSignedIn.links.facebook = data[0] && data[0].facebook_linki ? data[0].facebook_linki : '';
         this.IsSignedIn.links.instagram = data[0] && data[0].instagram_linki ? data[0].instagram_linki : '';
         this.IsSignedIn.links.telegram = data[0] && data[0].telegram_linki ? data[0].telegram_linki : '';
         this.IsSignedIn.links.linkdIn = data[0] && data[0].linkedin_linki ? data[0].linkedin_linki : '';  
         this.IsSignedIn.links.whatsapp = data[0] && data[0].whatsapp_linki ? data[0].whatsapp_linki : '';
+        this.IsSignedIn.RegisterCompany = data[0] && data[0].angarishis_momwodebeli ? data[0].angarishis_momwodebeli : '';
 
-
-        if (data[0].foto) {
+        if (data[0].foto && data[0].foto !== 'undefined' && data[0].foto !== 'null') {
           this.IsSignedIn.imgLink = `users/${data[0].maili}/${data[0].saidentifikacio_kodi}/${data[0].foto}`;
         } else if (data[0].sqesi === 'male'|| data[0].sqesi === 'kaci') {
           this.IsSignedIn.imgLink = '../../assets/Imges/NavImg/man.png';

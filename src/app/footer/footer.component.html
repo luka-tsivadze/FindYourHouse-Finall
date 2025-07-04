@@ -35,7 +35,7 @@
     <div class="col Navigation">
       <h3>{{staticInfo.NavFooter}}</h3>
       <div class="NParent">
-        <div class="NRow" *ngFor="let el of footerData.Navigation"><li><a routerLink="{{el.routerLink1}}"> {{el.list1}}</a></li>  <li><a routerLink="{{el.routerLink2}}">{{el.list2}}</a></li></div>
+        <div class="NRow" *ngFor="let el of footerData.Navigation"><li><a routerLink="{{el.routerLink1}}"> {{el.list1}}</a></li>  </div>
       
       </div>
     </div>
@@ -43,18 +43,31 @@
     <div class="col Newsletters">
       <h3>{{staticInfo.NewsFooter}}</h3>
       <p>{{staticInfo.NewsFooterText}}</p>
-      <form action=""><input type="email" placeholder={{staticInfo.NewsFooterPlaceHolder}}> <button type="submit">{{staticInfo.NewsFooterBtn}}</button></form>
+   
+<form [formGroup]="footerForm" (ngSubmit)="SendSubscribtion()">
+  <input
+    type="email"
+    formControlName="maili"
+    [placeholder]="staticInfo.NewsFooterPlaceHolder"
+  />
+  <button type="submit" [disabled]="footerForm.invalid">
+    {{ staticInfo.NewsFooterBtn }}
+  </button>
+</form>
+
     </div>
   </div>  
 
   <div class="bottomPart">
 
-    <div class="row">  <div class="uniter"><a [routerLink]="['/terms-and-conditions']">{{staticInfo.terms}}</a> <a href="">{{staticInfo.Policy}}</a></div>   <p>Copyright © 2024 findhouse. ყველა უფლება დაცულია.</p> </div>
+    <div class="row">  <div class="uniter"><a [routerLink]="['/terms-and-conditions']">{{staticInfo.terms}}</a> <a routerLink="/Privacy-Policy">{{staticInfo.Policy}}</a></div>   <p>Copyright © 2025 findhouse. ყველა უფლება დაცულია.</p> </div>
      <div class="icons">
       <a class="fb" href="https://www.facebook.com/profile.php?id=61566310567065"><img src="../../assets/Imges/Footer/FooterIcons/facebook-svgrepo-com.svg" alt="Icon"></a>
        <!-- <a class="tw" href=""><img src="../../assets/Imges/Footer/FooterIcons/twitterBlack.svg" alt="Icon"></a> -->
         <a class="IN" href=""><img src="../../assets/Imges/Footer/FooterIcons/instagram.svg" alt="Icon"></a> 
+
         <!-- <a class="yt" href=""><img src="../../assets/Imges/Footer/FooterIcons/youtube-svgrepo-com.svg" alt="Icon"></a>  -->
+      
       </div>
   </div>
   

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
+import { NavInfoService } from '../../Services/NavService/nav-info.service';
 
 @Component({
   selector: 'app-password-change',
@@ -12,17 +13,19 @@ import { LanguageChooserService } from '../../Services/language-chooser/language
 export class PasswordChangeComponent implements OnInit {
   passwordChangeForm:FormGroup;
   resp;
-
+fromFindhouse:boolean = true; // This variable is used to check if the component is loaded from FindHouse or not
   staticData={
     header:'change Password',
     pas:'Current password',
     NewPas:'New password',
     ConfPas:'Confirm Your password',
-    submit:'Send Changes'
-
-
+    submit:'Send Changes',
+    cantchange:{
+      header:'Password Change Unavailable',
+      text:`You can't change your password because you are signed in with Google or Facebook`
+    }
   }
-constructor( private http:HttpClient ,private lang:LanguageChooserService){ 
+constructor( private http:HttpClient ,private lang:LanguageChooserService , private navService:NavInfoService){ 
   this.passwordChangeForm = new FormGroup({
     id: new FormControl('',Validators.required),
     dzveli_paroli:new FormControl('',Validators.required),
@@ -35,14 +38,14 @@ this.passwordChangeForm.patchValue({id:localStorage.getItem('id')});
 ngOnInit(): void {
   // this.test();
  this.staticData=this.lang.chosenLang.ChangePassword;
+ this.fromFindhouse = this.navService.IsSignedIn.RegisterCompany=='findhouse' ? true : false ; // Check if the component is loaded from FindHouse or not
 }
 
 changePassword(){
 
-  console.log(this.passwordChangeForm.value);
 
   if(this.passwordChangeForm.valid && this.passwordChangeForm.value.axali_paroli==this.passwordChangeForm.value.axali_paroli_1){
-    console.log('valid')
+
 
   this.http.post('change_password.php', this.passwordChangeForm.value).subscribe({
     next: (response) => {

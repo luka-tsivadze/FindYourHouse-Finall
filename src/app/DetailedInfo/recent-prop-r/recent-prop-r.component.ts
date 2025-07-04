@@ -55,7 +55,9 @@ CurrentId ;
     this.cardService.navigateToCard(cardId);
   }
   toggleAllCurrencies(targetCurrency ,fromService?): void {
-
+ if(!fromService) {
+      this.CurrencyServ.setCurrency(targetCurrency);
+    }
   this.Recentdata.forEach((card, id) => {
 
 
@@ -63,9 +65,7 @@ CurrentId ;
 
           return;
         }
-    if(!fromService) {
-      this.CurrencyServ.setCurrency(targetCurrency);
-    }
+   
 
     if (!card.curConverted) {
       card.currency = targetCurrency === '₾' ? '$' : '₾';
