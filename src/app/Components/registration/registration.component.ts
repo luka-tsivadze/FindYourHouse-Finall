@@ -1,14 +1,15 @@
 
 import { Component, OnDestroy, OnInit, viewChild } from '@angular/core';
 import { Subscription, take } from 'rxjs';
-import { RegistrationService } from '../Services/registration/registration.service';
 import { FormControl, FormGroup, Validators , FormsModule} from '@angular/forms';
 
 import { ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NavInfoService } from '../Services/NavService/nav-info.service';
-import { MainPageDataService } from '../Services/mainPageService/main-page-data.service';
+
 import { text } from 'stream/consumers';
+import { RegistrationService } from '../../Services/registration/registration.service';
+import { NavInfoService } from '../../Services/NavService/nav-info.service';
+import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 
 
 @Component({

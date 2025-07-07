@@ -5,6 +5,8 @@ import { RusService } from '../Languages/rus/rus.service';
 import { MainPageDataService } from '../mainPageService/main-page-data.service';
 import { text } from 'stream/consumers';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -37,17 +39,20 @@ export class FooterService {
     headerFP: 'ჩვენი პარტნიორები', 
     pFP: 'კომპანიები, რომლებიც წარმოადგენენ ჩვენს ინტერესებს.', 
     NavFooter: 'ნავიგაცია', 
-  
+    errorSubscribe: 'თქვენი ემაილი ვერ დაემატა, გთხოვთ, სცადოთ თავიდან',
+    succesSubscribe: 'თქვენი ემაილი წაწმატებით დაემატა ',
     NewsFooter: 'საინფორმაციო მიმოწერა', 
     NewsFooterText: 'გაიარეთ რეგისტრაცია , რათა მიიღოთ უახლესი განახლებები და შეთავაზებები. გამოიწერეთ სიახლეები თქვენს ელფოსტაზე.', 
     NewsFooterBtn: 'გამოწერა', 
     NewsFooterPlaceHolder: 'შეიყვანეთ  ელ.ფოსტა',
         terms:'წესები და პირობები',
      Policy:'კონფიდენციალურობის პოლიტიკა',
+    NewsFooterRequired: 'ელფოსტის ველი აუცილებელია',
+    NewsFooterInvalid: 'გთხოვთ, შეიყვანოთ ვალიდური ელფოსტა',
   }
   
 
-  constructor( private Engservice:EngService, private GeoService:GeoService,private RusService:RusService, mainService:MainPageDataService ,private htto:HttpClient){
+  constructor( private Engservice:EngService, private GeoService:GeoService,private RusService:RusService, mainService:MainPageDataService ,private http:HttpClient){
 if(mainService.localStorage){
   switch (mainService.localStorage) {
     case 'ENG':
@@ -66,7 +71,7 @@ if(mainService.localStorage){
 }   
 }
 }
-subscrieToEmail(email: string): void {
-  this.htto.post('subscribe.php', { emaili:email })
+subscribeToEmail(email: string): Observable<any> {
+  return this.http.post('subscribe.php', { email: email });
 }
 }

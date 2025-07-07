@@ -110,10 +110,15 @@ export class MyPropertiesComponent implements OnInit {
       localStorage.setItem('ActiveElement', 'Add Property'); // Update the active component
    
       this.sharedService.setEditItemId(el); // Pass the ID to the shared service
-      this.valueChange.emit('Add Property'); // Emit the event to notify parent component
+      this.valueChange.emit('Add Property');
     }
 
-  
+  movetoListing() {
+
+      localStorage.setItem('ActiveElement', 'Add Property'); 
+      this.sharedService.setEditItemId('Add Property'); 
+      this.valueChange.emit('ActiveElement');
+    }
   pageFunction() {
     this.finalInfo = [];
     this.pageIndices = [];

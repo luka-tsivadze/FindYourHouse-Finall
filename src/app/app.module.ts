@@ -12,7 +12,6 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { PartnersFooterComponent } from './partners-footer/partners-footer.component';
 import { HeaderComponent } from './header/header.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { MainListingComponent } from './ListingPageComponents/main-listing/main-listing.component';
 import { ListingNavComponent } from './ListingPageComponents/listing-nav/listing-nav.component';
 import { ListingParentComponent } from './ListingPageComponents/listing-parent/listing-parent.component';
@@ -67,11 +66,14 @@ import { BusinessComponent } from './ListingPageComponents/business/business.com
 import { AddFormComponent } from './ListingPageComponents/business/add-form/add-form.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ForgotPasswordComponent } from './registration/forgot-password/forgot-password.component';
 import { ShareCompComponent } from './Components/share-comp/share-comp.component';
 import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
 import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 
+
+import { RegistrationComponent } from './Components/registration/registration.component';
+import { ForgotPasswordComponent } from './Components/registration/forgot-password/forgot-password.component';
+import { RegPageComponent } from './reg-page/reg-page.component';
 
 @NgModule({
   declarations: [
@@ -137,6 +139,8 @@ import { DeletePolicyComponent } from './Components/privace-policy/delete-policy
     ShareCompComponent,
     PrivacePolicyComponent,
     DeletePolicyComponent,
+    RegPageComponent,
+
 
   ],
   imports: [

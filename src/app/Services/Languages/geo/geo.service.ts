@@ -98,13 +98,16 @@ NavG={Home:'მთავარი ' ,
         headerFP: 'ჩვენი პარტნიორები', 
         pFP: 'კომპანიები, რომლებიც წარმოადგენენ ჩვენ ინტერესებს.', 
         NavFooter: 'სწრაფი წვდომა', 
-      
+          succesSubscribe: 'თქვენი ემაილი წაწმატებით დაემატა ',
+              errorSubscribe: 'თქვენი ემაილი ვერ დაემატა, გთხოვთ, სცადოთ თავიდან',
         NewsFooter: 'საინფორმაციო მიმოწერა', 
         NewsFooterText: 'გაიარეთ რეგისტრაცია , რათა მიიღოთ უახლესი განახლებები და შეთავაზებები. გამოიწერეთ სიახლეები თქვენს ელფოსტაზე.', 
         NewsFooterBtn: 'გამოწერა', 
         NewsFooterPlaceHolder: 'შეიყვანეთ თქვენი ელ.ფოსტა',
              terms:'წესები და პირობები',
      Policy:'კონფიდენციალურობის პოლიტიკა',
+        NewsFooterRequired: 'ელფოსტის ველი აუცილებელია',
+    NewsFooterInvalid: 'გთხოვთ, შეიყვანოთ ვალიდური ელფოსტა',
       }
       
       FooterData = {
@@ -118,7 +121,7 @@ NavG={Home:'მთავარი ' ,
           { list1: 'მთავარი', routerLink1: '/'  },
           {list1: 'კონტაქტი',  routerLink1: '/contact'},
           {list1: 'ჩვენ შესახებ', routerLink1: '/about' },
-          { list1: 'უძრავი ქონება', routerLink1: '/allCard' },
+          { list1: 'უძრავი ქონება', routerLink1: '/allCards' },
        
           
         ],

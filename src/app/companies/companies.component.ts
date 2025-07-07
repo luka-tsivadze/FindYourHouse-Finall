@@ -15,4 +15,12 @@ cards=[{header:'Company 1',content:'Company 1 content',footer:'Company 1 footer'
 
 ]
 
+
+moveToDetailed(){
+alert('Moving to detailed view...');
+}
+sentMessage(){
+  alert('Message sent successfully!');
+}
+
 }

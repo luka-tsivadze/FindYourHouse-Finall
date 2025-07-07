@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { LoadingServiceService } from '../../Services/LoadingServ/loading-service.service';
+
 import { set } from 'ol/transform';
-import { RegistrationService } from '../../Services/registration/registration.service';
+import { RegistrationService } from '../../../Services/registration/registration.service';
+
 
 @Component({
   selector: 'app-forgot-password',

@@ -89,6 +89,7 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
             location: element.location,
             bedrooms: element.bedrooms,
             bathrooms: element.bathrooms,
+            videoLink: element.videoLink,
 
             basePrice: Number((element.basePrice || '').toString().replace(/[^\d]/g, '')) || 0,
            

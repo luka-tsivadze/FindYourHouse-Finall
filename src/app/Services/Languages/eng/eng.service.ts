@@ -120,12 +120,21 @@ export class EngService {
     RHeader: 'Clients Testimonials',
     Rptext: 'We collect reviews from our customers.',
   };
-  SFooter={headerFP:'Our Partners',pFP:'The Company That Represent Us.' , NavFooter:'Navigation',NewsFooter:'Newsletters', 
-    NewsFooterText:'Sign Up For Our Newsletter To Get Latest Updates And Offers. Subscribe To Receive News In Your Inbox.',NewsFooterBtn:'SUBSCRIBE',
-     NewsFooterPlaceHolder:'Enter Your Email',
-     terms:'Terms and Conditions',
-     Policy:'Privacy Policy',
-    };
+  SFooter = {
+    headerFP: 'Наши партнеры',
+    pFP: 'Компании, которые нас представляют.',
+    NavFooter: 'Навигация',
+    NewsFooter: 'Новости',
+    NewsFooterText: 'Подпишитесь на нашу рассылку, чтобы получать последние обновления и предложения. Получайте новости на вашу почту.',
+    NewsFooterBtn: 'ПОДПИСАТЬСЯ',
+    NewsFooterPlaceHolder: 'Введите ваш email',
+    errorSubscribe: 'Ваш email не был добавлен, пожалуйста, попробуйте еще раз',
+    terms: 'Условия и положения',
+    Policy: 'Политика конфиденциальности',
+    NewsFooterRequired: 'Поле электронной почты обязательно',
+    succesSubscribe: 'Ваш email успешно добавлен',
+    NewsFooterInvalid: 'Пожалуйста, введите корректный email',
+  };
 
   FooterData={
     FindHouse:{mainText:'New real estate buying and selling and renting portal in Georgia',

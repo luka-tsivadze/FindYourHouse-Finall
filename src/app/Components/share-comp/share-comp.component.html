@@ -1,16 +1,21 @@
 
 
 <main>
-<div class="card"><h4> <h3>{{ElementInfo.header}}</h3> <p>{{ElementInfo.location}}</p> <p>  {{ElementInfo.price}}{{ElementInfo.currency}}</p> </h4>  </div>
+    <div class="row">
+        გაზიარება
+    </div>
+<div class="card"><img [src]="ElementInfo.imgLink" alt=""> 
+    <h4> <span>{{ElementInfo.price  | number:'1.0-0'}} {{ElementInfo.currency}} </span> <h3>{{ElementInfo.header}}</h3> <p>{{ElementInfo.location}}</p> </h4>  </div>
 
 <div class="linkSquare" (click)="copyToUrl()">
     <span #linkText>{{ElementLink}}
 </span>
-<button (click)="copyToUrl()"><img [src]="copyUrl" alt="copy Icon"></button>
 
 </div>
 <div class="shareRow">
- <button class="fb"  (click)="sharetoFeb()"><img src="../../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt="copy Icon"></button>
+        <button (click)="copyToUrl()"><img [src]="copyUrl" alt="copy Icon"></button>
+ <button class="fb"  (click)="sharetoFeb()"><img src="../../../assets/Imges/StaticImg/StaticIcons/FacebookBlue.svg" alt="copy Icon"></button>
+ <button  (click)="sharetoFeb()"><img src="../../../assets/Imges/StaticImg/StaticIcons/Messanger.svg" alt="copy Icon"></button>
 <button  class="wt" (click)="shareWats()"><img src="../../../assets/Imges/Header/CardImges/icons/whatsapp.svg" alt="copy Icon"></button>    
 </div>
 </main>

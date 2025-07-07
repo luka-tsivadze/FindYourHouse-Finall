@@ -15,7 +15,7 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
 
 import { AgentsDetailedComponent } from './main-page/agents-detailed/agents-detailed.component';
 import { CompaniesComponent } from './companies/companies.component';
-import { ForgotPasswordComponent } from './registration/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './Components/registration/forgot-password/forgot-password.component';
 import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
 import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 const routes: Routes = [ 

@@ -25,7 +25,7 @@ export class MainListingComponent {
 fotofiles:File[]=[];
 videoFiles:File[]=[];
 naxaziFiles:File[]=[];
-editItemId: number | null = null;
+editItemId: any = null;
 maxFiles = 7;
 index=0;
 unit;
@@ -145,9 +145,13 @@ name;
   
   ngOnInit(): void {
     // Subscribe to get the ID of the item being edited
-    this.sharedService.editItemId$.subscribe((id) => {
+    this.sharedService.editItemId$.subscribe((id:any) => {
       this.editItemId = id;
-      if (this.editItemId !== null) {
+      if (
+        this.editItemId !== null &&
+        this.editItemId !== undefined &&
+        typeof this.editItemId !== 'string'
+      ) {
         this.loadItemData(this.editItemId);
       }
     });

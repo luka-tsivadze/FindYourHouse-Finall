@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="activePage.length > 0">
     <div class="topRow">
       <h2>{{staticData.Header}}</h2>
       <div class="right"><span>{{staticData.date}}</span> <span>{{staticData.Views}}</span> <span>{{staticData.action}}</span></div>
@@ -38,4 +38,8 @@
   
        <button class="prev" (click)="chosenPage((this.ActivePage+1))" >{{staticData.next}}</button> </div>
   
+      </main>
+      <main *ngIf="activePage.length == 0" class="noCards">
+          <h3>თქვენ არ გაქვთ ატვირთული განცხადება</h3>
+          <button (click)="movetoListing()"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+ - white.svg" alt="+ icon"> <p>განცხადების ატვირთვა </p> </button>
       </main>

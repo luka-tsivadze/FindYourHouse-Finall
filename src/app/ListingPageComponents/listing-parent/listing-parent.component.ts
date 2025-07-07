@@ -38,8 +38,8 @@ export class ListingParentComponent implements OnInit, OnDestroy {
       if (this.editItemId !== null) {
         // Update Value to show 'Add Property' when editing an item
         this.Value = 'Add Property';
-        localStorage.setItem('ActiveElement', 'Add Property'); // Update localStorage for consistency
-        // console.log(`Edit Item ID received: ${this.editItemId}`);
+    
+        localStorage.setItem('ActiveElement', 'Add Property'); 
         this.cdr.detectChanges(); // Trigger change detection
       }
     });
@@ -49,6 +49,7 @@ export class ListingParentComponent implements OnInit, OnDestroy {
 
   // Handle localStorage changes
   onStorageChange(event: StorageEvent): void {
+  
     if (event.key === 'ActiveElement') {
       this.Value = event.newValue || 'Add Property'; // Update dynamically
       this.cdr.detectChanges(); // Trigger UI update

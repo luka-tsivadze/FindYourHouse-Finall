@@ -40,7 +40,7 @@ showRespNav={bool:false ,iconSrc:'../../../assets/Imges/NavImg/list-outline.svg'
 
 
   constructor(private router: Router ,private navService: NavInfoService,private lang:LanguageChooserService,private EngService:EngService 
-    ,private GeoService:GeoService ,private RusService:RusService , 
+    ,private GeoService:GeoService ,private RusService:RusService,private listingService:ListingServiceService,
     @Inject(PLATFORM_ID) private platformId: Object){
     
 if (isPlatformBrowser(this.platformId)) {
@@ -87,6 +87,12 @@ if (isPlatformBrowser(this.platformId)) {
 
   ngOnInit(): void {
     this.valueChange.emit(this.activeElement);
+    console.log(`Active Element on Init: ${this.activeElement}`);
+    this.listingService.editItemId$.subscribe((id) => {
+
+      this.activeElement=localStorage.getItem('ActiveElement');
+      console.log(`Received editItemId:`, this.activeElement);
+    })
   }
 
   ngOnDestroy(): void {

@@ -62,6 +62,7 @@ chosenCard = new BehaviorSubject<any>(null);
   area: 720,
   garages: 2,
   price: 110000,
+  videoLink:'',
   basePrice: 110000,
   currency: '₾',
   curConverted: false,

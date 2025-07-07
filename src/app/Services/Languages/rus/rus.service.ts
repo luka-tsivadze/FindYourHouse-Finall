@@ -113,16 +113,19 @@ main = {
 }
 
 SFooter = {
-  headerFP: 'Наши партнеры', 
-  pFP: 'Компания, представляющая наши интересы.', 
-  NavFooter: 'Навигация', 
-
-  NewsFooter: 'Информационная рассылка', 
-  NewsFooterText: 'Подпишитесь на нашу информационную рассылку, чтобы получать последние обновления и предложения. Подпишитесь, чтобы получать новости на свою почту.', 
-  NewsFooterBtn: 'ПОДПИСАТЬСЯ', 
-  NewsFooterPlaceHolder: 'Введите ваш email',
-      terms:'Условия и положения',
-     Policy:'Политика конфиденциальности',
+  headerFP: 'Our Partners',
+  pFP: 'The company representing our interests.',
+  NavFooter: 'Navigation',
+  succesSubscribe: 'Your email has been successfully added',
+  NewsFooter: 'Newsletter',
+  NewsFooterText: 'Subscribe to our newsletter to receive the latest updates and offers. Subscribe to get news to your email.',
+  NewsFooterBtn: 'SUBSCRIBE',
+  NewsFooterPlaceHolder: 'Enter your email',
+  errorSubscribe: 'Your email could not be added, please try again',
+  terms: 'Terms and Conditions',
+  Policy: 'Privacy Policy',
+  NewsFooterRequired: 'Email field is required',
+  NewsFooterInvalid: 'Please enter a valid email',
 }
 
   FooterData = {
