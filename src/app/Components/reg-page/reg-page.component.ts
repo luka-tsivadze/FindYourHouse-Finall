@@ -1,30 +1,23 @@
-
-import { Component, OnDestroy, OnInit, viewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription, take } from 'rxjs';
-import { FormControl, FormGroup, Validators , FormsModule} from '@angular/forms';
-
-import { ViewChild, ElementRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { text } from 'stream/consumers';
 import { RegistrationService } from '../../Services/registration/registration.service';
+import { HttpClient } from '@angular/common/http';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  selector: 'app-reg-page',
+  templateUrl: './reg-page.component.html',
+  styleUrl: './reg-page.component.scss'
 })
-export class RegistrationComponent implements OnInit, OnDestroy {
-[x: string]: any;
-  displayer: boolean = true;
-  private displayerSubscription: Subscription;
-login=false;
+export class RegPageComponent {
+
+
 userId;
-displayFirst:boolean =true ;
-LoginForm!: FormGroup;
+
 RegistrForm!: FormGroup;
 codeSegment=false;
 verification: boolean=false
@@ -64,22 +57,12 @@ register:{
   respErrorEmailInvalid:'Email is invalid',
   respErrorServer:'There is a problem with the server, try again later.',
 },
-login:{
-   inputs:[
-    {FormControlName:'maili' , labelText:'User Name or Email Address*', For:"firstNameLogin" ,type:'text' ,errortext:'Write Your User Name Or Email.', chack:false},
-    {FormControlName:'paroli' , labelText:'Password*', For:"passwordLogin" ,type:'password' ,errortext:'Password must be at least 6 characters.' , chack:false , showPassword: false},
-   ],
-   button:'Login',
-   remember:'Remember Me',
-    forget:'Forget Password?',
-}
 
 }
-public RememberMe = new FormControl(false);
-@ViewChild('loginName') loginName!: ElementRef;
-@ViewChild('registName') registName!: ElementRef;
+
  
-constructor(private registrationService: RegistrationService, private http:HttpClient ,private navServ:NavInfoService ,private mainServ:MainPageDataService)  {
+constructor(private registrationService: RegistrationService, private http:HttpClient ,private navServ:NavInfoService ,private mainServ:MainPageDataService ,
+  private router:Router){
 
 }
 
@@ -87,25 +70,8 @@ constructor(private registrationService: RegistrationService, private http:HttpC
   ngOnInit() {
     this.Registration=this.mainServ.LangMainData.Registration;
 
-    // Subscribe to the displayer observable
-    this.displayerSubscription = this.registrationService.displayer$.subscribe(
-      (value: boolean) => {
-        this.displayer = value;  // Update local displayer value
-        this.chosenBtn();
-      }
-    );
-    this.registrationService.displayerFirst$.pipe(take(2)).subscribe((value: boolean) => {
-      this.displayFirst = value;
-    
-    });
-    this.LoginForm = new FormGroup({
-      maili: new FormControl('', Validators.required),
-      paroli: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),// At least one digit
-      ]),
-      rememberMe: new FormControl(false)   
-    }); 
+
+ 
     
     this.RegistrForm = new FormGroup({
       maili: new FormControl('', [Validators.required, Validators.email]),
@@ -115,88 +81,29 @@ constructor(private registrationService: RegistrationService, private http:HttpC
       paroliRepeat: new FormControl('', Validators.required),
       terms: new FormControl(false, Validators.requiredTrue),
       nomeri : new FormControl('+995', [      Validators.required,    Validators.minLength(9),    Validators.maxLength(13),       Validators.pattern('^\\+?[0-9]*$')    ]),
-      
       verificationInput: new FormControl('', Validators.required),
       sqesi: new FormControl('', Validators.required),
-   
       buttonSub: new FormControl('register'),
     });
 
 
  this.watchResponse(); 
   }
-moveToCodePage() {
-    this.navServ.FromPopup$.next(true)
-  this.makeDisplayFlse()
-}
-  makeDisplayFlse() {
-    // Set displayer to false to hide the form
-    document.body.classList.remove('noscroll');
-    document.body.style.top = '';
-    window.document.body.style.overflow = "unset";
-    this.registrationService.setDisplayer(false);
-  
-  }
-
-  chosenBtn() {
-    this.login = this.registrationService.login;
-
-  }
-
-  ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-    
-    if (this.displayerSubscription) {
-      this.displayerSubscription.unsubscribe();
-    }
-  }
-
-  onSubmitL(): void {
-    if (this.LoginForm.valid) {
-      this.http.post('login_user.php', this.LoginForm.value).subscribe({
-        next: (response: any) => {
-       
-        localStorage.setItem('id', response.id)
-         this.navServ.getUserInfo(response.id).subscribe({});
-         this.makeDisplayFlse();   //just change Nav component to work 
-          window.location.reload();
-        },
-        error: (error) => {
-        this.error=true;
-        this.errorText=error.error.message;
-        if (error.error.message=='paroli-arasworia'){
-            this.errorText='password is incorrect'; 
-        }else if(error.error.message=='angarishi-ver-moidzebna'){
-            this.errorText='user not found';
-        }
-          console.error('Request failed:', error.error.message);
-        }
-      })
-     
 
 
-    
-    } else {
-      console.log('Login form has validation errors');
-    }
 
 
-  
-
-  }
 
      
  watchResponse(): void {
   const params = new URLSearchParams(window.location.search);
   const code = params.get('code');
-
   if (code) {
-    console.log('Google login code received:', code);
     this.http.post('/api/google-login.php', { code }).subscribe({
       next: (data: any) => {
         if (data.success) {
           this.navServ.getUserInfo(data.userId);
-          window.location.href = '/';  // 🟢 redirect after
+          window.location.href = '/'; 
         } else {
           alert('Login failed.');
         }
@@ -212,8 +119,7 @@ moveToCodePage() {
     if (!this.RegistrForm.invalid) {
       
       
-      
-      console.log('Registration form submitted:',this.RegistrForm.getRawValue());
+
  
       const formData = this.RegistrForm.getRawValue();
  
@@ -226,13 +132,13 @@ if (response.message === 'nomeri-arasworia') {
   this.regErrorText = this.Registration.register.respErrorNumber;
 } else if (response.message === 'email-already-in-use') {
   this.regErrorText = this.Registration.register.respErrorEmail;
-} else if (response.message === 'email-invalid') { 
+
   this.regErrorText = this.Registration.register.respErrorEmailInvalid;
 } else if (response.status === 'error') {
   this.regErrorText = `${this.Registration.register.respErrorServer} Error Message:(${response.message})`;
 } else {
   this.RError = false;
-  this.login = true;
+this.router.navigate(['/login']);
 this.Registration.confirmation.show=true;
 
   this.RegistrForm.reset();
@@ -327,6 +233,7 @@ this.RError = true;
     
     }
   }
+
 
 
 }

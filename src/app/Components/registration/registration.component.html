@@ -1,8 +1,8 @@
-<div class="bodyEl" [ngClass]="{ 'Body': displayer==false }" >
+<div class="bodyEl" [ngClass]="{ 'displayNone': displayer==false, 'dNoneFirst':displayFirst==false, 'Body': displayer==true }" >
 <div class="scroll">
 
     <div class="form" >
-        <div class="Top"><p>Welcome To <span class="find">Find</span><span class="houses">Houses</span></p> <div class="X" (click)="makeDisplayFlse()"><img src="../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""></div></div>
+        <div class="Top"><p>Welcome To <span class="find">Find</span><span class="houses">House</span></p> <div class="X" (click)="makeDisplayFlse()"><img src="../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""></div></div>
   
 
                       <a class="BtnA" href="https://findhouse.ge/facebook-login.php ">
@@ -11,9 +11,13 @@
            <a class="BtnA" href="https://findhouse.ge/google-login.php">
                <button   class="google"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-google-16.png" alt=""><p> Log in with Google</p> </button>
            </a>
+           <div class="succes" *ngIf="Registration.confirmation.show">{{Registration.confirmation.text}}</div>
+           
+           
+           <a  class="BtnA" routerLink="/login" (click)="moveToCodePage()">
+               <button class="google" type="button"><img src="../../../assets/Imges/StaticImg/StaticIcons/lock-fill.svg" alt=""><p>Login With Code</p></button>
+            </a>
             <span>Or</span>
-                <div class="succes" *ngIf="Registration.confirmation.show">{{Registration.confirmation.text}}</div>
- 
         <main>
             <div class="btnRow">
                 <div class="logInBtn btn " [ngClass]="{'active':login}" (click)="login = true">{{Registration.login.button}}</div>

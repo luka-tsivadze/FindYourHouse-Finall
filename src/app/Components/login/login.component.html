@@ -1,0 +1,115 @@
+
+    <div class="scroll">
+        <div class="form">
+
+            <div class="Top">
+                <img routerLink="/" style="cursor: pointer;" src="../../../assets/Imges/NavImg/NavIcon2.svg" alt=""> <p>Welcome To <span class="find">Find</span><span class="houses">House</span></p>
+            </div>
+
+
+
+
+
+            <form [formGroup]="LoginForm" (ngSubmit)="onSubmitL()" class="inputRow" *ngIf="codePage==' '" @fadeInOut>
+
+                <div class="col-100" *ngFor="let LRow of Registration.login.inputs">
+
+                    <label for="{{LRow.For}}">{{LRow.labelText}}</label>
+                    <input [type]="LRow.type === 'password' && !LRow.showPassword ? 'password' : 'text'" [id]="LRow.For"
+                        formControlName="{{LRow.FormControlName}}" required>
+
+                    <!-- Show password toggle button only for password fields -->
+                    <span *ngIf="LRow.type === 'password'" class="toggle-password"
+                        (click)="LRow.showPassword = !LRow.showPassword">
+                        <img *ngIf="!LRow.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-fill.svg"
+                            alt="">
+                        <img *ngIf="LRow.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-slash-fill.svg"
+                            alt="">
+                    </span>
+                    <div class="error"
+                        *ngIf="LoginForm.controls[LRow.FormControlName].invalid && LoginForm.controls[LRow.FormControlName].touched">
+                        {{LRow.errortext}}
+                    </div>
+
+                </div>
+
+
+                <div class="error" *ngIf="error">
+                    {{errorText}}
+                </div>
+                <button type="submit" #loginName name="shesvla"
+                    [disabled]="!LoginForm.valid">{{Registration.login.button}}</button>
+                <div class="bottomRow">
+                    <div class="RememberMe">
+                        <input type="checkbox" id="rememberMe" formControlName="rememberMe">
+                        <label for="rememberMe">{{Registration.login.remember}}</label>
+                    </div>
+                    <a routerLink="/PasswordRecovery" class="forgotPassword">{{Registration.login.forget}}</a>
+                </div>
+               
+               <div class="row">
+
+                  
+                    <a class="BtnA" href="https://findhouse.ge/google-login.php">
+                        <button  type="button" class="google"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-google-16.png" alt=""><p> Log in with Google</p> </button>
+                    </a>
+                     <a class="BtnA" href="https://findhouse.ge/facebook-login.php ">
+                       <button type="button" class="fb"><a href=""><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt=""></a> <p>Log in with Facebook</p></button>
+                    </a>
+
+                    <a (click)="moveTologinWithCode('email')" class="BtnA">
+                        <button class="google" type="button"><img src="../../../assets/Imges/StaticImg/StaticIcons/lock-fill.svg" alt=""><p>Login With Code</p></button>
+                    </a>
+                    <span class="register"><p>არ გაქვთ ანგარიში ?</p> <a routerLink="/Registration">დარეგისტრირდი</a></span>
+
+                </div>
+            </form>
+            <form class="inputRow" [formGroup]="CodeLoginForm" *ngIf="codePage=='email'"  @fadeInOut>
+          <div class="rowC">
+              <button (click)="moveTologinWithCode(' ')" type="button"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
+              <h3>კოდით შესვლა</h3>
+          </div> 
+           <div class="parent" *ngIf="!CodeInfo.codeSent">
+                     <div class="col-100" *ngFor="let LRow of CodeInfo.inputs">
+                    <label for="{{LRow.For}}">{{LRow.labelText}}</label>
+                    <input  [id]="LRow.For" type="email"    formControlName="{{LRow.FormControlName}}" required>
+                    <span class="error" *ngIf="error">{{errorText}}</span>
+                </div>
+                <button (click)="sendCode()"  [disabled]="!CodeLoginForm.valid" type="submit">კოდის მიღება</button>   
+            </div>
+   
+                
+            </form>
+            <form class="inputRow" *ngIf="codePage=='code'"  @fadeInOut [formGroup]="chackCodeForm" >
+                <div class="rowC">
+                    <button (click)="moveTologinWithCode('email')" type="button" ><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button> 
+            <h3>კოდი გამოგზავნილია მეილზე: {{CodeLoginForm.value.CodeMail}} </h3>
+            </div>
+            <div class="parent">
+
+                <div class="col-100">
+                    <label for="Code">შეიყვანეთ კოდი:</label>
+                    <input type="text" id="Code" formControlName="Code" required>
+                    <span class="error" *ngIf="chackCodeForm.controls['Code'].invalid && chackCodeForm.controls['Code'].touched">
+                        კოდი უნდა შედგებოდეს მინიმუმ 5 სიმბოლოთი
+                    </span>
+                </div>
+            </div>
+            <span class="error" *ngIf="codeError">{{codeErrorText}}</span>
+            <div style="display: flex; gap: 5px; align-items: center;">
+               <button type="button"
+        [disabled]="resendDisabled"
+        (click)="sendCode()">
+  კოდის თავიდან გაგზავნა
+  <span *ngIf="resendDisabled">({{ countdown }})</span>
+</button>
+
+                <button type="submit" (click)="onSubmitCode()" [disabled]="!CodeLoginForm.valid" >დადასტურება</button>
+            </div>
+        
+            
+            
+            </form>
+    
+        </div>
+    </div>

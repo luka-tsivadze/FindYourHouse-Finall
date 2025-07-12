@@ -1,0 +1,82 @@
+   
+   
+   <div class="container">
+           <div class="Top">
+                <img routerLink="/" style="cursor: pointer;" src="../../../assets/Imges/NavImg/NavIcon2.svg" alt=""> <p>Welcome To <span class="find">Find</span><span class="houses">House</span></p>
+            </div>
+
+
+   <form [formGroup]="RegistrForm" (ngSubmit)="onSubmitR()" class="inputRow">
+
+                <div class="col-100" *ngFor="let row of Registration.mainInputs">
+                    <label [for]="row.For">{{row.labelText}}</label>
+                    <input [type]="row.type == 'password' && !row.showPassword ? 'password' : 'text'" [id]="row.For" [formControlName]="row.FormControlName" required>
+                    <span
+                    *ngIf="row.type === 'password'" 
+                    type="button" 
+                    class="toggle-password" 
+                    (click)="row.showPassword = !row.showPassword">
+                  <img *ngIf="!row.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-fill.svg" alt="">
+                    <img *ngIf="row.showPassword" src="../../assets/Imges/StaticImg/StaticIcons/eye-slash-fill.svg" alt="">
+                </span>
+                    <div class="error" *ngIf="RegistrForm.controls[row.FormControlName].invalid && RegistrForm.controls[row.FormControlName].touched && row.chack==false">
+                        {{row.errortext}}
+                    </div>
+                    <div class="error" 
+                    *ngIf="(RegistrForm.controls['paroliRepeat'].invalid || RegistrForm.controls['paroliRepeat'].value !== RegistrForm.controls['paroli'].value) && RegistrForm.controls['paroliRepeat'].touched && row.chack==true">
+                        {{row.errortext}}
+                  
+                    </div>
+                </div>
+                <label for="mobile">{{Registration.register.mobile}}
+                    <button class="sendIcon" *ngIf="RegistrForm.controls['nomeri'].valid && !verification" type="button"  (click)="sendCode()" >კოდის მიღება</button>
+                 </label>
+                <input type="tel" id="mobile" formControlName="nomeri"  inputmode="numeric" onwheel="this.blur()" onkeydown="if(event.key==='e'||event.key==='E'||event.key==='-'){event.preventDefault();}">
+                <input type="tel" *ngIf="codeSegment && !RegistrForm.controls['nomeri'].invalid &&  !verification"  [placeholder]="Registration.register.codeHolder" name="verificationInput"  (input)="onCodeInput($event)" formControlName="verificationInput">
+                <div class="notification" *ngIf="codeSegment && verification" > {{Registration.register.notification}} </div>
+                <div class="error" *ngIf="verification==false && RegistrForm.controls['verificationInput'].touched" >{{Registration.register.Codeerror}}</div>
+                <div class="error" *ngIf="RegistrForm.controls['nomeri'].invalid && RegistrForm.controls['nomeri'].touched"  >
+                    {{Registration.register.numbererror}}
+                </div>
+    
+                <label for="genderReg">{{Registration.register.Hgender}}</label>
+                <div id="genderReg" class="gender-options">
+                    <label 
+                      
+                        [ngStyle]="{'color': RegistrForm.controls['sqesi'].value === 'kaci' ? '#ff385c' : ''}">
+                        <input type="radio" formControlName="sqesi" value="kaci" required>
+                        {{Registration.register.Man}}
+                    </label>
+                    <label 
+                     [ngStyle]="{'color': RegistrForm.controls['sqesi'].value === 'qali' ? '#ff385c' : ''}">
+                        <input type="radio" formControlName="sqesi" value="qali" required>
+                        {{Registration.register.Fam}}
+                    </label>
+                
+                </div>
+                <div class="error" *ngIf="RegistrForm.controls['sqesi'].invalid && RegistrForm.controls['sqesi'].touched">
+                    {{Registration.register.GError}}
+                </div>
+                <div   class="row chackBox">
+                    <input type="checkbox" name="terms" id="terms" formControlName="terms"  required>
+                     <label for="terms"> {{Registration.register.agree}}<a  target="_blank" routerLink='/terms-and-conditions'>{{Registration.register.terms}}</a>  </label> 
+                </div>
+
+                <button type="submit" name="registracia"  #registName [disabled]="!RegistrForm.valid ">{{Registration.register.buttonText}}</button>
+                <div class="error" *ngIf="RError" >{{regErrorText}}</div>
+                
+
+            </form>
+            <div class="Brow">
+
+             
+               <a class="BtnA" href="https://findhouse.ge/google-login.php">
+                   <button  type="button" class="google"><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-google-16.png" alt=""><p> Log in with Google</p> </button>
+               </a>
+                <a class="BtnA" href="https://findhouse.ge/facebook-login.php ">
+                  <button type="button" class="fb"><a href=""><img src="../../assets/Imges/StaticImg/StaticIcons/icons8-facebook.svg" alt=""></a> <p>Log in with Facebook</p></button>
+               </a>
+               
+           </div>
+                     <span class="login"><p>უკვე გაქვთ ანგარიში ?</p> <a routerLink="/login">შესვლა</a></span>
+               </div>

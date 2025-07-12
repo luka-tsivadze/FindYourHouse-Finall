@@ -15,9 +15,14 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
 
 import { AgentsDetailedComponent } from './main-page/agents-detailed/agents-detailed.component';
 import { CompaniesComponent } from './companies/companies.component';
-import { ForgotPasswordComponent } from './Components/registration/forgot-password/forgot-password.component';
+
 import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
 import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
+
+import { LoginComponent } from './Components/login/login.component';
+import { RegPageComponent } from './Components/reg-page/reg-page.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { loggedInGuard } from './Guards/logged-in/logged-in.guard';
 const routes: Routes = [ 
 
   { path: '', component:MainPageComponent, resolve: { data: CardsResolverGuard } },
@@ -33,6 +38,8 @@ const routes: Routes = [
   {path:'PasswordRecovery', component:ForgotPasswordComponent},
   {path:'Privacy-Policy', component:PrivacePolicyComponent},
   {path:'DeletePolicy', component:DeletePolicyComponent},
+  {path:'login', component:LoginComponent  , canActivate:[loggedInGuard]},
+  {path:'Registration', component:RegPageComponent , canActivate:[loggedInGuard] },
   {path: '**', component:ErrorPageComponent},
 
 ];

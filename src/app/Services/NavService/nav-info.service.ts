@@ -47,6 +47,10 @@ export class NavInfoService {
   scrollobser = new BehaviorSubject<boolean>(false);
   
 userId;
+FromPopup$=new BehaviorSubject<boolean>(false);
+CodePage=this.FromPopup$ as Observable<boolean>;
+
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient) {
     if (isPlatformBrowser(this.platformId)) {
     
@@ -128,12 +132,14 @@ counter = 0;
         this.IsSignedIn.links.whatsapp = data[0] && data[0].whatsapp_linki ? data[0].whatsapp_linki : '';
         this.IsSignedIn.RegisterCompany = data[0] && data[0].angarishis_momwodebeli ? data[0].angarishis_momwodebeli : '';
 
-        if (data[0].foto && data[0].foto !== 'undefined' && data[0].foto !== 'null') {
+        if (data[0].foto && data[0].foto !== 'undefined' && data[0].foto !== null && data[0].foto !== '' && data[0].foto !== 'NULL') {
           this.IsSignedIn.imgLink = `users/${data[0].maili}/${data[0].saidentifikacio_kodi}/${data[0].foto}`;
         } else if (data[0].sqesi === 'male'|| data[0].sqesi === 'kaci') {
           this.IsSignedIn.imgLink = '../../assets/Imges/NavImg/man.png';
         } else if (data[0].sqesi === 'famale' || data[0].sqesi === 'qali') {
           this.IsSignedIn.imgLink = '../../assets/Imges/NavImg/girl.png';
+        }else{
+          this.IsSignedIn.imgLink = '../../assets/Imges/NavImg/man.png';
         }
 
         // Update observable for other components that might be listening

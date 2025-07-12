@@ -206,18 +206,15 @@ this.showLanguages=!this.showLanguages;
     this.Registration.setDisplayer(true);
     window.document.body.style.overflow = "hidden";
   }
-
  navtoReg_Log( element ){
 
   if(element.chack=='Login'){
-this.Registration.toggleLogin(true);
-this.showRegistrForm()
+this.router.navigate(['/login']);
 
   }else if(element.chack=='Register'){
-    this.Registration.toggleLogin(false);
-    this.showRegistrForm()
+this.router.navigate(['/Registration']);
  }else if(element.chack=='User Panel' && !this.IsSignedIn.signed){
-this.showRegistrForm()
+
 element.route='/'
 }
 if(!element.chack){

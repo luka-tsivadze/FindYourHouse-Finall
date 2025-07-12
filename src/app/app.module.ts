@@ -72,8 +72,10 @@ import { DeletePolicyComponent } from './Components/privace-policy/delete-policy
 
 
 import { RegistrationComponent } from './Components/registration/registration.component';
-import { ForgotPasswordComponent } from './Components/registration/forgot-password/forgot-password.component';
-import { RegPageComponent } from './reg-page/reg-page.component';
+
+import { LoginComponent } from './Components/login/login.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { RegPageComponent } from './Components/reg-page/reg-page.component';
 
 @NgModule({
   declarations: [
@@ -135,11 +137,15 @@ import { RegPageComponent } from './reg-page/reg-page.component';
     CompaniesComponent,
     BusinessComponent,
     AddFormComponent,
-    ForgotPasswordComponent,
+
+    RegPageComponent,
+
     ShareCompComponent,
     PrivacePolicyComponent,
     DeletePolicyComponent,
-    RegPageComponent,
+    ForgotPasswordComponent,
+
+    LoginComponent,
 
 
   ],

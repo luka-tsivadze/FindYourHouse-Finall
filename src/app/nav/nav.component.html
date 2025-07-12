@@ -195,7 +195,7 @@
             </div>
 
         </li>
-        <li class="borders" [ngClass]="{'DNone':IsSignedIn.signed==true}" (click)=" showRegistrForm()">
+        <li class="borders" routerLink="/login" [ngClass]="{'DNone':IsSignedIn.signed==true}">
             <p>{{staticElements.SignIn}}</p>
         </li>
         <li class="RightRow" (click)="displayEl()" [ngClass]="{'DNone':IsSignedIn.signed==false}">
