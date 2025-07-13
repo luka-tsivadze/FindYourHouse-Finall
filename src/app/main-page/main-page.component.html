@@ -32,13 +32,13 @@
             <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
 
                 <div class="FirstRow">
-                    <button [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
-                    <button class="whiteBg">{{info.For}}</button>
+                    <button name="featured" [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
+                    <button name="status"   class="whiteBg">{{info.For}}</button>
                     
                 </div>
                   <div class="SecondRow">
                     <!-- <button><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcon"></button> -->
-                    <button *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
+                    <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
                     <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="imgIcon"></button> -->
                   </div>
             </div>
@@ -61,11 +61,12 @@
   <button
     class="toggle-option"
     [class.active]="info.currency === '₾'"
- 
+    namme="toggleGEL"
   >
     ₾ 
   </button>
   <button 
+    name="toggleUSD"
     class="toggle-option"
     [class.active]="info.currency === '$'"
 
@@ -81,7 +82,7 @@
 
     </div>
     <div class="btnRow" >
-        <button *ngFor="let i of PropButtons; let index = index" [ngClass]="{'active': i.class }" (click)="buttons(false , index)"  [ngStyle]="{'animation-delay': (index * 0.05) + 's'}"
+        <button *ngFor="let i of PropButtons; let index = index" [ngClass]="{'active': i.class }" name="propButton" (click)="buttons(false , index)"  [ngStyle]="{'animation-delay': (index * 0.05) + 's'}"
         >
         </button>
     </div>
@@ -102,7 +103,7 @@
             </div></div>
             <div class="bottom" (click)="displayAgent(AgentInfo)"><h3>{{AgentInfo.Name}}</h3><p>{{AgentInfo.status}} {{Languages.main.Agents}}</p>
 
-                <button>{{Languages.main.AgentsB}}</button>
+                <button name="view more ">{{Languages.main.AgentsB}}</button>
             </div>
 
         </div>
@@ -121,8 +122,8 @@
 
 </div>
 <div class="btnRow">
-    <button class="LeftBtn" (click)="ReviewMover($event)" ><img class="Left" src="../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt="left Arrow"></button>
-    <button class="RightBtn" (click)="ReviewMover($event)" ><img class="Right" src="../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt="right Arrow"></button>
+    <button class="LeftBtn" name="Left" (click)="ReviewMover($event)" ><img class="Left" src="../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt="left Arrow"></button>
+    <button class="RightBtn" name="right" (click)="ReviewMover($event)" ><img class="Right" src="../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt="right Arrow"></button>
 </div>
 </div>
 <!-- <app-partners-footer/> -->

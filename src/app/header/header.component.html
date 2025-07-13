@@ -13,7 +13,7 @@
 
     <div class="HeaderBtnRow">
   
-        <button *ngFor="let el of staticElements.status; let i = index" 
+        <button name="status chooser" *ngFor="let el of staticElements.status; let i = index" 
                 [ngClass]="{'active': activeElement === i}" 
                 (click)="setActive(i , For.options[i])">
           {{el}}
@@ -65,11 +65,11 @@
                   </select>
                 </div>
                
-                <button class="advanceS" type="button" (click)="advanced()">
+                <button name="advanceS" class="advanceS" type="button" (click)="advanced()">
                   <h5>{{staticElements.Advanced}}</h5>
                   <img src="../../assets/Imges/Header/burgerBar.png" alt="three dots" />
                 </button>
-                <button class="submit"  type="submit">{{staticElements.Search}}</button>
+                <button class="submit" name="submitInfo"  type="submit">{{staticElements.Search}}</button>
                 
               </form>
               
@@ -108,14 +108,14 @@
             <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
 
                 <div class="FirstRow">
-                    <button [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
-                    <button class="whiteBg"> {{info.For}}</button>
+                    <button name="FeaturedBtn" [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
+                    <button name="for button" class="whiteBg"> {{info.For}}</button>
                     
                 </div>
                 
                   <div class="SecondRow">
                     <!-- <button ><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button> -->
-                    <button *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
                     <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button> -->
                   </div>
             </div>
@@ -141,11 +141,12 @@
   <button
     class="toggle-option"
     [class.active]="info.currency === '₾'"
- 
+                    namme="toggleGEL"
   >
     ₾ 
   </button>
   <button 
+    name="toggleUSD"
     class="toggle-option"
     [class.active]="info.currency === '$'"
 
@@ -163,7 +164,7 @@
             </div>
         </div>
         <div class="row">
-          <button class="viewMore" routerLink="allCards"><span> {{FeaturePS.ViewDetails}}</span> <img src="../../assets/Imges/Header/CardImges/icons/arrow-right-circle-fill.svg" alt=""></button>
+          <button name="move to Cards" class="viewMore" routerLink="allCards"><span> {{FeaturePS.ViewDetails}}</span> <img src="../../assets/Imges/Header/CardImges/icons/arrow-right-circle-fill.svg" alt=""></button>
         </div>
     </div>
     

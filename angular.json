@@ -44,9 +44,8 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": false,
-            "ssr": false,
+
+          
             "allowedCommonJsDependencies": [
               "lerc",
               "xml-utils/get-attribute.js",
@@ -95,6 +94,30 @@
           },
           "defaultConfiguration": "development"
         },
+        "server": {
+  "builder": "@angular-devkit/build-angular:server",
+  "options": {
+    "outputPath": "dist/find-your-house-server",
+    "main": "src/main.server.ts",
+    "tsConfig": "tsconfig.server.json"
+  },
+  "configurations": {
+    "production": {
+      "outputHashing": "media",
+      "sourceMap": false,
+      "optimization": true
+    }
+  }
+},
+
+         "prerender": {
+    "builder": "@angular-devkit/build-angular:prerender",
+    "options": {
+      "browserTarget": "FindYourHouse:build:production",
+      "serverTarget": "FindYourHouse:server:production",
+      "routes": ["/"]
+    }
+      },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
