@@ -47,6 +47,7 @@ h3::after{
      
         font-weight: 400;
         color: rgba(245, 255, 255, 0.8);
+          line-height: 25px;
         .headerRow{
            
             img{
@@ -84,8 +85,9 @@ h3::after{
            border-bottom: 1px dotted #666;
            list-style: none;
            position: relative;
-           width:35%;
-           padding-bottom: 10px;
+           cursor: pointer;
+           width:85%;
+           padding: 10px;
            
             
                 a{
@@ -98,7 +100,12 @@ h3::after{
                 
            
                 }
-            }            
+            }     
+            li:hover{
+                border-bottom: 1px solid #FF385C;
+            background-color: rgba(255, 255, 255, 0.1);
+            
+            }       
             }
         }
     }
@@ -279,7 +286,7 @@ h3::after{
         .footerRow{
             padding-bottom:90px;
             flex-wrap: wrap;
-            padding-top: 40px;
+            padding-top: 40px;      line-height: 22px;
         .col{
             margin: 20px 0;
             width: 300px;
@@ -296,15 +303,32 @@ h3::after{
             height: unset;
             flex-wrap: wrap;
             justify-content: center;
-            p{
-                font-size: 10px;
+            .row{
+
+                p{
+                    font-size: 12px;
+                }
             }
             .icon{
                 gap: 5px;
             }
+            .uniter{
+                gap: 5px;
+               a{
+                   font-size: 11.5px;
+               } 
+            }
         }
         .footerRow{
             padding-bottom: 55px;
+            .Newsletters ,.findHouse, .Navigation{
+
+                p{
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+            
         }
      
     }

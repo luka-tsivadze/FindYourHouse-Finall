@@ -193,6 +193,7 @@
           .advanceS{
             padding: 7px 10px;  
             width: 100%;
+            gap: 15px;
             h5{
               font-size: 12px;
             }
@@ -300,6 +301,10 @@ header{
       padding-top: 50px;
       .HeaderCol{
         height: 72vh;
+        .headerp{
+          font-size: 11px;
+          line-height: 22px;
+        }
       }
     .featuredProperties {
       padding: 30px 0.5%;

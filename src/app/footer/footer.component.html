@@ -35,7 +35,7 @@
     <div class="col Navigation">
       <h3>{{staticInfo.NavFooter}}</h3>
       <div class="NParent">
-        <div class="NRow" (click)="MoveUp()" *ngFor="let el of footerData.Navigation"><li><a routerLink="{{el.routerLink1}}"> {{el.list1}}</a></li>  </div>
+        <div class="NRow" (click)="MoveUp()" *ngFor="let el of footerData.Navigation"><li routerLink="{{el.routerLink1}}"><a > {{el.list1}}</a></li>  </div>
       
       </div>
     </div>

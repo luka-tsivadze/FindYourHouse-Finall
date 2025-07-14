@@ -6,7 +6,7 @@
             </div>
 
 
-   <form [formGroup]="RegistrForm" (ngSubmit)="onSubmitR()" class="inputRow">
+   <form [formGroup]="RegistrForm" (ngSubmit)="onSubmitR()" class="inputRow" @fadeInOut>
 
                 <div class="col-100" *ngFor="let row of Registration.mainInputs">
                     <label [for]="row.For">{{row.labelText}}</label>

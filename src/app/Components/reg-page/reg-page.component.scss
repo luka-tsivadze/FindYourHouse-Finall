@@ -277,3 +277,43 @@ a{
 
 
   }
+  @media screen and (max-width: 560px) {
+    .inputRow {
+      width: 371px;
+    }
+    .Top {
+      padding: 20px 15px;
+      font-size: 18px;
+    }
+    .Brow {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .fb, .google {
+        width: 78vw;
+      }
+    }
+    
+  }
+  @media screen and (max-width:380px) {
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+    .Top {
+      font-size: 16px;
+      padding: 15px 10px;
+    }
+    .inputRow {
+      width: 90%;
+    }
+    .Brow {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .fb, .google {
+        width: 90vw;
+      }
+    }
+    
+  }

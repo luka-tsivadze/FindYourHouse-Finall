@@ -6,12 +6,25 @@ import { HttpClient } from '@angular/common/http';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 import { Router } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 
 @Component({
   selector: 'app-reg-page',
   templateUrl: './reg-page.component.html',
-  styleUrl: './reg-page.component.scss'
+  styleUrl: './reg-page.component.scss',
+   animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('300ms 400ms ease-in', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms  ease-out', style({ opacity: 0 }))
+      ])
+    ]),
+
+  ]
 })
 export class RegPageComponent {
 

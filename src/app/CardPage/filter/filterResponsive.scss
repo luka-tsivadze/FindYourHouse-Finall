@@ -59,11 +59,22 @@
    
     .bottomLine{
       width: 100%;
+      flex-wrap: wrap;
+      gap: 15px;
       h4{
         font-size: 12px;
       }
       .Sorting{
+
         gap:6px;
+        .options{
+          padding:5px 0;
+          font-size: 12px;
+          h3{
+            font-size: 12px;
+            padding: 10px;
+          }
+        }
         img{
           width: 12px;
         }
@@ -71,9 +82,10 @@
           font-size: 13px;
         }
         .sorter{
-          .sp{
+          .sP{
             p{
               font-size: 12px;
+              opacity: 0.9;
             }
             img{
               width: 20px;

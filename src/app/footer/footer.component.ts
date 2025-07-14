@@ -52,6 +52,7 @@ this.footerService.subscribeToEmail(this.footerForm.value.maili).subscribe({
 })
 }
 MoveUp() {
+  
      window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 changeLanguage(lang: string) {

@@ -226,9 +226,11 @@ header{
   }
   }
   @media screen and (max-width:500px) {
-
+.col{
+  padding: 10px 5px;
+}
         main{
-   padding: 20px;
+   padding: 10px 5px;
       .leftside{
       width:100%;
       .row{
