@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, transition, style, animate} from '@angular/animations';
-import { scale } from 'ol/transform';
+
 
 @Component({
   selector: 'app-add-form',

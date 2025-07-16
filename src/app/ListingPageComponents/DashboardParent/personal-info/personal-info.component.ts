@@ -4,7 +4,7 @@ import { LanguageChooserService } from '../../../Services/language-chooser/langu
 import { text } from 'node:stream/consumers';
 import { NavInfoService } from '../../../Services/NavService/nav-info.service';
 import { ListingServiceService } from '../../../Services/listing-service/listing-service.service';
-import { load } from 'ol/Image';
+
 
 
 @Component({

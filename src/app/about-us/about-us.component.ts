@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { LanguageChooserService } from '../Services/language-chooser/language-chooser.service';
-import { on } from 'events';
-import { max } from 'rxjs';
+
 
 @Component({
   selector: 'app-about-us',

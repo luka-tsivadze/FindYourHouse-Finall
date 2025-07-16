@@ -22,38 +22,50 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/find-your-house",
             "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "main": "src/main.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets",
-                "src/assets/robots.txt",
-                  "src/assets/googleaa2f9d99443c3678.html",
-                    "src/assets/sitemap.xml"
+              "src/assets/robots.txt",
+              "src/assets/googleaa2f9d99443c3678.html",
+              "src/assets/sitemap.xml"
             ],
-            "styles": [
-         
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-
-          
             "allowedCommonJsDependencies": [
               "lerc",
               "xml-utils/get-attribute.js",
               "xml-utils/find-tags-by-name.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -65,18 +77,15 @@
                   "maximumWarning": "15.5kb",
                   "maximumError": "30kb"
                 }
-                
-              ],
-              "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": false,
-              "aot": true,
-              "namedChunks": false
+              ]
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -90,34 +99,32 @@
             "development": {
               "buildTarget": "FindYourHouse:build:development"
             }
-            
           },
           "defaultConfiguration": "development"
         },
         "server": {
-  "builder": "@angular-devkit/build-angular:server",
-  "options": {
-    "outputPath": "dist/find-your-house-server",
-    "main": "src/main.server.ts",
-    "tsConfig": "tsconfig.server.json"
-  },
-  "configurations": {
-    "production": {
-      "outputHashing": "media",
-      "sourceMap": false,
-      "optimization": true
-    }
-  }
-},
-
-         "prerender": {
-    "builder": "@angular-devkit/build-angular:prerender",
-    "options": {
-      "browserTarget": "FindYourHouse:build:production",
-      "serverTarget": "FindYourHouse:server:production",
-      "routes": ["/"]
-    }
-      },
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/find-your-house-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "FindYourHouse:build:production",
+            "serverTarget": "FindYourHouse:server:production",
+            "routes": ["/"]
+          }
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
@@ -127,23 +134,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets",
-                "src/assets/robots.txt",
-                  "src/assets/googleaa2f9d99443c3678.html",
-                    "src/assets/sitemap.xml"
+              "src/assets/robots.txt",
+              "src/assets/googleaa2f9d99443c3678.html",
+              "src/assets/sitemap.xml"
             ],
-            "styles": [
-        
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }

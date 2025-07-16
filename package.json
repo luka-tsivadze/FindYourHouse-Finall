@@ -1,11 +1,10 @@
 {
   "name": "find-your-house",
   "version": "0.0.0",
+
   "scripts": {
     "ng": "ng",
-    
-"prerender": "ng run FindYourHouse:prerender",
-
+    "prerender": "ng run FindYourHouse:prerender",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -23,16 +22,10 @@
     "@angular/platform-server": "^18.2.12",
     "@angular/router": "^18.2.12",
     "@angular/ssr": "^18.2.20",
-    "@ffmpeg/core": "^0.12.10",
-    "@ffmpeg/ffmpeg": "^0.12.15",
     "@fortawesome/fontawesome-free": "^6.6.0",
-    "classlist.js": "^1.1.20150312",
     "core-js": "^3.40.0",
-    "express": "^4.18.2",
-    "ol": "^10.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "web-animations-js": "^2.3.2",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

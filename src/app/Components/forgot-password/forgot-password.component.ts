@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { set } from 'ol/transform';
+
 import { RegistrationService } from '../../Services/registration/registration.service';
 
 

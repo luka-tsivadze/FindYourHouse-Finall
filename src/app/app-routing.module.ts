@@ -8,7 +8,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { MainCardsComponent } from './CardPage/main-cards/main-cards.component';
 import { DetailedInfoParentComponent } from './DetailedInfo/detailed-info-parent/detailed-info-parent.component';
 import { ContactComponent } from './contact/contact.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+
 import { authGuard } from './auth.guard';
 import { CardsResolverGuard } from './Guards/card-resolver-guard.guard';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
@@ -31,7 +31,13 @@ const routes: Routes = [
   {path: 'allCards', component:MainCardsComponent, resolve: { data: CardsResolverGuard }},
   {path: 'allCards/:id', component:DetailedInfoParentComponent, resolve: { data: CardsResolverGuard }},
   {path: 'contact', component:ContactComponent},
-  {path: 'about', component:AboutUsComponent},
+
+{
+  path: 'about',
+  loadChildren: () => import('./Modules/about/about.module').then(m => m.AboutModule)
+},
+  { path: 'simple', loadComponent: () => import('./simple.component').then(c => c.SimpleComponent) },
+
   {path:'terms-and-conditions', component:TermsAndConditionsComponent},
   {path:'Agent', component:AgentsDetailedComponent},
   {path:'Companies', component:CompaniesComponent},
@@ -40,6 +46,7 @@ const routes: Routes = [
   {path:'DeletePolicy', component:DeletePolicyComponent},
   {path:'login', component:LoginComponent  , canActivate:[loggedInGuard]},
   {path:'Registration', component:RegPageComponent , canActivate:[loggedInGuard] },
+
   {path: '**', component:ErrorPageComponent},
 
 ];

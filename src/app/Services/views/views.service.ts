@@ -9,7 +9,7 @@ export class ViewsService {
 
   constructor(private http:HttpClient ) { }
 
-  lestId;
+  lestId: number | undefined;
   sendView(id:number){
     if(this.lestId==id){
       return;

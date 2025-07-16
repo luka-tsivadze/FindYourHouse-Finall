@@ -4,6 +4,12 @@
     "outDir": "./dist/out-tsc",
     "strict": false,
     "noImplicitOverride": true,
+
+
+    
+    "resolveJsonModule": true,
+    
+
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
