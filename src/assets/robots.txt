@@ -1,2 +1,44 @@
 User-agent: *
 Allow: /
+
+# Allow important SEO pages
+Allow: /about
+Allow: /contact
+Allow: /allCards
+Allow: /terms-and-conditions
+Allow: /Agent
+Allow: /Companies
+Allow: /Privacy-Policy
+Allow: /DeletePolicy
+
+# Block private/auth pages
+Disallow: /Listing
+Disallow: /login
+Disallow: /Registration
+Disallow: /PasswordRecovery
+
+# Block technical files
+Disallow: /*.json$
+Disallow: /src/
+Disallow: /node_modules/
+
+# Block duplicate content and parameters
+Disallow: /*?
+Disallow: /*#
+Disallow: /*&
+
+# Allow static assets for rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap location
+Sitemap: https://findhouse.ge/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

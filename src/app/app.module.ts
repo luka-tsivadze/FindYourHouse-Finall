@@ -10,7 +10,7 @@ import { SharedModule } from './Modules/shared/shared.module';
 // Import components
 import { MainPageComponent } from './main-page/main-page.component';
 
-import { FooterComponent } from './footer/footer.component';
+
 import { PartnersFooterComponent } from './partners-footer/partners-footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainListingComponent } from './ListingPageComponents/main-listing/main-listing.component';
@@ -41,7 +41,7 @@ import { PropvideoLComponent } from './DetailedInfo/propvideo-l/propvideo-l.comp
 import { ReviewsComponent } from './DetailedInfo/reviews/reviews.component';
 import { ReviewAdderComponent } from './DetailedInfo/review-adder/review-adder.component';
 import { SimilarPropComponent } from './DetailedInfo/similar-prop/similar-prop.component';
-import { ContactComponent } from './contact/contact.component';
+
 import { DashboardComponent } from './ListingPageComponents/DashboardParent/dashboard/dashboard.component';
 import { ManageComponent } from './ListingPageComponents/DashboardParent/manage/manage.component';
 import { DashListingComponent } from './ListingPageComponents/DashboardParent/dash-listing/dash-listing.component';
@@ -82,7 +82,7 @@ import { RegPageComponent } from './Components/reg-page/reg-page.component';
     AppComponent,
     MainPageComponent,
     
-    FooterComponent,
+
     PartnersFooterComponent,
     HeaderComponent,
 
@@ -114,7 +114,7 @@ import { RegPageComponent } from './Components/reg-page/reg-page.component';
     ReviewsComponent,
     ReviewAdderComponent,
     SimilarPropComponent,
-    ContactComponent,
+ 
     DashboardComponent,
     ManageComponent,
     DashListingComponent,

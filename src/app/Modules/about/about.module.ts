@@ -19,7 +19,5 @@ import { AboutRoutingModule } from './about-routing.module';
 })
 export class AboutModule { 
 
-  constructor() {
-    console.log('AboutModule loaded');
-  }
+
 }

@@ -30,13 +30,14 @@ const routes: Routes = [
   {path: 'Listing', component:ListingParentComponent ,canActivate: [authGuard], resolve: { data: CardsResolverGuard }},
   {path: 'allCards', component:MainCardsComponent, resolve: { data: CardsResolverGuard }},
   {path: 'allCards/:id', component:DetailedInfoParentComponent, resolve: { data: CardsResolverGuard }},
-  {path: 'contact', component:ContactComponent},
+  {path: 'contact', loadChildren: () => import('./Modules/contact/contact.module').then(m => m.ContactModule)},
 
 {
   path: 'about',
   loadChildren: () => import('./Modules/about/about.module').then(m => m.AboutModule)
 },
-  { path: 'simple', loadComponent: () => import('./simple.component').then(c => c.SimpleComponent) },
+
+
 
   {path:'terms-and-conditions', component:TermsAndConditionsComponent},
   {path:'Agent', component:AgentsDetailedComponent},
@@ -56,3 +57,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
