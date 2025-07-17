@@ -25,8 +25,6 @@ import { FooterComponent } from '../../footer/footer.component';
   ]
 })
 export class SharedModule { 
-constructor() {
-  console.log('SharedModule loaded'); 
-}
+
 
 }
