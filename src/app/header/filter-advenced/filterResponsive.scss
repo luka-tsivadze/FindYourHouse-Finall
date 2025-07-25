@@ -1,9 +1,19 @@
 
+@keyframes moveUp {
+  0% {
+    top: 110%;
+  }
+  100% {
+    top: 76%;
+  }
+  
+}
+
 @media screen and (max-width:750px){
     .advancedOpened{
       width: 99%;
       left: 3px;
-      top: 60%;
+      top: 67%;
       font-size: 13px;
       padding: 13px 10px;
     .mainFilter{
@@ -30,9 +40,9 @@
     .advancedOpened{
       width: 95%;
       left: 50%;
-      top: 80%;
+   
       transform: translateX(-50%) !important;
-      
+      animation: moveUp 0.2s forwards;
       font-size: 12px;
       padding: 11px 5px;
       padding-top: 30px;

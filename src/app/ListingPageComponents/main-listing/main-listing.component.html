@@ -187,4 +187,5 @@
                     <button type="submit" (click)="onSubmit()">{{allForms.form1info.submit}}</button> 
                     <div class="sendingAn"*ngIf="SendingAnimation" ><img src="../../../assets/Imges/PreLoading/preloader.gif" alt=""> <div class="loading">Uploading..</div></div>
     </form>
-</div><app-loader *ngIf=" isLoadingFiles == true &&  calledFromEdit==true"></app-loader>
+</div>
+<app-loader *ngIf=" isLoadingFiles == true &&  calledFromEdit==true"></app-loader>

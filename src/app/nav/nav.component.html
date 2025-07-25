@@ -1,6 +1,11 @@
 <nav [ngClass]="{'nav':scrollY>200 || showNav }">
     <ul class="FirstUl mobileresp">
-        <li class="burger" (click)="showResponsiveNav()"><img [src]="showRespNav.iconSrc" alt="Burger"></li>
+        <li class="burger" (click)="showResponsiveNav()">
+            <img 
+                [ngClass]="showRespNav.bool && (scrollY>200 || showNav) ? 'invert-burger' : ''"
+                [src]="showRespNav.iconSrc" 
+                alt="Burger">
+        </li>
         <img class="Navicon" routerLink="/" (click)="scrollToTop()" [src]="LogoLink" alt="Logo">
         <div class="navcol" *ngIf="showRespNav.bool">
             <li routerLink="/" (click)="scrollToTop()">

@@ -121,19 +121,19 @@ export class EngService {
     Rptext: 'We collect reviews from our customers.',
   };
   SFooter = {
-    headerFP: 'Наши партнеры',
-    pFP: 'Компании, которые нас представляют.',
-    NavFooter: 'Навигация',
-    NewsFooter: 'Новости',
-    NewsFooterText: 'Подпишитесь на нашу рассылку, чтобы получать последние обновления и предложения. Получайте новости на вашу почту.',
-    NewsFooterBtn: 'ПОДПИСАТЬСЯ',
-    NewsFooterPlaceHolder: 'Введите ваш email',
-    errorSubscribe: 'Ваш email не был добавлен, пожалуйста, попробуйте еще раз',
-    terms: 'Условия и положения',
-    Policy: 'Политика конфиденциальности',
-    NewsFooterRequired: 'Поле электронной почты обязательно',
-    succesSubscribe: 'Ваш email успешно добавлен',
-    NewsFooterInvalid: 'Пожалуйста, введите корректный email',
+    headerFP: 'Our Partners',
+    pFP: 'Companies that represent us.',
+    NavFooter: 'Navigation',
+    NewsFooter: 'News',
+    NewsFooterText: 'Subscribe to our newsletter to receive the latest updates and offers. Get news to your email.',
+    NewsFooterBtn: 'SUBSCRIBE',
+    NewsFooterPlaceHolder: 'Enter your email',
+    errorSubscribe: 'Your email was not added, please try again',
+    terms: 'Terms and Conditions',
+    Policy: 'Privacy Policy',
+    NewsFooterRequired: 'Email field is required',
+    succesSubscribe: 'Your email was successfully added',
+    NewsFooterInvalid: 'Please enter a valid email',
   };
 
   FooterData={

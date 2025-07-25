@@ -21,6 +21,7 @@ import { UploadImageComponent } from '../../ListingPageComponents/DashboardParen
 import { BusinessComponent } from '../../ListingPageComponents/business/business.component';
 import { AddFormComponent } from '../../ListingPageComponents/business/add-form/add-form.component';
 import { LoaderComponent } from '../../loader/loader.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -50,11 +51,10 @@ import { LoaderComponent } from '../../loader/loader.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ListingRoutingModule
+    ListingRoutingModule,
+    SharedModule
   ]
 })
 export class ListingModule { 
-    constructor() {
-    console.log('Module loaded');
-  }
+  
 }

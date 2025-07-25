@@ -117,7 +117,7 @@ counter = 0;
         
       
         this.IsSignedIn.Name = data[0] && data[0].saxeli && data[0].gvari ? `${data[0].saxeli} ${data[0].gvari}` : '';
-        this.IsSignedIn.number = (data[0] && data[0].nomeri && data[0].nomeri !== 'null' && data[0].nomeri !== null) ? data[0].nomeri : '';
+        this.IsSignedIn.number = (data[0] && data[0].nomeri && data[0].nomeri !== 'NULL' && data[0].nomeri !== null) ? data[0].nomeri : '';
         this.IsSignedIn.email = data[0] && data[0].maili ? data[0].maili : '';
         this.IsSignedIn.gender = data[0] && data[0].sqesi ? data[0].sqesi : '';
         this.IsSignedIn.code = data[0] && data[0].saidentifikacio_kodi ? data[0].saidentifikacio_kodi : '';

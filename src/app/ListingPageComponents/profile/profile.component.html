@@ -13,10 +13,12 @@
           <img src="../../../assets/Imges/Footer/FooterIcons/Location.svg" alt="location">
           <p>{{location}}</p>
         </div>
-        <div *ngFor="let el of forNgRow" class="ngRow">
-          <img [src]="el.imgLink" [alt]="el.alt">
-          <a href="">{{el.text}}</a>
-        </div>
+        <ng-container *ngFor="let el of forNgRow">
+            <div class="ngRow" *ngIf="el.text && el.text !== 'NULL' && el.text !== ''">
+            <img [src]="el.imgLink" [alt]="el.alt">
+            <a href="">{{el.text}}</a>
+            </div>
+        </ng-container>
       </div>
       <div class="form">
         <h1>{{inquary}}</h1>

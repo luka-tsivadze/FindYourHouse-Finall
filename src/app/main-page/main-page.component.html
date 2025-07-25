@@ -14,83 +14,99 @@
  </div>
 
 </div> -->
+@defer (on viewport ) {
 
-<div class="popularProperties">
 
+<ng-template>
+
+  <div class="popularProperties">
+    
     <h2  class="PH2" [ngClass]="{'FadeInUp': scrollY >1750 }">{{Languages.main.popularPropertys}}</h2>
     <p class="PP" [ngClass]="{'FadeInUp': scrollY >1740 }">{{Languages.main.AgentsP}} </p>
     <div class="scrollParent">
-    <div class="cardParent" #cardParent
-    (mousemove)="popularDrag($event)" (mousedown)="popularDragStart($event)" 
-    (mouseleave)="popularDragEnd($event)" (mouseup)="popularDragEnd($event)"
-    >
-
-        <div class="propCard"  *ngFor="let info of DiscoverPopularPlaces let i=index"
-        [ngStyle]="{'animation-delay': (i * 0.2) + 's'}"
-        [ngClass]="{'FadeInUp': scrollY >1960  }"
-        >
-            <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
-
-                <div class="FirstRow">
-                    <button name="featured" [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
-                    <button name="status"   class="whiteBg">{{info.For}}</button>
-                    
-                </div>
-                  <div class="SecondRow">
-                    <!-- <button><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcon"></button> -->
-                    <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
-                    <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="imgIcon"></button> -->
-                  </div>
-            </div>
-            <div class="rightSide">
-                <a  (click)="navigate(info.gncxdebis_idi)" >{{info.header}}</a>
-                <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="">{{info.location}} </p>
-                <div class="squareFlex" (click)="navigate(info.gncxdebis_idi)">
-
-                <div class="element"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt=""><p>{{info.bedrooms}} {{Languages.featuredPropertiesStatic.BedRooms}}</p></div> 
-                <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt=""><p>{{info.bathrooms}} {{Languages.featuredPropertiesStatic.BathRooms}}</p></div> 
-                <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/triangular-ruler.svg" alt=""><p>{{info.area}} {{Languages.featuredPropertiesStatic.Area}}</p></div> 
-                <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt=""><p>{{info.garages}} {{Languages.featuredPropertiesStatic.Garage}}</p></div>
-            </div>
-            <div class="CardFooterRow">
-
-                
-                <h1>{{info.price | number:'1.0-0' }}{{info.currency}}  </h1> 
-                <div class="iconRow">  
-                  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
-  <button
-    class="toggle-option"
-    [class.active]="info.currency === '₾'"
-    namme="toggleGEL"
-  >
-    ₾ 
-  </button>
-  <button 
-    name="toggleUSD"
-    class="toggle-option"
-    [class.active]="info.currency === '$'"
-
-  >
-    $
-  </button>
-  <div class="indicator" [class.right]="info.currency === '$'"></div>
-</div>
- <img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
-            </div>
-            </div>
+      <div class="cardParent" #cardParent
+      (mousemove)="popularDrag($event)" (mousedown)="popularDragStart($event)" 
+      (mouseleave)="popularDragEnd($event)" (mouseup)="popularDragEnd($event)"
+      >
+      
+      <div class="propCard"  *ngFor="let info of DiscoverPopularPlaces let i=index"
+      [ngStyle]="{'animation-delay': (i * 0.2) + 's'}"
+      [ngClass]="{'FadeInUp': scrollY >1960  }"
+      >
+      <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
+        
+        <div class="FirstRow">
+          <button name="featured" [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
+          <button name="status"   class="whiteBg">{{info.For}}</button>
+          
         </div>
-
-    </div>
-    <div class="btnRow" >
-        <button *ngFor="let i of PropButtons; let index = index" [ngClass]="{'active': i.class }" name="propButton" (click)="buttons(false , index)"  [ngStyle]="{'animation-delay': (index * 0.05) + 's'}"
-        >
-        </button>
-    </div>
+        <div class="SecondRow">
+          <!-- <button><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcon"></button> -->
+          <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
+          <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="imgIcon"></button> -->
+        </div>
+      </div>
+      <div class="rightSide">
+        <a  (click)="navigate(info.gncxdebis_idi)" >{{info.header}}</a>
+        <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="">{{info.location}} </p>
+        <div class="squareFlex" (click)="navigate(info.gncxdebis_idi)">
+          
+          <div class="element"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt=""><p>{{info.bedrooms}} {{Languages.featuredPropertiesStatic.BedRooms}}</p></div> 
+          <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt=""><p>{{info.bathrooms}} {{Languages.featuredPropertiesStatic.BathRooms}}</p></div> 
+          <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/triangular-ruler.svg" alt=""><p>{{info.area}} {{Languages.featuredPropertiesStatic.Area}}</p></div> 
+          <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/car.svg" alt=""><p>{{info.garages}} {{Languages.featuredPropertiesStatic.Garage}}</p></div>
+        </div>
+        <div class="CardFooterRow">
+          
+          
+          <h1>{{info.price | number:'1.0-0' }}{{info.currency}}  </h1> 
+          <div class="iconRow">  
+            <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
+              <button
+              class="toggle-option"
+              [class.active]="info.currency === '₾'"
+              namme="toggleGEL"
+              >
+              ₾ 
+            </button>
+            <button 
+            name="toggleUSD"
+            class="toggle-option"
+            [class.active]="info.currency === '$'"
+            
+  >
+  $
+</button>
+<div class="indicator" [class.right]="info.currency === '$'"></div>
+</div>
+<img [src]="heartimgLinks[i]"  (click)="saveToFav(i , info)" alt=""></div>
+</div>
+</div>
 </div>
 
 </div>
+<div class="btnRow" >
+  <button *ngFor="let i of PropButtons; let index = index" [ngClass]="{'active': i.class }" name="propButton" (click)="buttons(false , index)"  [ngStyle]="{'animation-delay': (index * 0.05) + 's'}"
+  >
+</button>
+</div>
+</div>
 
+</div>
+</ng-template>
+} @placeholder {
+  <div class="popularProperties-placeholder" style="height: 755px;  background-color: #ff385c; ">
+    <div class="placeholder-content">
+      
+    </div>
+  </div>
+}@loading {
+  <div class="popularProperties-skeleton" style="height: 755px; background-color: #ff385c;">
 
+  </div>
+}
+
+@defer (on viewport) {
 <div class="Agents" id="Agents">
     <h3 class="AHeader">{{Languages.main.AgentsH}}</h3>
     <p class="AP">{{Languages.main.AgentsP}}</p>
@@ -109,6 +125,14 @@
         </div>
     </div>
 </div>
+}@placeholder {
+      <div class="Agents-skeleton" style="height: 557px;  background-color: #fff " >
+  </div>
+}@loading {
+  <div class="Agents-skeleton" style="height: 557px; background-color: #fff ">
+  </div>
+}
+
 <div class="Reviews" *ngIf="ReviewsData.length > 0">
     <h1 class="HText">{{Languages.main.RHeader}}</h1>
     <p class="HP">{{Languages.main.Rptext}}</p>

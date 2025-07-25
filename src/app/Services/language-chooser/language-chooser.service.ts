@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { EngService } from '../Languages/ForSidePages/eng/eng.service';
 import { RusService } from '../Languages/ForSidePages/rus/rus.service';
 import { GeoService } from '../Languages/ForSidePages/geo/geo.service';
@@ -7,27 +7,25 @@ import { GeoService } from '../Languages/ForSidePages/geo/geo.service';
   providedIn: 'root'
 })
 export class LanguageChooserService {
-  localStorage: string='GEO';
+  localStorage: string = 'GEO';
   chosenLang: any;
-
-  constructor(private eng:EngService , private rus:RusService , private Geo:GeoService) { 
+  
+  constructor(private injector: Injector) {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('Language')) {
       this.localStorage = localStorage.getItem('Language');
     }
-      switch (this.localStorage) {
-        case 'ENG':
-          this.chosenLang = this.eng;
-          break;
-        case 'GEO':
-          this.chosenLang = this.Geo;
-          break;
-          
-        case 'RUS':
-          this.chosenLang= this.rus;
-          break;
-          
     
-      }
-    
+    // Only get the service we need
+    switch (this.localStorage) {
+      case 'ENG':
+        this.chosenLang = this.injector.get(EngService);
+        break;
+      case 'GEO':
+        this.chosenLang = this.injector.get(GeoService);
+        break;
+      case 'RUS':
+        this.chosenLang = this.injector.get(RusService);
+        break;
+    }
   }
 }

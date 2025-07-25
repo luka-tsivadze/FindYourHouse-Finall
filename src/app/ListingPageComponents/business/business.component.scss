@@ -91,3 +91,12 @@ img{
 
 
 }
+
+@media screen and (max-width:500px) {
+    main{
+        width: 96vw;
+        padding: 5px;
+        min-height: 50vh;
+    }
+    
+}

@@ -22,10 +22,29 @@
                   </div>
                   <div class="price">{{info.price  | number:'1.0-0' }} {{info.currency}}<span *ngIf="info.For=='For Rent'">/mo</span></div>
             </div>
-            <div class="rightSide" (click)="routertodetailedInfo(info.id)">
-                <a>{{info.header}}</a>
+            <div class="rightSide">
+       <div class="row">         
+  <div class="currency-toggle"    (click)="toggleAllCurrencies(info.currency , false) ">
+  <button
+    class="toggle-option"
+    [class.active]="info.currency === '₾'"
+ 
+  >
+    ₾ 
+  </button>
+  <button 
+    class="toggle-option"
+    [class.active]="info.currency === '$'"
+
+  >
+    $
+  </button>
+  <div class="indicator" [class.right]="info.currency === '$'"></div>
+</div>
+</div>
+                <a  (click)="routertodetailedInfo(info.id)">{{info.header}}</a>
                 <p><img src="../../assets/Imges/Header/CardImges/icons/Location.svg" alt="locationIcon">{{info.location}} </p>
-                <div class="squareFlex">
+                <div class="squareFlex"  (click)="routertodetailedInfo(info.id)">
     
                 <div class="element"><img src="../../assets/Imges/Header/CardImges/icons/bedroom.svg" alt="badroom"><p>{{info.bedrooms}} {{FeaturePS.BedRooms}}</p></div> 
                 <div class="element"><img src="./../../assets/Imges/Header/CardImges/icons/bathtub.svg" alt="bathroom"><p>{{info.bathrooms}} {{FeaturePS.BathRooms}}</p></div> 

@@ -124,7 +124,7 @@ this.currencyServ.currency$.subscribe((currency) => {
     if (this.showNav) {
       this.LogoLink = '../../assets/Imges/NavImg/NavIcon2.svg';
    
-    } else {
+    } else {  
       this.LogoLink = '../../assets/Imges/NavImg/NavIcon1.svg';
     
     }

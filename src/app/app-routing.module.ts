@@ -2,32 +2,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 
-import { ListingParentComponent } from './ListingPageComponents/listing-parent/listing-parent.component';
 
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { MainCardsComponent } from './CardPage/main-cards/main-cards.component';
 import { DetailedInfoParentComponent } from './DetailedInfo/detailed-info-parent/detailed-info-parent.component';
-import { ContactComponent } from './contact/contact.component';
 
 import { authGuard } from './auth.guard';
 import { CardsResolverGuard } from './Guards/card-resolver-guard.guard';
-import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 
-import { AgentsDetailedComponent } from './main-page/agents-detailed/agents-detailed.component';
 import { CompaniesComponent } from './companies/companies.component';
 
 import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
 import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 
-import { LoginComponent } from './Components/login/login.component';
-import { RegPageComponent } from './Components/reg-page/reg-page.component';
-import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+
 import { loggedInGuard } from './Guards/logged-in/logged-in.guard';
 const routes: Routes = [ 
 
   { path: '', component:MainPageComponent, resolve: { data: CardsResolverGuard } },
   { path: 'Home', component:MainPageComponent},
-  {path: 'Listing', component:ListingParentComponent ,canActivate: [authGuard], resolve: { data: CardsResolverGuard }},
+  {path: 'Listing', loadChildren: () => import('./Modules/listing/listing-module').then(m => m.ListingModule) 
+    ,canActivate: [authGuard], resolve: { data: CardsResolverGuard }},
   {path: 'allCards', component:MainCardsComponent, resolve: { data: CardsResolverGuard }},
   {path: 'allCards/:id', component:DetailedInfoParentComponent, resolve: { data: CardsResolverGuard }},
   {path: 'contact', loadChildren: () => import('./Modules/contact/contact.module').then(m => m.ContactModule)},
@@ -39,14 +34,26 @@ const routes: Routes = [
 
 
 
-  {path:'terms-and-conditions', component:TermsAndConditionsComponent},
-  {path:'Agent', component:AgentsDetailedComponent},
-  {path:'Companies', component:CompaniesComponent},
-  {path:'PasswordRecovery', component:ForgotPasswordComponent},
-  {path:'Privacy-Policy', component:PrivacePolicyComponent},
-  {path:'DeletePolicy', component:DeletePolicyComponent},
-  {path:'login', component:LoginComponent  , canActivate:[loggedInGuard]},
-  {path:'Registration', component:RegPageComponent , canActivate:[loggedInGuard] },
+  {path:'terms-and-conditions',
+    loadChildren: () => import('./Modules/tac/tac.module').then(m => m.TACModule)
+  },
+  {path:'Agent',
+    loadChildren: () => import('./Modules/agent/agent.module').then(m => m.AgentModule) 
+    },
+  {path:'Companies',loadChildren:() => import('./Modules/companies/companies.module').then(m => m.CompaniesModule)},
+
+  {path:'Privacy-Policy', 
+    loadChildren: () => import('./Modules/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule)
+  },
+  {path:'DeletePolicy', 
+    loadChildren: () => import('./Modules/del-policy/del-policy.module').then(m => m.DelPolicyModule)
+  },
+  {path:'login', 
+    loadChildren:() => import('./Modules/login/login.module').then(m => m.LoginModule),
+    canActivate:[loggedInGuard]
+  },
+  {path:'Registration', loadChildren:() => import('./Modules/reg/reg.module').then(m => m.RegModule), canActivate:[loggedInGuard]
+  },
 
   {path: '**', component:ErrorPageComponent},
 

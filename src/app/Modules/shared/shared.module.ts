@@ -5,10 +5,11 @@ import { RegistrationComponent } from '../../Components/registration/registratio
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from '../../footer/footer.component';
+import { LoaderComponent } from '../../loader/loader.component';
 
 
 @NgModule({
-  declarations: [NavComponent , RegistrationComponent ,FooterComponent],
+  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -21,7 +22,8 @@ import { FooterComponent } from '../../footer/footer.component';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { 

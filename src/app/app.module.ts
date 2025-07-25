@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient } from '@angular/common/http'; // ✅ Correct placement
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { SharedModule } from './Modules/shared/shared.module';
 
 
@@ -13,14 +13,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 import { PartnersFooterComponent } from './partners-footer/partners-footer.component';
 import { HeaderComponent } from './header/header.component';
-import { MainListingComponent } from './ListingPageComponents/main-listing/main-listing.component';
-import { ListingNavComponent } from './ListingPageComponents/listing-nav/listing-nav.component';
-import { ListingParentComponent } from './ListingPageComponents/listing-parent/listing-parent.component';
-import { ProfileComponent } from './ListingPageComponents/profile/profile.component';
-import { ListingFooterComponent } from './ListingPageComponents/listing-footer/listing-footer.component';
-import { PasswordChangeComponent } from './ListingPageComponents/password-change/password-change.component';
-import { FavoritePropertiesComponent } from './ListingPageComponents/favorite-properties/favorite-properties.component';
-import { MyPropertiesComponent } from './ListingPageComponents/my-properties/my-properties.component';
+
+
 import { AllCardsComponent } from './CardPage/all-cards/all-cards.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FilterComponent } from './CardPage/filter/filter.component';
@@ -42,40 +36,16 @@ import { ReviewsComponent } from './DetailedInfo/reviews/reviews.component';
 import { ReviewAdderComponent } from './DetailedInfo/review-adder/review-adder.component';
 import { SimilarPropComponent } from './DetailedInfo/similar-prop/similar-prop.component';
 
-import { DashboardComponent } from './ListingPageComponents/DashboardParent/dashboard/dashboard.component';
-import { ManageComponent } from './ListingPageComponents/DashboardParent/manage/manage.component';
-import { DashListingComponent } from './ListingPageComponents/DashboardParent/dash-listing/dash-listing.component';
-
-import { PersonalInfoComponent } from './ListingPageComponents/DashboardParent/personal-info/personal-info.component';
-import { DashreviewComponent } from './ListingPageComponents/DashboardParent/dashreview/dashreview.component';
 import { FilterAdvencedComponent } from './header/filter-advenced/filter-advenced.component';
-import { UploadImageComponent } from './ListingPageComponents/DashboardParent/upload-image/upload-image.component';
 
-import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { GlobalErrorHandler } from './Services/ErrorHandler/global-error-handler';
-import { LoaderComponent } from './loader/loader.component';
 
-import { AgentsDetailedComponent } from './main-page/agents-detailed/agents-detailed.component';
-import { LprofileCardComponent } from './main-page/lprofile-card/lprofile-card.component';
-import { LDescriptionComponent } from './main-page/ldescription/ldescription.component';
-import { RContactComponent } from './main-page/rcontact/rcontact.component';
-import { RecentComponent } from './main-page/recent/recent.component';
-import { ListingComponent } from './main-page/listing/listing.component';
-import { RAdvertismentComponent } from './main-page/r-advertisment/r-advertisment.component';
-import { CompaniesComponent } from './companies/companies.component';
-import { BusinessComponent } from './ListingPageComponents/business/business.component';
-import { AddFormComponent } from './ListingPageComponents/business/add-form/add-form.component';
 
 import { ShareCompComponent } from './Components/share-comp/share-comp.component';
-import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
-import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
 
 
-
-
-import { LoginComponent } from './Components/login/login.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
-import { RegPageComponent } from './Components/reg-page/reg-page.component';
+
 
 @NgModule({
   declarations: [
@@ -86,14 +56,6 @@ import { RegPageComponent } from './Components/reg-page/reg-page.component';
     PartnersFooterComponent,
     HeaderComponent,
 
-    MainListingComponent,
-    ListingNavComponent,
-    ListingParentComponent,
-    ProfileComponent,
-    ListingFooterComponent,
-    PasswordChangeComponent,
-    FavoritePropertiesComponent,
-    MyPropertiesComponent,
     AllCardsComponent,
     ErrorPageComponent,
     FilterComponent,
@@ -114,38 +76,22 @@ import { RegPageComponent } from './Components/reg-page/reg-page.component';
     ReviewsComponent,
     ReviewAdderComponent,
     SimilarPropComponent,
- 
-    DashboardComponent,
-    ManageComponent,
-    DashListingComponent,
 
-    PersonalInfoComponent,
-    DashreviewComponent,
+
+    
+
     FilterAdvencedComponent,
-    UploadImageComponent,
-    LoaderComponent,
-    TermsAndConditionsComponent,
-    LoaderComponent,
-  
-    AgentsDetailedComponent,
-    LprofileCardComponent,
-    LDescriptionComponent,
-    RContactComponent,
-    RecentComponent,
-    ListingComponent,
-    RAdvertismentComponent,
-    CompaniesComponent,
-    BusinessComponent,
-    AddFormComponent,
 
-    RegPageComponent,
+
+
+
 
     ShareCompComponent,
-    PrivacePolicyComponent,
-    DeletePolicyComponent,
+
+
     ForgotPasswordComponent,
 
-    LoginComponent,
+
 
   
   ],

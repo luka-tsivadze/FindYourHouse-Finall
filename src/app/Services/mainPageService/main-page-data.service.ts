@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import {  Injectable, signal } from '@angular/core';
+import {  Injectable, Injector, signal } from '@angular/core';
 
 import { EngService } from '../Languages/eng/eng.service';
 import { GeoService } from '../Languages/geo/geo.service';
@@ -99,32 +99,34 @@ export class MainPageDataService {
     curConverted:boolean;
   }>=[ ];
 
-  WhyCards = [   //მხოლოდ 4 ელემენტისგან უნდა შედგებოდეს არც მეტი არც ნაკლები
-    {
-      Img: '../../assets/Imges/Header/CardImges/icons/Why1.svg',
-      alt: 'Wide range of properties',
-      HText: 'Wide Range Of Properties',
-      PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
-    },
-    {
-      Img: '../../assets/Imges/Header/CardImges/icons/Why2.svg',
-      alt: 'Placeholder image 1',
-      HText: 'Trusted by thousands',
-      PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
-    },
-    {
-      Img: '../../assets/Imges/Header/CardImges/icons/Why3.svg',
-      alt: 'Placeholder image 2',
-      HText: 'Financing made easy',
-      PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
-    },
-    {
-      Img: '../../assets/Imges/Header/CardImges/icons/Why4.svg',
-      alt: 'Placeholder image 3',
-      HText: 'We are here near you',
-      PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
-    },
-  ];
+  WhyCards 
+  // = 
+  // [   //მხოლოდ 4 ელემენტისგან უნდა შედგებოდეს არც მეტი არც ნაკლები
+  //   {
+  //     Img: '../../assets/Imges/Header/CardImges/icons/Why1.svg',
+  //     alt: 'Wide range of properties',
+  //     HText: 'Wide Range Of Properties',
+  //     PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
+  //   },
+  //   {
+  //     Img: '../../assets/Imges/Header/CardImges/icons/Why2.svg',
+  //     alt: 'Placeholder image 1',
+  //     HText: 'Trusted by thousands',
+  //     PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
+  //   },
+  //   {
+  //     Img: '../../assets/Imges/Header/CardImges/icons/Why3.svg',
+  //     alt: 'Placeholder image 2',
+  //     HText: 'Financing made easy',
+  //     PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
+  //   },
+  //   {
+  //     Img: '../../assets/Imges/Header/CardImges/icons/Why4.svg',
+  //     alt: 'Placeholder image 3',
+  //     HText: 'We are here near you',
+  //     PText: 'lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.',
+  //   },
+  // ];
   AgentsInfo=[
     {imgLink:'../../assets/Imges/Header/CardImges/A-1.jpg',Name:'Carls Jhons', status:'Real Estat e Agent',mainalt:'AgentsCard' ,sociaslLinks:[
     {alt:'facebook' ,href:'',IconLink:'../../assets/Imges/Header/CardImges/icons/icons8-facebook.svg'},
@@ -178,86 +180,73 @@ LangMainData;
 
 
   private featuredPropSubject = new BehaviorSubject<any[]>([]);
+constructor(
+  private allcards: AllCardsService,
+  private http: HttpClient,
 
-  constructor(
+  private injector: Injector
+) {
+  // Your API call (unchanged)
+  this.allcards.fetchDataFromApi().subscribe((data) => {
+    this.featuredPropSubject.next(data);
+  });
 
-    private allcards: AllCardsService,
-    private http: HttpClient,
-    private agentsServ:AgentsService,
-    private EngService: EngService,
-    private GeoService: GeoService,
-    private RusService: RusService
-  ) {
-
-   //maybe move to component
+  // Language setup
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('Language')) {
+    this.localStorage = localStorage.getItem('Language');
+    
+    switch (this.localStorage) {
+      case 'ENG':
+        const engLangService = this.injector.get(EngService); 
+        this.LangMainData = engLangService
+        this.For.optdisplay = engLangService.For.optdisplay
+        this.For.text = engLangService.For.text
+        this.staticData = {
+          headerTextList: ['Plaza', 'House', 'Apartment'],
+          staticElements: engLangService.Header
+        };
+        this.popularPlacesStatic = engLangService.popularPlaces
+        this.featuredPropertiesStatic = engLangService.featuredPropertiesStatic
+        this.main = engLangService.main
+        break;
         
-    
-    this.allcards.fetchDataFromApi().subscribe((data) => {
-      
-      this.featuredPropSubject.next(data);
-    });
-      // Language setup logic here  
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('Language')) {
-      this.localStorage = localStorage.getItem('Language');
-      
-      switch (this.localStorage) {
-        case 'ENG':
-          this.LangMainData = EngService
-  
-
-
-          this.For.optdisplay=EngService.For.optdisplay
-          this.For.text=EngService.For.text
-          this.staticData = {
-            headerTextList: ['Plaza', 'House', 'Apartment'], // Texts for the main page animation
-            staticElements:EngService.Header
-           
-          };
-          this.popularPlacesStatic=EngService.popularPlaces
-          this.featuredPropertiesStatic=EngService.featuredPropertiesStatic
-          this.main=EngService.main
-          break;
-        case 'GEO':
-          this.LangMainData = GeoService
-          this.For.optdisplay=GeoService.For.optdisplay
-          this.For.text=GeoService.For.text
-
-          this.staticData = {
-            headerTextList: ['აპარტამენტი', 'სახლი', 'ბინა'], // Texts for the main page animation
-            staticElements:GeoService.Header
-          }
-          this.popularPlacesStatic=GeoService.popularPlaces
-          this.featuredPropertiesStatic=GeoService.featuredPropertiesStatic
-          this.main=GeoService.main
-          break;
-          
-        case 'RUS':
-          this.LangMainData = RusService
-          
-          this.For.optdisplay=RusService.For.optdisplay
-          this.For.text=RusService.For.text
-          this.staticData = {
-            headerTextList: ['Плаза', 'Дом', 'Квартира'], // Texts for the main page animation'
-            staticElements:RusService.Header
-          };
-          this.popularPlacesStatic=RusService.popularPlaces
-          this.main=RusService.main
-          this.featuredPropertiesStatic=RusService.featuredPropertiesStatic
-          break;
-          
-    
-      }
-
-      const updated = this.popularPlacesSubject.getValue().map((staticItem, index) => ({
-        ...staticItem,
-        cityName: this.LangMainData.popularPlacesSubject[index].cityName
-      }));
-      
-      this.popularPlacesSubject.next(updated);
-      
+      case 'GEO':
+        const geoLangService = this.injector.get(GeoService); 
+        this.LangMainData = geoLangService
+        this.For.optdisplay = geoLangService.For.optdisplay
+        this.For.text = geoLangService.For.text
+        this.staticData = {
+          headerTextList: ['აპარტამენტი', 'სახლი', 'ბინა'],
+          staticElements: geoLangService.Header
+        }
+        this.popularPlacesStatic = geoLangService.popularPlaces
+        this.featuredPropertiesStatic = geoLangService.featuredPropertiesStatic
+        this.main = geoLangService.main
+        break;
+        
+      case 'RUS':
+        const rusLangService = this.injector.get(RusService); 
+        this.LangMainData = rusLangService
+        this.For.optdisplay = rusLangService.For.optdisplay
+        this.For.text = rusLangService.For.text
+        this.staticData = {
+          headerTextList: ['Плаза', 'Дом', 'Квартира'],
+          staticElements: rusLangService.Header
+        };
+        this.popularPlacesStatic = rusLangService.popularPlaces
+        this.main = rusLangService.main
+        this.featuredPropertiesStatic = rusLangService.featuredPropertiesStatic
+        break;
     }
-     
-    }
+    
+    const updated = this.popularPlacesSubject.getValue().map((staticItem, index) => ({
+      ...staticItem,
+      cityName: this.LangMainData.popularPlacesSubject[index].cityName
+    }));
+    
+    this.popularPlacesSubject.next(updated);
+  }
+}
 
 cityCaller=true;
     cityAmount() {

@@ -111,22 +111,21 @@ main = {
   RHeader: 'Отзывы клиентов', 
   Rptext: 'Мы собираем отзывы от наших клиентов.'
 }
-
-SFooter = {
-  headerFP: 'Our Partners',
-  pFP: 'The company representing our interests.',
-  NavFooter: 'Navigation',
-  succesSubscribe: 'Your email has been successfully added',
-  NewsFooter: 'Newsletter',
-  NewsFooterText: 'Subscribe to our newsletter to receive the latest updates and offers. Subscribe to get news to your email.',
-  NewsFooterBtn: 'SUBSCRIBE',
-  NewsFooterPlaceHolder: 'Enter your email',
-  errorSubscribe: 'Your email could not be added, please try again',
-  terms: 'Terms and Conditions',
-  Policy: 'Privacy Policy',
-  NewsFooterRequired: 'Email field is required',
-  NewsFooterInvalid: 'Please enter a valid email',
-}
+  SFooter = {
+    headerFP: 'Наши партнеры',
+    pFP: 'Компании, которые нас представляют.',
+    NavFooter: 'Навигация',
+    NewsFooter: 'Новости',
+    NewsFooterText: 'Подпишитесь на нашу рассылку, чтобы получать последние обновления и предложения. Получайте новости на вашу почту.',
+    NewsFooterBtn: 'ПОДПИСАТЬСЯ',
+    NewsFooterPlaceHolder: 'Введите ваш email',
+    errorSubscribe: 'Ваш email не был добавлен, пожалуйста, попробуйте еще раз',
+    terms: 'Условия и положения',
+    Policy: 'Политика конфиденциальности',
+    NewsFooterRequired: 'Поле электронной почты обязательно',
+    succesSubscribe: 'Ваш email успешно добавлен',
+    NewsFooterInvalid: 'Пожалуйста, введите корректный email',
+  };
 
   FooterData = {
     FindHouse: {
