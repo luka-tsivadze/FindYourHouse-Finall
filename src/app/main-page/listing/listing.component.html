@@ -17,7 +17,8 @@
                 </div>
                   <div class="SecondRow">
                     <button (click)="saveToFav(i,info)"><img class="link" [src]="heartimgLinks[i]" alt="Heart"></button>
-                    <button *ngIf="info.videoLink"><img src="../../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <button *ngIf="info.videoLink"><img src="../../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon">  </button>
+                    
     
                   </div>
                   <div class="price">{{info.price  | number:'1.0-0' }} {{info.currency}}<span *ngIf="info.For=='For Rent'">/mo</span></div>

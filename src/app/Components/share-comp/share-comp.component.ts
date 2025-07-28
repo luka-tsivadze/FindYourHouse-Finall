@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -19,9 +20,10 @@ ngOnInit(): void {
   }else if (this.ElementInfo.id) {
   this.ElementLink=`https://findhouse.ge/allCards/${this.ElementInfo.id}`;
   }else{
-    console.error('ElementInfo does not contain a valid identifier' , this.ElementInfo);
+
   }
 }
+constructor(private http:HttpClient){}
 
 copyToUrl() {
   this.copyUrl = '../../../assets/Imges/StaticImg/StaticIcons/checkmark-done-outline.svg';
@@ -48,14 +50,34 @@ copyToUrl() {
     document.body.removeChild(textarea);
   }
 }
+share(page: 'facebook' | 'messenger' | 'whatsapp'): void {
+  const url = encodeURIComponent(this.ElementLink);
+  let shareUrl = '';
 
-sharetoFeb(){
-alert('Facebook sharing is not implemented yet. Please try again later.');
+  if (page === 'facebook') {
+    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(shareUrl, '_blank', 'noopener');
+  } else if (page === 'messenger') {
+    this.http.post('share.php', {
+      gaziarebis_gverdi: page,
+      gasaziarebeli_linki: this.ElementLink
+    }).subscribe({
+      next: (resp: any) => {
+        shareUrl = resp.share_url;
+
+        window.open(shareUrl, '_blank', 'noopener'); // ✅ Now it's correct
+      },
+      error: (err) => console.error('Error logging share:', err)
+    });
+  } else if (page === 'whatsapp') {
+    shareUrl = /Mobi|Android|iPhone/i.test(navigator.userAgent)
+      ? `https://api.whatsapp.com/send?text=${url}`
+      : `https://web.whatsapp.com/send?text=${url}`;
+    window.open(shareUrl, '_blank', 'noopener');
+  }
 }
 
-shareWats(){
-alert('WhatsApp sharing is not implemented yet. Please try again later.');
-}
+
 
   
 }

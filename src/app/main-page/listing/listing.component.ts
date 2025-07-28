@@ -45,6 +45,7 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
         this.allCards = data.filter((card) => card.UserId === this.agent.idi);
         if (this.allCards && this.allCards.length !== 0) {
         this.loadCardData(this.allCards);
+        
         } else {
         this.data = [];
         }
@@ -58,6 +59,7 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
       this.cardsService.fetchDataFromApi().subscribe((data) => {
         this.allCards = data.filter((card) => card.UserId === this.agent.idi);
         if (this.allCards && this.allCards.length !== 0) {
+
         this.loadCardData(this.allCards);
         } else {
         this.data = [];
@@ -78,7 +80,6 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
      // e.g. this.cardsService.fetchSimilar(cardId),
         favData: this.cardsService.fetFavchData(this.navService.userId)
       }).subscribe(({ favData }) => {
-          
         this.data = cards.map((element) => {
           return {
             featuredBtn: true,
@@ -89,13 +90,13 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
             location: element.location,
             bedrooms: element.bedrooms,
             bathrooms: element.bathrooms,
-            videoLink: element.videoLink,
-
+            videoLink: element.video,
+            
             basePrice: Number((element.basePrice || '').toString().replace(/[^\d]/g, '')) || 0,
-           
+            
             curConverted: false,
             currency: element.currency,
-
+            
             area: element.area,
             garages: 1,
             price: Number((element.price || '').toString().replace(/[^\d]/g, ''))|| 0,
@@ -104,7 +105,8 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
             id: element.id,
           };
         });
-    
+        
+
         this.heartimgLinks = this.data.map(() => this.heartimg);
         this.getMatchingIndexes(favData, this.data);
       });
