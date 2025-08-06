@@ -73,6 +73,7 @@ heartIndex;
 
 CurrencyTo;
 
+
 filterForm = this.fb.group({
   Propselect: ['0'], // Default value: none selected
   locselect: ['0'], // Default value: none selected
@@ -89,6 +90,18 @@ filterForm = this.fb.group({
 
   });
     }
+
+
+selectedVideo: string | null = null;
+
+closeVideoPopup(): void {
+  this.selectedVideo = null;
+}
+  openVideoPopup(videoId): void {
+    console.log('Opening video popup for ID:', videoId);
+      this.Propinfo.setCardId(videoId);
+    this.selectedVideo = videoId;
+  }
 
 
 

@@ -116,8 +116,8 @@
                 <button type="submit" #loginName name="shesvla" [disabled]="!LoginForm.valid">{{Registration.login.button}}</button>
                 <div class="bottomRow" [ngClass]="{'displayNone':!login}">
                     <div class="RememberMe">
-                        <input type="checkbox" id="rememberMe" formControlName="rememberMe" >
-                        <label for="rememberMe">{{Registration.login.remember}}</label>
+                        <!-- <input type="checkbox" id="rememberMe" formControlName="rememberMe" >
+                        <label for="rememberMe">{{Registration.login.remember}}</label> -->
                     </div>
                     <a href="login/PasswordRecovery"   class="forgotPassword">{{Registration.login.forget}}</a>
                 </div>

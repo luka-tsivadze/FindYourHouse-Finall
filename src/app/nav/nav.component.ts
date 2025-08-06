@@ -11,11 +11,23 @@ import { filter } from 'rxjs/operators';
 
 import { AllCardsService } from '../Services/all-cards/all-cards.service';
 import { CurrencyService } from '../Services/currency/currency.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.scss'
+  styleUrl: './nav.component.scss',
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }),
+        animate('300ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ transform: 'translateX(-100%)', opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class NavComponent {
 

@@ -42,6 +42,31 @@ $transition-duration: 0.5s;
         background-repeat: no-repeat;
         position: relative;
         background-position: center;
+        
+        .absolutes{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+
+          button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            height: 100%;
+            padding: 10px;
+            cursor: pointer;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+        }
       }
       .rightSide {
         gap: 25px;
@@ -100,6 +125,34 @@ $transition-duration: 0.5s;
         position: relative;
         background-position: center;
         @include flex-container(row, center, start);
+           .absolutes{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding:0;
+
+          button {
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            height: 100%;
+            padding: 15px;
+            cursor: pointer;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          button:hover {
+       
+            background-color: rgba(255, 255, 255, 0.7);
+          }
+
+        }
 
         .FirstRow {
           padding: 15px;

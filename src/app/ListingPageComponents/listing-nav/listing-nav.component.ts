@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectorRef, Component, EventEmitter, Inject, NgZone, Output, PLATFORM_ID } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 
 import { EngService } from '../../Services/Languages/eng/eng.service';
@@ -12,6 +13,17 @@ import { Router, NavigationEnd } from '@angular/router';
   selector: 'app-listing-nav',
   templateUrl: './listing-nav.component.html',
   styleUrl: './listing-nav.component.scss'
+  ,animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }),
+        animate('300ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ transform: 'translateX(-100%)', opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class ListingNavComponent {
 

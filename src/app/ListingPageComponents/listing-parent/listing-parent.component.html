@@ -6,7 +6,9 @@
 <app-favorite-properties *ngIf="Value=='Favorited Properties'" />
 <app-main-listing  (valueChange)="receiveValue($event)" *ngIf="Value=='Add Property'" />
 <app-business *ngIf="Value=='My Business'"></app-business>
+<app-payment *ngIf="Value=='Payments'"></app-payment>
 <app-password-change *ngIf="Value=='Change Password'" />
+
 <app-listing-footer />
 
 

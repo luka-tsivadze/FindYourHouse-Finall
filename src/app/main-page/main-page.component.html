@@ -2,6 +2,10 @@
 <div class="cover" ></div> 
 <app-nav/>
 <app-header/>
+  <app-video-popup 
+                      *ngIf="selectedVideo"
+            (close)="closeVideoPopup()">
+</app-video-popup>
 
 <main >
 <!-- <div class="whyChoose">
@@ -17,7 +21,6 @@
 @defer (on viewport ) {
 
 
-
   <div class="popularProperties">
     
     <h2  class="PH2" [ngClass]="{'FadeInUp': scrollY >1750 }">{{Languages.main.popularPropertys}}</h2>
@@ -27,7 +30,7 @@
       (mousemove)="popularDrag($event)" (mousedown)="popularDragStart($event)" 
       (mouseleave)="popularDragEnd($event)" (mouseup)="popularDragEnd($event)"
       >
-      
+              
       <div class="propCard"  *ngFor="let info of DiscoverPopularPlaces let i=index"
       [ngStyle]="{'animation-delay': (i * 0.2) + 's'}"
       [ngClass]="{'FadeInUp': scrollY >1960  }"
@@ -41,7 +44,7 @@
         </div>
         <div class="SecondRow">
           <!-- <button><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcon"></button> -->
-          <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
+          <button name="video"  (click)="openVideoPopup(info.gncxdebis_idi)"  *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="videoIcon"></button>
           <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="imgIcon"></button> -->
         </div>
       </div>

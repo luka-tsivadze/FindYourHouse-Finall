@@ -1,12 +1,17 @@
 
 <div class="innerPage">
-
-    <div class="cardPlace " [ngClass]="{'active':dataState}">
-   
-
-        
-        
-        <ng-container *ngIf="showCards" @fadeIn>
+  
+                    <app-video-popup 
+                      *ngIf="selectedVideo"
+            (close)="closeVideoPopup()">
+</app-video-popup>
+                  
+  <div class="cardPlace " [ngClass]="{'active':dataState}">
+    
+    
+    
+    
+    <ng-container *ngIf="showCards" @fadeIn>
 
  
         <div class="propCard "  [ngClass]="{'active':dataState}" [ngStyle]="{'animation-delay': (i * 0.1) + 's'}" *ngFor="let info of activePage; let i = index; trackBy: trackByIndex"
@@ -14,6 +19,11 @@
      
         >
             <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
+              
+              <div class="absolutes">
+                <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
+                <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button>
+              </div>
 
                 <div class="FirstRow">
                     <button [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
@@ -22,7 +32,8 @@
                 </div>
                   <div class="SecondRow">
                     <button (click)="saveToFav(i,info)"><img class="link" [src]="heartimgLinks[i]" alt="Heart"></button>
-                    <button *ngIf="info.video!='' "><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <button *ngIf="info.video!='' " (click)="openVideoPopup(info.id)"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    
                     <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button> -->
                   </div>
                   <div class="price">{{ info.price | number:'1.0-0' }}  {{info.currency}}<span *ngIf="info.For=='For Rent'"></span>  </div>

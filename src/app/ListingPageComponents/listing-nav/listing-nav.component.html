@@ -3,7 +3,8 @@
     <ul class="FirstUl mobileresp" >
         <li   (click)="showResponsiveNav()" ><img [src]="showRespNav.iconSrc" class="{{showRespNav.bool}} burger" alt="Burger"></li> 
        
-        <div class="navcol" *ngIf="showRespNav.bool">
+        <div class="navcol" *ngIf="showRespNav.bool"  @slideInOut>
+            <span routerLink="/"><img src="../../assets/Imges/NavImg/NavIcon1.svg" alt=""></span>
             <li routerLink="/"><p>{{staticElements.Home}}  </p> 
                 <div class="menuBar">
                     <div class="mainPart">
@@ -17,6 +18,7 @@
                     </div>
                     </div>
                 </div>
+            
             </li>
             <li routerLink="/allCards" ><p>{{staticElements.Property}}</p>
                 <div class="menuBar">
@@ -65,6 +67,9 @@
       
        
     
+        </div>
+               <div class="cover" (click)="showResponsiveNav()" *ngIf="showRespNav.bool">
+            <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
         </div>
        </ul>
     <ul class="FirstUl pcresp">  
@@ -142,9 +147,9 @@
                  <div class="SubNav" [ngClass]="{DNone: displayElement==false}"><a *ngFor="let el of ProfileSettings"  (click)="profileSettings(el.value)">{{el.Text}}</a></div>
     </ul>
 </nav>
-<div class="leftNav" [ngClass]="{'DNoneresp':!showLeftNav , 'leftNavAnimation':showLeftNav}"> 
+<div class="leftNav" > 
  <div class="logo" routerLink="/"><img src="../../assets/Imges/mainLogo.svg" alt=""></div>
- <div class="leftNavIconClose" *ngIf="showLeftNav" (click)="showLeftNav=!showLeftNav"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></div>
+ <div class="leftNavIconClose" *ngIf="showLeftNav" (click)="showLeftNav=!showLeftNav"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""> </div>
 <div class="navcontainer">
   <div class="profileImg">
     <img src="{{SignedIn.imgLink}}" alt="">
@@ -152,7 +157,7 @@
   </div>
 
   <div class="settings">
-   <div class="links" *ngFor="let el of LeftNavInfo"  (click)="activedPage(el.upText)"[routerLink]="['/Listing']" [ngClass]="{'active': el.upText === activeElement}" >
+   <div class="links" *ngFor="let el of LeftNavInfo"  (click)="activedPage(el.upText)" [ngClass]="{'active': el.upText === activeElement}" >
        <a><img src="{{el.icon}}" alt=""><span>{{el.Text}}</span></a>
 
    </div>
@@ -160,5 +165,11 @@
   </div>
 </div>
 </div>
-<div class="leftNavIcon" (click)="showLeftNav=!showLeftNav"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></div>
+<div class="leftNavIcon" (click)="showLeftNav=!showLeftNav"><img src="../../../assets/Imges/StaticImg/StaticIcons/align-left-solid.svg" alt=""><h3>Dashboard Navigation</h3>
+<div class="navSelect"[ngClass]="{'DNoneresp':!showLeftNav , 'upAnimation':showLeftNav}">
+    <li  *ngFor="let el of LeftNavInfo" (click)="activedPage(el.upText)"  ><img src="{{el.icon}}" alt="{{el.icon}}"><a>{{el.Text}}</a></li>
+</div>
+</div>
+
+
 <div class="navcover" (click)="showLeftNav=!showLeftNav" *ngIf="showLeftNav"></div>

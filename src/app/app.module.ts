@@ -45,6 +45,8 @@ import { ShareCompComponent } from './Components/share-comp/share-comp.component
 
 
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { PaymentComponent } from './ListingPageComponents/payment/payment.component';
+import { VideoPopupComponent } from './Components/video-popup/video-popup.component';
 
 
 @NgModule({
@@ -90,6 +92,8 @@ import { ForgotPasswordComponent } from './Components/forgot-password/forgot-pas
 
 
     ForgotPasswordComponent,
+      VideoPopupComponent,
+
 
 
 

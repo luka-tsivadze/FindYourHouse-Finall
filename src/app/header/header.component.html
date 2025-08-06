@@ -1,3 +1,7 @@
+         <app-video-popup 
+                      *ngIf="selectedVideo"
+            (close)="closeVideoPopup()">
+</app-video-popup>
 <header>
     <div class="HeaderCol">
         <h3 >{{staticElements.FindYourHouse}} 
@@ -100,7 +104,8 @@
     <p  class="FP" [ngClass]="{'fadeIn':scrollY>669}">{{FeaturePS.properties}} </p> -->
     <div class="cardPlace">
       
-
+           
+                  
         <div class="propCard"   *ngFor="let info of FeatureProperties let i=index"
         [ngStyle]="{'animation-delay': (i * 0.1) + 's'}"
         [ngClass]="{'propCardAnimationR': scrollY > 700 && i%2==0 , 'propCardAnimationL': scrollY > 700 && i%2==1 }"
@@ -115,7 +120,7 @@
                 
                   <div class="SecondRow">
                     <!-- <button ><img class="link" src="../../assets/Imges/Header/CardImges/icons/link.svg" alt="shareIcons"></button> -->
-                    <button name="video" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
+                    <button name="video"  (click)="openVideoPopup(info.gncxdebis_idi)" *ngIf="info.video!=''"><img src="../../assets/Imges/Header/CardImges/icons/camera-video.svg" alt="camerIcon"></button>
                     <!-- <button><img src="../../assets/Imges/Header/CardImges/icons/img.svg" alt="Icon"></button> -->
                   </div>
             </div>

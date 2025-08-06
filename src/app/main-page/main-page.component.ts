@@ -65,6 +65,20 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
     
 
     }
+
+
+    selectedVideo: string | null = null;
+
+closeVideoPopup(): void {
+  this.selectedVideo = null;
+}
+  openVideoPopup(videoId): void {
+      this.Propinfo.setCardId(videoId);
+    this.selectedVideo = videoId;
+    console.log('Selected video ID:', videoId);
+  }
+
+
     heartimg='../../assets/Imges/Header/CardImges/icons/heart.svg'
     heartimgLinks=[ this.heartimg ,  this.heartimg, this.heartimg,  this.heartimg, this.heartimg, this.heartimg, this.heartimg, this.heartimg, this.heartimg];
   heartFilled='../../assets/Imges/StaticImg/StaticIcons/heart-fill - red.svg'

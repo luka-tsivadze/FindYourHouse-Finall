@@ -275,6 +275,9 @@ nav {
       justify-content: center;
       align-items: center;
       .menuBar {
+        &{
+         z-index: 5;
+        }
         visibility: hidden;
         transform: translate3d(0, 15px, 0);
         padding-top: 10px;
@@ -286,6 +289,7 @@ nav {
         transition: 0.4s;
 
         transition: all 0.25s;
+        
         .mainPart {
           width: 100%;
 

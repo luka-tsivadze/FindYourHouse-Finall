@@ -46,6 +46,13 @@ export class AllCardsComponent {
   heartFilled='./../../assets/Imges/StaticImg/StaticIcons/heart-fill - red.svg'
 
   showCards = true;
+
+selectedVideo: string | null = null;
+
+closeVideoPopup(): void {
+  this.selectedVideo = null;
+}
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private filterService: FilterDataUniterService,
@@ -167,6 +174,7 @@ this.shareComp=true;
       
   this.showCards = false;
   setTimeout(() => this.showCards = true, 1);
+  
     }
   
 
@@ -268,6 +276,10 @@ this.shareComp=true;
   
   routertodetailedInfo(cardId: number): void {
     this.detailedservice.navigateToCard(cardId);
+  }
+  openVideoPopup(videoId): void {
+      this.detailedservice.setCardId(videoId);
+    this.selectedVideo = videoId;
   }
   trackByIndex(index: number): number {
     return index;

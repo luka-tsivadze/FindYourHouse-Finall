@@ -22,6 +22,7 @@ import { BusinessComponent } from '../../ListingPageComponents/business/business
 import { AddFormComponent } from '../../ListingPageComponents/business/add-form/add-form.component';
 import { LoaderComponent } from '../../loader/loader.component';
 import { SharedModule } from '../shared/shared.module';
+import { PaymentComponent } from '../../ListingPageComponents/payment/payment.component';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { SharedModule } from '../shared/shared.module';
 
     PasswordChangeComponent,
     ListingFooterComponent,
-    // LoaderComponent
+    PaymentComponent,
   ],
   imports: [
     CommonModule,
