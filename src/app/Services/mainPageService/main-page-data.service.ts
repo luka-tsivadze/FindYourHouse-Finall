@@ -309,6 +309,7 @@ cityCaller=true;
   
       const transformedData = data.map((item) => {
         let images: string[] = [];
+        let imagesList: string[] = [];
         let firstimg: string | null = null;
   
         try {
@@ -316,6 +317,12 @@ cityCaller=true;
           firstimg = Array.isArray(images) && images.length > 0
             ? `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${images[0]}`
             : null;
+
+              imagesList = Array.isArray(images)
+              ? images.map((img: string) =>
+                `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${img}`
+              )
+              : [];
         } catch (error) {
           console.error('Invalid JSON in fotoebi:', item.fotoebi);
         }
@@ -323,6 +330,7 @@ cityCaller=true;
         return {
           featuredBtn: item.featuredBtn,
           imgLink: firstimg,
+          imagesList:imagesList,
           gncxdebis_idi: item.idi,
           price: Number((item.fasi || '').toString().replace(/[^\d]/g, ''))|| 'Price Unavailable',
           currency: item.fasis_valuta,

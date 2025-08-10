@@ -82,6 +82,7 @@ closeVideoPopup(): void {
       ).subscribe({
         next: (cards: any[]) => {
           this.cards = cards;
+       
           this.filteredCards = cards; // Set filtered cards to all cards initially
           this.pageFunction(); // Call pageFunction after cards are ready
           this.heartimgLinks = new Array(this.filteredCards.length).fill(this.heartimg);
@@ -168,6 +169,20 @@ shareComponent(info){
 this.shareInfo=info;
 
 this.shareComp=true;
+}
+
+changeImage(direction: number, element: any): void {
+  const currentIndex = element.imagesList.indexOf(element.imgLink);
+  let newIndex = currentIndex + direction;
+
+  // Wrap around logic
+  if (newIndex < 0) {
+    newIndex = element.imagesList.length - 1; // Go to last image
+  } else if (newIndex >= element.imagesList.length) {
+    newIndex = 0; // Go to first image
+  }
+
+  element.imgLink = element.imagesList[newIndex];
 }
 
     callAnimation() {

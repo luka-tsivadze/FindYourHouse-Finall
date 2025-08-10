@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from '../../footer/footer.component';
 import { LoaderComponent } from '../../loader/loader.component';
+import { VideoPopupComponent } from '../../Components/video-popup/video-popup.component';
+import { ShareCompComponent } from '../../Components/share-comp/share-comp.component';
 
 
 @NgModule({
-  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent],
+  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent , VideoPopupComponent ,ShareCompComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -23,7 +25,9 @@ import { LoaderComponent } from '../../loader/loader.component';
     ReactiveFormsModule,
     FormsModule,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    VideoPopupComponent,
+    ShareCompComponent
   ]
 })
 export class SharedModule { 

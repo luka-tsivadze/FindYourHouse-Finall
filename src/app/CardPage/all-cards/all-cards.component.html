@@ -21,8 +21,8 @@
             <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
               
               <div class="absolutes">
-                <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
-                <button><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button>
+                <button (click)="changeImage(-1, info)"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
+                <button (click)="changeImage(1, info)"><img src="../../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button>
               </div>
 
                 <div class="FirstRow">

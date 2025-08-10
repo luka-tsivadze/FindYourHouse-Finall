@@ -175,12 +175,19 @@ fetchDataFromApi(callAgein?): Observable<any[]> {
             const images = JSON.parse(item.fotoebi || '[]');
             const firstimg =
               Array.isArray(images) && images.length > 0
-                ? `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${images[0]}`
-                : null;
+              ? `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${images[0]}`
+              : null;
+
+            const imagesList = Array.isArray(images)
+              ? images.map((img: string) =>
+                `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${img}`
+              )
+              : [];
 
             return {
               featuredBtn: item.featuredBtn,
               imgLink: firstimg,
+              imagesList:imagesList,
               id: item.idi,
               UserId: item.amtvirtvelis_idi,
               price: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,

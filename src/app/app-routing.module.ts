@@ -10,13 +10,9 @@ import { DetailedInfoParentComponent } from './DetailedInfo/detailed-info-parent
 import { authGuard } from './auth.guard';
 import { CardsResolverGuard } from './Guards/card-resolver-guard.guard';
 
-import { CompaniesComponent } from './companies/companies.component';
-
-import { PrivacePolicyComponent } from './Components/privace-policy/privace-policy.component';
-import { DeletePolicyComponent } from './Components/privace-policy/delete-policy/delete-policy.component';
-
 
 import { loggedInGuard } from './Guards/logged-in/logged-in.guard';
+import { DelayPreloadStrategy } from './delay-preload.strategy';
 const routes: Routes = [ 
 
   { path: '', component:MainPageComponent, resolve: { data: CardsResolverGuard } },
@@ -61,6 +57,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+   providers: [DelayPreloadStrategy] ,
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

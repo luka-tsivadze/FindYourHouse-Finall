@@ -18,7 +18,7 @@
  </div>
 
 </div> -->
-@defer (on viewport ) {
+@defer (on viewport;   ) {
 
 
   <div class="popularProperties">
@@ -36,7 +36,11 @@
       [ngClass]="{'FadeInUp': scrollY >1960  }"
       >
       <div class="leftSide" [ngStyle]="{'background-image': 'url(' + info.imgLink + ')'}">
-        
+             <div class="absolutes">
+                <button (click)="changeImage(-1, info)"><img src="../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
+                <button (click)="changeImage(1, info)"><img src="../../assets/Imges/StaticImg/StaticIcons/chevron-right.svg" alt=""></button>
+              </div>
+
         <div class="FirstRow">
           <button name="featured" [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
           <button name="status"   class="whiteBg">{{info.For}}</button>
@@ -95,15 +99,14 @@
 </div>
 
 </div>
-
 } @placeholder {
-  <div class="popularProperties-placeholder" style="height: 755px;  background-color: #ff385c; ">
+  <div class="popularProperties" style="height: 755px;  background-color: #ff385c; ">
     <div class="placeholder-content">
       
     </div>
   </div>
 }@loading {
-  <div class="popularProperties-skeleton" style="height: 755px; background-color: #ff385c;">
+  <div class="popularProperties" style="height: 755px; background-color: #ff385c;">
 
   </div>
 }

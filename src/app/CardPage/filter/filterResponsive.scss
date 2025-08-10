@@ -4,8 +4,9 @@
       .HeaderSearch{
       form{
         gap: 3px;
+  
         select{
-            width: 198px;
+            width: 100%;
         }
         .advanceS{
          width: 170px; 
@@ -27,10 +28,18 @@
       padding: 0 5px;
       .HeaderSearch{
       form{
+        width: 100%;
         flex-direction: column  ;
         justify-content: center;
         align-items: center;
         gap: 10px;
+        .select{
+           width: 100% !important;
+        }
+        .CustomeSelect{
+          width: 100% !important;
+      
+        }
         .selectParent{
           .simg{
             width: 12px;
@@ -38,20 +47,21 @@
           }
           select{
             padding-left: 25px !important;
+        
           }
         }
         select{
-     
+        
           padding: 10px 2px;
         }
         .advanceS{
-         width: 198px;
+         width: fit-content;
          padding: 18px 20px;
          h5{
-            font-size: 11px;
+            font-size: 15px;
          } 
          img{
-          width: 13px;
+          width: 15px;
          }
         }
         .submit{

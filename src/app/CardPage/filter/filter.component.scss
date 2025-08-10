@@ -104,6 +104,7 @@ h2{
     @include flex-center(row, 10px);
     position: relative;
 
+
     width: 100%;
 
 
@@ -114,7 +115,11 @@ h2{
       @include flex-container(row, start,center);
       gap: 10px;
       flex-wrap: wrap;
-      width:100%;
+      width:fit-content;
+
+      padding: 15px;
+      border-radius: 5px;
+      
 
               .CustomeSelect{
     position: relative;

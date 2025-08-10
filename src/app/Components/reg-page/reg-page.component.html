@@ -57,10 +57,10 @@
                 <div class="error" *ngIf="RegistrForm.controls['sqesi'].invalid && RegistrForm.controls['sqesi'].touched">
                     {{Registration.register.GError}}
                 </div>
-                <div   class="row chackBox">
+                <!-- <div   class="row chackBox">
                     <input type="checkbox" name="terms" id="terms" formControlName="terms"  required>
-                     <label for="terms"> {{Registration.register.agree}}<a  target="_blank" routerLink='/terms-and-conditions'>{{Registration.register.terms}}</a>  </label> 
-                </div>
+                     
+                </div> -->
 
                 <button type="submit" name="registracia"  #registName [disabled]="!RegistrForm.valid ">{{Registration.register.buttonText}}</button>
                 <div class="error" *ngIf="RError" >{{regErrorText}}</div>
@@ -79,4 +79,6 @@
                
            </div>
                      <span class="login"><p>უკვე გაქვთ ანგარიში ?</p> <a routerLink="/login">შესვლა</a></span>
-               </div>
+              
+                    </div>
+        <label for="terms" class="terms"> რეგისტრაციით თქვენ  ეთანხმებით <a  target="_blank" routerLink='/terms-and-conditions'>წესებსა</a> და <a target="_blank" routerLink="/Privacy-Policy">კონფიდენციალურობის პოლიტიკას .</a>  </label> 

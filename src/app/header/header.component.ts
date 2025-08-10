@@ -92,6 +92,22 @@ filterForm = this.fb.group({
     }
 
 
+
+changeImage(direction: number, element: any): void {
+``
+  const currentIndex = element.imagesList.indexOf(element.imgLink);
+  let newIndex = currentIndex + direction;
+
+  // Wrap around logic
+  if (newIndex < 0) {
+    newIndex = element.imagesList.length - 1; // Go to last image
+  } else if (newIndex >= element.imagesList.length) {
+    newIndex = 0; // Go to first image
+  }
+
+  element.imgLink = element.imagesList[newIndex];
+}
+
 selectedVideo: string | null = null;
 
 closeVideoPopup(): void {
@@ -323,13 +339,19 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
           this.allProperties = data.map((item) => {
             let images: string[] = [];
             let firstimg: string | null = null;
-            
+            let imagesList: string[] = [];
             // ✅ Handle JSON errors safely
             try {
               images = JSON.parse(item.fotoebi || '[]');
               firstimg = Array.isArray(images) && images.length > 0
                 ? `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${images[0]}`
                 : null;
+              
+                  imagesList = Array.isArray(images)
+              ? images.map((img: string) =>
+                `houses/${item.amtvirtvelis_maili}/${item.gancxadebis_saidentifikacio_kodi}/photos/${img}`
+              )
+              : [];
             } catch (error) {
               console.error('Invalid JSON in fotoebi:', item.fotoebi);
             }
@@ -337,6 +359,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
             return {
               featuredBtn: item.featuredBtn,
               imgLink: firstimg,
+              imagesList: imagesList,
               gncxdebis_idi: item.idi,
               price: Number((item.fasi || '').toString().replace(/[^\d]/g, '')) || 0,
 

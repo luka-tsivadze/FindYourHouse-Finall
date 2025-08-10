@@ -277,6 +277,31 @@ a{
 
 
   }
+  .terms{
+    position: relative;
+    bottom: 0px;
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #666;
+
+    a {
+      color: #FF385C;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
   @media screen and (max-width: 560px) {
     .inputRow {
       width: 371px;

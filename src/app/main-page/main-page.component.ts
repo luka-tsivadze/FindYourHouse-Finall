@@ -72,6 +72,21 @@ DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
 closeVideoPopup(): void {
   this.selectedVideo = null;
 }
+
+changeImage(direction: number, element: any): void {
+  const currentIndex = element.imagesList.indexOf(element.imgLink);
+  let newIndex = currentIndex + direction;
+
+  // Wrap around logic
+  if (newIndex < 0) {
+    newIndex = element.imagesList.length - 1; // Go to last image
+  } else if (newIndex >= element.imagesList.length) {
+    newIndex = 0; // Go to first image
+  }
+
+  element.imgLink = element.imagesList[newIndex];
+}
+
   openVideoPopup(videoId): void {
       this.Propinfo.setCardId(videoId);
     this.selectedVideo = videoId;
