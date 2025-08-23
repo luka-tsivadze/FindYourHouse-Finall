@@ -45,8 +45,7 @@ import { ShareCompComponent } from './Components/share-comp/share-comp.component
 
 
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
-import { PaymentComponent } from './ListingPageComponents/payment/payment.component';
-import { VideoPopupComponent } from './Components/video-popup/video-popup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -58,10 +57,9 @@ import { VideoPopupComponent } from './Components/video-popup/video-popup.compon
     PartnersFooterComponent,
     HeaderComponent,
 
-    AllCardsComponent,
+  
     ErrorPageComponent,
-    FilterComponent,
-    MainCardsComponent,
+   
     DetailedInfoParentComponent,
     CardGallery1Component,
     ScheduleRComponent,
@@ -88,19 +86,16 @@ import { VideoPopupComponent } from './Components/video-popup/video-popup.compon
 
 
 
-    ShareCompComponent,
-
 
     ForgotPasswordComponent,
-      VideoPopupComponent,
-
-
+    
 
 
   
   ],
   imports: [
     BrowserModule,
+        BrowserAnimationsModule,
     AppRoutingModule,
 
     SharedModule,

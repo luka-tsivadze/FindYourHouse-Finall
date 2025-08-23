@@ -144,13 +144,13 @@ export class RusService {
       { text: 'Холодильник', id: 'Refrigerator', formControlName: 'macivari' },
       { text: 'ТВ и Wi-Fi', id: 'TV', formControlName: 'televizia_wifi' },
       { text: 'Микроволновка', id: 'Mic', formControlName: 'microtalguri' },
-      
-      {text: 'basement', id: 'basement', formControlName: 'sardafi'},
-      { text: 'Elevator', id: 'lift', formControlName: 'lifti' },
-      { text: 'Garage', id: 'garage', formControlName: 'garage' },
-      { text: 'Top Floor', id: 'Floor', formControlName: 'bolo_sartuli' },
-      { text: 'Natural gas', id: 'gas', formControlName: 'bunebrivi_airi' },
-      { text: 'Storage', id: 'storage', formControlName: 'satavso' },
+      { text: 'Подвал', id: 'basement', formControlName: 'sardafi' },
+      { text: 'Лифт', id: 'lift', formControlName: 'lifti' },
+      { text: 'Гараж', id: 'garage', formControlName: 'garage' },
+      { text: 'Верхний этаж', id: 'Floor', formControlName: 'bolo_sartuli' },
+      { text: 'Природный газ', id: 'gas', formControlName: 'bunebrivi_airi' },
+      { text: 'Кладовая', id: 'storage', formControlName: 'satavso' },
+      { text: 'Скрыть вашу почту', id: 'HideEmail', formControlName: 'mailis_damalva' }
     ],
 
     form6Info: [

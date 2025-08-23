@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CardGallery1Component } from '../../../../DetailedInfo/card-gallery1/card-gallery1.component';
 import { scheduled } from 'rxjs';
 import { FormControlName } from '@angular/forms';
+import { text } from 'node:stream/consumers';
 
 @Injectable({
   providedIn: 'root',
@@ -150,6 +151,7 @@ export class EngService {
       { text: 'Top Floor', id: 'Floor', formControlName: 'bolo_sartuli' },
       { text: 'Natural gas', id: 'gas', formControlName: 'bunebrivi_airi' },
       { text: 'Storage', id: 'storage', formControlName: 'satavso' },
+      {text:'Hide your Email' , id: 'HideEmail', formControlName:'mailis_damalva' }
     ],
     NearByTranslate: {
       Header: 'Nearby Places',

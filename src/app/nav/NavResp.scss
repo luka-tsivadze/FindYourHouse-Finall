@@ -141,7 +141,7 @@
     
         }
         .cover{
-          width: 100%;
+          width: 50%;
           height: 100%;
           position: fixed;
           top: 0;
@@ -150,11 +150,14 @@
           z-index: 9;
           button{
             position: absolute;
-          left: 299px;
+          right: 150px;
           top: 30%;
-          background: #ffffff;
+          background: #4b4b4bb7;
           padding: 10px;
           border-radius: 50%;
+          img{
+            filter: invert(1) !important;
+          }
           }
         }
       }

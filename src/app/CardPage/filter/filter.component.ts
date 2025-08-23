@@ -204,6 +204,11 @@ setFilteredInfo() {
 showselectOptions =[false, false, false, false, false, false];
     toggleDropdown(index: number): void {
       this.showselectOptions[index] = !this.showselectOptions[index];
+      this.showselectOptions.forEach((val, i) => {
+        if (i !== index && val) {
+          this.showselectOptions[i] = false;
+        }
+      });
 
     }
 

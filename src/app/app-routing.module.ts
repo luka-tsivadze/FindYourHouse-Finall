@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'Home', component:MainPageComponent},
   {path: 'Listing', loadChildren: () => import('./Modules/listing/listing-module').then(m => m.ListingModule)
     ,canActivate: [authGuard], resolve: { data: CardsResolverGuard }},
-  {path: 'allCards', component:MainCardsComponent, resolve: { data: CardsResolverGuard }},
+  {path: 'allCards', loadChildren: () => import('./Modules/all-cards/all-cards.module').then(m => m.AllCardsModule), resolve: { data: CardsResolverGuard }, },
   {path: 'allCards/:id', component:DetailedInfoParentComponent, resolve: { data: CardsResolverGuard }},
   {path: 'contact', loadChildren: () => import('./Modules/contact/contact.module').then(m => m.ContactModule)},
 
@@ -56,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ preloadingStrategy: DelayPreloadStrategy })],
    providers: [DelayPreloadStrategy] ,
   exports: [RouterModule]
 })

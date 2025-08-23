@@ -33,7 +33,7 @@
                               <option value="" disabled selected hidden>{{allForms.form1info.firstselectName}}</option> 
                              <option *ngFor="let el of allForms.form1info.firstselect let i =index" value="{{ allForms.form1info.firstselectValues[i]}}">{{el}}</option></select> 
                
-                    <select  id="otaxebis_raodenoba" *ngIf="!LandIsSelected"  formControlName="otaxebis_raodenoba"><option value="" disabled selected hidden>{{allForms.form1info.thirdselectName}}</option>
+                    <select  id="otaxebis_raodenoba" *ngIf="!LandIsSelected"  @fadeInOut  formControlName="otaxebis_raodenoba"><option value="" disabled selected hidden>{{allForms.form1info.thirdselectName}}</option>
                     <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
                     </select>
                  </div>
@@ -73,9 +73,9 @@
 
  
         <input  type="file" multiple accept="image/*"name="fotoebi" id="fotoebi" (change)="onFileChange($event, 'image' )"   accept="image/*"  >   
-        <label for="fotoebi" *ngIf="index==0" ><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop pictures To Upload</p></label>
-        <div class="imgrow"  *ngIf="index>0">  <div class="img"  *ngFor="let img of imgRowlink let i=index"  ><img class="uploadedimg" src="{{img}}"alt=""><div class="removeatr" (click)="imgremover(i , false)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""> </div> 
-         <div class="chooseMain" *ngIf="i>0" (click)="mainimg(i)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/check.svg" alt=""></div> </div>  <label class="square" for="fotoebi"  [ngClass]="{'disabled': imgRowlink.length>=7}"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+ - white.svg" alt="">  </label></div>
+        <label for="fotoebi" *ngIf="index==0"   @fadeInOut><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop pictures To Upload</p></label>
+        <div class="imgrow"  *ngIf="index>0"  @fadeInOut>  <div class="img"  *ngFor="let img of imgRowlink let i=index"  ><img class="uploadedimg" src="{{img}}"alt=""><div class="removeatr" (click)="imgremover(i , false)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/x.svg" alt=""> </div> 
+         <div class="chooseMain" *ngIf="i>0"  @fadeInOut (click)="mainimg(i)" ><img  src="../../../assets/Imges/StaticImg/StaticIcons/check.svg" alt=""></div> </div>  <label class="square" for="fotoebi"  [ngClass]="{'disabled': imgRowlink.length>=7}"><img src="../../../assets/Imges/StaticImg/StaticIcons/+btn+ - white.svg" alt="">  </label></div>
 
 
 </form>
@@ -83,12 +83,31 @@
 <form class="form2" [formGroup]="listingForm">
     <h3 class="header">{{allForms.form1info.HeaderName3}}</h3>
  
-        <input type="file" id="file2" (change)="onFileChange($event, 'video')"   accept="Video/*"  >
+        <!-- <input type="file" id="file2" (change)="onFileChange($event, 'video')"   accept="Video/*"  >
         <label for="file2" *ngIf="!videoRowlink" class="vid"><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop Video Files To Upload</p></label>
-   
-        <div class="VideoRow "  *ngIf="videoRowlink" >  <label class="before"  for="file2" ></label> 
-        <video class="video" controls muted [src]="videoRowlink"  alt="property video"></video> 
-        <label class="after" (click)="remover()" ></label>
+        way to upload video via file
+        --> 
+        <div class="row">
+            <input type="text" id="file2" class="file-url" formControlName="videos_linki" placeholder="ჩაწერეთ ვიდეოს ლინკი" (input)="videoLink($event)"  >
+             <button type="button" (click)="saveLink()" >შენახვა</button>
+            </div>
+            <div class="succes" *ngIf="saved">ლინკი წარმატებით შეინახა</div>
+        <span class="error">{{urlWarningText}}</span>
+         <div class="VideoRow "  *ngIf="videoRowlink"   @fadeInOut>  <!-- <label class="before"  for="file2" ></label>   !-->
+<!-- Direct video files -->
+<!-- <video *ngIf="videoRowlink && videoRowlink.endsWith('.mp4')" [src]="videoRowlink" controls></video> -->
+
+<!-- YouTube / Vimeo -->
+<iframe *ngIf="videoRowlink " 
+        [src]="videoRowlink"  
+         @fadeInOut
+        frameborder="1" 
+        allowfullscreen>
+
+    
+</iframe>
+<span class="error">{{urlWarningText}}</span>
+        <!-- <label class="after" (click)="remover()" ></label> -->
     </div>
             
 </form>
@@ -97,8 +116,8 @@
     <h3 class="header">{{allForms.form1info.HeaderName4}}</h3>
 
     <input type="file" id="Floor" (change)="onFileChange($event, 'image1' )"  accept="image/*"  >   
-    <label for="Floor" class="vid"  *ngIf="!binisNaxazi" ><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop picture To Upload</p></label>
-    <div class="center"  *ngIf="binisNaxazi" ><img  src="{{binisNaxazi}}" alt="">       <label for="Floor" class="change"><img src="../../../assets/Imges/StaticImg/StaticIcons/pencil.svg" alt="pencil"> </label>
+    <label for="Floor" class="vid"  *ngIf="!binisNaxazi"  @fadeInOut ><img src="../../../assets/Imges/StaticImg/StaticIcons/cloud-arrow-up-fill.svg" alt=""><p>click Hare Or Drop picture To Upload</p></label>
+    <div class="center"  *ngIf="binisNaxazi"  @fadeInOut ><img  src="{{binisNaxazi}}" alt="">       <label for="Floor" class="change"><img src="../../../assets/Imges/StaticImg/StaticIcons/pencil.svg" alt="pencil"> </label>
      </div>
 
 </form>
@@ -130,7 +149,7 @@
         <h3 class="header">{{allForms.form1info.HeaderName6}}</h3>
         <div class="text">
             <div class="selectRow">
-<ng-container *ngIf="!LandIsSelected">
+<ng-container *ngIf="!LandIsSelected"  @fadeInOut>
 <select  *ngFor="let form4 of  allForms.form4Info" id={{form4.formControlName}} formControlName="{{form4.formControlName}}"  ><option value="" disabled selected hidden>{{form4.firstOption}}</option>
     <option *ngFor="let option of form4.options let i=index" value="{{form4.optionsValues[i]}}">{{option}}</option>
 </select>
@@ -156,18 +175,18 @@
                         </div>
               <div class="buttonPlace">
                   <button type="button" (click)="addInput(prop.inputs , i)">+</button>
-                  <span class="error" *ngIf="nearbyError[i].bol">{{nearbyError[i].message}}</span>
+                  <span class="error" *ngIf="nearbyError[i].bol"  @fadeInOut>{{nearbyError[i].message}}</span>
               </div> 
             </div>
         </div>
     </form>
-    <form class="form5" [formGroup]="listingForm" *ngIf="!LandIsSelected">
+    <form class="form5" [formGroup]="listingForm" *ngIf="!LandIsSelected" @fadeInOut>
         <h3 class="header">{{allForms.form1info.HeaderName7}}</h3>
         <div class="text">
 
             <div class="flexWrap">
-                <div class="row" *ngFor="let el of allForms.form5Info"><input type="checkbox" formControlName="{{el.formControlName}}" id="{{el.formControlName}}" name="{{el.formControlName}}">
-                     <label for="{{el.formControlName}}">{{el.text}}</label></div>
+                <div class="row" *ngFor="let el of allForms.form5Info"><input type="checkbox" formControlName="{{el.formControlName}}" id="{{el.id}}" name="{{el.id}}">
+                     <label for="{{el.id}}">{{el.text}}</label></div>
             </div>
         </div>
         
@@ -177,10 +196,14 @@
              
         <div class="text">
             <div class="flexWrap" [style.color]>
-                           <div class="LabledInputs" *ngFor="let element of allForms.form6Info">
-                               <label for={{element.formControlName}}>{{element.HeaderName}}</label>
-                               <input type="text" formControlName="{{element.formControlName}}"  name={{element.formControlName}} id={{element.formControlName}} placeholder={{element.placeHolder}}>
-                           </div>
+                           <div class="LabledInputs" *ngFor="let element of allForms.form6Info" >
+                          <ng-container *ngIf="element.formControlName!='el_fosta' || !listingForm.value.mailis_damalva" @fadeInOut>
+                              <label for={{element.formControlName}}>{{element.HeaderName}}</label>
+                              <input type="text" formControlName="{{element.formControlName}}"  name={{element.formControlName}} id={{element.formControlName}} placeholder={{element.placeHolder}}>
+                            </ng-container>     
+                          
+                          
+                            </div>
                         
                        </div>
                     </div>

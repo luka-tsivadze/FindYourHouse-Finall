@@ -145,6 +145,8 @@ nav {
           color: #707070;
           width: 100%;
           text-align: center;
+          font-family: "lato", "sans-serif";
+          font-weight: 500;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -153,8 +155,9 @@ nav {
           padding: 6px;
       
           .custom-radio {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  margin-right: 6px;
+  height: 16px;
   border: 2px solid #ff385c;
   border-radius: 50%;
   cursor: pointer;

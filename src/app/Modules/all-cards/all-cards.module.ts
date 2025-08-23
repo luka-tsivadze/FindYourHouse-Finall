@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { AllCardsRoutingModule } from './all-cards-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { MainCardsComponent } from '../../CardPage/main-cards/main-cards.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [MainCardsComponent],
   imports: [
     CommonModule,
     AllCardsRoutingModule,
@@ -14,4 +15,10 @@ import { SharedModule } from '../shared/shared.module';
     
   ]
 })
-export class AllCardsModule { }
+export class AllCardsModule {
+
+constructor() {
+  console.log('AllCardsModule loaded');
+
+ }
+}

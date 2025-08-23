@@ -236,6 +236,11 @@ showselectOptions = [false, false, false];
 // Dropdown toggle
   toggleDropdown(index: number): void {
     this.showselectOptions[index] = !this.showselectOptions[index];
+     this.showselectOptions.forEach((val, i) => {
+        if (i !== index && val) {
+          this.showselectOptions[i] = false;
+        }
+      });
   }
 
 // Selection handler

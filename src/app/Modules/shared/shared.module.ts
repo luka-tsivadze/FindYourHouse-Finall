@@ -8,10 +8,13 @@ import { FooterComponent } from '../../footer/footer.component';
 import { LoaderComponent } from '../../loader/loader.component';
 import { VideoPopupComponent } from '../../Components/video-popup/video-popup.component';
 import { ShareCompComponent } from '../../Components/share-comp/share-comp.component';
+import { FilterComponent } from '../../CardPage/filter/filter.component';
+import { AllCardsComponent } from '../../CardPage/all-cards/all-cards.component';
+import { filter } from 'rxjs';
 
 
 @NgModule({
-  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent , VideoPopupComponent ,ShareCompComponent],
+  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent , VideoPopupComponent ,ShareCompComponent ,FilterComponent, AllCardsComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -27,7 +30,9 @@ import { ShareCompComponent } from '../../Components/share-comp/share-comp.compo
     FooterComponent,
     LoaderComponent,
     VideoPopupComponent,
-    ShareCompComponent
+    ShareCompComponent,
+    FilterComponent,
+    AllCardsComponent
   ]
 })
 export class SharedModule { 

@@ -8,18 +8,31 @@ import { ListingServiceService } from '../../Services/listing-service/listing-se
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 
 import { AllCardsService } from '../../Services/all-cards/all-cards.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-main-listing',
   templateUrl: './main-listing.component.html',
-  styleUrls: ['./main-listing.component.scss']
+  styleUrls: ['./main-listing.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('300ms ease', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class MainListingComponent {
   listingForm: FormGroup;
   ResponseText;
   SendingAnimation = false;
   imgRowlink: string[] = [];
-  videoRowlink: string = null;
+  videoRowlink:SafeResourceUrl | any = null;
   selectedFile: File | null = null;
   binisNaxazi = null;
 fotofiles:File[]=[];
@@ -60,6 +73,7 @@ city={
 name;
 
   constructor( private sharedService:ListingServiceService, private allcards:AllCardsService, private fb: FormBuilder , private cd: ChangeDetectorRef ,
+    private sanitizer: DomSanitizer,
     private http: HttpClient ,private navservice: NavInfoService ,private lang:LanguageChooserService ,private mainServ:MainPageDataService) { 
      //post api request should be in service not here
     this.unit=this.lang.chosenLang.DetailedInfo.unit;
@@ -135,7 +149,10 @@ name;
       bolo_sartuli:[false],
       bunebrivi_airi:[false],
       satavso:[false],     
-      sardafi:[false]
+      sardafi:[false],
+
+      videos_linki:[''],
+      mailis_damalva:[false],
       
     });
  
@@ -323,10 +340,50 @@ this.nearbyError[index].bol=true;
     this.listingForm.patchValue({ fotoebi: this.fotofiles });
   }
   
-  
-  
+  urlWarningText
+url
+videoLink(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  this.url = input.value.trim();
 
-  onFileChange(event: Event, type: 'image' | 'video' | 'image1'): void {
+  // Reset warning
+  this.urlWarningText = '';
+
+  // YouTube
+  if (this.url.includes('youtube.com') || this.url.includes('youtu.be')) {
+    const idMatch = this.url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]+)/);
+    if (idMatch) {
+      const embedUrl = `https://www.youtube.com/embed/${idMatch[1]}`;
+      this.listingForm.patchValue({ videos_linki: embedUrl });
+      this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+      return;
+    } else {
+      this.urlWarningText = 'Invalid YouTube URL format.';
+      this.videoRowlink = null;
+      return;
+    }
+  }
+
+  // Direct .mp4 file
+  if (this.url.match(/\.(mp4|webm|mov|avi|mkv)$/i)) {
+   
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    return;
+  }
+
+  // Invalid
+  this.urlWarningText = 'Please enter a valid link ';
+  this.videoRowlink = null; 
+}
+saved=false;
+saveLink(){
+  if(this.listingForm.value.videos_linki && !this.urlWarningText){
+    this.saved=true;
+     this.listingForm.patchValue({ videos_linki: this.url });
+  }
+}
+
+  onFileChange(event: Event, type: 'image' | 'video' | 'image1'): void {                         // -x-
     const input = event.target as HTMLInputElement;
   
     if (input.files && input.files.length > 0) {
@@ -430,7 +487,7 @@ this.nearbyError[index].bol=true;
     });
     this.videoFiles.forEach((file) => {
       formData.append('video[]', file);
-    });
+    });//-x-
     this.naxaziFiles.forEach((file) => {
       formData.append('binis_naxazi[]', file);
     });

@@ -7,7 +7,7 @@
                 alt="Burger">
         </li>
         <img class="Navicon" routerLink="/" (click)="scrollToTop()" [src]="LogoLink" alt="Logo">
-        <div class="navcol" *ngIf="showRespNav.bool" @slideInOut>
+        <div class="navcol" *ngIf="showRespNav.bool" @slideInOut >
             <span routerLink="/" (click)="scrollToTop()"><img src="../../assets/Imges/NavImg/NavIcon1.svg" alt="nav close icon"></span>
             <li routerLink="/" (click)="scrollToTop()">
                 <p>{{staticElements.Home}} </p>
@@ -90,7 +90,7 @@
 
 
         </div>
-        <div class="cover" (click)="showResponsiveNav()" *ngIf="showRespNav.bool">
+        <div class="cover" (click)="showResponsiveNav()" *ngIf="showRespNav.bool" @slideInOutLeft >
             <button><img src="../../assets/Imges/StaticImg/StaticIcons/chevron-left.svg" alt=""></button>
         </div>
     </ul>

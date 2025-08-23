@@ -1,6 +1,21 @@
+@keyframes popup3d {
+    0% {
+        transform: perspective(600px) scale(0.4);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(600px) scale(1);
+        opacity: 1;
+    }
+}
+
+
+
 main{
+  
     position: fixed;
     top: 0;
+       animation: popup3d 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     left: 0;
     width: 100%;
     height: 100%;
@@ -18,7 +33,8 @@ main{
         position: absolute;
         top: 30px;
         right: 30px;
-        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+        background-color: rgba(41, 8, 8, 0.945);
         border: none;
         border-radius: 50%;
         display: flex;
@@ -32,7 +48,25 @@ main{
         }
     }
     .close-button:hover {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(73, 73, 73, 0.8);
         cursor: pointer;
     }
+}
+@media  screen and (max-width: 468px) {
+    main {
+        video {
+            width: 95%;
+            max-height: 80%;
+        }
+        .close-button {
+                padding: 10px;
+                      top: 51px;
+                    right: 23px;
+            img {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+    
 }

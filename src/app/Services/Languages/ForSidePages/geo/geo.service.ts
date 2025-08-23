@@ -158,6 +158,7 @@ export class GeoService {
       { text: 'ბოლო სართული', id: 'Floor', formControlName: 'bolo_sartuli' },
       { text: 'ბუნებრივი აირი', id: 'gas', formControlName: 'bunebrivi_airi' },
       { text: 'სათავსო', id: 'storage', formControlName: 'satavso' },
+      {text:'დამალე შენი ელ.ფოსტა' , id: 'HideEmail', formControlName:'mailis_damalva' }
       
       
     ],
