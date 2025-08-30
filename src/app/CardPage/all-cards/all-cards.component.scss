@@ -33,7 +33,6 @@ $transition-duration: 0.5s;
     .propCard.active {
       width: 100%;
       gap: 20px;
-      height: 305px;
       @include flex-container(row, center, center);
       .leftSide {
         height: 100%;
@@ -74,7 +73,7 @@ $transition-duration: 0.5s;
         }
       }
       .rightSide {
-        gap: 25px;
+        gap: 12px;
         .squareFlex {
           padding-right: 250px;
           width: 100%;

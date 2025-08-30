@@ -15,7 +15,7 @@
         </div>
         <div *ngFor="let el of forNgRow" class="ngRow">
           <img [src]="el.imgLink" [alt]="el.alt">
-          <a href="">{{el.text}}</a>
+          <a (click)="onLinkClick(el)">{{el.text}}</a>
         </div>
       </div>
       <div class="form">

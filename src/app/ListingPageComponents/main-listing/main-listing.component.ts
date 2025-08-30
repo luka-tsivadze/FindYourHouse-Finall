@@ -345,36 +345,88 @@ url
 videoLink(event: Event): void {
   const input = event.target as HTMLInputElement;
   this.url = input.value.trim();
+  this.saved = false;
 
-  // Reset warning
+  this.videoRowlink = null;
   this.urlWarningText = '';
 
-  // YouTube
+  let match: RegExpMatchArray | null;
+
+  // ✅ YouTube (normal, shorts, embed, youtu.be)
+  match = this.url.match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([a-zA-Z0-9_-]{6,})/);
   if (this.url.includes('youtube.com') || this.url.includes('youtu.be')) {
-    const idMatch = this.url.match(/(?:v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]+)/);
-    if (idMatch) {
-      const embedUrl = `https://www.youtube.com/embed/${idMatch[1]}`;
-      this.listingForm.patchValue({ videos_linki: embedUrl });
-      this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      return;
-    } else {
-      this.urlWarningText = 'Invalid YouTube URL format.';
-      this.videoRowlink = null;
+    if (match) {
+      this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${match[1]}`);
       return;
     }
-  }
-
-  // Direct .mp4 file
-  if (this.url.match(/\.(mp4|webm|mov|avi|mkv)$/i)) {
-   
-    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    this.urlWarningText = 'Invalid YouTube link';
     return;
   }
 
-  // Invalid
-  this.urlWarningText = 'Please enter a valid link ';
-  this.videoRowlink = null; 
+  // ✅ Vimeo
+  match = this.url.match(/vimeo\.com\/(\d+)/);
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(`https://player.vimeo.com/video/${match[1]}`);
+    return;
+  }
+
+  // ✅ Dailymotion
+  match = this.url.match(/dailymotion\.com\/video\/([a-zA-Z0-9]+)/);
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.dailymotion.com/embed/video/${match[1]}`);
+    return;
+  }
+
+  // ✅ Facebook Video
+  if (this.url.includes('facebook.com')) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(this.url)}`
+    );
+    return;
+  }
+
+  // ✅ TikTok
+  match = this.url.match(/tiktok\.com\/@[A-Za-z0-9._-]+\/video\/(\d+)/);
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.tiktok.com/embed/${match[1]}`);
+    return;
+  }
+
+  // ✅ Instagram Reels
+  match = this.url.match(/instagram\.com\/reel\/([a-zA-Z0-9_-]+)/);
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.instagram.com/reel/${match[1]}/embed/`
+    );
+    return;
+  }
+
+  // ✅ Twitter / X videos
+  match = this.url.match(/twitter\.com\/\w+\/status\/(\d+)/);
+  if (!match) {
+    match = this.url.match(/x\.com\/\w+\/status\/(\d+)/);
+  }
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://twitframe.com/show?url=${encodeURIComponent(this.url)}`
+    );
+    return;
+  }
+
+  // ✅ Twitch VODs only
+  match = this.url.match(/twitch\.tv\/videos\/(\d+)/);
+  if (match) {
+    this.videoRowlink = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://player.twitch.tv/?video=${match[1]}&parent=${window.location.hostname}`
+    );
+    return;
+  }
+
+
+  this.urlWarningText = 'Unsupported video link.';
 }
+
+
 saved=false;
 saveLink(){
   if(this.listingForm.value.videos_linki && !this.urlWarningText){

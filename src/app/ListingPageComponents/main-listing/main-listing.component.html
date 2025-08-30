@@ -88,7 +88,7 @@
         way to upload video via file
         --> 
         <div class="row">
-            <input type="text" id="file2" class="file-url" formControlName="videos_linki" placeholder="ჩაწერეთ ვიდეოს ლინკი" (input)="videoLink($event)"  >
+            <input type="text" id="file2" class="file-url" formControlName="videos_linki" placeholder="ჩაწერეთ ვიდეოს ლინკი" (input)="videoLink($event)" >
              <button type="button" (click)="saveLink()" >შენახვა</button>
             </div>
             <div class="succes" *ngIf="saved">ლინკი წარმატებით შეინახა</div>
@@ -97,15 +97,14 @@
 <!-- Direct video files -->
 <!-- <video *ngIf="videoRowlink && videoRowlink.endsWith('.mp4')" [src]="videoRowlink" controls></video> -->
 
-<!-- YouTube / Vimeo -->
-<iframe *ngIf="videoRowlink " 
-        [src]="videoRowlink"  
-         @fadeInOut
-        frameborder="1" 
+<iframe *ngIf="videoRowlink"
+        [src]="videoRowlink"
+        @fadeInOut
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
-
-    
 </iframe>
+
 <span class="error">{{urlWarningText}}</span>
         <!-- <label class="after" (click)="remover()" ></label> -->
     </div>

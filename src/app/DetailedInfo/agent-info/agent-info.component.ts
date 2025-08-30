@@ -62,7 +62,7 @@ chosenCard;
     this.profileInfo = this.chosenCard;
 
     })
-    this.forNgRow[0].text = this.profileInfo.Nomeri;
+    this.forNgRow[0].text = this.profileInfo.Nomeri.replace(/(\d{3})$/, '***');
     this.forNgRow[1].text = this.profileInfo.email;
     
  if(this.NavService.IsSignedIn.signed){
@@ -82,6 +82,12 @@ chosenCard;
       adresatis_idi: new FormControl(''),
       shetyobinebis_teqsti: new FormControl('', Validators.required)
     });
+  }
+}
+onLinkClick(el){
+  console.log(el , this.profileInfo);
+  if(el.alt==='telephone'){
+  this.forNgRow[0].text = this.profileInfo.Nomeri;
   }
 }
   onSubmit() {
