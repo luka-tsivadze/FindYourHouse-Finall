@@ -44,7 +44,7 @@ this.infoService.chosenCard.subscribe((card) => {
     this.chosenCard.latitude !== null &&
     this.chosenCard.longitude !== null && this.chosenCard.latitude <= 90 && this.chosenCard.latitude >= -90 &&
     this.chosenCard.longitude <= 180 && this.chosenCard.longitude >= -180;
-    
+    console.log( this.mapvalidity); 
     const fieldsToCheck = [
       'saavadmyofos_dasaxeleba_1', 'saavadmyofos_dasaxeleba_2', 'saavadmyofos_dasaxeleba_3',
       'saavadmyofos_distancia_1', 'saavadmyofos_distancia_2', 'saavadmyofos_distancia_3',
@@ -53,6 +53,7 @@ this.infoService.chosenCard.subscribe((card) => {
       'transportis_dasaxeleba_1', 'transportis_dasaxeleba_2', 'transportis_dasaxeleba_3',
       'transportis_distancia_1', 'transportis_distancia_2', 'transportis_distancia_3'
     ];
+  
     
     this.ShowNearBy = fieldsToCheck.some(field => {
       const value = this.chosenCard[field];  // Get field value

@@ -148,7 +148,7 @@ export class EngService {
       {text: 'basement', id: 'basement', formControlName: 'sardafi'},
       { text: 'Elevator', id: 'lift', formControlName: 'lifti' },
       { text: 'Garage', id: 'garage', formControlName: 'garage' },
-      { text: 'Top Floor', id: 'Floor', formControlName: 'bolo_sartuli' },
+      { text: 'Top Floor', id: 'LFloor', formControlName: 'bolo_sartuli' },
       { text: 'Natural gas', id: 'gas', formControlName: 'bunebrivi_airi' },
       { text: 'Storage', id: 'storage', formControlName: 'satavso' },
       {text:'Hide your Email' , id: 'HideEmail', formControlName:'mailis_damalva' }

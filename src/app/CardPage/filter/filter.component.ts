@@ -179,6 +179,7 @@ this.setFilteredInfo();
 
   SelectedOption:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg', name:this.staticElements.propertyType};
   SelectedOption1:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/Sales.png', name:this.for.text};
+  SelectedOption2:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/map-marker-alt-solid.svg', name:this.staticElements.location};
 
 setFilteredInfo() {
   const indexType = this.firstFilter.PropertyTypes.findIndex(
@@ -224,7 +225,11 @@ this.SelectedOption.Icon=this.selectIcons[index];
     this.SelectedOption1.name = option || '0';
     this.SelectedOption1.Icon = this.selectIcons1[index];
 
+ }else if (SelectIndex === 2) {
+    this.filterForm.patchValue({ location: option || '0' });
+    this.SelectedOption2.name = option || '0';
  }
+
 this.showselectOptions[SelectIndex] = false;
 
     }

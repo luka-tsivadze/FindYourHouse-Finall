@@ -37,7 +37,7 @@
               "src/assets/googleaa2f9d99443c3678.html",
               "src/assets/sitemap.xml"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss",   "node_modules/ol/ol.css"],
             "scripts": [],
             "allowedCommonJsDependencies": [
               "lerc",
@@ -148,7 +148,7 @@
               "src/assets/googleaa2f9d99443c3678.html",
               "src/assets/sitemap.xml"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss",  "node_modules/ol/ol.css"],
             "scripts": []
           }
         }

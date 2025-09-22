@@ -230,6 +230,10 @@ SelectedOption1: any = {
   Icon: '../../../assets/Imges/StaticImg/StaticIcons/Sales.png',
   name: this.For.text
 };
+SelectedOption2: any = {
+  Icon: '../../../assets/Imges/StaticImg/StaticIcons/Location.svg',
+  name: this.staticElements.location
+};
 
 showselectOptions = [false, false, false];
 
@@ -253,7 +257,10 @@ showselectOptions = [false, false, false];
       this.filterForm.patchValue({ propstatus: this.For.options[index] || '0' });
       this.SelectedOption1.name = this.For.optdisplay[index];
       this.SelectedOption1.Icon = this.selectIcons1[index];
-    }
+    }else  if (SelectIndex === 2) {
+    this.filterForm.patchValue({ locselect: option || '0' });
+    this.SelectedOption2.name = option || '0';
+ }
     this.showselectOptions[SelectIndex] = false;
   }
 

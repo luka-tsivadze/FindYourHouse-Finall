@@ -286,7 +286,14 @@ this.nearbyError[index].bol=true;
       this.isLoadingFiles = false;
     }
   }
-  
+onAddressSelected(address, ): void  {
+
+  this.listingForm.patchValue({
+    misamarti: address.address,
+    mapis_grdzedi: address.coords[1],
+    mapis_ganedi: address.coords[0]
+  });
+}
   // ✅ Helper function remains unchanged
   async urlToFile(url: string, filename: string, p0: string): Promise<File> {
     const response = await fetch(url);

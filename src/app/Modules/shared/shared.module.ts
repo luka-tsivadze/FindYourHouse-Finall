@@ -11,10 +11,13 @@ import { ShareCompComponent } from '../../Components/share-comp/share-comp.compo
 import { FilterComponent } from '../../CardPage/filter/filter.component';
 import { AllCardsComponent } from '../../CardPage/all-cards/all-cards.component';
 import { filter } from 'rxjs';
+import { CoordinatePickerComponentComponent } from '../../ListingPageComponents/coordinate-picker-component/coordinate-picker-component.component';
+import { MapComponent } from '../../DetailedInfo/map/map.component';
 
 
 @NgModule({
-  declarations: [NavComponent , RegistrationComponent ,FooterComponent , LoaderComponent , VideoPopupComponent ,ShareCompComponent ,FilterComponent, AllCardsComponent],
+  declarations: [NavComponent , RegistrationComponent ,FooterComponent , MapComponent,LoaderComponent , VideoPopupComponent ,ShareCompComponent ,FilterComponent, AllCardsComponent ,
+     CoordinatePickerComponentComponent ],
   imports: [
     CommonModule,
     RouterModule,
@@ -26,13 +29,15 @@ import { filter } from 'rxjs';
     NavComponent,
     RouterModule,
     ReactiveFormsModule,
+    MapComponent,
     FormsModule,
     FooterComponent,
     LoaderComponent,
     VideoPopupComponent,
     ShareCompComponent,
     FilterComponent,
-    AllCardsComponent
+    AllCardsComponent,
+    CoordinatePickerComponentComponent
   ]
 })
 export class SharedModule { 

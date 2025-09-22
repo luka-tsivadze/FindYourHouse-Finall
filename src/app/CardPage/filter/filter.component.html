@@ -26,14 +26,28 @@
   
     </div> 
             
-         <div class="select">
+
+
+                <div class="CustomeSelect" id="tipi" >
+            <div class="chosenselect" (click)="toggleDropdown(2)"><img style="filter: invert(1);" src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="icon">
+               <span>{{SelectedOption2.name}}</span>  <img class="dropDown" src="../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg" alt="dropDown"></div>
+
+        <div class="show" [ngClass]="{'options': showselectOptions[2]}" >
+        <div class="option" *ngFor="let opt of firstFilter.locations let i =index"  
+        (click)="selected(firstFilter.locationDis[i] , i , 2)">
+         <!-- <img src="{{selectIcons[i]}}" alt="icon">  -->
+        {{firstFilter.locationDis[i]}}</div>
+        </div>
+  
+    </div> 
+         <!-- <div class="select">
 
            <img src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="">
            <select name="location"  formControlName="location"> 
              <option value="0">{{staticElements.location}}</option>
              <option  *ngFor="let el of firstFilter.locations let i =index" value="{{el}}">{{firstFilter.locationDis[i]}}</option>
             </select>
-          </div>
+          </div> -->
          
         <button class="advanceS" (click)="advanced()" ><h5>{{staticElements.Advanced}}</h5><img src="../../../assets/Imges/StaticImg/StaticIcons/ellipsis-three-vertical-squares-menu-interface-symbol-svgrepo-com.svg" alt="three dots"></button>
         <button class="submit" (click)="onSubmit()" type="submit">{{staticElements.Search}}</button>

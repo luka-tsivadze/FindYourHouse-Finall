@@ -251,7 +251,9 @@ header {
               gap: 1px;
               width: 100%;
             padding: 10px 0px;
-           
+              max-height: 338px;
+              overflow-y: auto;  
+
               background-color: rgb(255, 255, 255);
               border-radius: 5px;
               position: absolute;
@@ -268,6 +270,9 @@ header {
             width: 17px ;
          }
                 padding: 7px 25px;
+              }
+              .option:hover{
+                background-color: #f5f5f5;
               }
             }
 }
@@ -288,45 +293,45 @@ header {
         border-radius: 4px;
         font-size: 15px;
       }
-      .select {
-        position: relative;
-        border-radius: 5px;
-          color: $input-color;
-          font: 400 15px $font-primary;
-              border: 1px solid $light-gray;
-        font-family: "Lato", sans-serif;
-     img{
-      position: absolute;
-      left: 13px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-      filter: invert(1);
-     }
+//       .select {
+//         position: relative;
+//         border-radius: 5px;
+//           color: $input-color;
+//           font: 400 15px $font-primary;
+//               border: 1px solid $light-gray;
+//         font-family: "Lato", sans-serif;
+//      img{
+//       position: absolute;
+//       left: 13px;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       width: 20px;
+//       height: 20px;
+//       pointer-events: none;
+//       filter: invert(1);
+//      }
         
 
-        box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
-        select {
-            padding-left: 35px !important;
-background-color: transparent;
-        height: 50px;
-           border-radius: 5px;
-          box-sizing: border-box;
-          clear: both;
-          cursor: pointer;
+//         box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2);
+//         select {
+//             padding-left: 35px !important;
+// background-color: transparent;
+//         height: 50px;
+//            border-radius: 5px;
+//           box-sizing: border-box;
+//           clear: both;
+//           cursor: pointer;
 
-          display: block;
-          border: unset;
-          outline: unset;
-          float: left;
-          font-family: inherit;
-          font-size: 15px;
-          color: #666;
-          font-weight: normal;
-        }
-      }
+//           display: block;
+//           border: unset;
+//           outline: unset;
+//           float: left;
+//           font-family: inherit;
+//           font-size: 15px;
+//           color: #666;
+//           font-weight: normal;
+//         }
+//       }
 
       .advanceS {
         z-index: 0;

@@ -155,7 +155,7 @@ export class GeoService {
       {text: 'სარდაფი', id: 'basement', formControlName: 'sardafi'},
       { text: 'ლიფტი', id: 'lift', formControlName: 'lifti' },
       { text: 'გარაჟი', id: 'garage', formControlName: 'garage' },
-      { text: 'ბოლო სართული', id: 'Floor', formControlName: 'bolo_sartuli' },
+      { text: 'ბოლო სართული', id: 'LFloor', formControlName: 'bolo_sartuli' },
       { text: 'ბუნებრივი აირი', id: 'gas', formControlName: 'bunebrivi_airi' },
       { text: 'სათავსო', id: 'storage', formControlName: 'satavso' },
       {text:'დამალე შენი ელ.ფოსტა' , id: 'HideEmail', formControlName:'mailis_damalva' }

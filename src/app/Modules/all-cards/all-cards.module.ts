@@ -18,7 +18,7 @@ import { MainCardsComponent } from '../../CardPage/main-cards/main-cards.compone
 export class AllCardsModule {
 
 constructor() {
-  console.log('AllCardsModule loaded');
+
 
  }
 }

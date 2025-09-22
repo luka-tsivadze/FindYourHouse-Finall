@@ -141,8 +141,14 @@
                 </div>
            
             </div>
+                                <app-coordinate-picker-component
+                      
+                        [address]="listingForm.get('misamarti')?.value"
+                         [mapCordinates]="[listingForm.get('mapis_ganedi').value, listingForm.get('mapis_grdzedi').value]"
+                          (addressSelected)="onAddressSelected($event)"
+                        ></app-coordinate-picker-component>
          </div>
-       
+
     </form>
     <form class="form4" [formGroup]="listingForm">
         <h3 class="header">{{allForms.form1info.HeaderName6}}</h3>
@@ -186,6 +192,7 @@
             <div class="flexWrap">
                 <div class="row" *ngFor="let el of allForms.form5Info"><input type="checkbox" formControlName="{{el.formControlName}}" id="{{el.id}}" name="{{el.id}}">
                      <label for="{{el.id}}">{{el.text}}</label></div>
+        
             </div>
         </div>
         

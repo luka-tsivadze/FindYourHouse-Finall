@@ -13,6 +13,5 @@ const routes: Routes = [
 export class ListingRoutingModule { 
 
     constructor() {
-    console.log('Module loaded');
   }
 }

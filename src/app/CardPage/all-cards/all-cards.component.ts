@@ -18,7 +18,7 @@ import { CurrencyService } from '../../Services/currency/currency.service';
   animations: [
   trigger('fadeIn', [
     transition(':enter', [
-      style({ opacity: 0, transform: 'translateY(50px)' }),
+      style({ opacity: 0, transform: 'translateY(50px)' }), 
       animate('400ms 10ms ease-in', style({ opacity: 1, transform: 'translateY(0px)' })),
     ]),
   ]),

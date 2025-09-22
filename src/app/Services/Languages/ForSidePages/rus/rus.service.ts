@@ -147,7 +147,7 @@ export class RusService {
       { text: 'Подвал', id: 'basement', formControlName: 'sardafi' },
       { text: 'Лифт', id: 'lift', formControlName: 'lifti' },
       { text: 'Гараж', id: 'garage', formControlName: 'garage' },
-      { text: 'Верхний этаж', id: 'Floor', formControlName: 'bolo_sartuli' },
+      { text: 'Верхний этаж', id: 'LFloor', formControlName: 'bolo_sartuli' },
       { text: 'Природный газ', id: 'gas', formControlName: 'bunebrivi_airi' },
       { text: 'Кладовая', id: 'storage', formControlName: 'satavso' },
       { text: 'Скрыть вашу почту', id: 'HideEmail', formControlName: 'mailis_damalva' }
