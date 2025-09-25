@@ -18,4 +18,6 @@
 </main>
 <div class="cover" *ngIf="shareComp"  @fadeIn>
   <div class="Back"  (click)="shareComp = false"></div>
-  <app-share-comp [ElementInfo]="shareInfo"></app-share-comp>
+ <app-share-comp [ElementInfo]="shareInfo"   (closeModal)="shareComp = false"  
+   (closeModal)="shareComp = false"></app-share-comp>
+</div>

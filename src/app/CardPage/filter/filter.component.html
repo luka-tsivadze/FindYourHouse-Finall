@@ -35,7 +35,7 @@
         <div class="show" [ngClass]="{'options': showselectOptions[2]}" >
         <div class="option" *ngFor="let opt of firstFilter.locations let i =index"  
         (click)="selected(firstFilter.locationDis[i] , i , 2)">
-         <!-- <img src="{{selectIcons[i]}}" alt="icon">  -->
+         <!-- <img src="{{selectIcons[i]}}" alt="icon">  --> 
         {{firstFilter.locationDis[i]}}</div>
         </div>
   
@@ -49,7 +49,8 @@
             </select>
           </div> -->
          
-        <button class="advanceS" (click)="advanced()" ><h5>{{staticElements.Advanced}}</h5><img src="../../../assets/Imges/StaticImg/StaticIcons/ellipsis-three-vertical-squares-menu-interface-symbol-svgrepo-com.svg" alt="three dots"></button>
+        <button class="advanceS" (click)="advanced()"> <img src="../../../assets/Imges/StaticImg/StaticIcons/ellipsis-three-vertical-squares-menu-interface-symbol-svgrepo-com.svg" alt="three dots">
+           <h5>{{staticElements.Advanced}}</h5></button>
         <button class="submit" (click)="onSubmit()" type="submit">{{staticElements.Search}}</button>
    
         <div class="advancedOpened" *ngIf="advenced">

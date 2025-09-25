@@ -61,6 +61,7 @@ chosenOption(option){
 }
 advanced(){
   this.advenced=!this.advenced;
+  this.toggleDropdown(3);
 }
 
 ngOnInit(): void {
@@ -140,9 +141,9 @@ ngOnInit(): void {
     }
     // Filter options
   this.filterForm.patchValue({
-      propertyType: this.uniter.finalData.prop || '0',
-      location: this.uniter.finalData.local || '0',
-      propertyStatus: this.uniter.finalData.statusi || '0',
+      propertyType: this.uniter.finalData.prop || this.SelectedOption.name  ,
+      location: this.uniter.finalData.local ||   this.SelectedOption2.name ,
+      propertyStatus: this.uniter.finalData.statusi || this.SelectedOption1.name  ,
       bedrooms: this.uniter.finalData.badrooms || '0',
       bathrooms: this.uniter.finalData.bathrooms || '0',
 
@@ -159,7 +160,7 @@ this.setFilteredInfo();
       return;
     }
     if (this.uniter.wasCalled) {
-      console.log('Filter was called', filteredCards);
+
       this.length = filteredCards.length; // Update the length dynamically
 
     }
@@ -182,22 +183,44 @@ this.setFilteredInfo();
   SelectedOption2:any={Icon:'../../../assets/Imges/StaticImg/StaticIcons/map-marker-alt-solid.svg', name:this.staticElements.location};
 
 setFilteredInfo() {
-  const indexType = this.firstFilter.PropertyTypes.findIndex(
-    type => type === this.filterForm.value.propertyType
-  );
-  this.SelectedOption = {
-    Icon: this.selectIcons[indexType] || '../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg',
-    name: this.firstFilter.PropertyTypesDis[indexType] || this.filterForm.value.propertyType
-  };
+  // Property Type
+  const typeValue = this.filterForm.value.propertyType;
+  if (typeValue && typeValue !== '0') {
+    const indexType = this.firstFilter.PropertyTypes.findIndex(
+      type => type === typeValue
+    );
+    this.SelectedOption = {
+      Icon: this.selectIcons[indexType] || '../../../assets/Imges/StaticImg/StaticIcons/list-solid.svg',
+      name: this.firstFilter.PropertyTypesDis[indexType] || typeValue
+    };
+  }
 
-  const indexStatus = this.for.options.findIndex(
-    status => status === this.filterForm.value.propertyStatus
-  );
-  this.SelectedOption1 = {
-    Icon: this.selectIcons1[indexStatus] || '../../../assets/Imges/StaticImg/StaticIcons/Sales.png',
-    name: this.for.optdisplay[indexStatus] || this.filterForm.value.propertyStatus
-  };
+  // Property Status
+  const statusValue = this.filterForm.value.propertyStatus;
+  if (statusValue && statusValue !== '0') {
+    const indexStatus = this.for.options.findIndex(
+      status => status === statusValue
+    );
+    this.SelectedOption1 = {
+      Icon: this.selectIcons1[indexStatus] || '../../../assets/Imges/StaticImg/StaticIcons/Sales.png',
+      name: this.for.optdisplay[indexStatus] || statusValue
+    };
+  }
+
+  // Property Location (3rd select)
+  const locationValue = this.filterForm.value.location;
+
+  if (locationValue && locationValue !== '0') {
+    const indexLocation = this.firstFilter.locations.findIndex(
+      loc => loc === locationValue
+    );
+    this.SelectedOption2 = {
+      name: this.firstFilter.locationDis[indexLocation] || locationValue
+    };
+  }
+
 }
+
 
 
 
@@ -209,6 +232,9 @@ showselectOptions =[false, false, false, false, false, false];
         if (i !== index && val) {
           this.showselectOptions[i] = false;
         }
+        if (i !== 3 && val) { 
+          this.advenced = false; 
+        }
       });
 
     }
@@ -217,19 +243,20 @@ showselectOptions =[false, false, false, false, false, false];
 
 
  if (SelectIndex === 0) {
-    this.filterForm.patchValue({  propertyType:option || '0' });
+    this.filterForm.patchValue({  propertyType:option || '1' });
 this.SelectedOption.name=this.firstFilter.PropertyTypesDis[index];
 this.SelectedOption.Icon=this.selectIcons[index];
  }else if (SelectIndex === 1) {
     this.filterForm.patchValue({ propertyStatus: this.for.options[index] || '0' });
-    this.SelectedOption1.name = option || '0';
+    this.SelectedOption1.name = option || '1';
     this.SelectedOption1.Icon = this.selectIcons1[index];
-
+ 
  }else if (SelectIndex === 2) {
-    this.filterForm.patchValue({ location: option || '0' });
+    this.filterForm.patchValue({ location: this.firstFilter.locations[index]  || '0' });
     this.SelectedOption2.name = option || '0';
+ 
  }
-
+ 
 this.showselectOptions[SelectIndex] = false;
 
     }
@@ -264,8 +291,8 @@ onSubmit() {
   this.filterForm.patchValue({ areaMax:  this.sliderTwoValue_1  });
   this.filterForm.patchValue({ priceMin:  this.sliderOneValue_2  });
   this.filterForm.patchValue({ priceMax:  this.sliderTwoValue_2  });
+ 
   this.changeRef.detectChanges();
-
 
   this.uniter.transferData(this.filterForm.value, 2)
 }

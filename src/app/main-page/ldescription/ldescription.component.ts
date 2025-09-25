@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Signal } from '@angular/core';
+import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
 
 @Component({
   selector: 'app-ldescription',
@@ -18,8 +19,11 @@ export class LDescriptionComponent implements OnInit {
     idi: string | number;
   };
 
-  constructor() { 
+   langdata=this.languageService.chosenLang;
+   
+  constructor(private languageService: LanguageChooserService) { } 
 
-  }
+  
+
   ngOnInit(): void {  }
 }

@@ -1,20 +1,9 @@
-
-<div class="innerPage">
-  
-                    <app-video-popup 
-                      *ngIf="selectedVideo"
-            (close)="closeVideoPopup()">
-</app-video-popup>
-                  
-  <div class="cardPlace " [ngClass]="{'active':dataState}">
-    
-    
-    
-    
-    <ng-container *ngIf="showCards" @fadeIn>
-
+  <div class="innerPage">
  
-        <div class="propCard "  [ngClass]="{'active':dataState}" [ngStyle]="{'animation-delay': (i * 0.1) + 's'}" *ngFor="let info of activePage; let i = index; trackBy: trackById"
+  <div class="cardPlace" [ngClass]="{'active':dataState}" >
+
+
+  <div class="propCard "  [ngClass]="{'active':dataState}" [ngStyle]="{'animation-delay': (i * 0.1) + 's'}" *ngFor="let info of activePage; let i = index; trackBy: trackById"
      
      
         >
@@ -78,21 +67,13 @@
              <p>{{info.profileName}}</p>  <p>{{info.uploadmonth}} {{Languages.myProp.ago}}</p>
             </div>
             </div>
-        </div>
-               </ng-container>
-        </div>
- 
-    
-     <div class="bottomRow" ><button (click)="chosenPage((this.ActivePage-1))" class="prev">Previous</button>
-
-
-         <button class="numbers" [ngClass]="{'active':i== this.ActivePage }"  (click)="chosenPage(i)" *ngFor="let i  of this.pageIndices">{{i}} </button> 
-       
-   
-        <button class="prev" (click)="chosenPage((this.ActivePage+1))" >Next</button> </div>
+        
+        </div>         
+  </div> 
 </div>
-<div class="cover" *ngIf="shareComp"  @fadeIn>
+        
+  
+  <div class="cover" *ngIf="shareComp"  @fadeIn>
   <div class="Back"  (click)="shareComp = false"></div>
- <app-share-comp [ElementInfo]="shareInfo"   (closeModal)="shareComp = false"  
+  <app-share-comp [ElementInfo]="shareInfo"   (closeModal)="shareComp = false"  
    (closeModal)="shareComp = false"></app-share-comp>
-</div>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, TrackByFunction } from '@angular/core';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { MainPageDataService } from '../../Services/mainPageService/main-page-data.service';
 import { AllCardsService } from '../../Services/all-cards/all-cards.service';
@@ -296,9 +296,9 @@ changeImage(direction: number, element: any): void {
       this.detailedservice.setCardId(videoId);
     this.selectedVideo = videoId;
   }
-  trackByIndex(index: number): number {
-    return index;
-  }
+trackById: TrackByFunction<any> = (index: number, item: any): number | string => {
+  return item.id; // use a unique property from your data
+};
   restoreState() {
     if (this.cards.length > 0) {
       this.filteredCards = this.cards;

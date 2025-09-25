@@ -277,8 +277,12 @@ cityCaller=true;
         error: (err) => console.error('Error fetching city data:', err)
       });
     }
-    toggleAdvanced() {
-      this.advanced.update(val => !val);
+    toggleAdvanced(bool?: boolean) {
+      if (bool == undefined && bool !== true ) { 
+        this.advanced.update(val => !val);
+      }else{
+      this.advanced.update(() => false); 
+    }
     }
 
     

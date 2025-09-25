@@ -119,6 +119,8 @@ width: 360px;
     padding: 0.6rem;
   
   }
+  .container {
+
   .displayR{
 z-index: 4;
 position: absolute;
@@ -128,16 +130,15 @@ top: 17%;
 background-color: #fff;
 box-shadow: 0 0 2px #e7e7e7;
 opacity: 1;
-width: 300px;
+width: 99%;
 }
 
-.container {
   padding: 0 1%;
-  padding-top: 100px;
+  padding-top: 80px;
   gap: 20px;
 
 .leftSide {
-  width: 98%;
+  width: 99%;
   .description {
     font-size: 13px;
 

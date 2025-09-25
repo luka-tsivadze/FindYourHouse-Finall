@@ -3,6 +3,7 @@
 <main>
     <div class="row">
         გაზიარება
+          <button (click)="onClose()">X</button>
     </div>
 <div class="card"><img [src]="ElementInfo.imgLink" alt=""> 
     <h4> <span>{{ElementInfo.price  | number:'1.0-0'}} {{ElementInfo.currency}} </span> <h3>{{ElementInfo.header}}</h3> <p>{{ElementInfo.location}}</p> </h4>  </div>

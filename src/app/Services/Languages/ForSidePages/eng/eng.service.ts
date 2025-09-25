@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CardGallery1Component } from '../../../../DetailedInfo/card-gallery1/card-gallery1.component';
-import { scheduled } from 'rxjs';
+import { scheduled, single } from 'rxjs';
 import { FormControlName } from '@angular/forms';
 import { text } from 'node:stream/consumers';
 
@@ -354,6 +354,10 @@ export class EngService {
     Ed: 'Edit',
     prev: 'Previous',
     next: 'Next',
+    submit:'Add Property',
+    props:'My Properties',
+    about:'About Me',
+    singleProp:'Single Property',
   };
   contact = {
     staticText: {

@@ -85,17 +85,17 @@
         gap: 10px;
         width: 100%;
         .propCard {
-          width: 390px;
-          height: 200px;
+          width: 395px;
+          height: 248px;
           .rightSide {
             padding: 17px;
-            padding-right: 5px;
-            padding-left: 7px;
+            padding-right: 1px;
+            padding-left: 3px;
             .squareFlex {
-              gap: 8px 10px;
-              padding: 10px 0;
+              gap: 8px 3px;
+              padding:  0;
               .element {
-                width: 95px !important;
+                width: 95px ;
                 img{
                     width: 15px;
                     height: 15px;
@@ -167,12 +167,23 @@
       }
       .HeaderCol{
         h3{
-          font-size: 20px;
+          font-size: 16px;
+              .blinker{
+          height: 20px;
+          padding-left: 5px;
+          bottom: 2px;
+       
+        }
+           span{
+            padding-left: 5px;
+          }
         }
         .headerP{
            line-height: normal;
             font-size: 11px;
         }
+
+    
       }
       .HeaderSearch{
         form{
@@ -180,6 +191,7 @@
 
         flex-direction: column;
         padding: 7px 12px;
+
           .select{
             width: 232px;
             border-radius: 6px;
@@ -202,7 +214,8 @@
             padding: 5px 15px;
             font-size: 11px;
             height: 39px;
-            margin-right: 5px;
+            width: 100%;
+
           }
         }
       }
@@ -300,7 +313,7 @@ header{
     header{
       padding-top: 50px;
       .HeaderCol{
-        height: 72vh;
+        height: 85vh;
         .headerp{
           font-size: 11px;
           line-height: 22px;

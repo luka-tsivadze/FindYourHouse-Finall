@@ -1,10 +1,10 @@
 
 @keyframes moveUp {
   0% {
-    top: 110%;
+    top: 500px;
   }
   100% {
-    top: 76%;
+    top: 345px;
   }
   
 }
@@ -38,21 +38,33 @@
   }
   @media screen and (max-width:500px){
     .advancedOpened{
-      width: 95%;
+      width: 99%;
       left: 50%;
-   
+       
       transform: translateX(-50%) !important;
       animation: moveUp 0.2s forwards;
       font-size: 12px;
       padding: 11px 5px;
-      padding-top: 30px;
+      padding-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+      .cover{
+        top:-10px;
+      }
       .selectRow{
         width: 94%;
       
         flex-direction: column;
         .selectParent{
           width: 100% !important;
-        
+        select{
+                  -webkit-appearance: none;
+  appearance: none;
+  background: url('../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg') no-repeat right 10px center;
+  background-size: 12px;
+  padding-right: 18px;
+  padding-left: 0;
+          text-indent: 30px; 
+        }
         }
        }
     .mainFilter{

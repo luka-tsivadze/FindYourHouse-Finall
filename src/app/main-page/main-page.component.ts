@@ -53,6 +53,8 @@ ReviewsData=this.dataService.ReviewData;
 DiscoverPopularPlaces=this.dataService.DiscoverPopularPlaces;
 
 
+
+
     constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private allCardsService: AllCardsService,
      private navService:NavInfoService, private Registration:RegistrationService,
@@ -129,7 +131,7 @@ this.dataService.getDiscoveredProperties().pipe(
       data.map((item,index)=>{
 
         let imgLink 
-        if(item.foto){
+        if(item.foto && item.foto!==null && item.foto!=="NULL" && item.foto!=="" && item.foto!==undefined && item.foto!=='null' ){
         imgLink=`users/${item.maili}/${item.saidentifikacio_kodi}/${item.foto}` 
         }else if(item.sqesi=="kaci" || item.sqesi=="male"){
         imgLink="../../assets/Imges/NavImg/man.png"

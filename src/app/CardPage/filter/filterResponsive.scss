@@ -26,7 +26,21 @@
   @media screen and (max-width:600px) {
     main{
       padding: 0 5px;
+      .topSide{
+        padding: 15px;
+        h2{
+          font-size: 20px;
+        }
+        h4{
+          font-size: 13px;
+          span{
+            margin: 0;
+            font-size: 13px;
+          }
+        }
+      }
       .HeaderSearch{
+        padding: 30px 15px;
       form{
         width: 100%;
         flex-direction: column  ;
@@ -42,20 +56,24 @@
         }
         .selectParent{
           .simg{
-            width: 12px;
+            width: 15px;
             height: unset;
           }
           select{
-            padding-left: 25px !important;
+           -webkit-appearance: none;
+  appearance: none;
+  background: url('../../../assets/Imges/StaticImg/StaticIcons/caret-down-outline.svg') no-repeat right 10px center;
+  background-size: 12px;
+  padding-right: 18px;
+          text-indent: 30px; 
         
           }
         }
         select{
-        
           padding: 10px 2px;
         }
         .advanceS{
-         width: fit-content;
+         width:100%;
          padding: 18px 20px;
          h5{
             font-size: 15px;
@@ -65,7 +83,8 @@
          }
         }
         .submit{
-          width: 100px;
+          width: 100%;
+          margin: unset;
         }
       }
     }

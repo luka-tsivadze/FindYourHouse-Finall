@@ -131,7 +131,7 @@
               </div>
 
                 <div class="FirstRow">
-                    <button name="FeaturedBtn" [ngClass]="{'dNone':info.featuredBtn==false}">{{FeaturePS.featured}}</button>
+                    <button name="FeaturedBtn" *ngIf="info.featuredBtn==true">{{FeaturePS.featured}}</button>
                     <button name="for button" class="whiteBg"> {{info.For}}</button>
                     
                 </div>
@@ -197,7 +197,8 @@
 
 <div class="cover" @card3dAnimation   *ngIf="shareComp" >
   <div class="Back" (click)="shareComp = false"></div>
-  <app-share-comp     *ngIf="shareComp" [ElementInfo]="shareInfo"></app-share-comp>
+  <app-share-comp [ElementInfo]="shareInfo"   (closeModal)="shareComp = false"  
+   (closeModal)="shareComp = false"></app-share-comp>
 </div>
 
 </header>

@@ -244,6 +244,9 @@ showselectOptions = [false, false, false];
         if (i !== index && val) {
           this.showselectOptions[i] = false;
         }
+         if (i !== 3 && val) { 
+         this.dataService.toggleAdvanced(false);
+        }
       });
   }
 
@@ -258,7 +261,7 @@ showselectOptions = [false, false, false];
       this.SelectedOption1.name = this.For.optdisplay[index];
       this.SelectedOption1.Icon = this.selectIcons1[index];
     }else  if (SelectIndex === 2) {
-    this.filterForm.patchValue({ locselect: option || '0' });
+    this.filterForm.patchValue({ locselect: this.allcardsData.FirstFilter.locations[index] || '0' });
     this.SelectedOption2.name = option || '0';
  }
     this.showselectOptions[SelectIndex] = false;
@@ -367,9 +370,10 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
             } catch (error) {
               console.error('Invalid JSON in fotoebi:', item.fotoebi);
             }
+ 
            
             return {
-              featuredBtn: item.featuredBtn,
+              featuredBtn: false,  // item.featuredBtn,
               imgLink: firstimg,
               imagesList: imagesList,
               gncxdebis_idi: item.idi,
@@ -431,6 +435,7 @@ if (this.Propinfo.catchedData.getValue().length > 0 ) {
       }
    
     advanced(){
+      this.toggleDropdown(3); 
 this.dataService.toggleAdvanced();
 
     }

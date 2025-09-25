@@ -44,12 +44,12 @@
                     <label 
                       
                         [ngStyle]="{'color': RegistrForm.controls['sqesi'].value === 'kaci' ? '#ff385c' : ''}">
-                        <input type="radio" formControlName="sqesi" value="kaci" required>
+                        <input type="radio" id="man" formControlName="sqesi" value="kaci" required>
                         {{Registration.register.Man}}
                     </label>
                     <label 
                      [ngStyle]="{'color': RegistrForm.controls['sqesi'].value === 'qali' ? '#ff385c' : ''}">
-                        <input type="radio" formControlName="sqesi" value="qali" required>
+                        <input type="radio" id="famale" formControlName="sqesi" value="qali" required>
                         {{Registration.register.Fam}}
                     </label>
                 
@@ -81,4 +81,9 @@
                      <span class="login"><p>უკვე გაქვთ ანგარიში ?</p> <a routerLink="/login">შესვლა</a></span>
               
                     </div>
-        <label for="terms" class="terms"> რეგისტრაციით თქვენ  ეთანხმებით <a  target="_blank" routerLink='/terms-and-conditions'>წესებსა</a> და <a target="_blank" routerLink="/Privacy-Policy">კონფიდენციალურობის პოლიტიკას .</a>  </label> 
+        <label for="terms" class="terms"> რეგისტრაციით თქვენ  ეთანხმებით  
+            <div class="row" >
+
+            <a  target="_blank" routerLink='/terms-and-conditions'>წესებსა</a> და <a target="_blank" routerLink="/Privacy-Policy">კონფიდენციალურობის პოლიტიკას .</a>  
+        </div>
+    </label> 

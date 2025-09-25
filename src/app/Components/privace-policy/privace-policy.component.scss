@@ -95,3 +95,22 @@
 ::ng-deep app-nav nav {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
   }
+  @media  screen and (max-width: 600px) {
+    .privacy-policy{
+        padding-top:80px;
+             padding: 2rem 0.5rem;
+        h1{
+          font-size: 1.39rem;
+        }
+        h2{
+          font-size: 1.2rem;
+        }
+        p{
+          font-size: 13px;
+        }
+        li{
+          font-size: 13px;
+        }
+    }
+    
+  }

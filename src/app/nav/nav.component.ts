@@ -303,10 +303,12 @@ this.router.navigate(['/Listing'])
     if(this.showRespNav.bool){
       this.showRespNav.bool=false;
       this.showRespNav.iconSrc='../../assets/Imges/NavImg/list-outline.svg'
+      window.document.body.style.overflow = "auto"; 
   }else{
     this.showRespNav.bool=true;  
 
         this.showRespNav.iconSrc='../../assets/Imges/StaticImg/StaticIcons/x.svg'
+        window.document.body.style.overflow = "hidden";
   }
 }
 

@@ -7,6 +7,7 @@ import { MainPageDataService } from '../../Services/mainPageService/main-page-da
 import { PropertyInformationService } from '../../Services/Property-info/property-information.service';
 import { NavInfoService } from '../../Services/NavService/nav-info.service';
 import { CurrencyService } from '../../Services/currency/currency.service';
+import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
 
 @Component({
   selector: 'app-listing',
@@ -34,8 +35,9 @@ export class ListingComponent {
     heartFilled='./../../../assets/Imges/StaticImg/StaticIcons/heart-fill - red.svg';
     heartimgLinks=[this.heartimg,this.heartimg,this.heartimg];
   allCards;
+  staticLang=this.languageService.chosenLang;
     constructor(private Infoservice:PropertyInformationService, private staticInfo:MainPageDataService ,
-private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
+private navService:NavInfoService ,  private CurrencyServ:CurrencyService, private languageService:LanguageChooserService,
       private cardsService:AllCardsService, private Registration:RegistrationService, ) {
 
     }
@@ -82,7 +84,7 @@ private navService:NavInfoService ,  private CurrencyServ:CurrencyService,
       }).subscribe(({ favData }) => {
         this.data = cards.map((element) => {
           return {
-            featuredBtn: true,
+            featuredBtn: false,
             For: element.For,
             imgLink: element.imgLink,
             alt: element.alt,

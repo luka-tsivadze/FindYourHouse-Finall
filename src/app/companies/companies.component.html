@@ -11,23 +11,6 @@
         </header>
 
         <section>
-            <div class="company-card" *ngFor="let company of cards">
-                <div class="left">
-                    <img  class="companyImg" [src]="company.imgLink" alt="Company Logo" />
-    <div class="flex-Col">
-        <div class="middle">
-            <h2>{{company.header}}</h2>
-            <p>{{company.content}}</p>
-        </div>
-        <div class="row"><button>{{company.amount}} განცხადება</button> <button><img src="../../assets/Imges/StaticImg/StaticIcons/telephone-fill.svg" alt="phone Icon"> {{company.number}}</button> <button><img src="../../assets/Imges/StaticImg/StaticIcons/Location.svg" alt="Location"> {{company.location}}</button></div>
-    </div>
-                    
-                    </div>
-                    <div class="right">
-
-                        <button (click)="moveToDetailed()">დეტალების ნახვა</button>
-                        <button (click)="sentMessage()">შეტყობინების გაგზავნა</button>
-                    </div>
-            </div>
+                <app-card-h [activePage]="cards"></app-card-h> 
         </section>
     </main>

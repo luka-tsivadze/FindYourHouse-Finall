@@ -37,13 +37,13 @@
                 <div class="error" *ngIf="error">
                     {{errorText}}
                 </div>
-                <button type="submit" #loginName name="shesvla"
-                    [disabled]="!LoginForm.valid">{{Registration.login.button}}</button>
                 <div class="bottomRow">
-                    <div class="RememberMe">
-                        <!-- <input type="checkbox" id="rememberMe" formControlName="rememberMe">
-                        <label for="rememberMe">{{Registration.login.remember}}</label> -->
-                    </div>
+                    <button type="submit" #loginName name="shesvla"
+                        [disabled]="!LoginForm.valid">{{Registration.login.button}}</button>
+                    <!-- <div class="RememberMe">
+                         <input type="checkbox" id="rememberMe" formControlName="rememberMe">
+                        <label for="rememberMe">{{Registration.login.remember}}</label> 
+                    </div> -->
                     <a routerLink="PasswordRecovery" class="forgotPassword">{{Registration.login.forget}}</a>
                 </div>
                

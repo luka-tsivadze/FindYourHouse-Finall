@@ -1,7 +1,11 @@
  
 <div class="cover" ></div> 
 <app-nav/>
+
+
 <app-header/>
+
+
   <app-video-popup 
                       *ngIf="selectedVideo"
             (close)="closeVideoPopup()">
@@ -42,7 +46,7 @@
               </div>
 
         <div class="FirstRow">
-          <button name="featured" [ngClass]="{'dNone':info.featuredBtn==false}">{{Languages.featuredPropertiesStatic.featured}}</button>
+          <button name="featured"*ngIf="info.featuredBtn==true">{{Languages.featuredPropertiesStatic.featured}}</button>
           <button name="status"   class="whiteBg">{{info.For}}</button>
           
         </div>

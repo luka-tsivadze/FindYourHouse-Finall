@@ -1,4 +1,5 @@
 import { Component, effect, Input } from '@angular/core';
+import { LanguageChooserService } from '../../Services/language-chooser/language-chooser.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class LprofileCardComponent {
     chems_shesaxeb: string;
     idi: string | number;
   };
-
+    langdata=this.languageService.chosenLang.myProp;
+    constructor( private languageService: LanguageChooserService ) { }
 
     ngOnInit(): void {
   

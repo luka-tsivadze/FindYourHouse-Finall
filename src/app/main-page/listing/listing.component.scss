@@ -36,8 +36,8 @@
         gap: 4px;
    
         overflow: hidden;
-        width: 285px;
-        height: 385px;
+        width: 300px;
+        height: 450px;
         border-radius: 10px;
         background-color: white;
         border: 1px solid #e7e7e7;
@@ -68,8 +68,10 @@
         left: 10px;
         font-family: 'Lato', sans-serif;
         color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.175);
-        font-size: 18px ;
+        background-color: rgba(0, 0, 0, 0.432);
+        font-size: 18px;
+        padding: 5px 10px; 
+        border-radius: 13px; 
         font-weight: 500;
         
       }
@@ -105,7 +107,7 @@
       .rightSide{
         
         @include flex-container(column, center, start,12px);
-        gap: 6px;
+        gap: 9px;
         padding: 10px;
         width: 100%;
         height: 50%;
@@ -113,7 +115,7 @@
 .row{
    @include flex-container(row, space-between, center);
   width: 100%;
-  padding-top: 15PX;
+
         .currency-toggle {
   position: relative;
   display: flex;
@@ -206,7 +208,7 @@
           .element{
             display: flex;
             gap: 5px;
-            width:105px;
+            width:115px;
           img{
             width: 20px;
             height: 20px;
@@ -220,8 +222,8 @@
           padding-top:10px ;
           align-items: center;
           .row{
-            @include flex-container(row, center, center);
-            gap: 10px;
+            @include flex-container(row, space-between, center);
+            gap: 20px;
           }
           p{
           
@@ -251,4 +253,23 @@
 }
 .dNone{
     display: none;
+}
+@media  screen and (max-width: 568px) {
+    .cardPlace{
+        margin-top: 30px;
+        .propCard{
+          width: 285px;
+            .rightSide{
+              padding: 4px;
+              .squareFlex{
+                gap: 5px;
+                .element{
+                  min-width:113px;
+                }
+              }
+
+            }
+        }
+    }
+
 }

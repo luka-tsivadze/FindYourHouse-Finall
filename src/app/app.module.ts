@@ -46,6 +46,7 @@ import { ShareCompComponent } from './Components/share-comp/share-comp.component
 
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardHComponent } from './Components/card-h/card-h.component';
 
 
 @NgModule({
@@ -88,7 +89,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
     ForgotPasswordComponent,
-    
+       
 
   
   ],

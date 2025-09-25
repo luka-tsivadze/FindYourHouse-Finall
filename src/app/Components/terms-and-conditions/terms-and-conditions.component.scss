@@ -61,3 +61,25 @@ display: flex;
       border-left: 4px solid #3498db;
       margin-bottom: 25px;
     }
+
+    @media screen and (max-width: 768px) {
+      main{
+        margin: 80px auto;
+        padding: 20px;
+        h1{
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        h2{
+          font-size: 1.2rem;
+        }
+        p{
+          font-size: 1rem;
+          line-height: 1.4  rem;
+        }
+        h3{
+          font-size: 1.2rem;
+        }
+      }
+      
+    }

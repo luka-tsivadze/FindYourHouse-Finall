@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-share-comp',
@@ -9,6 +9,12 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 export class ShareCompComponent  implements OnInit {
 @Input() ElementInfo: any ;
 @ViewChild('linkText') linkTextRef: ElementRef;
+
+  @Output() closeModal = new EventEmitter<void>();
+
+  onClose() {
+    this.closeModal.emit();
+  }
 copyUrl='../../../assets/Imges/StaticImg/StaticIcons/copy-outline.svg'
 
 ElementLink;

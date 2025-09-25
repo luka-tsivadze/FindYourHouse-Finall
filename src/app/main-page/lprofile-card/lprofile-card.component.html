@@ -2,7 +2,7 @@
 
     <div class="card">
         <div class="leftSide">
-            <button>{{agent.status}} განცხადება</button>
+            <button>{{agent.status}} {{langdata.singleProp}}</button>
             <img src="{{agent.imgLink}}" alt="">
         </div>
         <div class="rightSide">
@@ -24,7 +24,7 @@
 
             </div>
 
-            <button (click)="moveToCards();$event.preventDefault()"><a  >ჩემი განცხადებები</a></button>
+            <button (click)="moveToCards();$event.preventDefault()"><a  >{{langdata.props}}</a></button>
         </div>
     </div> 
     

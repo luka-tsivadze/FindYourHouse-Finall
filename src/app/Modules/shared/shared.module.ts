@@ -13,11 +13,15 @@ import { AllCardsComponent } from '../../CardPage/all-cards/all-cards.component'
 import { filter } from 'rxjs';
 import { CoordinatePickerComponentComponent } from '../../ListingPageComponents/coordinate-picker-component/coordinate-picker-component.component';
 import { MapComponent } from '../../DetailedInfo/map/map.component';
+import { CardHComponent } from '../../Components/card-h/card-h.component';
 
 
 @NgModule({
-  declarations: [NavComponent , RegistrationComponent ,FooterComponent , MapComponent,LoaderComponent , VideoPopupComponent ,ShareCompComponent ,FilterComponent, AllCardsComponent ,
-     CoordinatePickerComponentComponent ],
+  declarations: [NavComponent , RegistrationComponent
+     ,FooterComponent , MapComponent,LoaderComponent ,
+      VideoPopupComponent ,ShareCompComponent ,FilterComponent, AllCardsComponent ,
+     CoordinatePickerComponentComponent,    CardHComponent,
+   ],
   imports: [
     CommonModule,
     RouterModule,
@@ -37,7 +41,8 @@ import { MapComponent } from '../../DetailedInfo/map/map.component';
     ShareCompComponent,
     FilterComponent,
     AllCardsComponent,
-    CoordinatePickerComponentComponent
+    CoordinatePickerComponentComponent,
+    CardHComponent
   ]
 })
 export class SharedModule { 

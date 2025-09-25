@@ -34,6 +34,7 @@ export class AppComponent implements AfterViewInit {
       if (event instanceof NavigationError) {
         this.navigate.navigate(['/']);
       }
+        document.body.style.overflow = 'auto';
     });
     if(localStorage.getItem('Language') === null) {
       localStorage.setItem('Language','GEO');

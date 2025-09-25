@@ -66,10 +66,29 @@
       .Agents {
         .cardParent {
           width: 100%;
+          gap: 12px;
+          .cardTypeAgent{
+            .Top{
+              height: 65%;
+            }
+            .bottom{
+              height: 35%;
+              h3{
+                font-size: 15px;
+              }
+              p{
+                font-size: 12px;
+              }
+              button{
+              
+                font-size: 11px;
+              }
+          }
         }
       }
     }
   }
+}
   @media screen and (max-width: 700px) {
     
     main {
@@ -193,4 +212,3 @@
       }
     }
   }
-  

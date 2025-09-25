@@ -36,7 +36,8 @@ const routes: Routes = [
   {path:'Agent',
     loadChildren: () => import('./Modules/agent/agent.module').then(m => m.AgentModule) 
     },
-  {path:'Companies',loadChildren:() => import('./Modules/companies/companies.module').then(m => m.CompaniesModule)},
+  {path:'Companies',loadChildren:() => import('./Modules/companies/companies.module').then(m => m.CompaniesModule) ,
+     resolve: { data: CardsResolverGuard },},
 
   {path:'Privacy-Policy', 
     loadChildren: () => import('./Modules/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule)
